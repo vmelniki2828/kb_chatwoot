@@ -253,7 +253,8 @@ class Conversation < ApplicationRecord
   end
 
   def determine_conversation_status
-    self.status = :resolved and return if contact.blocked?
+    contact.clear_expired_messaging_block!
+    self.status = :resolved and return if contact.messaging_block_active?
 
     return handle_campaign_status if campaign.present?
 

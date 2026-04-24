@@ -5,7 +5,7 @@ import ChatHeader from '../ChatHeader.vue';
 import ChatHeaderExpanded from '../ChatHeaderExpanded.vue';
 import configMixin from '../../mixins/configMixin';
 import { mapGetters } from 'vuex';
-import { IFrameHelper } from 'widget/helpers/utils';
+import { closeWidgetSurface } from 'widget/helpers/closeWidgetSurface';
 
 export default {
   components: {
@@ -85,7 +85,7 @@ export default {
   },
   methods: {
     closeWindow() {
-      IFrameHelper.sendMessage({ event: 'closeWindow' });
+      closeWidgetSurface(this);
     },
     updateScrollPosition(event) {
       this.scrollPosition = event.target.scrollTop;

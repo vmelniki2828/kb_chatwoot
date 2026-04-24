@@ -20,6 +20,10 @@ export default {
         label: cannedMessage.short_code,
         key: cannedMessage.short_code,
         description: cannedMessage.content,
+        labelIds: (cannedMessage.label_ids || [])
+          .map(id => Number(id))
+          .filter(id => Number.isFinite(id) && id > 0),
+        labelTitles: cannedMessage.label_titles || [],
       }));
     },
   },
@@ -36,7 +40,7 @@ export default {
       this.$store.dispatch('getCannedResponse', { searchKey: this.searchKey });
     },
     handleMentionClick(item = {}) {
-      this.$emit('replace', item.description);
+      this.$emit('replace', item);
     },
   },
 };

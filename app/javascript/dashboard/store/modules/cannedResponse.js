@@ -3,6 +3,14 @@ import * as MutationHelpers from 'shared/helpers/vuex/mutationHelpers';
 import * as types from '../mutation-types';
 import CannedResponseAPI from '../../api/cannedResponse';
 
+function normalizeCannedLabelIds(raw) {
+  if (raw == null) return [];
+  const arr = Array.isArray(raw) ? raw : Object.values(raw);
+  return arr
+    .map(id => Number(id))
+    .filter(id => Number.isInteger(id) && id > 0);
+}
+
 const state = {
   records: [],
   uiFlags: {
@@ -11,6 +19,7 @@ const state = {
     creatingItem: false,
     updatingItem: false,
     deletingItem: false,
+    importingTable: false,
   },
 };
 
@@ -53,7 +62,13 @@ const actions = {
   ) {
     commit(types.default.SET_CANNED_UI_FLAG, { creatingItem: true });
     try {
-      const response = await CannedResponseAPI.create(cannedObj);
+      const payload = {
+        canned_response: {
+          ...cannedObj,
+          label_ids: normalizeCannedLabelIds(cannedObj.label_ids),
+        },
+      };
+      const response = await CannedResponseAPI.create(payload);
       commit(types.default.ADD_CANNED, response.data);
       commit(types.default.SET_CANNED_UI_FLAG, { creatingItem: false });
       return response.data;
@@ -69,12 +84,34 @@ const actions = {
   ) {
     commit(types.default.SET_CANNED_UI_FLAG, { updatingItem: true });
     try {
-      const response = await CannedResponseAPI.update(id, updateObj);
+      const payload = {
+        canned_response: {
+          ...updateObj,
+          label_ids: normalizeCannedLabelIds(updateObj.label_ids),
+        },
+      };
+      const response = await CannedResponseAPI.update(id, payload);
       commit(types.default.EDIT_CANNED, response.data);
       commit(types.default.SET_CANNED_UI_FLAG, { updatingItem: false });
       return response.data;
     } catch (error) {
       commit(types.default.SET_CANNED_UI_FLAG, { updatingItem: false });
+      return throwErrorMessage(error);
+    }
+  },
+
+  importCannedResponsesTable: async function importCannedResponsesTable(
+    { commit, dispatch },
+    file
+  ) {
+    commit(types.default.SET_CANNED_UI_FLAG, { importingTable: true });
+    try {
+      const response = await CannedResponseAPI.importTable(file);
+      await dispatch('getCannedResponse');
+      commit(types.default.SET_CANNED_UI_FLAG, { importingTable: false });
+      return response.data;
+    } catch (error) {
+      commit(types.default.SET_CANNED_UI_FLAG, { importingTable: false });
       return throwErrorMessage(error);
     }
   },

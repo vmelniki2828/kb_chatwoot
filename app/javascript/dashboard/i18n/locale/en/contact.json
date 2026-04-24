@@ -297,6 +297,12 @@
       "MESSAGE_BUTTON": "Message",
       "SEND_MESSAGE": "Send message",
       "BLOCK_CONTACT": "Block contact",
+      "BLOCK_CONTACT_MENU": "Block…",
+      "BLOCK_1_DAY": "1 day",
+      "BLOCK_3_DAYS": "3 days",
+      "BLOCK_7_DAYS": "7 days",
+      "BLOCK_30_DAYS": "30 days",
+      "BLOCK_PERMANENT": "Permanently",
       "UNBLOCK_CONTACT": "Unblock contact",
       "BREADCRUMB": {
         "CONTACTS": "Contacts"

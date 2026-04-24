@@ -35,6 +35,29 @@ describe ActionCableListener do
       listener.message_created(event)
     end
 
+    it 'sends activity messages to inbox members and the contact (widget transcript)' do
+      activity = create(
+        :message,
+        message_type: 'activity',
+        content: 'This chat was ended by Agent.',
+        account: account,
+        inbox: inbox,
+        conversation: conversation,
+        sender: nil
+      )
+      activity_event = Events::Base.new(event_name, Time.zone.now, message: activity)
+
+      expect(conversation.inbox.reload.inbox_members.count).to eq(1)
+      expect(ActionCableBroadcastJob).to receive(:perform_later).with(
+        a_collection_containing_exactly(
+          agent.pubsub_token, admin.pubsub_token, conversation.contact_inbox.pubsub_token
+        ),
+        'message.created',
+        activity.push_event_data.merge(account_id: account.id)
+      )
+      listener.message_created(activity_event)
+    end
+
     it 'sends message to all hmac verified contact inboxes' do
       # HACK: to reload conversation inbox members
       expect(conversation.inbox.reload.inbox_members.count).to eq(1)

@@ -1,4 +1,6 @@
 class Api::V1::Widget::LabelsController < Api::V1::Widget::BaseController
+  before_action :ensure_contact_not_blocked!, only: %i[create destroy]
+
   def create
     if conversation.present? && label_defined_in_account?
       conversation.label_list.add(permitted_params[:label])

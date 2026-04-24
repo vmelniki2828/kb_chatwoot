@@ -31,6 +31,18 @@
         "INFO_TEXT": "Total number of conversations used for computation:",
         "TOOLTIP_TEXT": "Resolution Time is {metricValue} (based on {conversationCount} conversations)"
       },
+      "CHAT_DURATION_WITH_BOT": {
+        "NAME": "Avg. chat duration (with bot)",
+        "DESC": "( Avg )",
+        "INFO_TEXT": "Resolved conversations that had a bot handoff or bot-only resolution:",
+        "TOOLTIP_TEXT": "Average duration is {metricValue} (based on {conversationCount} resolutions)"
+      },
+      "CHAT_DURATION_OPERATORS_ONLY": {
+        "NAME": "Avg. chat duration (operators only)",
+        "DESC": "( Avg )",
+        "INFO_TEXT": "Resolved conversations with no bot handoff or bot resolution event:",
+        "TOOLTIP_TEXT": "Average duration is {metricValue} (based on {conversationCount} resolutions)"
+      },
       "RESOLUTION_COUNT": {
         "NAME": "Resolution Count",
         "DESC": "( Total )"
@@ -67,6 +79,7 @@
     "GROUP_BY_FILTER_DROPDOWN_LABEL": "Group By",
     "DURATION_FILTER_LABEL": "Duration",
     "GROUPING_OPTIONS": {
+      "HOUR": "Hour",
       "DAY": "Day",
       "WEEK": "Week",
       "MONTH": "Month",
@@ -117,6 +130,15 @@
       }
     ],
     "BUSINESS_HOURS": "Business Hours",
+    "COMPARISON": {
+      "ADD": "Add comparison period",
+      "REMOVE": "Remove",
+      "RANGE_LABEL": "Compare {n}",
+      "LEGEND_BASE": "Selected period",
+      "LEGEND_EXTRA": "Period {n}",
+      "VS_PREVIOUS": "vs previous {pct}%",
+      "VS_PERIOD": "{pct}%"
+    },
     "FILTER_ACTIONS": {
       "CLEAR_FILTER": "Clear filter",
       "EMPTY_LIST": "No results found"
@@ -125,6 +147,28 @@
       "RESULTS": "Showing {start} to {end} of {total} results",
       "PER_PAGE_TEMPLATE": "{size} / page"
     }
+  },
+  "AGENT_ACTIVITY_REPORT": {
+    "HEADER": "Agent activity",
+    "INTRO": "Timeline and totals for each agent in the selected period. Online means accepting routed chats, Busy means not accepting new chats, and Offline means logged out.",
+    "AGENT_FILTER": "Filter by agent",
+    "ALL_AGENTS": "All agents",
+    "COLUMNS": {
+      "FROM": "From",
+      "TO": "To",
+      "STATUS": "Status",
+      "DURATION": "Duration"
+    },
+    "TOTALS": {
+      "ACCEPTING": "Accepting chats",
+      "NOT_ACCEPTING": "Not accepting chats",
+      "LOGGED_OUT": "Logged out"
+    },
+    "TIMELINE": {
+      "TITLE": "Timeline for selected range"
+    },
+    "EMPTY": "No activity data found in this period.",
+    "LIMIT_NOTE": "Use a 24-hour range to review exact accepting/not accepting/logout durations."
   },
   "AGENT_REPORTS": {
     "HEADER": "Agents Overview",
@@ -206,6 +250,7 @@
     "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
     "DOWNLOAD_LABEL_REPORTS": "Download label reports",
     "FILTER_DROPDOWN_LABEL": "Select Label",
+    "OVERVIEW_MULTI_LABEL_PLACEHOLDER": "Select labels to filter metrics (leave empty for all labels)",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "LABELS": "Search labels"

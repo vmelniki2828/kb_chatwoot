@@ -21,8 +21,11 @@ module Enterprise::InboxAgentAvailability
   end
 
   def capacity_filtering_enabled?
-    account.feature_enabled?('advanced_assignment') &&
-      account.account_users.joins(:agent_capacity_policy).exists?
+    return false unless account.feature_enabled?('advanced_assignment')
+
+    account.account_users.joins(:agent_capacity_policy).exists? ||
+      account.account_users.where.not(max_open_conversations: nil)
+        .where('account_users.max_open_conversations > ?', 0).exists?
   end
 
   def capacity_service

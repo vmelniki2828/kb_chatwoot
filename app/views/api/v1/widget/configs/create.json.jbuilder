@@ -1,4 +1,5 @@
 json.website_channel_config do
+  json.hide_for_messaging_block @contact&.messaging_block_active? || false
   json.allow_messages_after_resolved @web_widget.inbox.allow_messages_after_resolved
   json.api_host ENV.fetch('FRONTEND_URL', nil)
   json.auth_token @token
@@ -14,7 +15,7 @@ json.website_channel_config do
   json.pre_chat_form_options @web_widget.pre_chat_form_options
   json.reply_time @web_widget.reply_time
   json.timezone @web_widget.inbox.timezone
-  json.utc_off_set ActiveSupport::TimeZone[@web_widget.inbox.timezone].now.formatted_offset
+  json.utc_off_set (ActiveSupport::TimeZone[@web_widget.inbox.timezone.presence] || Time.zone).now.formatted_offset
   json.website_name @web_widget.inbox.name
   json.website_token @web_widget.website_token
   json.welcome_tagline @web_widget.welcome_tagline

@@ -1,6 +1,7 @@
 import * as MutationHelpers from 'shared/helpers/vuex/mutationHelpers';
 import types from '../mutation-types';
 import LabelsAPI from '../../api/labels';
+import { throwErrorMessage } from 'dashboard/store/utils/api';
 import AnalyticsHelper from '../../helper/AnalyticsHelper';
 import { LABEL_EVENTS } from '../../helper/AnalyticsHelper/events';
 
@@ -11,6 +12,7 @@ export const state = {
     isFetchingItem: false,
     isCreating: false,
     isDeleting: false,
+    importingTable: false,
   },
 };
 
@@ -96,6 +98,23 @@ export const actions = {
       throw new Error(error);
     } finally {
       commit(types.SET_LABEL_UI_FLAG, { isDeleting: false });
+    }
+  },
+
+  importLabelsTable: async function importLabelsTable({ commit }, file) {
+    commit(types.SET_LABEL_UI_FLAG, { importingTable: true });
+    try {
+      const importResponse = await LabelsAPI.importTable(file);
+      const response = await LabelsAPI.get(false);
+      const sortedLabels = response.data.payload.sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+      commit(types.SET_LABELS, sortedLabels);
+      commit(types.SET_LABEL_UI_FLAG, { importingTable: false });
+      return importResponse.data;
+    } catch (error) {
+      commit(types.SET_LABEL_UI_FLAG, { importingTable: false });
+      return throwErrorMessage(error);
     }
   },
 };

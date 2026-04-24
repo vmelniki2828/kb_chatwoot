@@ -1,0 +1,5 @@
+# English strings for the web widget API (Rails I18n).
+en:
+  errors:
+    widget:
+      contact_blocked: You have been blocked from contacting support.

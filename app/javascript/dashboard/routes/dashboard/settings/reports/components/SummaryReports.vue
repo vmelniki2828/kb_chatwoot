@@ -1,6 +1,7 @@
 <script setup>
 import OverviewReportFilters from './OverviewReportFilters.vue';
 import Spinner from 'dashboard/components-next/spinner/Spinner.vue';
+import TagMultiSelectComboBox from 'dashboard/components-next/combobox/TagMultiSelectComboBox.vue';
 import { formatTime } from '@chatwoot/utils';
 import { useStore, useMapGetter } from 'dashboard/composables/store';
 import { useAlert } from 'dashboard/composables';
@@ -11,7 +12,11 @@ import {
   createColumnHelper,
   getCoreRowModel,
 } from '@tanstack/vue-table';
-import { computed, onMounted, ref, h } from 'vue';
+import { computed, onMounted, ref, h, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
+import SummaryReportLink from './SummaryReportLink.vue';
+import fromUnixTime from 'date-fns/fromUnixTime';
+import format from 'date-fns/format';
 
 const props = defineProps({
   type: {
@@ -37,12 +42,13 @@ const props = defineProps({
 });
 
 const store = useStore();
+const { t } = useI18n();
 
 const from = ref(0);
 const to = ref(0);
 const businessHours = ref(false);
-import { useI18n } from 'vue-i18n';
-import SummaryReportLink from './SummaryReportLink.vue';
+const selectedLabelIds = ref([]);
+const comparisonPeriods = ref([]);
 
 const flagMap = {
   agent: 'isFetchingAgentSummaryReports',
@@ -57,10 +63,43 @@ const isLoading = computed(() => uiFlags.value[flagMap[props.type]] ?? false);
 const rowItems = useMapGetter([props.getterKey]) || [];
 const reportMetrics = useMapGetter([props.summaryKey]) || [];
 
+const comparisonsGetterName = computed(() => {
+  const map = {
+    inbox: 'summaryReports/getInboxSummaryComparisons',
+    agent: 'summaryReports/getAgentSummaryComparisons',
+    team: 'summaryReports/getTeamSummaryComparisons',
+    label: 'summaryReports/getLabelSummaryComparisons',
+  };
+  return map[props.type];
+});
+
+const comparisonSlices = computed(
+  () => store.getters[comparisonsGetterName.value] || []
+);
+
+const labelFilterOptions = computed(() => {
+  if (props.type !== 'label') return [];
+  return (rowItems.value || []).map(l => ({
+    value: l.id,
+    label: l.name ?? l.title,
+  }));
+});
+
+const visibleRowItems = computed(() => {
+  if (props.type !== 'label' || selectedLabelIds.value.length === 0) {
+    return rowItems.value;
+  }
+  const idSet = new Set(selectedLabelIds.value);
+  return rowItems.value.filter(row => idSet.has(row.id));
+});
+
 const getMetrics = id =>
   reportMetrics.value.find(metrics => metrics.id === Number(id)) || {};
+
+const sliceRowMetrics = (slice, id) =>
+  (slice?.data || []).find(m => m.id === Number(id)) || {};
+
 const columnHelper = createColumnHelper();
-const { t } = useI18n();
 
 const defaulSpanRender = cellProps =>
   h(
@@ -71,45 +110,96 @@ const defaulSpanRender = cellProps =>
     cellProps.getValue()
   );
 
-const columns = computed(() => [
-  columnHelper.accessor('name', {
-    header: t(`SUMMARY_REPORTS.${props.type.toUpperCase()}`),
-    width: 300,
-    cell: cellProps => h(SummaryReportLink, cellProps),
-  }),
-  columnHelper.accessor('conversationsCount', {
-    header: t('SUMMARY_REPORTS.CONVERSATIONS'),
-    width: 200,
-    cell: defaulSpanRender,
-  }),
-  columnHelper.accessor('avgFirstResponseTime', {
-    header: t('SUMMARY_REPORTS.AVG_FIRST_RESPONSE_TIME'),
-    width: 200,
-    cell: defaulSpanRender,
-  }),
-  columnHelper.accessor('avgResolutionTime', {
-    header: t('SUMMARY_REPORTS.AVG_RESOLUTION_TIME'),
-    width: 200,
-    cell: defaulSpanRender,
-  }),
-  columnHelper.accessor('avgReplyTime', {
-    header: t('SUMMARY_REPORTS.AVG_REPLY_TIME'),
-    width: 200,
-    cell: defaulSpanRender,
-  }),
-  columnHelper.accessor('resolutionsCount', {
-    header: t('SUMMARY_REPORTS.RESOLUTION_COUNT'),
-    width: 200,
-    cell: defaulSpanRender,
-  }),
-]);
+const periodShortLabel = (fromUnix, toUnix) => {
+  try {
+    return `${format(fromUnixTime(fromUnix), 'dd MMM')} – ${format(
+      fromUnixTime(toUnix),
+      'dd MMM'
+    )}`;
+  } catch {
+    return '';
+  }
+};
+
+const columns = computed(() => {
+  const base = [
+    columnHelper.accessor('name', {
+      header: t(`SUMMARY_REPORTS.${props.type.toUpperCase()}`),
+      width: 300,
+      cell: cellProps => h(SummaryReportLink, cellProps),
+    }),
+    columnHelper.accessor('conversationsCount', {
+      header: t('SUMMARY_REPORTS.CONVERSATIONS'),
+      width: 200,
+      cell: defaulSpanRender,
+    }),
+    columnHelper.accessor('avgFirstResponseTime', {
+      header: t('SUMMARY_REPORTS.AVG_FIRST_RESPONSE_TIME'),
+      width: 200,
+      cell: defaulSpanRender,
+    }),
+    columnHelper.accessor('avgResolutionTime', {
+      header: t('SUMMARY_REPORTS.AVG_RESOLUTION_TIME'),
+      width: 200,
+      cell: defaulSpanRender,
+    }),
+    columnHelper.accessor('avgReplyTime', {
+      header: t('SUMMARY_REPORTS.AVG_REPLY_TIME'),
+      width: 200,
+      cell: defaulSpanRender,
+    }),
+    columnHelper.accessor('resolutionsCount', {
+      header: t('SUMMARY_REPORTS.RESOLUTION_COUNT'),
+      width: 200,
+      cell: defaulSpanRender,
+    }),
+  ];
+
+  comparisonSlices.value.forEach((slice, si) => {
+    const rh = periodShortLabel(slice.from, slice.to);
+    base.push(
+      columnHelper.accessor(`cmp${si}_conversationsCount`, {
+        id: `cmp${si}_conversationsCount`,
+        header: `${t('SUMMARY_REPORTS.CONVERSATIONS')} (${rh})`,
+        width: 200,
+        cell: defaulSpanRender,
+      }),
+      columnHelper.accessor(`cmp${si}_avgFirstResponseTime`, {
+        id: `cmp${si}_avgFirstResponseTime`,
+        header: `${t('SUMMARY_REPORTS.AVG_FIRST_RESPONSE_TIME')} (${rh})`,
+        width: 200,
+        cell: defaulSpanRender,
+      }),
+      columnHelper.accessor(`cmp${si}_avgResolutionTime`, {
+        id: `cmp${si}_avgResolutionTime`,
+        header: `${t('SUMMARY_REPORTS.AVG_RESOLUTION_TIME')} (${rh})`,
+        width: 200,
+        cell: defaulSpanRender,
+      }),
+      columnHelper.accessor(`cmp${si}_avgReplyTime`, {
+        id: `cmp${si}_avgReplyTime`,
+        header: `${t('SUMMARY_REPORTS.AVG_REPLY_TIME')} (${rh})`,
+        width: 200,
+        cell: defaulSpanRender,
+      }),
+      columnHelper.accessor(`cmp${si}_resolutionsCount`, {
+        id: `cmp${si}_resolutionsCount`,
+        header: `${t('SUMMARY_REPORTS.RESOLUTION_COUNT')} (${rh})`,
+        width: 200,
+        cell: defaulSpanRender,
+      })
+    );
+  });
+
+  return base;
+});
 
 const renderAvgTime = value => (value ? formatTime(value) : '--');
 
 const renderCount = value => (value ? value.toLocaleString() : '--');
 
 const tableData = computed(() =>
-  rowItems.value.map(row => {
+  visibleRowItems.value.map(row => {
     const rowMetrics = getMetrics(row.id);
     const {
       conversationsCount,
@@ -118,9 +208,8 @@ const tableData = computed(() =>
       avgReplyTime,
       resolvedConversationsCount,
     } = rowMetrics;
-    return {
+    const rowOut = {
       id: row.id,
-      // we fallback on title, label for instance does not have a name property
       name: row.name ?? row.title,
       type: props.type,
       conversationsCount: renderCount(conversationsCount),
@@ -129,6 +218,23 @@ const tableData = computed(() =>
       avgResolutionTime: renderAvgTime(avgResolutionTime),
       resolutionsCount: renderCount(resolvedConversationsCount),
     };
+
+    comparisonSlices.value.forEach((slice, si) => {
+      const m = sliceRowMetrics(slice, row.id);
+      rowOut[`cmp${si}_conversationsCount`] = renderCount(m.conversationsCount);
+      rowOut[`cmp${si}_avgFirstResponseTime`] = renderAvgTime(
+        m.avgFirstResponseTime
+      );
+      rowOut[`cmp${si}_avgResolutionTime`] = renderAvgTime(
+        m.avgResolutionTime
+      );
+      rowOut[`cmp${si}_avgReplyTime`] = renderAvgTime(m.avgReplyTime);
+      rowOut[`cmp${si}_resolutionsCount`] = renderCount(
+        m.resolvedConversationsCount
+      );
+    });
+
+    return rowOut;
   })
 );
 
@@ -138,6 +244,12 @@ const fetchReportsWithRetry = async () => {
     until: to.value,
     businessHours: businessHours.value,
   };
+  if (props.type === 'label' && selectedLabelIds.value.length > 0) {
+    params.labelIds = selectedLabelIds.value;
+  }
+  if (comparisonPeriods.value.length) {
+    params.comparisonPeriods = comparisonPeriods.value;
+  }
   try {
     await store.dispatch(props.actionKey, params);
   } catch {
@@ -156,10 +268,21 @@ const fetchAllData = () => {
 
 onMounted(() => fetchAllData());
 
+watch(
+  selectedLabelIds,
+  () => {
+    if (props.type === 'label') {
+      fetchReportsWithRetry();
+    }
+  },
+  { deep: true }
+);
+
 const onFilterChange = updatedFilter => {
   from.value = updatedFilter.from;
   to.value = updatedFilter.to;
   businessHours.value = updatedFilter.businessHours;
+  comparisonPeriods.value = updatedFilter.comparisonPeriods || [];
   fetchAllData();
 };
 
@@ -174,8 +297,6 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel(),
 });
 
-// downloadReports method is not used in this component
-// but it is exposed to be used in the parent component
 const downloadReports = () => {
   const dispatchMethods = {
     agent: 'downloadAgentReports',
@@ -195,6 +316,9 @@ const downloadReports = () => {
       fileName,
       businessHours: businessHours.value,
     };
+    if (props.type === 'label' && selectedLabelIds.value.length > 0) {
+      params.labelIds = selectedLabelIds.value;
+    }
     store.dispatch(dispatchMethods[props.type], params);
   }
 };
@@ -207,6 +331,17 @@ defineExpose({ downloadReports });
     :disabled="isLoading"
     @filter-change="onFilterChange"
   />
+  <div
+    v-if="type === 'label'"
+    class="flex flex-col gap-1 mt-4 w-full max-w-xl"
+  >
+    <TagMultiSelectComboBox
+      v-model="selectedLabelIds"
+      :options="labelFilterOptions"
+      :placeholder="$t('LABEL_REPORTS.OVERVIEW_MULTI_LABEL_PLACEHOLDER')"
+      :search-placeholder="$t('LABEL_REPORTS.FILTERS.INPUT_PLACEHOLDER.LABELS')"
+    />
+  </div>
   <div
     class="relative flex-1 overflow-auto px-2 py-2 mt-5 shadow outline-1 outline outline-n-container rounded-xl bg-n-solid-2"
   >

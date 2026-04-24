@@ -100,6 +100,9 @@ const isContactIndexView = computed(
   () => route.name === 'contacts_dashboard_index' && pageNumber.value === 1
 );
 const isActiveView = computed(() => route.name === 'contacts_dashboard_active');
+const isBlockedView = computed(
+  () => route.name === 'contacts_dashboard_blocked'
+);
 const hasAppliedFilters = computed(() => {
   return appliedFilters.value.length > 0;
 });
@@ -124,6 +127,7 @@ const showEmptyText = computed(() => {
 const headerTitle = computed(() => {
   if (searchQuery.value) return t('CONTACTS_LAYOUT.HEADER.SEARCH_TITLE');
   if (isActiveView.value) return t('CONTACTS_LAYOUT.HEADER.ACTIVE_TITLE');
+  if (isBlockedView.value) return t('SIDEBAR.BLOCKED');
   if (activeSegmentId.value) return activeSegment.value?.name;
   if (activeLabel.value) return `#${activeLabel.value}`;
   return t('CONTACTS_LAYOUT.HEADER.TITLE');
@@ -217,6 +221,16 @@ const fetchActiveContacts = async (page = 1) => {
   updatePageParam(page);
 };
 
+const fetchBlockedContacts = async (page = 1) => {
+  clearSelection();
+  await store.dispatch('contacts/clearContactFilters');
+  await store.dispatch('contacts/blocked', {
+    page,
+    sortAttr: buildSortAttr(),
+  });
+  updatePageParam(page);
+};
+
 const searchContacts = debounce(async (value, page = 1, append = false) => {
   if (!append) {
     clearSelection();
@@ -269,6 +283,10 @@ const fetchContactsBasedOnContext = async page => {
   // If we're on the active route, fetch active contacts
   if (isActiveView.value) {
     await fetchActiveContacts(page);
+    return;
+  }
+  if (isBlockedView.value) {
+    await fetchBlockedContacts(page);
     return;
   }
   // If there are applied filters or active segment with query
@@ -346,6 +364,10 @@ const handleSort = async ({ sort, order }) => {
     await fetchActiveContacts();
     return;
   }
+  if (isBlockedView.value) {
+    await fetchBlockedContacts();
+    return;
+  }
 
   await (activeSegmentId.value || hasAppliedFilters.value
     ? fetchSavedOrAppliedFilteredContact(
@@ -390,7 +412,7 @@ watch(
 );
 
 watch(
-  [activeLabel, activeSegment, isActiveView],
+  [activeLabel, activeSegment, isActiveView, isBlockedView],
   () => {
     fetchContactsBasedOnContext(pageNumber.value);
   },
@@ -404,6 +426,7 @@ watch(searchQuery, value => {
   if (value === undefined) {
     if (
       isActiveView.value ||
+      isBlockedView.value ||
       activeLabel.value ||
       activeSegment.value ||
       hasAppliedFilters.value
@@ -421,6 +444,10 @@ onMounted(async () => {
     }
     if (isActiveView.value) {
       await fetchActiveContacts(pageNumber.value);
+      return;
+    }
+    if (isBlockedView.value) {
+      await fetchBlockedContacts(pageNumber.value);
       return;
     }
     await fetchContacts(pageNumber.value);
@@ -452,6 +479,7 @@ onMounted(async () => {
       :use-infinite-scroll="isSearchView"
       :has-more="hasMore"
       :is-loading-more="isLoadingMore"
+      :is-blocked-view="isBlockedView"
       @update:current-page="fetchContactsBasedOnContext"
       @search="searchContacts"
       @update:sort="handleSort"

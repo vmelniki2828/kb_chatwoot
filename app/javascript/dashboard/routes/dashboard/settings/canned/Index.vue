@@ -6,7 +6,11 @@ import SettingsLayout from '../SettingsLayout.vue';
 import BaseSettingsHeader from '../components/BaseSettingsHeader.vue';
 import { computed, onMounted, ref, defineOptions } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useStoreGetters, useStore } from 'dashboard/composables/store';
+import {
+  useStoreGetters,
+  useStore,
+  useMapGetter,
+} from 'dashboard/composables/store';
 import { picoSearch } from '@scmmishra/pico-search';
 import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
 
@@ -24,10 +28,12 @@ defineOptions({
 
 const getters = useStoreGetters();
 const store = useStore();
+const accountLabels = useMapGetter('labels/getLabels');
 const { t } = useI18n();
 
 const { getPlainText } = useMessageFormatter();
 
+const fileInputRef = ref(null);
 const showAddPopup = ref(false);
 const loading = ref({});
 const showEditPopup = ref(false);
@@ -80,6 +86,7 @@ const fetchCannedResponses = async () => {
 
 onMounted(() => {
   fetchCannedResponses();
+  store.dispatch('labels/get');
 });
 
 const showAlertMessage = message => {
@@ -87,6 +94,35 @@ const showAlertMessage = message => {
   activeResponse.value = {};
   cannedResponseAPI.value.message = message;
   useAlert(message);
+};
+
+const openImportPicker = () => {
+  fileInputRef.value?.click();
+};
+
+const onImportFile = async event => {
+  const input = event.target;
+  const file = input.files?.[0];
+  input.value = '';
+  if (!file) return;
+
+  try {
+    const data = await store.dispatch('importCannedResponsesTable', file);
+    const imported = data.imported ?? 0;
+    const rowErrors = data.errors || [];
+    let message = t('CANNED_MGMT.IMPORT.SUCCESS', { count: imported });
+    if (rowErrors.length) {
+      const details = rowErrors
+        .map(e =>
+          `${t('CANNED_MGMT.IMPORT.LINE_PREFIX', { line: e.line })} ${e.error}`
+        )
+        .join('; ');
+      message = `${message} ${t('CANNED_MGMT.IMPORT.PARTIAL')} ${details}`;
+    }
+    useAlert(message);
+  } catch (error) {
+    useAlert(error?.message || t('CANNED_MGMT.IMPORT.ERROR'));
+  }
 };
 
 const openAddPopup = () => {
@@ -133,9 +169,19 @@ const confirmDeletion = () => {
 const tableHeaders = computed(() => {
   return [
     t('CANNED_MGMT.LIST.TABLE_HEADER.SHORT_CODE'),
+    t('CANNED_MGMT.LIST.TABLE_HEADER.LABELS'),
     t('CANNED_MGMT.LIST.TABLE_HEADER.ACTIONS'),
   ];
 });
+
+const labelsForCanned = item => {
+  const ids = item.label_ids || [];
+  if (!ids.length) return [];
+  const byId = Object.fromEntries(
+    (accountLabels.value || []).map(l => [Number(l.id), l])
+  );
+  return ids.map(id => byId[Number(id)]).filter(Boolean);
+};
 </script>
 
 <template>
@@ -160,6 +206,23 @@ const tableHeaders = computed(() => {
           </span>
         </template>
         <template #actions>
+          <input
+            ref="fileInputRef"
+            type="file"
+            accept=".xlsx,.tsv,.csv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/plain,text/csv,text/tab-separated-values"
+            class="hidden"
+            @change="onImportFile"
+          />
+          <Button
+            v-tooltip.top="$t('CANNED_MGMT.IMPORT.HELP')"
+            :label="$t('CANNED_MGMT.IMPORT.BUTTON')"
+            faded
+            slate
+            size="sm"
+            :is-loading="uiFlags.importingTable"
+            :disabled="uiFlags.importingTable"
+            @click="openImportPicker"
+          />
           <Button
             :label="$t('CANNED_MGMT.HEADER_BTN_TXT')"
             size="sm"
@@ -202,6 +265,9 @@ const tableHeaders = computed(() => {
         <template #header-1>
           {{ tableHeaders[1] }}
         </template>
+        <template #header-2>
+          {{ tableHeaders[2] }}
+        </template>
 
         <template #row="{ items }">
           <BaseTableRow
@@ -218,6 +284,24 @@ const tableHeaders = computed(() => {
                   <p class="text-body-main text-n-slate-11 line-clamp-5">
                     {{ getPlainText(cannedItem.content) }}
                   </p>
+                </div>
+              </BaseTableCell>
+
+              <BaseTableCell class="max-w-xs align-top">
+                <div class="flex flex-wrap gap-1">
+                  <span
+                    v-for="lab in labelsForCanned(cannedItem)"
+                    :key="lab.id"
+                    class="inline-flex items-center px-2 py-0.5 rounded-md text-xs font-medium bg-n-alpha-2 text-n-slate-12 border border-n-weak"
+                  >
+                    {{ lab.title }}
+                  </span>
+                  <span
+                    v-if="!labelsForCanned(cannedItem).length"
+                    class="text-body-main text-n-slate-11"
+                  >
+                    —
+                  </span>
                 </div>
               </BaseTableCell>
 
@@ -253,9 +337,11 @@ const tableHeaders = computed(() => {
     <woot-modal v-model:show="showEditPopup" :on-close="hideEditPopup">
       <EditCanned
         v-if="showEditPopup"
+        :key="activeResponse.id"
         :id="activeResponse.id"
         :edshort-code="activeResponse.short_code"
         :edcontent="activeResponse.content"
+        :ed-label-ids="activeResponse.label_ids || []"
         :on-close="hideEditPopup"
       />
     </woot-modal>

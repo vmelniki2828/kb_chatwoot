@@ -48,13 +48,31 @@ module ActivityMessageHandler
   end
 
   def status_change_activity(user_name)
-    content = if Current.executed_by.present?
-                automation_status_change_activity_content
-              else
-                user_status_change_activity_content(user_name)
-              end
+    if Current.executed_by.present?
+      content = automation_status_change_activity_content
+      enqueue_activity_message_job(content, inline: false)
+      return
+    end
 
-    ::Conversations::ActivityMessageJob.perform_later(self, activity_message_params(content)) if content
+    content = user_status_change_activity_content(user_name)
+    inline = sync_widget_contact_resolution_activity?(user_name)
+    enqueue_activity_message_job(content, inline: inline)
+  end
+
+  def enqueue_activity_message_job(content, inline:)
+    return if content.blank?
+
+    params = activity_message_params(content)
+    if inline
+      ::Conversations::ActivityMessageJob.perform_now(self, params)
+    else
+      ::Conversations::ActivityMessageJob.perform_later(self, params)
+    end
+  end
+
+  # Виджет: сообщение в БД до ответа API, чтобы клиент сразу увидел «чат завершён».
+  def sync_widget_contact_resolution_activity?(user_name)
+    user_name.blank? && Current.contact.present? && resolved?
   end
 
   def auto_resolve_message_key(minutes)
@@ -71,7 +89,9 @@ module ActivityMessageHandler
     if user_name
       I18n.t("conversations.activity.status.#{status}", user_name: user_name)
     elsif Current.contact.present? && resolved?
-      I18n.t('conversations.activity.status.contact_resolved', contact_name: Current.contact.name.capitalize)
+      contact_label = Current.contact.name.to_s.strip
+      contact_label = I18n.t('conversations.activity.status.visitor_label') if contact_label.blank?
+      I18n.t('conversations.activity.status.contact_resolved', contact_name: contact_label)
     elsif resolved?
       message_data = auto_resolve_message_key(auto_resolve_after || 0)
       I18n.t("conversations.activity.status.#{message_data[:key]}", count: message_data[:count])
@@ -87,8 +107,15 @@ module ActivityMessageHandler
     end
   end
 
-  def activity_message_params(content)
-    { account_id: account_id, inbox_id: inbox_id, message_type: :activity, content: content }
+  def activity_message_params(content, content_attributes: nil)
+    payload = {
+      account_id: account_id,
+      inbox_id: inbox_id,
+      message_type: :activity,
+      content: content
+    }
+    payload[:content_attributes] = content_attributes if content_attributes.present?
+    payload
   end
 
   def create_muted_message

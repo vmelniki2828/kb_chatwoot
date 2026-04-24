@@ -38,6 +38,12 @@ export const routes = [
         component: ContactsIndex,
         meta: commonMeta,
       },
+      {
+        path: 'blocked',
+        name: 'contacts_dashboard_blocked',
+        component: ContactsIndex,
+        meta: commonMeta,
+      },
     ],
   },
   {

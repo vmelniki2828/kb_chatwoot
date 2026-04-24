@@ -3,7 +3,6 @@ import { reactive, ref, computed, onMounted, watch } from 'vue';
 import { useStore, useMapGetter } from 'dashboard/composables/store';
 import { useI18n } from 'vue-i18n';
 import { useWindowSize } from '@vueuse/core';
-import { useUISettings } from 'dashboard/composables/useUISettings';
 import { vOnClickOutside } from '@vueuse/components';
 import { useAlert } from 'dashboard/composables';
 import { ExceptionWithMessage } from 'shared/helpers/CustomErrors';
@@ -44,8 +43,6 @@ const store = useStore();
 const { t } = useI18n();
 const { width: windowWidth } = useWindowSize();
 
-const { fetchSignatureFlagFromUISettings } = useUISettings();
-
 const isSmallScreen = computed(
   () => windowWidth.value < wootConstants.SMALL_SCREEN_BREAKPOINT
 );
@@ -85,9 +82,7 @@ const uiFlags = useMapGetter('contactConversations/getUIFlags');
 const messageSignature = useMapGetter('getMessageSignature');
 const inboxesList = useMapGetter('inboxes/getInboxes');
 
-const sendWithSignature = computed(() =>
-  fetchSignatureFlagFromUISettings(targetInbox.value?.channelType)
-);
+const sendWithSignature = computed(() => false);
 
 const directUploadsEnabled = computed(
   () => globalConfig.value.directUploadsEnabled

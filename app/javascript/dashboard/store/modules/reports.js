@@ -19,6 +19,8 @@ const state = {
       outgoing_messages_count: false,
       avg_first_response_time: false,
       avg_resolution_time: false,
+      avg_chat_duration_with_bot: false,
+      avg_chat_duration_operators_only: false,
       resolutions_count: false,
       bot_resolutions_count: false,
       bot_handoffs_count: false,
@@ -30,6 +32,21 @@ const state = {
       outgoing_messages_count: [],
       avg_first_response_time: [],
       avg_resolution_time: [],
+      avg_chat_duration_with_bot: [],
+      avg_chat_duration_operators_only: [],
+      resolutions_count: [],
+      bot_resolutions_count: [],
+      bot_handoffs_count: [],
+      reply_time: [],
+    },
+    comparisonSeries: {
+      conversations_count: [],
+      incoming_messages_count: [],
+      outgoing_messages_count: [],
+      avg_first_response_time: [],
+      avg_resolution_time: [],
+      avg_chat_duration_with_bot: [],
+      avg_chat_duration_operators_only: [],
       resolutions_count: [],
       bot_resolutions_count: [],
       bot_handoffs_count: [],
@@ -39,6 +56,8 @@ const state = {
   accountSummary: {
     avg_first_response_time: 0,
     avg_resolution_time: 0,
+    avg_chat_duration_with_bot: 0,
+    avg_chat_duration_operators_only: 0,
     conversations_count: 0,
     incoming_messages_count: 0,
     outgoing_messages_count: 0,
@@ -107,23 +126,63 @@ const getters = {
 
 export const actions = {
   fetchAccountReport({ commit }, reportObj) {
-    const { metric } = reportObj;
+    const { metric, comparisonPeriods = [], from, to } = reportObj;
     commit(types.default.TOGGLE_ACCOUNT_REPORT_LOADING, {
       metric,
       value: true,
     });
-    Report.getReports(reportObj).then(accountReport => {
-      let { data } = accountReport;
-      data = clampDataBetweenTimeline(data, reportObj.from, reportObj.to);
-      commit(types.default.SET_ACCOUNT_REPORTS, {
-        metric,
-        data,
-      });
-      commit(types.default.TOGGLE_ACCOUNT_REPORT_LOADING, {
-        metric,
-        value: false,
-      });
+
+    const baseParams = {
+      metric: reportObj.metric,
+      type: reportObj.type,
+      id: reportObj.id,
+      groupBy: reportObj.groupBy,
+      businessHours: reportObj.businessHours,
+      labelIds: reportObj.labelIds,
+    };
+
+    const primaryRequest = Report.getReports({
+      ...baseParams,
+      from,
+      to,
     });
+
+    const comparisonRequests = comparisonPeriods.map(p =>
+      Report.getReports({
+        ...baseParams,
+        from: p.from,
+        to: p.to,
+      })
+    );
+
+    Promise.all([primaryRequest, ...comparisonRequests])
+      .then(([primaryReport, ...comparisonReports]) => {
+        let { data } = primaryReport;
+        data = clampDataBetweenTimeline(data, from, to);
+        commit(types.default.SET_ACCOUNT_REPORTS, {
+          metric,
+          data,
+        });
+        const series = comparisonReports.map((res, i) => {
+          let d = res.data;
+          const p = comparisonPeriods[i];
+          return clampDataBetweenTimeline(d, p.from, p.to);
+        });
+        commit(types.default.SET_ACCOUNT_REPORT_COMPARISON, {
+          metric,
+          data: series,
+        });
+        commit(types.default.TOGGLE_ACCOUNT_REPORT_LOADING, {
+          metric,
+          value: false,
+        });
+      })
+      .catch(() => {
+        commit(types.default.TOGGLE_ACCOUNT_REPORT_LOADING, {
+          metric,
+          value: false,
+        });
+      });
   },
   fetchAccountConversationHeatmap({ commit }, reportObj) {
     commit(types.default.TOGGLE_HEATMAP_LOADING, true);
@@ -153,7 +212,9 @@ export const actions = {
       reportObj.type,
       reportObj.id,
       reportObj.groupBy,
-      reportObj.businessHours
+      reportObj.businessHours,
+      reportObj.labelIds,
+      reportObj.comparisonPeriods
     )
       .then(accountSummary => {
         commit(types.default.SET_ACCOUNT_SUMMARY, accountSummary.data);
@@ -170,6 +231,7 @@ export const actions = {
       to: reportObj.to,
       groupBy: reportObj.groupBy,
       businessHours: reportObj.businessHours,
+      comparisonPeriods: reportObj.comparisonPeriods,
     })
       .then(botSummary => {
         commit(types.default.SET_BOT_SUMMARY, botSummary.data);
@@ -311,6 +373,9 @@ export const actions = {
 const mutations = {
   [types.default.SET_ACCOUNT_REPORTS](_state, { metric, data }) {
     _state.accountReport.data[metric] = data;
+  },
+  [types.default.SET_ACCOUNT_REPORT_COMPARISON](_state, { metric, data }) {
+    _state.accountReport.comparisonSeries[metric] = data;
   },
   [types.default.SET_HEATMAP_DATA](_state, heatmapData) {
     _state.overview.accountConversationHeatmap = heatmapData;

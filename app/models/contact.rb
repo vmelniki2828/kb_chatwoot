@@ -7,6 +7,7 @@
 #  id                    :integer          not null, primary key
 #  additional_attributes :jsonb
 #  blocked               :boolean          default(FALSE), not null
+#  blocked_until         :datetime
 #  contact_type          :integer          default("visitor")
 #  country_code          :string           default("")
 #  custom_attributes     :jsonb
@@ -63,6 +64,7 @@ class Contact < ApplicationRecord
   has_many :messages, as: :sender, dependent: :destroy_async
   has_many :notes, dependent: :destroy_async
   before_validation :prepare_contact_attributes
+  before_save :clear_blocked_until_when_unblocked
   after_create_commit :dispatch_create_event, :ip_lookup
   after_update_commit :dispatch_update_event
   after_destroy_commit :dispatch_destroy_event
@@ -147,6 +149,16 @@ class Contact < ApplicationRecord
     contact_inboxes.find_by!(inbox_id: inbox_id).source_id
   end
 
+  def clear_expired_messaging_block!
+    return unless blocked? && blocked_until.present? && blocked_until <= Time.zone.now
+
+    update_columns(blocked: false, blocked_until: nil)
+  end
+
+  def messaging_block_active?
+    blocked? && (blocked_until.blank? || blocked_until > Time.zone.now)
+  end
+
   def push_event_data
     {
       additional_attributes: additional_attributes,
@@ -211,6 +223,10 @@ class Contact < ApplicationRecord
     return if email.blank?
 
     self.email = email_was unless email.match(Devise.email_regexp)
+  end
+
+  def clear_blocked_until_when_unblocked
+    self.blocked_until = nil unless blocked?
   end
 
   def prepare_contact_attributes

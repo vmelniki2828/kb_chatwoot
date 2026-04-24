@@ -10,7 +10,14 @@ const isMessageInActiveConversation = (getters, message) => {
   const { conversation_id: conversationId } = message;
   const activeConversationId =
     getters['conversationAttributes/getConversationParams'].id;
-  return activeConversationId && conversationId !== activeConversationId;
+  if (
+    activeConversationId === '' ||
+    activeConversationId === null ||
+    activeConversationId === undefined
+  ) {
+    return false;
+  }
+  return String(conversationId) !== String(activeConversationId);
 };
 
 const WIDGET_PRESENCE_INTERVAL = 60000;
@@ -107,7 +114,8 @@ class ActionCableConnector extends BaseActionCableConnector {
       this.app.$store.getters['conversationAttributes/getConversationParams']
         .id;
     const isUserTypingOnAnotherConversation =
-      data.conversation && data.conversation.id !== activeConversationId;
+      data.conversation &&
+      String(data.conversation.id) !== String(activeConversationId);
 
     if (isUserTypingOnAnotherConversation || data.is_private) {
       return;

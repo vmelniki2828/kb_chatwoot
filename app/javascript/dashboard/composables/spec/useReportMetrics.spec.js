@@ -33,6 +33,8 @@ describe('useReportMetrics', () => {
 
     expect(isAverageMetricType('avg_first_response_time')).toBe(true);
     expect(isAverageMetricType('avg_resolution_time')).toBe(true);
+    expect(isAverageMetricType('avg_chat_duration_with_bot')).toBe(true);
+    expect(isAverageMetricType('avg_chat_duration_operators_only')).toBe(true);
     expect(isAverageMetricType('reply_time')).toBe(true);
     expect(isAverageMetricType('conversations_count')).toBe(false);
   });

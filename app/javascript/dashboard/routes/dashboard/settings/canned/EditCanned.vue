@@ -1,22 +1,26 @@
 <script>
 /* eslint no-console: 0 */
+import { mapGetters } from 'vuex';
 import { useVuelidate } from '@vuelidate/core';
 import { required, minLength } from '@vuelidate/validators';
 import { useAlert } from 'dashboard/composables';
 import WootMessageEditor from 'dashboard/components/widgets/WootWriter/Editor.vue';
 import NextButton from 'dashboard/components-next/button/Button.vue';
+import TagMultiSelectComboBox from 'dashboard/components-next/combobox/TagMultiSelectComboBox.vue';
 import Modal from '../../../../components/Modal.vue';
 
 export default {
   components: {
     NextButton,
     Modal,
+    TagMultiSelectComboBox,
     WootMessageEditor,
   },
   props: {
     id: { type: Number, default: null },
     edcontent: { type: String, default: '' },
     edshortCode: { type: String, default: '' },
+    edLabelIds: { type: Array, default: () => [] },
     onClose: { type: Function, default: () => {} },
   },
   setup() {
@@ -30,8 +34,26 @@ export default {
       },
       shortCode: this.edshortCode,
       content: this.edcontent,
+      selectedLabelIds: [...(this.edLabelIds || [])],
       show: true,
     };
+  },
+  computed: {
+    ...mapGetters({
+      accountLabels: 'labels/getLabels',
+    }),
+    labelMultiSelectOptions() {
+      return this.accountLabels.map(lab => ({
+        value: lab.id,
+        label: lab.title,
+      }));
+    },
+    pageTitle() {
+      return `${this.$t('CANNED_MGMT.EDIT.TITLE')} - ${this.edshortCode}`;
+    },
+  },
+  mounted() {
+    this.$store.dispatch('labels/get');
   },
   validations: {
     shortCode: {
@@ -42,11 +64,6 @@ export default {
       required,
     },
   },
-  computed: {
-    pageTitle() {
-      return `${this.$t('CANNED_MGMT.EDIT.TITLE')} - ${this.edshortCode}`;
-    },
-  },
   methods: {
     setPageName({ name }) {
       this.v$.content.$touch();
@@ -55,6 +72,7 @@ export default {
     resetForm() {
       this.shortCode = '';
       this.content = '';
+      this.selectedLabelIds = [];
       this.v$.shortCode.$reset();
       this.v$.content.$reset();
     },
@@ -67,6 +85,7 @@ export default {
           id: this.id,
           short_code: this.shortCode,
           content: this.content,
+          label_ids: this.selectedLabelIds,
         })
         .then(() => {
           // Reset Form, Show success message
@@ -122,6 +141,29 @@ export default {
             />
           </div>
         </div>
+
+        <div class="w-full py-2">
+          <label class="block mb-1">
+            {{ $t('CANNED_MGMT.EDIT.FORM.LABELS.LABEL') }}
+          </label>
+          <p class="text-sm text-n-slate-11 mb-2">
+            {{ $t('CANNED_MGMT.EDIT.FORM.LABELS.HINT') }}
+          </p>
+          <TagMultiSelectComboBox
+            v-if="accountLabels.length"
+            v-model="selectedLabelIds"
+            class="max-w-xl"
+            :options="labelMultiSelectOptions"
+            :placeholder="$t('CANNED_MGMT.EDIT.FORM.LABELS.PLACEHOLDER')"
+            :search-placeholder="
+              $t('CANNED_MGMT.EDIT.FORM.LABELS.SEARCH_PLACEHOLDER')
+            "
+          />
+          <p v-else class="text-sm text-n-slate-11">
+            {{ $t('CANNED_MGMT.ADD.FORM.LABELS.EMPTY') }}
+          </p>
+        </div>
+
         <div class="flex flex-row justify-end w-full gap-2 px-0 py-2">
           <NextButton
             faded

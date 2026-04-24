@@ -2,6 +2,14 @@
   "LABEL_MGMT": {
     "HEADER": "Labels",
     "HEADER_BTN_TXT": "Add label",
+    "IMPORT": {
+      "BUTTON": "Import from table",
+      "HELP": "Upload an Excel (.xlsx), TSV, or CSV file with 3 columns: (1) label name / название, (2) description / описание (optional), (3) color / цвет (optional hex e.g. #1f93ff; if empty, a random color is assigned). The first row can be a header row. The first sheet is used for .xlsx.",
+      "SUCCESS": "Imported {count} label(s).",
+      "PARTIAL": "Some rows could not be imported.",
+      "LINE_PREFIX": "Line {line}:",
+      "ERROR": "Could not import file. Check the format and try again."
+    },
     "LOADING": "Fetching labels",
     "DESCRIPTION": "Labels help you categorize and prioritize conversations and leads. You can assign a label to a conversation or contact using the side panel.",
     "LEARN_MORE": "Learn more about labels",

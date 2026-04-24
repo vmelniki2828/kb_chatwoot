@@ -25,6 +25,7 @@ export default {
         BOT_HANDOFF_COUNT: 'bot_handoffs_count',
       },
       businessHours: false,
+      comparisonPeriods: [],
     };
   },
   computed: {
@@ -60,20 +61,22 @@ export default {
       });
     },
     getRequestPayload() {
-      const { from, to, groupBy, businessHours } = this;
+      const { from, to, groupBy, businessHours, comparisonPeriods } = this;
 
       return {
         from,
         to,
         groupBy: groupBy?.period,
         businessHours,
+        comparisonPeriods,
       };
     },
-    onFilterChange({ from, to, groupBy, businessHours }) {
+    onFilterChange({ from, to, groupBy, businessHours, comparisonPeriods }) {
       this.from = from;
       this.to = to;
       this.groupBy = groupBy;
       this.businessHours = businessHours;
+      this.comparisonPeriods = comparisonPeriods || [];
       this.fetchAllData();
 
       useTrack(REPORTS_EVENTS.FILTER_REPORT, {
@@ -100,6 +103,9 @@ export default {
       account-summary-key="getBotSummary"
       summary-fetching-key="getBotSummaryFetchingStatus"
       :group-by="groupBy"
+      :main-from="from"
+      :main-to="to"
+      :comparison-periods="comparisonPeriods"
       :report-keys="reportKeys"
     />
   </div>

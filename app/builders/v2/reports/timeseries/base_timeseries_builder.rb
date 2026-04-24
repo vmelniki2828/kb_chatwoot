@@ -14,7 +14,7 @@ class V2::Reports::Timeseries::BaseTimeseriesBuilder
     when :agent
       user
     when :label
-      label
+      label_report_scope
     when :team
       team
     end
@@ -30,6 +30,22 @@ class V2::Reports::Timeseries::BaseTimeseriesBuilder
 
   def label
     @label ||= account.labels.find(params[:id])
+  end
+
+  def label_report_scope
+    ids = label_ids_for_scope
+    if ids.present?
+      V2::Reports::Timeseries::MultiLabelScope.new(account, ids)
+    else
+      label
+    end
+  end
+
+  def label_ids_for_scope
+    raw = params[:label_ids]
+    return nil if raw.blank?
+
+    Array(raw).map(&:to_i).uniq.select(&:positive?)
   end
 
   def team

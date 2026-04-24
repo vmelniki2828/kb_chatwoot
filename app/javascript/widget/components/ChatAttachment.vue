@@ -81,11 +81,15 @@ export default {
       try {
         if (checkFileSizeLimit(file, this.fileUploadSizeLimit)) {
           const { websiteToken } = window.chatwootWebChannel;
+          let directUploadStatus = null;
           const upload = new DirectUpload(
             file.file,
             `/api/v1/widget/direct_uploads?website_token=${websiteToken}`,
             {
               directUploadWillCreateBlobWithXHR: xhr => {
+                xhr.addEventListener('load', () => {
+                  directUploadStatus = xhr.status;
+                });
                 xhr.setRequestHeader('X-Auth-Token', window.authToken);
               },
             }
@@ -93,9 +97,15 @@ export default {
 
           upload.create((error, blob) => {
             if (error) {
-              emitter.emit(BUS_EVENTS.SHOW_ALERT, {
-                message: error,
-              });
+              if (directUploadStatus === 403) {
+                emitter.emit(BUS_EVENTS.SHOW_ALERT, {
+                  messageKey: 'COMPONENTS.MESSAGE_BUBBLE.CONTACT_BLOCKED',
+                });
+              } else {
+                emitter.emit(BUS_EVENTS.SHOW_ALERT, {
+                  message: error,
+                });
+              }
             } else {
               this.onAttach({
                 file: blob.signed_id,

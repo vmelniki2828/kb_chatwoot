@@ -9,6 +9,7 @@ class WidgetsController < ActionController::Base
   before_action :set_token
   before_action :set_contact
   before_action :build_contact
+  before_action :refresh_contact_messaging_block
   after_action :allow_iframe_requests
 
   private
@@ -56,6 +57,10 @@ class WidgetsController < ActionController::Base
 
     @contact_inbox, @token = build_contact_inbox_with_token(@web_widget, additional_attributes)
     @contact = @contact_inbox.contact
+  end
+
+  def refresh_contact_messaging_block
+    @contact&.clear_expired_messaging_block!
   end
 
   def ensure_account_is_active

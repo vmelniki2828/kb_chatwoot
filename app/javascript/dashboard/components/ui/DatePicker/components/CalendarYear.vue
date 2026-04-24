@@ -60,7 +60,7 @@ const selectYear = year => {
 </script>
 
 <template>
-  <div class="flex flex-col w-full gap-2 max-h-[312px]">
+  <div class="flex w-full min-w-0 flex-col gap-2">
     <CalendarAction
       :calendar-type="calendarType"
       :button-label="`${firstYear} - ${lastYear}`"

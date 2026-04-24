@@ -1,9 +1,11 @@
 <script>
+import { mapGetters } from 'vuex';
 import { useVuelidate } from '@vuelidate/core';
 import { required, minLength } from '@vuelidate/validators';
 import { useAlert } from 'dashboard/composables';
 
 import NextButton from 'dashboard/components-next/button/Button.vue';
+import TagMultiSelectComboBox from 'dashboard/components-next/combobox/TagMultiSelectComboBox.vue';
 import Modal from '../../../../components/Modal.vue';
 import WootMessageEditor from 'dashboard/components/widgets/WootWriter/Editor.vue';
 
@@ -12,6 +14,7 @@ export default {
   components: {
     NextButton,
     Modal,
+    TagMultiSelectComboBox,
     WootMessageEditor,
   },
   props: {
@@ -31,12 +34,27 @@ export default {
     return {
       shortCode: '',
       content: this.responseContent || '',
+      selectedLabelIds: [],
       addCanned: {
         showLoading: false,
         message: '',
       },
       show: true,
     };
+  },
+  computed: {
+    ...mapGetters({
+      accountLabels: 'labels/getLabels',
+    }),
+    labelMultiSelectOptions() {
+      return this.accountLabels.map(lab => ({
+        value: lab.id,
+        label: lab.title,
+      }));
+    },
+  },
+  mounted() {
+    this.$store.dispatch('labels/get');
   },
   validations: {
     shortCode: {
@@ -51,6 +69,7 @@ export default {
     resetForm() {
       this.shortCode = '';
       this.content = '';
+      this.selectedLabelIds = [];
       this.v$.shortCode.$reset();
       this.v$.content.$reset();
     },
@@ -62,6 +81,7 @@ export default {
         .dispatch('createCannedResponse', {
           short_code: this.shortCode,
           content: this.content,
+          label_ids: this.selectedLabelIds,
         })
         .then(() => {
           // Reset Form, Show success message
@@ -118,6 +138,29 @@ export default {
             />
           </div>
         </div>
+
+        <div class="w-full py-2">
+          <label class="block mb-1">
+            {{ $t('CANNED_MGMT.ADD.FORM.LABELS.LABEL') }}
+          </label>
+          <p class="text-sm text-n-slate-11 mb-2">
+            {{ $t('CANNED_MGMT.ADD.FORM.LABELS.HINT') }}
+          </p>
+          <TagMultiSelectComboBox
+            v-if="accountLabels.length"
+            v-model="selectedLabelIds"
+            class="max-w-xl"
+            :options="labelMultiSelectOptions"
+            :placeholder="$t('CANNED_MGMT.ADD.FORM.LABELS.PLACEHOLDER')"
+            :search-placeholder="
+              $t('CANNED_MGMT.ADD.FORM.LABELS.SEARCH_PLACEHOLDER')
+            "
+          />
+          <p v-else class="text-sm text-n-slate-11">
+            {{ $t('CANNED_MGMT.ADD.FORM.LABELS.EMPTY') }}
+          </p>
+        </div>
+
         <div class="flex flex-row justify-end w-full gap-2 px-0 py-2">
           <NextButton
             faded

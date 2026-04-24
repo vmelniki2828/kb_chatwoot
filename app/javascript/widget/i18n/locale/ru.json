@@ -44,6 +44,8 @@
   },
   "START_CONVERSATION": "Начать диалог",
   "END_CONVERSATION": "Завершить диалог",
+  "END_CONVERSATION_ERROR": "Не удалось завершить диалог. Попробуйте ещё раз.",
+  "CLOSE_CHAT": "Закрыть чат",
   "CONTINUE_CONVERSATION": "Продолжить беседу",
   "YOU": "Вы",
   "START_NEW_CONVERSATION": "Начать диалог",

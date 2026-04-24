@@ -22,13 +22,23 @@ class V2::Reports::Timeseries::AverageReportBuilder < V2::Reports::Timeseries::B
     metric_to_event_name = {
       avg_first_response_time: :first_response,
       avg_resolution_time: :conversation_resolved,
+      avg_chat_duration_with_bot: :conversation_resolved,
+      avg_chat_duration_operators_only: :conversation_resolved,
       reply_time: :reply_time
     }
     metric_to_event_name[params[:metric].to_sym]
   end
 
   def object_scope
-    scope.reporting_events.where(name: event_name, created_at: range, account_id: account.id)
+    base = scope.reporting_events.where(name: event_name, created_at: range, account_id: account.id)
+    case params[:metric].to_sym
+    when :avg_chat_duration_with_bot
+      ReportingEvents::ResolutionSegmentFilter.with_bot(base)
+    when :avg_chat_duration_operators_only
+      ReportingEvents::ResolutionSegmentFilter.operators_only(base)
+    else
+      base
+    end
   end
 
   def reporting_events

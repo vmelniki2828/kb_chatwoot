@@ -45,10 +45,19 @@ app.use(
 
 // Vue.config.productionTip = false;
 
-window.onload = () => {
-  window.WOOT_WIDGET = app.mount('#app');
-  window.actionCable = new ActionCableConnector(
-    window.WOOT_WIDGET,
-    window.chatwootPubsubToken
-  );
-};
+if (window.chatwootWebChannel?.hideForMessagingBlock) {
+  if (window.parent !== window) {
+    window.parent.postMessage(
+      `chatwoot-widget:${JSON.stringify({ event: 'messagingBlocked' })}`,
+      '*'
+    );
+  }
+} else {
+  window.onload = () => {
+    window.WOOT_WIDGET = app.mount('#app');
+    window.actionCable = new ActionCableConnector(
+      window.WOOT_WIDGET,
+      window.chatwootPubsubToken
+    );
+  };
+}

@@ -3,6 +3,7 @@ class Api::V1::Widget::ConfigsController < Api::V1::Widget::BaseController
 
   def create
     build_contact
+    @contact&.clear_expired_messaging_block!
     set_token
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_03_24_102005) do
+ActiveRecord::Schema[7.1].define(version: 2026_04_04_180000) do
   # These extensions should be enabled to support this database
   enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_03_24_102005) do
     t.boolean "auto_offline", default: true, null: false
     t.bigint "custom_role_id"
     t.bigint "agent_capacity_policy_id"
+    t.integer "max_open_conversations"
     t.index ["account_id", "user_id"], name: "uniq_user_id_per_account_id", unique: true
     t.index ["account_id"], name: "index_account_users_on_account_id"
     t.index ["agent_capacity_policy_id"], name: "index_account_users_on_agent_capacity_policy_id"
@@ -111,6 +112,19 @@ ActiveRecord::Schema[7.1].define(version: 2026_03_24_102005) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "agent_availability_events", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.bigint "user_id", null: false
+    t.integer "previous_availability"
+    t.integer "availability", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id", "created_at"], name: "index_agent_availability_events_on_account_id_and_created_at"
+    t.index ["account_id", "user_id", "created_at"], name: "idx_agent_availability_events_account_user_created"
+    t.index ["account_id"], name: "index_agent_availability_events_on_account_id"
+    t.index ["user_id"], name: "index_agent_availability_events_on_user_id"
   end
 
   create_table "agent_bot_inboxes", force: :cascade do |t|
@@ -291,6 +305,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_03_24_102005) do
     t.text "content"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
+    t.string "topic"
+    t.jsonb "label_ids", default: [], null: false
   end
 
   create_table "captain_assistant_responses", force: :cascade do |t|
@@ -627,6 +643,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_03_24_102005) do
     t.string "location", default: ""
     t.string "country_code", default: ""
     t.boolean "blocked", default: false, null: false
+    t.datetime "blocked_until"
     t.bigint "company_id"
     t.index "lower((email)::text), account_id", name: "index_contacts_on_lower_email_account_id"
     t.index ["account_id", "contact_type"], name: "index_contacts_on_account_id_and_contact_type"
@@ -1288,6 +1305,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_03_24_102005) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "agent_availability_events", "accounts"
+  add_foreign_key "agent_availability_events", "users"
   add_foreign_key "inboxes", "portals"
   create_trigger("accounts_after_insert_row_tr", :generated => true, :compatibility => 1).
       on("accounts").

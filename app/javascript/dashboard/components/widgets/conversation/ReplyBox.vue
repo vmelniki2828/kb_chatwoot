@@ -15,13 +15,10 @@ import ReplyBottomPanel from 'dashboard/components/widgets/WootWriter/ReplyBotto
 import CopilotReplyBottomPanel from 'dashboard/components/widgets/WootWriter/CopilotReplyBottomPanel.vue';
 import ArticleSearchPopover from 'dashboard/routes/dashboard/helpcenter/components/ArticleSearch/SearchPopover.vue';
 import CopilotEditorSection from './CopilotEditorSection.vue';
-import MessageSignatureMissingAlert from './MessageSignatureMissingAlert.vue';
 import ReplyBoxBanner from './ReplyBoxBanner.vue';
 import QuotedEmailPreview from './QuotedEmailPreview.vue';
 import { REPLY_EDITOR_MODES } from 'dashboard/components/widgets/WootWriter/constants';
 import WootMessageEditor from 'dashboard/components/widgets/WootWriter/Editor.vue';
-import AudioRecorder from 'dashboard/components/widgets/WootWriter/AudioRecorder.vue';
-import { AUDIO_FORMATS } from 'shared/constants/messages';
 import { BUS_EVENTS } from 'shared/constants/busEvents';
 import { CMD_AI_ASSIST } from 'dashboard/helper/commandbar/events';
 import {
@@ -66,10 +63,8 @@ export default {
   components: {
     ArticleSearchPopover,
     AttachmentPreview,
-    AudioRecorder,
     ReplyBoxBanner,
     EmojiInput,
-    MessageSignatureMissingAlert,
     ReplyBottomPanel,
     ReplyEmailHead,
     ReplyToMessage,
@@ -93,7 +88,6 @@ export default {
     const {
       uiSettings,
       isEditorHotKeyEnabled,
-      fetchSignatureFlagFromUISettings,
       setQuotedReplyFlagForInbox,
       fetchQuotedReplyFlagFromUISettings,
     } = useUISettings();
@@ -106,7 +100,6 @@ export default {
     return {
       uiSettings,
       isEditorHotKeyEnabled,
-      fetchSignatureFlagFromUISettings,
       setQuotedReplyFlagForInbox,
       fetchQuotedReplyFlagFromUISettings,
       replyEditor,
@@ -313,7 +306,7 @@ export default {
       return this.attachedFiles.length;
     },
     showAudioRecorder() {
-      return !this.isOnPrivateNote && this.showFileUpload;
+      return false;
     },
     showAudioRecorderEditor() {
       return this.showAudioRecorder && this.isRecordingAudio;
@@ -350,11 +343,8 @@ export default {
     isSignatureEnabledForInbox() {
       return !this.isPrivate && this.sendWithSignature;
     },
-    isSignatureAvailable() {
-      return !!this.messageSignature;
-    },
     sendWithSignature() {
-      return this.fetchSignatureFlagFromUISettings(this.channelType);
+      return false;
     },
     conversationId() {
       return this.currentChat.id;
@@ -364,15 +354,6 @@ export default {
     },
     editorStateId() {
       return `draft-${this.conversationIdByRoute}-${this.replyType}`;
-    },
-    audioRecordFormat() {
-      if (this.isAWhatsAppChannel || this.isATelegramChannel) {
-        return AUDIO_FORMATS.MP3;
-      }
-      if (this.isAPIInbox) {
-        return AUDIO_FORMATS.MP3;
-      }
-      return AUDIO_FORMATS.WAV;
     },
     messageVariables() {
       const variables = getMessageVariables({
@@ -1305,15 +1286,6 @@ export default {
           v-model:bcc-emails="bccEmails"
           v-model:to-emails="toEmails"
         />
-        <AudioRecorder
-          v-if="showAudioRecorderEditor"
-          ref="audioRecorderInput"
-          :audio-record-format="audioRecordFormat"
-          @recorder-progress-changed="onRecordProgressChanged"
-          @finish-record="onFinishRecorder"
-          @play="recordingAudioState = 'playing'"
-          @pause="recordingAudioState = 'paused'"
-        />
         <CopilotEditorSection
           v-if="copilot.isActive.value && !showAudioRecorderEditor"
           :show-copilot-editor="copilot.showEditor.value"
@@ -1343,7 +1315,7 @@ export default {
           enable-variables
           :variables="messageVariables"
           :signature="messageSignature"
-          allow-signature
+          :allow-signature="false"
           :channel-type="channelType"
           :medium="inbox.medium"
           @typing-off="onTypingOff"
@@ -1376,14 +1348,6 @@ export default {
             @remove-attachment="removeAttachment"
           />
         </div>
-        <MessageSignatureMissingAlert
-          v-if="
-            isSignatureEnabledForInbox &&
-            !isSignatureAvailable &&
-            isDefaultEditorMode
-          "
-          class="mb-2"
-        />
       </div>
     </Transition>
 

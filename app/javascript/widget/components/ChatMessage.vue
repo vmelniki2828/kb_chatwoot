@@ -1,6 +1,7 @@
 <script>
 import AgentMessage from 'widget/components/AgentMessage.vue';
 import UserMessage from 'widget/components/UserMessage.vue';
+import SystemActivityMessage from 'widget/components/SystemActivityMessage.vue';
 import { mapGetters } from 'vuex';
 import { MESSAGE_TYPE } from 'widget/helpers/constants';
 
@@ -8,6 +9,7 @@ export default {
   components: {
     AgentMessage,
     UserMessage,
+    SystemActivityMessage,
   },
   props: {
     message: {
@@ -21,6 +23,15 @@ export default {
     }),
     isUserMessage() {
       return this.message.message_type === MESSAGE_TYPE.INCOMING;
+    },
+    isActivityMessage() {
+      return this.message.message_type === MESSAGE_TYPE.ACTIVITY;
+    },
+    /** Не показываем в виджете служебные сообщения о смене лейблов (для посетителя бессмысленно). */
+    isWidgetHiddenActivity() {
+      if (!this.isActivityMessage) return false;
+      const attrs = this.message.content_attributes || {};
+      return attrs.activity_type === 'labels_change';
     },
     replyTo() {
       const replyTo = this.message?.content_attributes?.in_reply_to;
@@ -37,6 +48,12 @@ export default {
     :message="message"
     :reply-to="replyTo"
   />
+  <template v-else-if="isActivityMessage">
+    <SystemActivityMessage
+      v-if="!isWidgetHiddenActivity"
+      :message="message"
+    />
+  </template>
   <AgentMessage
     v-else
     :id="`cwmsg-${message.id}`"

@@ -90,30 +90,38 @@ const fetchAttributes = () => {
   store.dispatch('attributes/get');
 };
 
-const toggleContactBlock = async isBlocked => {
+const blockContactWithDuration = async ({ blockForDays }) => {
   const ALERT_MESSAGES = {
-    success: {
-      block: t('CONTACTS_LAYOUT.HEADER.ACTIONS.BLOCK_SUCCESS_MESSAGE'),
-      unblock: t('CONTACTS_LAYOUT.HEADER.ACTIONS.UNBLOCK_SUCCESS_MESSAGE'),
-    },
-    error: {
-      block: t('CONTACTS_LAYOUT.HEADER.ACTIONS.BLOCK_ERROR_MESSAGE'),
-      unblock: t('CONTACTS_LAYOUT.HEADER.ACTIONS.UNBLOCK_ERROR_MESSAGE'),
-    },
+    success: t('CONTACTS_LAYOUT.HEADER.ACTIONS.BLOCK_SUCCESS_MESSAGE'),
+    error: t('CONTACTS_LAYOUT.HEADER.ACTIONS.BLOCK_ERROR_MESSAGE'),
   };
 
   try {
-    await store.dispatch(`contacts/update`, {
+    await store.dispatch('contacts/update', {
       ...selectedContact.value,
-      blocked: !isBlocked,
+      blocked: true,
+      blockForDays,
     });
-    useAlert(
-      isBlocked ? ALERT_MESSAGES.success.unblock : ALERT_MESSAGES.success.block
-    );
+    useAlert(ALERT_MESSAGES.success);
   } catch (error) {
-    useAlert(
-      isBlocked ? ALERT_MESSAGES.error.unblock : ALERT_MESSAGES.error.block
-    );
+    useAlert(ALERT_MESSAGES.error);
+  }
+};
+
+const unblockContact = async () => {
+  const ALERT_MESSAGES = {
+    success: t('CONTACTS_LAYOUT.HEADER.ACTIONS.UNBLOCK_SUCCESS_MESSAGE'),
+    error: t('CONTACTS_LAYOUT.HEADER.ACTIONS.UNBLOCK_ERROR_MESSAGE'),
+  };
+
+  try {
+    await store.dispatch('contacts/update', {
+      ...selectedContact.value,
+      blocked: false,
+    });
+    useAlert(ALERT_MESSAGES.success);
+  } catch (error) {
+    useAlert(ALERT_MESSAGES.error);
   }
 };
 
@@ -136,7 +144,8 @@ onMounted(() => {
       :show-pagination-footer="false"
       :is-updating="isUpdatingContact"
       @go-to-contacts-list="goToContactsList"
-      @toggle-block="toggleContactBlock"
+      @block-contact="blockContactWithDuration"
+      @unblock-contact="unblockContact"
     >
       <div
         v-if="showSpinner"

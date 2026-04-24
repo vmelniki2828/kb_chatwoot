@@ -225,6 +225,8 @@ en:
   conversations:
     captain:
       handoff: 'Transferring to another agent for further assistance.'
+    queue_busy:
+      widget_message: 'All our agents are currently busy. We will respond as soon as possible.'
     messages:
       instagram_story_content: '%{story_sender} mentioned you in the story: '
       instagram_deleted_story_content: This story is no longer available.
@@ -246,8 +248,9 @@ en:
       agent_bot:
         error_moved_to_open: 'Conversation was marked open by system due to an error with the agent bot.'
       status:
-        resolved: 'Conversation was marked resolved by %{user_name}'
-        contact_resolved: 'Conversation was resolved by %{contact_name}'
+        visitor_label: Visitor
+        resolved: 'This chat was ended by %{user_name}.'
+        contact_resolved: 'This chat was ended by %{contact_name}.'
         open: 'Conversation was reopened by %{user_name}'
         pending: 'Conversation was marked as pending by %{user_name}'
         snoozed: 'Conversation was snoozed by %{user_name}'
@@ -387,6 +390,7 @@ en:
       page_processing_error: 'Error processing pages %{start}-%{end}: %{error}'
     custom_tool:
       slug_generation_failed: 'Unable to generate unique slug after 5 attempts'
+      limit_exceeded: 'You can create a maximum of %{limit} custom tools per account'
   public_portal:
     search:
       search_placeholder: Search for article by title or body...

@@ -408,6 +408,12 @@ const menuItems = computed(() => {
           activeOn: ['contacts_dashboard_active'],
         },
         {
+          name: 'Blocked',
+          label: t('SIDEBAR.BLOCKED'),
+          to: accountScopedRoute('contacts_dashboard_blocked'),
+          activeOn: ['contacts_dashboard_blocked'],
+        },
+        {
           name: 'Segments',
           icon: 'i-lucide-group',
           label: t('SIDEBAR.CUSTOM_VIEWS_SEGMENTS'),
@@ -496,6 +502,11 @@ const menuItems = computed(() => {
           name: 'Reports Bot',
           label: t('SIDEBAR.REPORTS_BOT'),
           to: accountScopedRoute('bot_reports'),
+        },
+        {
+          name: 'Reports Agent activity',
+          label: t('SIDEBAR.REPORTS_AGENT_ACTIVITY'),
+          to: accountScopedRoute('agent_activity_reports'),
         },
       ],
     },

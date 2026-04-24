@@ -92,6 +92,18 @@ describe('reportFilterHelper', () => {
         range: 'lastYear',
       });
     });
+
+    it('includes comparison_periods when comparisonPeriods set', () => {
+      const params = generateReportURLParams({
+        from: 1,
+        to: 2,
+        comparisonPeriods: [{ from: 10, to: 20 }],
+      });
+
+      expect(params.comparison_periods).toBe(
+        JSON.stringify([{ since: 10, until: 20 }])
+      );
+    });
   });
 
   describe('parseReportURLParams', () => {
@@ -107,6 +119,7 @@ describe('reportFilterHelper', () => {
         businessHours: false,
         groupBy: null,
         range: null,
+        comparisonPeriods: [],
       });
     });
 
@@ -159,6 +172,7 @@ describe('reportFilterHelper', () => {
         businessHours: false,
         groupBy: null,
         range: null,
+        comparisonPeriods: [],
       });
     });
 
@@ -177,7 +191,22 @@ describe('reportFilterHelper', () => {
         businessHours: true,
         groupBy: 3,
         range: 'lastYear',
+        comparisonPeriods: [],
       });
+    });
+
+    it('parses only one comparison period from JSON', () => {
+      const json = JSON.stringify([
+        { since: 100, until: 200 },
+        { since: 300, until: 400 },
+      ]);
+      const result = parseReportURLParams({
+        from: '1738607400',
+        to: '1770229799',
+        comparison_periods: json,
+      });
+
+      expect(result.comparisonPeriods).toEqual([{ from: 100, to: 200 }]);
     });
 
     it('handles numeric values correctly', () => {
@@ -190,6 +219,7 @@ describe('reportFilterHelper', () => {
       expect(result.from).toBe(1738607400);
       expect(result.to).toBe(1770229799);
       expect(result.groupBy).toBe(3);
+      expect(result.comparisonPeriods).toEqual([]);
     });
   });
 

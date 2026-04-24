@@ -232,8 +232,9 @@ ru:
       agent_bot:
         error_moved_to_open: 'Диалог был открыт системой из-за ошибки бота агента.'
       status:
-        resolved: '%{user_name} завершил диалог'
-        contact_resolved: 'Разговор был закрыт %{contact_name}'
+        visitor_label: Посетитель
+        resolved: 'Чат завершён: %{user_name}.'
+        contact_resolved: 'Чат завершён: %{contact_name}.'
         open: '%{user_name} открыл заново диалог'
         pending: 'Разговор был помечен как ожидающий %{user_name}'
         snoozed: 'Разговор был помечен как отложенный %{user_name}'

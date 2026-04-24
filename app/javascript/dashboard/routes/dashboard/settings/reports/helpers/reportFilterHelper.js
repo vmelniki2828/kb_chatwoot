@@ -1,27 +1,38 @@
+export const MAX_COMPARISON_PERIODS = 1;
+
 export const generateReportURLParams = ({
   from,
   to,
   businessHours,
   groupBy,
   range,
+  comparisonPeriods,
 }) => {
   const params = {};
 
-  // Always include from/to dates
   if (from) params.from = from;
   if (to) params.to = to;
 
   if (businessHours) params.business_hours = 'true';
   if (groupBy) params.group_by = groupBy;
 
-  // Include range type (last7days, last3months, custom, etc.)
   if (range) params.range = range;
+
+  if (comparisonPeriods?.length) {
+    params.comparison_periods = JSON.stringify(
+      comparisonPeriods.slice(0, MAX_COMPARISON_PERIODS).map(p => ({
+        since: p.from,
+        until: p.to,
+      }))
+    );
+  }
 
   return params;
 };
 
 export const parseReportURLParams = query => {
-  const { from, to, business_hours, group_by, range } = query;
+  const { from, to, business_hours, group_by, range, comparison_periods } =
+    query;
 
   return {
     from: from ? Number(from) : null,
@@ -29,7 +40,27 @@ export const parseReportURLParams = query => {
     businessHours: business_hours === 'true',
     groupBy: group_by ? Number(group_by) : null,
     range: range || null,
+    comparisonPeriods: parseComparisonPeriodsQueryValue(comparison_periods),
   };
+};
+
+export const parseComparisonPeriodsQueryValue = raw => {
+  if (!raw || typeof raw !== 'string') return [];
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+
+    return parsed
+      .slice(0, MAX_COMPARISON_PERIODS)
+      .map(p => ({
+        from: Number(p.since ?? p.from),
+        to: Number(p.until ?? p.to),
+      }))
+      .filter(p => p.from > 0 && p.to > 0);
+  } catch {
+    return [];
+  }
 };
 
 // Parse filter params from URL (agent_id, inbox_id, team_id, sla_policy_id, label, rating)
@@ -62,8 +93,14 @@ export const generateCompleteURLParams = ({
   to,
   range,
   filters = {},
+  comparisonPeriods,
 }) => {
-  const dateParams = generateReportURLParams({ from, to, range });
+  const dateParams = generateReportURLParams({
+    from,
+    to,
+    range,
+    comparisonPeriods,
+  });
   const filterParams = generateFilterURLParams(filters);
   return { ...dateParams, ...filterParams };
 };

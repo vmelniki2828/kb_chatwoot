@@ -19,6 +19,10 @@ const props = defineProps({
     type: Object,
     default: () => ({}),
   },
+  showLegend: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale);
@@ -31,8 +35,10 @@ const defaultChartOptions = {
   maintainAspectRatio: false,
   legend: {
     display: false,
+    position: 'bottom',
     labels: {
       fontFamily,
+      boxWidth: 12,
     },
   },
   animation: {
@@ -68,7 +74,12 @@ const defaultChartOptions = {
 };
 
 const options = computed(() => {
-  return { ...defaultChartOptions, ...props.chartOptions };
+  const merged = { ...defaultChartOptions, ...props.chartOptions };
+  merged.legend = {
+    ...merged.legend,
+    display: props.showLegend,
+  };
+  return merged;
 });
 </script>
 

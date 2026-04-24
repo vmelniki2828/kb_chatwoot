@@ -1,6 +1,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { IFrameHelper, RNHelper } from 'widget/helpers/utils';
+import { closeWidgetSurface } from 'widget/helpers/closeWidgetSurface';
 import { popoutChatWindow } from '../helpers/popoutHelper';
 import FluentIcon from 'shared/components/FluentIcon/Index.vue';
 import configMixin from 'widget/mixins/configMixin';
@@ -64,11 +65,7 @@ export default {
       );
     },
     closeWindow() {
-      if (IFrameHelper.isIFrame()) {
-        IFrameHelper.sendMessage({ event: 'closeWindow' });
-      } else if (RNHelper.isRNWebView) {
-        RNHelper.sendMessage({ type: 'close-widget' });
-      }
+      closeWidgetSurface(this);
     },
     resolveConversation() {
       this.$store.dispatch('conversation/resolveConversation');
@@ -101,25 +98,13 @@ export default {
       <FluentIcon icon="open" size="22" class="text-n-slate-12" />
     </button>
     <button
-      class="button transparent compact close-button"
-      :class="{
-        'rn-close-button': isRNWebView,
-      }"
+      type="button"
+      class="button transparent compact shrink-0"
+      :title="$t('CLOSE_CHAT')"
+      :aria-label="$t('CLOSE_CHAT')"
       @click="closeWindow"
     >
       <FluentIcon icon="dismiss" size="24" class="text-n-slate-12" />
     </button>
   </div>
 </template>
-
-<style scoped lang="scss">
-.actions {
-  .close-button {
-    display: none;
-  }
-
-  .rn-close-button {
-    display: block !important;
-  }
-}
-</style>

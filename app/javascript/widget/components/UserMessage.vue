@@ -65,9 +65,16 @@ export default {
     },
     errorMessage() {
       const { meta } = this.message;
-      return meta
-        ? meta.error
-        : this.$t('COMPONENTS.MESSAGE_BUBBLE.ERROR_MESSAGE');
+      if (meta?.errorI18nKey) {
+        return this.$t(meta.errorI18nKey);
+      }
+      if (meta?.error) {
+        return meta.error;
+      }
+      return this.$t('COMPONENTS.MESSAGE_BUBBLE.ERROR_MESSAGE');
+    },
+    isContactBlocked() {
+      return Boolean(this.message.meta?.contactBlocked);
     },
     hasReplyTo() {
       return this.replyTo && (this.replyTo.content || this.replyTo.attachments);
@@ -165,10 +172,13 @@ export default {
         </div>
         <div
           v-if="isFailed"
-          class="flex justify-end px-4 py-2 text-n-ruby-9 align-middle"
+          class="flex flex-col items-end gap-1 px-4 py-2 text-n-ruby-9 align-middle"
         >
+          <span class="text-xs text-right max-w-full leading-snug">
+            {{ errorMessage }}
+          </span>
           <button
-            v-if="!hasAttachments"
+            v-if="!hasAttachments && !isContactBlocked"
             :title="$t('COMPONENTS.MESSAGE_BUBBLE.RETRY')"
             class="inline-flex items-center justify-center ltr:ml-2 rtl:mr-2"
             @click="retrySendMessage"

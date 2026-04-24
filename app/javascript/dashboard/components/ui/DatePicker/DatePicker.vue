@@ -37,6 +37,21 @@ import CalendarFooter from './components/CalendarFooter.vue';
 const emit = defineEmits(['dateRangeChanged']);
 const { t } = useI18n();
 
+const props = defineProps({
+  /** When `end`, panel aligns to the trigger’s trailing edge (avoids clipping on the right in comparison rows). */
+  panelAlign: {
+    type: String,
+    default: 'start',
+    validator: v => ['start', 'end'].includes(v),
+  },
+});
+
+const popoverAnchorClass = computed(() =>
+  props.panelAlign === 'end'
+    ? 'ltr:right-0 rtl:left-0'
+    : 'ltr:left-0 rtl:right-0'
+);
+
 const dateRange = defineModel('dateRange', {
   type: Array,
   default: undefined,
@@ -370,16 +385,19 @@ const closeDatePicker = () => {
     <div
       v-if="showDatePicker"
       v-on-clickaway="closeDatePicker"
-      class="flex absolute top-9 ltr:left-0 rtl:right-0 z-30 shadow-md select-none w-[880px] rounded-2xl bg-n-alpha-3 backdrop-blur-[100px] border-0 outline outline-1 outline-n-container"
+      :class="[
+        'flex absolute top-9 z-30 shadow-md select-none w-[880px] overflow-x-hidden rounded-2xl bg-n-alpha-3 backdrop-blur-[100px] border-0 outline outline-1 outline-n-container',
+        popoverAnchorClass,
+      ]"
     >
       <CalendarDateRange
         :selected-range="selectedRange"
         @set-range="setDateRange"
       />
       <div
-        class="flex flex-col w-[680px] ltr:border-l rtl:border-r border-n-strong"
+        class="flex min-w-0 flex-col w-[680px] overflow-x-hidden ltr:border-l rtl:border-r border-n-strong"
       >
-        <div class="flex justify-around h-fit">
+        <div class="flex min-w-0 justify-around h-fit">
           <!-- Calendars for Start and End Dates -->
           <div
             v-for="calendar in [START_CALENDAR, END_CALENDAR]"
@@ -405,7 +423,7 @@ const closeDatePicker = () => {
             />
             <div class="py-5 border-b border-n-strong">
               <div
-                class="flex flex-col items-center gap-2 px-5 min-w-[340px] max-h-[352px]"
+                class="flex flex-col items-center gap-2 px-5 min-w-[340px]"
                 :class="
                   calendar === START_CALENDAR &&
                   'ltr:border-r rtl:border-l border-n-strong'

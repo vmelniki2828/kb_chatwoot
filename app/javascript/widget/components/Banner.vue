@@ -11,8 +11,8 @@ export default {
     };
   },
   mounted() {
-    emitter.on(BUS_EVENTS.SHOW_ALERT, ({ message, type = 'error' }) => {
-      this.bannerMessage = message;
+    emitter.on(BUS_EVENTS.SHOW_ALERT, ({ message, messageKey, type = 'error' }) => {
+      this.bannerMessage = messageKey ? this.$t(messageKey) : message;
       this.bannerType = type;
       this.showBannerMessage = true;
       setTimeout(() => {

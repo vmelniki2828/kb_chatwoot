@@ -5,6 +5,11 @@ import {
 } from '../types';
 import { getConversationAPI } from '../../api/conversation';
 
+const normalizeConversationId = id => {
+  if (id === null || id === undefined || id === '') return '';
+  return String(id);
+};
+
 const state = {
   id: '',
   status: '',
@@ -35,12 +40,12 @@ export const actions = {
 
 export const mutations = {
   [SET_CONVERSATION_ATTRIBUTES]($state, data) {
-    $state.id = data.id;
+    $state.id = normalizeConversationId(data.id);
     $state.status = data.status;
   },
   [UPDATE_CONVERSATION_ATTRIBUTES]($state, data) {
-    if (data.id === $state.id) {
-      $state.id = data.id;
+    const incomingId = normalizeConversationId(data.id);
+    if (incomingId !== '' && incomingId === $state.id) {
       $state.status = data.status;
     }
   },

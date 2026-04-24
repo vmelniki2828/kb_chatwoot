@@ -57,15 +57,9 @@ const EmojiInput = defineAsyncComponent(
   () => import('shared/components/emoji/EmojiInput.vue')
 );
 
-const {
-  fetchSignatureFlagFromUISettings,
-  setSignatureFlagForInbox,
-  isEditorHotKeyEnabled,
-} = useUISettings();
+const { setSignatureFlagForInbox, isEditorHotKeyEnabled } = useUISettings();
 
-const sendWithSignature = computed(() => {
-  return fetchSignatureFlagFromUISettings(props.channelType);
-});
+const sendWithSignature = computed(() => false);
 
 const showTwilioContentTemplates = computed(() => {
   return props.isTwilioWhatsAppInbox && props.inboxId;
@@ -83,11 +77,7 @@ const isRegularMessageMode = computed(() => {
 
 const isVoiceInbox = computed(() => props.channelType === INBOX_TYPES.VOICE);
 
-const shouldShowSignatureButton = computed(() => {
-  return (
-    props.hasSelectedInbox && isRegularMessageMode.value && !isVoiceInbox.value
-  );
-});
+const shouldShowSignatureButton = computed(() => false);
 
 const setSignature = () => {
   if (props.messageSignature) {

@@ -1,11 +1,11 @@
 import { useMapGetter } from 'dashboard/composables/store';
 import { formatTime } from '@chatwoot/utils';
+import fromUnixTime from 'date-fns/fromUnixTime';
+import format from 'date-fns/format';
 
 /**
- * A composable function for report metrics calculations and display.
- *
- * @param {string} [accountSummaryKey='getAccountSummary'] - The key for accessing account summary data.
- * @returns {Object} An object containing utility functions for report metrics.
+ * @param {string} [accountSummaryKey='getAccountSummary']
+ * @param {string} [summarFetchingKey='getAccountSummaryFetchingStatus']
  */
 export function useReportMetrics(
   accountSummaryKey = 'getAccountSummary',
@@ -14,38 +14,63 @@ export function useReportMetrics(
   const accountSummary = useMapGetter(accountSummaryKey);
   const fetchingStatus = useMapGetter(summarFetchingKey);
 
-  /**
-   * Calculates the trend percentage for a given metric.
-   *
-   * @param {string} key - The key of the metric to calculate trend for.
-   * @returns {number} The calculated trend percentage, rounded to the nearest integer.
-   */
   const calculateTrend = key => {
-    if (!accountSummary.value.previous[key]) return 0;
-    const diff = accountSummary.value[key] - accountSummary.value.previous[key];
+    if (!hasPreviousValue(key)) return 0;
+    const diff =
+      accountSummary.value[key] - accountSummary.value.previous[key];
     return Math.round((diff / accountSummary.value.previous[key]) * 100);
   };
 
-  /**
-   * Checks if a given metric key represents an average metric type.
-   *
-   * @param {string} key - The key of the metric to check.
-   * @returns {boolean} True if the metric is an average type, false otherwise.
-   */
+  const hasPreviousValue = key => {
+    const baseline = accountSummary.value.previous?.[key];
+    return baseline !== undefined && baseline !== null && baseline !== 0;
+  };
+
+  const percentVersusBase = (key, baselineValue) => {
+    if (baselineValue === undefined || baselineValue === null) return null;
+    if (!baselineValue) return null;
+    const diff = accountSummary.value[key] - baselineValue;
+    return Math.round((diff / baselineValue) * 100);
+  };
+
+  const comparisonPeriodLabel = (since, until) => {
+    if (!since || !until) return '';
+    try {
+      return `${format(fromUnixTime(since), 'dd MMM')} – ${format(fromUnixTime(until), 'dd MMM')}`;
+    } catch {
+      return '';
+    }
+  };
+
+  const comparisonTrendDetails = key => {
+    const list = accountSummary.value.comparison_periods;
+    if (!Array.isArray(list) || !list.length) return [];
+
+    return list
+      .map((comp, index) => {
+        const pct = percentVersusBase(key, comp[key]);
+        if (pct === null) return null;
+        return {
+          percent: pct,
+          since: comp.since,
+          until: comp.until,
+          index,
+          label: comparisonPeriodLabel(comp.since, comp.until),
+        };
+      })
+      .filter(Boolean);
+  };
+
   const isAverageMetricType = key => {
     return [
       'avg_first_response_time',
       'avg_resolution_time',
+      'avg_chat_duration_with_bot',
+      'avg_chat_duration_operators_only',
       'reply_time',
     ].includes(key);
   };
 
-  /**
-   * Formats and displays a metric value based on its type.
-   *
-   * @param {string} key - The key of the metric to display.
-   * @returns {string} The formatted metric value as a string.
-   */
   const displayMetric = key => {
     if (isAverageMetricType(key)) {
       return formatTime(accountSummary.value[key]);
@@ -55,6 +80,8 @@ export function useReportMetrics(
 
   return {
     calculateTrend,
+    hasPreviousValue,
+    comparisonTrendDetails,
     isAverageMetricType,
     displayMetric,
     fetchingStatus,

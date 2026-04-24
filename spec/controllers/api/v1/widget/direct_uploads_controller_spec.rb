@@ -35,5 +35,25 @@ RSpec.describe '/api/v1/widget/direct_uploads', type: :request do
         expect(json_response['content_type']).to eq('image/png')
       end
     end
+
+    context 'when contact is blocked' do
+      before { contact.update!(blocked: true) }
+
+      it 'returns forbidden' do
+        post api_v1_widget_direct_uploads_url,
+             params: {
+               website_token: web_widget.website_token,
+               blob: {
+                 filename: 'avatar.png',
+                 byte_size: '1234',
+                 checksum: 'dsjbsdhbfif3874823mnsdbf',
+                 content_type: 'image/png'
+               }
+             },
+             headers: { 'X-Auth-Token' => token }
+
+        expect(response).to have_http_status(:forbidden)
+      end
+    end
   end
 end

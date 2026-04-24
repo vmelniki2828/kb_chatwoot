@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'tempfile'
 
 RSpec.describe 'Label API', type: :request do
   let!(:account) { create(:account) }
@@ -72,6 +73,82 @@ RSpec.describe 'Label API', type: :request do
 
         expect(response).to have_http_status(:success)
       end
+    end
+  end
+
+  describe 'POST /api/v1/accounts/{account.id}/labels/import' do
+    let(:admin) { create(:user, account: account, role: :administrator) }
+
+    it 'imports TSV rows (header row + color column)' do
+      tsv = "Name\tDescription\tColor\nsupport\tSupport team\t#00ff00\n"
+      temp = Tempfile.new(['import', '.tsv'])
+      temp.write(tsv)
+      temp.rewind
+      file = Rack::Test::UploadedFile.new(temp.path, 'text/tab-separated-values')
+
+      expect do
+        post "/api/v1/accounts/#{account.id}/labels/import",
+             params: { file: file },
+             headers: admin.create_new_auth_token
+      end.to change { account.reload.labels.count }.by(1)
+
+      expect(response).to have_http_status(:success)
+      body = response.parsed_body
+      expect(body['imported']).to eq(1)
+      expect(body['errors']).to eq([])
+
+      row = account.labels.find_by(title: 'support')
+      expect(row.description).to eq('Support team')
+      expect(row.color).to eq('#00ff00')
+    ensure
+      temp.close!
+    end
+
+    it 'imports xlsx rows (first sheet)' do
+      allow(TableImports::XlsxFirstSheetReader).to receive(:call).and_return(
+        [
+          ['Name', 'Description', 'Color'],
+          ['from_xlsx', 'Xlsx desc', '#ff0000']
+        ]
+      )
+
+      temp = Tempfile.new(['import', '.xlsx'])
+      temp.write('PK')
+      temp.rewind
+      file = Rack::Test::UploadedFile.new(
+        temp.path,
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      )
+
+      expect do
+        post "/api/v1/accounts/#{account.id}/labels/import",
+             params: { file: file },
+             headers: admin.create_new_auth_token
+      end.to change { account.reload.labels.count }.by(1)
+
+      expect(response).to have_http_status(:success)
+      row = account.labels.find_by(title: 'from_xlsx')
+      expect(row.description).to eq('Xlsx desc')
+      expect(row.color).to eq('#ff0000')
+    ensure
+      temp.close!
+    end
+
+    it 'rejects agent (import follows create policy)' do
+      agent = create(:user, account: account, role: :agent)
+      tsv = "Name\tDescription\nx\ty\n"
+      temp = Tempfile.new(['import', '.tsv'])
+      temp.write(tsv)
+      temp.rewind
+      file = Rack::Test::UploadedFile.new(temp.path, 'text/tab-separated-values')
+
+      post "/api/v1/accounts/#{account.id}/labels/import",
+           params: { file: file },
+           headers: agent.create_new_auth_token
+
+      expect(response).to have_http_status(:unauthorized)
+    ensure
+      temp.close!
     end
   end
 

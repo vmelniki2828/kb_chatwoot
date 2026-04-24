@@ -14,6 +14,8 @@ const REPORTS_KEYS = {
   OUTGOING_MESSAGES: 'outgoing_messages_count',
   FIRST_RESPONSE_TIME: 'avg_first_response_time',
   RESOLUTION_TIME: 'avg_resolution_time',
+  CHAT_DURATION_WITH_BOT: 'avg_chat_duration_with_bot',
+  CHAT_DURATION_OPERATORS_ONLY: 'avg_chat_duration_operators_only',
   RESOLUTION_COUNT: 'resolutions_count',
   REPLY_TIME: 'reply_time',
 };
@@ -32,6 +34,7 @@ export default {
       to: 0,
       groupBy: GROUP_BY_FILTER[1],
       businessHours: false,
+      comparisonPeriods: [],
     };
   },
   methods: {
@@ -53,6 +56,8 @@ export default {
         'OUTGOING_MESSAGES',
         'FIRST_RESPONSE_TIME',
         'RESOLUTION_TIME',
+        'CHAT_DURATION_WITH_BOT',
+        'CHAT_DURATION_OPERATORS_ONLY',
         'RESOLUTION_COUNT',
         'REPLY_TIME',
       ].forEach(async key => {
@@ -67,13 +72,14 @@ export default {
       });
     },
     getRequestPayload() {
-      const { from, to, groupBy, businessHours } = this;
+      const { from, to, groupBy, businessHours, comparisonPeriods } = this;
 
       return {
         from,
         to,
         groupBy: groupBy?.period,
         businessHours,
+        comparisonPeriods,
       };
     },
     downloadConversationReports() {
@@ -90,11 +96,12 @@ export default {
         businessHours: this.businessHours,
       });
     },
-    onFilterChange({ from, to, groupBy, businessHours }) {
+    onFilterChange({ from, to, groupBy, businessHours, comparisonPeriods }) {
       this.from = from;
       this.to = to;
       this.groupBy = groupBy;
       this.businessHours = businessHours;
+      this.comparisonPeriods = comparisonPeriods || [];
       this.fetchAllData();
 
       useTrack(REPORTS_EVENTS.FILTER_REPORT, {
@@ -121,6 +128,11 @@ export default {
       show-group-by
       @filter-change="onFilterChange"
     />
-    <ReportContainer :group-by="groupBy" />
+    <ReportContainer
+      :group-by="groupBy"
+      :main-from="from"
+      :main-to="to"
+      :comparison-periods="comparisonPeriods"
+    />
   </div>
 </template>

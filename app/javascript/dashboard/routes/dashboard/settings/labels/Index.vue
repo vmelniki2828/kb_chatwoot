@@ -20,6 +20,7 @@ const getters = useStoreGetters();
 const store = useStore();
 const { t } = useI18n();
 
+const fileInputRef = ref(null);
 const loading = ref({});
 const showAddPopup = ref(false);
 const showEditPopup = ref(false);
@@ -40,6 +41,33 @@ const filteredRecords = computed(() => {
 const uiFlags = computed(() => getters['labels/getUIFlags'].value);
 
 const deleteMessage = computed(() => ` ${selectedLabel.value.title}?`);
+
+const openImportPicker = () => {
+  fileInputRef.value?.click();
+};
+
+const onImportFile = async event => {
+  const input = event.target;
+  const file = input.files?.[0];
+  input.value = '';
+  if (!file) return;
+
+  try {
+    const data = await store.dispatch('labels/importLabelsTable', file);
+    const imported = data.imported ?? 0;
+    const rowErrors = data.errors || [];
+    let message = t('LABEL_MGMT.IMPORT.SUCCESS', { count: imported });
+    if (rowErrors.length) {
+      const details = rowErrors
+        .map(e => `${t('LABEL_MGMT.IMPORT.LINE_PREFIX', { line: e.line })} ${e.error}`)
+        .join('; ');
+      message = `${message} ${t('LABEL_MGMT.IMPORT.PARTIAL')} ${details}`;
+    }
+    useAlert(message);
+  } catch (error) {
+    useAlert(error?.message || t('LABEL_MGMT.IMPORT.ERROR'));
+  }
+};
 
 const openAddPopup = () => {
   showAddPopup.value = true;
@@ -119,6 +147,23 @@ onBeforeMount(() => {
           </span>
         </template>
         <template #actions>
+          <input
+            ref="fileInputRef"
+            type="file"
+            accept=".xlsx,.tsv,.csv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,text/plain,text/csv,text/tab-separated-values"
+            class="hidden"
+            @change="onImportFile"
+          />
+          <Button
+            v-tooltip.top="$t('LABEL_MGMT.IMPORT.HELP')"
+            :label="$t('LABEL_MGMT.IMPORT.BUTTON')"
+            faded
+            slate
+            size="sm"
+            :is-loading="uiFlags.importingTable"
+            :disabled="uiFlags.importingTable"
+            @click="openImportPicker"
+          />
           <Button
             :label="$t('LABEL_MGMT.HEADER_BTN_TXT')"
             size="sm"

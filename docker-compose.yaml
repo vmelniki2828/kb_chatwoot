@@ -1,68 +1,82 @@
-version: '3'
-
 services:
+  # Shell / ad-hoc tasks only — not started by `docker compose up` (avoids extra IRB holding DB).
+  # Image is Alpine: use `sh`, not `bash` (e.g. `docker compose --profile tools run --rm base sh`).
   base: &base
-    build:
-      context: .
-      dockerfile: ./docker/Dockerfile
-      args:
-        BUNDLE_WITHOUT: ''
-        EXECJS_RUNTIME: 'Node'
-        RAILS_ENV: 'development'
-        RAILS_SERVE_STATIC_FILES: 'false'
-    tty: true
-    stdin_open: true
-    image: chatwoot:development
+    image: chatwoot/chatwoot:latest  # Используем готовый образ вместо сборки
+    profiles: ["tools"]
+    command: ["sh"]
+    # Блок build: полностью удаляем или закомментируем (поставь # перед строками)
+    # build:
+    #   context: .
+    #   dockerfile: ./docker/Dockerfile
+    #   args:
+    #     BUNDLE_WITHOUT: ''
+    #     EXECJS_RUNTIME: 'Node'
+    #     RAILS_ENV: 'production' # В проде всегда используй production
+    #     RAILS_SERVE_STATIC_FILES: 'true'
     env_file: .env
 
+  # Do not inherit `profiles: [tools]` from *base — otherwise `docker compose up` skips rails/sidekiq/vite.
   rails:
     <<: *base
+    profiles: []
     build:
       context: .
       dockerfile: ./docker/dockerfiles/rails.Dockerfile
-    image: chatwoot-rails:development
+    image: chatwoot/chatwoot:latest
     volumes:
       - ./:/app:delegated
       - node_modules:/app/node_modules
       - packs:/app/public/packs
       - cache:/app/tmp/cache
-      - bundle:/usr/local/bundle
+      - bundle:/gems
+    # Do not list sidekiq/vite here: `docker compose run rails …` would start them and they
+    # open PostgreSQL connections, which breaks `db:drop` / `db:reset`. Full stack still starts
+    # with `docker compose up` (all services are defined below).
     depends_on:
       - postgres
       - redis
-      - vite
       - mailhog
-      - sidekiq
     ports:
       - 3000:3000
     env_file: .env
     environment:
+      # Nginx проксирует всё на Puma — без этого Rails не отдаёт public/vite, favicon, manifest (RoutingError).
+      - RAILS_SERVE_STATIC_FILES=true
       - VITE_DEV_SERVER_HOST=vite
-      - NODE_ENV=development
-      - RAILS_ENV=development
+      - NODE_ENV=production
+      - RAILS_ENV=production
+      - GEM_HOME=/gems
+      - GEM_PATH=/gems
+      # Vite autoBuild / bin/vite needs more than default ~2GB Node heap on large frontends (avoids OOM + missing manifest)
+      - "NODE_OPTIONS=--max-old-space-size=8192 --openssl-legacy-provider"
     entrypoint: docker/entrypoints/rails.sh
     command: ["bundle", "exec", "rails", "s", "-p", "3000", "-b", "0.0.0.0"]
 
   sidekiq:
     <<: *base
-    image: chatwoot-rails:development
+    profiles: []
+    image: chatwoot/chatwoot:latest
     volumes:
       - ./:/app:delegated
       - node_modules:/app/node_modules
       - packs:/app/public/packs
       - cache:/app/tmp/cache
-      - bundle:/usr/local/bundle
+      - bundle:/gems
     depends_on:
       - postgres
       - redis
       - mailhog
     environment:
-      - NODE_ENV=development
-      - RAILS_ENV=development
+      - NODE_ENV=production
+      - RAILS_ENV=production
+      - GEM_HOME=/gems
+      - GEM_PATH=/gems
     command: ["bundle", "exec", "sidekiq", "-C", "config/sidekiq.yml"]
 
   vite:
     <<: *base
+    profiles: []
     build:
       context: .
       dockerfile: ./docker/dockerfiles/vite.Dockerfile
@@ -72,15 +86,18 @@ services:
       - node_modules:/app/node_modules
       - packs:/app/public/packs
       - cache:/app/tmp/cache
-      - bundle:/usr/local/bundle
+      - bundle:/gems
     ports:
       - "3036:3036" # Vite dev server
     environment:
       - VITE_DEV_SERVER_HOST=0.0.0.0
-      - NODE_ENV=development
-      - RAILS_ENV=development
+      - NODE_ENV=production
+      - RAILS_ENV=production
+      - GEM_HOME=/gems
+      - GEM_PATH=/gems
+      - "NODE_OPTIONS=--max-old-space-size=8192 --openssl-legacy-provider"
     entrypoint: docker/entrypoints/vite.sh
-    command: bin/vite dev
+    command: bin/vite build --clear --mode=production
 
   postgres:
     image: pgvector/pgvector:pg16
@@ -89,10 +106,12 @@ services:
       - '5432:5432'
     volumes:
       - postgres:/data/postgres
+    env_file: .env
     environment:
       - POSTGRES_DB=chatwoot
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=
+      # Must match POSTGRES_PASSWORD in .env so Rails and init use the same secret
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-chatwoot}
 
   redis:
     image: redis:alpine

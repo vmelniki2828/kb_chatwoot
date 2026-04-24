@@ -1,5 +1,8 @@
 class Api::V1::Widget::ConversationsController < Api::V1::Widget::BaseController
   include Events::Types
+  before_action :ensure_contact_not_blocked!, only: %i[
+    create update_last_seen transcript toggle_typing toggle_status set_custom_attributes destroy_custom_attributes
+  ]
   before_action :render_not_found_if_empty, only: [:toggle_typing, :toggle_status, :set_custom_attributes, :destroy_custom_attributes]
 
   def index
@@ -14,6 +17,9 @@ class Api::V1::Widget::ConversationsController < Api::V1::Widget::BaseController
       # TODO: Temporary fix for message type cast issue, since message_type is returning as string instead of integer
       conversation.reload
     end
+    # Greeting / template messages are created in after_commit on the incoming message; reload so the
+    # create payload includes them without requiring the widget to refresh or rely only on ActionCable.
+    @conversation.reload
   end
 
   def process_update_contact

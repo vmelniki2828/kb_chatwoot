@@ -36,14 +36,25 @@ module Api::V2::Accounts::ReportsHelper
   end
 
   def generate_labels_report
+    report_params = build_params({})
+    ids = label_ids_from_csv_params
+    report_params[:label_ids] = ids if ids.present?
+
     reports = V2::Reports::LabelSummaryBuilder.new(
       account: Current.account,
-      params: build_params({})
+      params: report_params
     ).build
 
     reports.map do |report|
       [report[:name]] + generate_readable_report_metrics(report)
     end
+  end
+
+  def label_ids_from_csv_params
+    raw = params[:label_ids]
+    return nil if raw.blank?
+
+    Array(raw).map(&:to_i).uniq.select(&:positive?)
   end
 
   def generate_conversations_report

@@ -15,6 +15,10 @@ class LabelPolicy < ApplicationPolicy
     @account_user.administrator?
   end
 
+  def import?
+    create?
+  end
+
   def destroy?
     @account_user.administrator?
   end

@@ -17,6 +17,7 @@ module WebsiteTokenHelper
     @contact = @contact_inbox&.contact
     raise ActiveRecord::RecordNotFound unless @contact
 
+    @contact.clear_expired_messaging_block!
     Current.contact = @contact
   end
 

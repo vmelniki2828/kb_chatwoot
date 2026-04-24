@@ -8,6 +8,7 @@ import Button from 'dashboard/components-next/button/Button.vue';
 import Breadcrumb from 'dashboard/components-next/breadcrumb/Breadcrumb.vue';
 import ComposeConversation from 'dashboard/components-next/NewConversation/ComposeConversation.vue';
 import VoiceCallButton from 'dashboard/components-next/Contacts/VoiceCallButton.vue';
+import DropdownMenu from 'dashboard/components-next/dropdown-menu/DropdownMenu.vue';
 
 const props = defineProps({
   selectedContact: {
@@ -20,13 +21,14 @@ const props = defineProps({
   },
 });
 
-const emit = defineEmits(['goToContactsList', 'toggleBlock']);
+const emit = defineEmits(['goToContactsList', 'blockContact', 'unblockContact']);
 
 const { t } = useI18n();
 const slots = useSlots();
 const route = useRoute();
 
 const isContactSidebarOpen = ref(false);
+const showBlockMenu = ref(false);
 
 const contactId = computed(() => route.params.contactId);
 
@@ -50,15 +52,55 @@ const breadcrumbItems = computed(() => {
 });
 
 const isContactBlocked = computed(() => {
-  return props.selectedContact?.blocked;
+  const c = props.selectedContact;
+  if (!c) return false;
+  return (
+    c.messaging_block_active ??
+    c.messagingBlockActive ??
+    c.blocked ??
+    false
+  );
 });
+
+const blockDurationMenuItems = computed(() => [
+  {
+    action: 'block',
+    value: 1,
+    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_1_DAY'),
+  },
+  {
+    action: 'block',
+    value: 3,
+    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_3_DAYS'),
+  },
+  {
+    action: 'block',
+    value: 7,
+    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_7_DAYS'),
+  },
+  {
+    action: 'block',
+    value: 30,
+    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_30_DAYS'),
+  },
+  {
+    action: 'block',
+    value: 0,
+    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_PERMANENT'),
+  },
+]);
 
 const handleBreadcrumbClick = () => {
   emit('goToContactsList');
 };
 
-const toggleBlock = () => {
-  emit('toggleBlock', isContactBlocked.value);
+const unblockContact = () => {
+  emit('unblockContact');
+};
+
+const onBlockDuration = ({ value }) => {
+  showBlockMenu.value = false;
+  emit('blockContact', { blockForDays: value });
 };
 
 const handleConversationSidebarToggle = () => {
@@ -89,17 +131,36 @@ const closeMobileSidebar = () => {
             />
             <div class="flex items-center gap-2">
               <Button
-                :label="
-                  !isContactBlocked
-                    ? $t('CONTACTS_LAYOUT.HEADER.BLOCK_CONTACT')
-                    : $t('CONTACTS_LAYOUT.HEADER.UNBLOCK_CONTACT')
-                "
+                v-if="isContactBlocked"
+                :label="$t('CONTACTS_LAYOUT.HEADER.UNBLOCK_CONTACT')"
                 size="sm"
                 slate
                 :is-loading="isUpdating"
                 :disabled="isUpdating"
-                @click="toggleBlock"
+                @click="unblockContact"
               />
+              <div
+                v-else
+                v-on-click-outside="() => (showBlockMenu = false)"
+                class="relative"
+              >
+                <Button
+                  :label="$t('CONTACTS_LAYOUT.HEADER.BLOCK_CONTACT_MENU')"
+                  size="sm"
+                  slate
+                  trailing-icon
+                  icon="i-lucide-chevron-down"
+                  :is-loading="isUpdating"
+                  :disabled="isUpdating"
+                  @click="showBlockMenu = !showBlockMenu"
+                />
+                <DropdownMenu
+                  v-if="showBlockMenu"
+                  :menu-items="blockDurationMenuItems"
+                  class="z-[100] w-48 mt-1 ltr:right-0 rtl:left-0 top-full"
+                  @action="onBlockDuration"
+                />
+              </div>
               <VoiceCallButton
                 :phone="selectedContact?.phoneNumber"
                 :contact-id="contactId"

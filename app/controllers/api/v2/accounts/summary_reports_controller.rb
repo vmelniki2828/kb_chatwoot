@@ -36,6 +36,14 @@ class Api::V2::Accounts::SummaryReportsController < Api::V1::Accounts::BaseContr
       until: permitted_params[:until],
       business_hours: ActiveModel::Type::Boolean.new.cast(permitted_params[:business_hours])
     }
+    @builder_params[:label_ids] = normalize_label_ids if action_name == 'label'
+  end
+
+  def normalize_label_ids
+    raw = permitted_params[:label_ids]
+    return nil if raw.blank?
+
+    Array(raw).map(&:to_i).uniq.select(&:positive?)
   end
 
   def render_report_with(builder_class)
@@ -44,7 +52,7 @@ class Api::V2::Accounts::SummaryReportsController < Api::V1::Accounts::BaseContr
   end
 
   def permitted_params
-    params.permit(:since, :until, :business_hours)
+    params.permit(:since, :until, :business_hours, label_ids: [])
   end
 
   def date_range_too_long?

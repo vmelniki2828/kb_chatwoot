@@ -46,6 +46,8 @@ gem 'gmail_xoauth'
 gem 'net-smtp',  '~> 0.3.4'
 # Prevent CSV injection
 gem 'csv-safe'
+# Excel (.xlsx) is a zip of XML; used by canned responses / labels table import (see TableImports::XlsxFirstSheetReader)
+gem 'rubyzip', require: 'zip'
 
 ##-- for active storage --##
 gem 'aws-sdk-s3', require: false

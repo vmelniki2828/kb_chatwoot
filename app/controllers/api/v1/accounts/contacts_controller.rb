@@ -12,7 +12,7 @@ class Api::V1::Accounts::ContactsController < Api::V1::Accounts::BaseController
   RESULTS_PER_PAGE = 15
 
   before_action :check_authorization
-  before_action :set_current_page, only: [:index, :active, :search, :filter]
+  before_action :set_current_page, only: [:index, :active, :blocked, :search, :filter]
   before_action :fetch_contact, only: [:show, :update, :destroy, :avatar, :contactable_inboxes, :destroy_custom_attributes]
   before_action :set_include_contact_inboxes, only: [:index, :active, :search, :filter, :show, :update]
 
@@ -57,6 +57,12 @@ class Api::V1::Accounts::ContactsController < Api::V1::Accounts::BaseController
     @contacts_count = @contacts.total_count
   end
 
+  def blocked
+    contacts = Current.account.contacts.where(blocked: true)
+    @contacts = fetch_contacts(contacts)
+    @contacts_count = @contacts.total_count
+  end
+
   def show; end
 
   def filter
@@ -93,6 +99,7 @@ class Api::V1::Accounts::ContactsController < Api::V1::Accounts::BaseController
 
   def update
     @contact.assign_attributes(contact_update_params)
+    sync_contact_blocked_until_from_params
     @contact.save!
     process_avatar_from_url
   end
@@ -171,7 +178,8 @@ class Api::V1::Accounts::ContactsController < Api::V1::Accounts::BaseController
   end
 
   def permitted_params
-    params.permit(:name, :identifier, :email, :phone_number, :avatar, :blocked, :avatar_url, additional_attributes: {}, custom_attributes: {})
+    params.permit(:name, :identifier, :email, :phone_number, :avatar, :blocked, :block_for_days, :avatar_url,
+                  additional_attributes: {}, custom_attributes: {})
   end
 
   def contact_custom_attributes
@@ -187,9 +195,24 @@ class Api::V1::Accounts::ContactsController < Api::V1::Accounts::BaseController
   end
 
   def contact_update_params
-    permitted_params.except(:custom_attributes, :avatar_url)
+    permitted_params.except(:custom_attributes, :avatar_url, :block_for_days)
                     .merge({ custom_attributes: contact_custom_attributes })
                     .merge({ additional_attributes: contact_additional_attributes })
+  end
+
+  def sync_contact_blocked_until_from_params
+    unless @contact.blocked?
+      @contact.blocked_until = nil
+      return
+    end
+    return unless permitted_params.key?(:block_for_days)
+
+    days = permitted_params[:block_for_days].to_i
+    @contact.blocked_until = if [1, 3, 7, 30].include?(days)
+                               days.days.from_now
+                             else
+                               nil
+                             end
   end
 
   def set_include_contact_inboxes

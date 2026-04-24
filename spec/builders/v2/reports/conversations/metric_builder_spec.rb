@@ -23,6 +23,8 @@ RSpec.describe V2::Reports::Conversations::MetricBuilder, type: :model do
           outgoing_messages_count: 42,
           avg_first_response_time: 42,
           avg_resolution_time: 42,
+          avg_chat_duration_with_bot: 42,
+          avg_chat_duration_operators_only: 42,
           resolutions_count: 42,
           reply_time: 42
         }

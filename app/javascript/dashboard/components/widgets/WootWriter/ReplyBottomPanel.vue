@@ -5,7 +5,6 @@ import { useKeyboardEvents } from 'dashboard/composables/useKeyboardEvents';
 import FileUpload from 'vue-upload-component';
 import * as ActiveStorage from 'activestorage';
 import inboxMixin from 'shared/mixins/inboxMixin';
-import { FEATURE_FLAGS } from 'dashboard/featureFlags';
 import { getAllowedFileTypesByChannel } from '@chatwoot/utils';
 import { ALLOWED_FILE_TYPES } from 'shared/constants/messages';
 import VideoCallButton from '../VideoCallButton.vue';
@@ -174,8 +173,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      accountId: 'getCurrentAccountId',
-      isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
       uiFlags: 'integrations/getUIFlags',
     }),
     wrapClass() {
@@ -188,26 +185,10 @@ export default {
       return this.showFileUpload || this.isNote;
     },
     showAudioRecorderButton() {
-      if (this.isEditorDisabled) return false;
-      if (this.isALineChannel || this.isATiktokChannel) {
-        return false;
-      }
-      // Disable audio recorder for safari browser as recording is not supported
-      // const isSafari = /^((?!chrome|android|crios|fxios).)*safari/i.test(
-      //   navigator.userAgent
-      // );
-
-      return (
-        this.isFeatureEnabledonAccount(
-          this.accountId,
-          FEATURE_FLAGS.VOICE_RECORDER
-        ) && this.showAudioRecorder
-        // !isSafari
-      );
+      return false;
     },
     showAudioPlayStopButton() {
-      if (this.isEditorDisabled) return false;
-      return this.showAudioRecorder && this.isRecordingAudio;
+      return false;
     },
     isInstagramDM() {
       return this.conversationType === 'instagram_direct_message';
@@ -246,8 +227,7 @@ export default {
       }
     },
     showMessageSignatureButton() {
-      if (this.isEditorDisabled) return false;
-      return !this.isOnPrivateNote;
+      return false;
     },
     sendWithSignature() {
       // channelType is sourced from inboxMixin

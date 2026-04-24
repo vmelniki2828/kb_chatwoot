@@ -20,14 +20,11 @@ done
 
 echo "Database ready to accept connections."
 
-#install missing gems for local dev as we are using base image compiled for production
-bundle install
-
-BUNDLE="bundle check"
-
-until $BUNDLE
+# Install/check loop: if native gems fail once, retry instead of spinning forever on `bundle check`.
+until bundle check
 do
-  sleep 2;
+  bundle install
+  sleep 2
 done
 
 # Execute the main process of the container

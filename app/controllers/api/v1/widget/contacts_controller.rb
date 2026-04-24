@@ -1,6 +1,7 @@
 class Api::V1::Widget::ContactsController < Api::V1::Widget::BaseController
   include WidgetHelper
 
+  before_action :ensure_contact_not_blocked!, only: %i[update set_user destroy_custom_attributes]
   before_action :validate_hmac, only: [:set_user]
 
   def show; end

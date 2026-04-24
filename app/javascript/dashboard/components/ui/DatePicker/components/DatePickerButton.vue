@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import { dateRanges } from '../helpers/DatePickerHelper';
+import { dateRanges, DATE_RANGE_TYPES } from '../helpers/DatePickerHelper';
 import { format, isSameYear, isValid } from 'date-fns';
 import Icon from 'dashboard/components-next/icon/Icon.vue';
 import NextButton from 'dashboard/components-next/button/Button.vue';
@@ -51,6 +51,13 @@ const activeDateRange = computed(
   () => dateRanges.find(range => range.value === props.selectedRange).label
 );
 
+// Custom range: show only formatted dates, not the preset label (avoids redundant copy).
+const showPresetLabel = computed(
+  () =>
+    Boolean(props.navigationLabel) ||
+    props.selectedRange !== DATE_RANGE_TYPES.CUSTOM_RANGE
+);
+
 const openDatePicker = () => {
   emit('open');
 };
@@ -66,7 +73,10 @@ const openDatePicker = () => {
         icon="i-lucide-calendar-range"
         class="text-n-slate-11 size-3.5 flex-shrink-0"
       />
-      <span class="text-sm font-medium text-n-slate-12 truncate">
+      <span
+        v-if="showPresetLabel"
+        class="text-sm font-medium text-n-slate-12 truncate"
+      >
         {{ navigationLabel || $t(activeDateRange) }}
       </span>
       <span class="text-sm font-medium text-n-slate-11 truncate">

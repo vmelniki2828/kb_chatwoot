@@ -71,6 +71,17 @@ RSpec.describe 'Conversation Label API', type: :request do
         expect(response.body).to include('label3')
         expect(response.body).to include('label4')
       end
+
+      it 'creates account Label records when names are new' do
+        expect do
+          post api_v1_account_conversation_labels_url(account_id: account.id, conversation_id: conversation.display_id),
+               params: { labels: %w[auto_created_label] },
+               headers: agent.create_new_auth_token,
+               as: :json
+        end.to change { account.reload.labels.where(title: 'auto_created_label').count }.from(0).to(1)
+
+        expect(response).to have_http_status(:success)
+      end
     end
   end
 end

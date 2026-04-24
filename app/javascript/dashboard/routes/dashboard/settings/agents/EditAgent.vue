@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
+import { useRoute } from 'vue-router';
 import { useVuelidate } from '@vuelidate/core';
 import { required, minLength } from '@vuelidate/validators';
 import { useStore, useMapGetter } from 'dashboard/composables/store';
@@ -38,6 +39,10 @@ const props = defineProps({
     type: Number,
     default: null,
   },
+  maxOpenConversations: {
+    type: Number,
+    default: null,
+  },
 });
 
 const emit = defineEmits(['close']);
@@ -45,12 +50,24 @@ const emit = defineEmits(['close']);
 const { AVAILABILITY_STATUS_KEYS } = wootConstants;
 
 const store = useStore();
+const route = useRoute();
 const { t } = useI18n();
 
 const agentName = ref(props.name);
 const agentAvailability = ref(props.availability);
 const selectedRoleId = ref(props.customRoleId || props.type);
 const agentCredentials = ref({ email: props.email });
+const maxOpenConversationsInput = ref(
+  props.maxOpenConversations != null ? String(props.maxOpenConversations) : ''
+);
+
+const showMaxOpenConversations = computed(() => {
+  const accountId = Number(route.params.accountId);
+  return store.getters['accounts/isFeatureEnabledonAccount'](
+    accountId,
+    'advanced_assignment'
+  );
+});
 
 const rules = {
   agentName: { required, minLength: minLength(1) },
@@ -135,6 +152,16 @@ const editAgent = async () => {
       payload.custom_role_id = null;
     }
 
+    if (showMaxOpenConversations.value) {
+      const raw = maxOpenConversationsInput.value;
+      if (raw === '' || raw === null || raw === undefined) {
+        payload.max_open_conversations = null;
+      } else {
+        const n = parseInt(raw, 10);
+        payload.max_open_conversations = Number.isNaN(n) ? null : n;
+      }
+    }
+
     await store.dispatch('agents/update', payload);
     useAlert(t('AGENT_MGMT.EDIT.API.SUCCESS_MESSAGE'));
     emit('close');
@@ -202,6 +229,25 @@ const resetPassword = async () => {
             {{ $t('AGENT_MGMT.EDIT.FORM.AGENT_AVAILABILITY.ERROR') }}
           </span>
         </label>
+      </div>
+
+      <div v-if="showMaxOpenConversations" class="w-full">
+        <label>
+          {{ $t('AGENT_MGMT.EDIT.FORM.MAX_OPEN_CONVERSATIONS.LABEL') }}
+          <input
+            v-model="maxOpenConversationsInput"
+            type="number"
+            min="1"
+            step="1"
+            :placeholder="
+              $t('AGENT_MGMT.EDIT.FORM.MAX_OPEN_CONVERSATIONS.PLACEHOLDER')
+            "
+            :title="$t('AGENT_MGMT.EDIT.FORM.MAX_OPEN_CONVERSATIONS.HELP')"
+          />
+        </label>
+        <p class="text-xs text-n-slate-11 mt-1">
+          {{ $t('AGENT_MGMT.EDIT.FORM.MAX_OPEN_CONVERSATIONS.HELP') }}
+        </p>
       </div>
 
       <div class="flex flex-row justify-start w-full gap-2 px-0 py-2">

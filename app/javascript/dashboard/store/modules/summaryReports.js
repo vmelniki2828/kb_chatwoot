@@ -6,21 +6,25 @@ const typeMap = {
     flagKey: 'isFetchingInboxSummaryReports',
     apiMethod: 'getInboxReports',
     mutationKey: 'setInboxSummaryReport',
+    comparisonsKey: 'setInboxSummaryComparisons',
   },
   agent: {
     flagKey: 'isFetchingAgentSummaryReports',
     apiMethod: 'getAgentReports',
     mutationKey: 'setAgentSummaryReport',
+    comparisonsKey: 'setAgentSummaryComparisons',
   },
   team: {
     flagKey: 'isFetchingTeamSummaryReports',
     apiMethod: 'getTeamReports',
     mutationKey: 'setTeamSummaryReport',
+    comparisonsKey: 'setTeamSummaryComparisons',
   },
   label: {
     flagKey: 'isFetchingLabelSummaryReports',
     apiMethod: 'getLabelReports',
     mutationKey: 'setLabelSummaryReport',
+    comparisonsKey: 'setLabelSummaryComparisons',
   },
 };
 
@@ -33,6 +37,30 @@ async function fetchSummaryReports(type, params, { commit }) {
     commit('setUIFlags', { [config.flagKey]: true });
     const response = await SummaryReportsAPI[config.apiMethod](params);
     commit(config.mutationKey, camelcaseKeys(response.data, { deep: true }));
+
+    const periods = params.comparisonPeriods || [];
+    if (periods.length) {
+      const comparisonResponses = await Promise.all(
+        periods.map(p =>
+          SummaryReportsAPI[config.apiMethod]({
+            since: p.from,
+            until: p.to,
+            businessHours: params.businessHours,
+            labelIds: params.labelIds,
+          })
+        )
+      );
+      commit(
+        config.comparisonsKey,
+        comparisonResponses.map((r, i) => ({
+          from: periods[i].from,
+          to: periods[i].to,
+          data: camelcaseKeys(r.data, { deep: true }),
+        }))
+      );
+    } else {
+      commit(config.comparisonsKey, []);
+    }
   } catch (e) {
     error = e;
   } finally {
@@ -46,6 +74,10 @@ export const initialState = {
   agentSummaryReports: [],
   teamSummaryReports: [],
   labelSummaryReports: [],
+  inboxSummaryComparisons: [],
+  agentSummaryComparisons: [],
+  teamSummaryComparisons: [],
+  labelSummaryComparisons: [],
   uiFlags: {
     isFetchingInboxSummaryReports: false,
     isFetchingAgentSummaryReports: false,
@@ -66,6 +98,18 @@ export const getters = {
   },
   getLabelSummaryReports(state) {
     return state.labelSummaryReports;
+  },
+  getInboxSummaryComparisons(state) {
+    return state.inboxSummaryComparisons;
+  },
+  getAgentSummaryComparisons(state) {
+    return state.agentSummaryComparisons;
+  },
+  getTeamSummaryComparisons(state) {
+    return state.teamSummaryComparisons;
+  },
+  getLabelSummaryComparisons(state) {
+    return state.labelSummaryComparisons;
   },
   getUIFlags(state) {
     return state.uiFlags;
@@ -102,6 +146,18 @@ export const mutations = {
   },
   setLabelSummaryReport(state, data) {
     state.labelSummaryReports = data;
+  },
+  setInboxSummaryComparisons(state, data) {
+    state.inboxSummaryComparisons = data;
+  },
+  setAgentSummaryComparisons(state, data) {
+    state.agentSummaryComparisons = data;
+  },
+  setTeamSummaryComparisons(state, data) {
+    state.teamSummaryComparisons = data;
+  },
+  setLabelSummaryComparisons(state, data) {
+    state.labelSummaryComparisons = data;
   },
   setUIFlags(state, uiFlag) {
     state.uiFlags = { ...state.uiFlags, ...uiFlag };

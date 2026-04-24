@@ -102,7 +102,11 @@ Rails.application.routes.draw do
               post :reauthorize_page
             end
           end
-          resources :canned_responses, only: [:index, :create, :update, :destroy]
+          resources :canned_responses, only: [:index, :create, :update, :destroy] do
+            collection do
+              post :import
+            end
+          end
           resources :automation_rules, only: [:index, :create, :show, :update, :destroy] do
             post :clone
           end
@@ -174,6 +178,7 @@ Rails.application.routes.draw do
           resources :contacts, only: [:index, :show, :update, :create, :destroy] do
             collection do
               get :active
+              get :blocked
               get :search
               post :filter
               post :import
@@ -236,7 +241,11 @@ Rails.application.routes.draw do
               patch :update
             end
           end
-          resources :labels, only: [:index, :show, :create, :update, :destroy]
+          resources :labels, only: [:index, :show, :create, :update, :destroy] do
+            collection do
+              post :import
+            end
+          end
 
           resources :notifications, only: [:index, :update, :destroy] do
             collection do
@@ -452,6 +461,7 @@ Rails.application.routes.draw do
               get :inbox_label_matrix
               get :first_response_time_distribution
               get :outgoing_messages_count
+              get :agent_activity
             end
           end
           resource :year_in_review, only: [:show]

@@ -62,6 +62,22 @@ RSpec.describe '/api/v1/widget/conversations/toggle_typing', type: :request do
   end
 
   describe 'POST /api/v1/widget/conversations' do
+    context 'when contact is blocked' do
+      before { contact.update!(blocked: true) }
+
+      it 'returns forbidden' do
+        expect do
+          post '/api/v1/widget/conversations',
+               headers: { 'X-Auth-Token' => token },
+               params: conversation_params,
+               as: :json
+        end.not_to change(Conversation, :count)
+
+        expect(response).to have_http_status(:forbidden)
+        expect(response.parsed_body['error']).to eq(I18n.t('errors.widget.contact_blocked'))
+      end
+    end
+
     it 'creates a conversation with correct details' do
       post '/api/v1/widget/conversations',
            headers: { 'X-Auth-Token' => token },
@@ -234,15 +250,13 @@ RSpec.describe '/api/v1/widget/conversations/toggle_typing', type: :request do
 
         expect(response).to have_http_status(:success)
         expect(conversation.reload.resolved?).to be true
-        expect(Conversations::ActivityMessageJob).to have_been_enqueued.at_least(:once).with(
-          conversation,
-          {
-            account_id: conversation.account_id,
-            inbox_id: conversation.inbox_id,
-            message_type: :activity,
-            content: "Conversation was resolved by #{contact.name}"
-          }
-        )
+        expect(Conversations::ActivityMessageJob).not_to have_been_enqueued
+        contact_label = contact.name.to_s.strip.presence ||
+                        I18n.t('conversations.activity.status.visitor_label')
+        expected_content = I18n.t('conversations.activity.status.contact_resolved', contact_name: contact_label)
+        activity = conversation.messages.activity.last
+        expect(activity).to be_present
+        expect(activity.content).to eq(expected_content)
       end
     end
 

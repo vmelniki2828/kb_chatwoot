@@ -84,6 +84,23 @@ RSpec.describe Enterprise::AutoAssignment::CapacityService, type: :service do
       expect(capacity_service.agent_has_capacity?(agent_without_capacity, inbox)).to be true
       expect(capacity_service.agent_has_capacity?(agent_at_capacity, inbox)).to be false
     end
+
+    it 'respects per-operator max across all inboxes in the account' do
+      other_inbox = create(:inbox, account: account, enable_auto_assignment: true)
+      operator = create(:user, account: account, role: :agent, availability: :online)
+      operator.account_users.find_by(account: account).update!(
+        agent_capacity_policy: nil,
+        max_open_conversations: 2
+      )
+      create(:inbox_member, inbox: inbox, user: operator)
+      create(:inbox_member, inbox: other_inbox, user: operator)
+
+      create(:conversation, account: account, inbox: inbox, assignee: operator, status: :open)
+      create(:conversation, account: account, inbox: other_inbox, assignee: operator, status: :open)
+
+      capacity_service = described_class.new
+      expect(capacity_service.agent_has_capacity?(operator, inbox)).to be false
+    end
   end
 
   describe 'assignment with capacity' do

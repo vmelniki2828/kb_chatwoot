@@ -13,19 +13,38 @@ import {
 import { ON_CONVERSATION_CREATED } from 'widget/constants/widgetBusEvents';
 import { createTemporaryMessage, getNonDeletedMessages } from './helpers';
 import { emitter } from 'shared/helpers/mitt';
+import { BUS_EVENTS } from 'shared/constants/busEvents';
+
+const CONTACT_BLOCKED_I18N_KEY =
+  'COMPONENTS.MESSAGE_BUBBLE.CONTACT_BLOCKED';
+
+const isContactBlockedResponse = error => error?.response?.status === 403;
+
+const failedMessageMeta = (meta, blocked) => ({
+  ...meta,
+  contactBlocked: blocked,
+  errorI18nKey: blocked ? CONTACT_BLOCKED_I18N_KEY : undefined,
+  error: '',
+});
+
 export const actions = {
   createConversation: async ({ commit, dispatch }, params) => {
     commit('setConversationUIFlag', { isCreating: true });
     try {
       const { data } = await createConversationAPI(params);
-      const { messages } = data;
-      const [message = {}] = messages;
-      commit('pushMessageToConversation', message);
+      const { messages = [] } = data;
+      messages.forEach(message => {
+        commit('pushMessageToConversation', message);
+      });
       dispatch('conversationAttributes/getAttributes', {}, { root: true });
       // Emit event to notify that conversation is created and show the chat screen
       emitter.emit(ON_CONVERSATION_CREATED);
     } catch (error) {
-      // Ignore error
+      if (isContactBlockedResponse(error)) {
+        emitter.emit(BUS_EVENTS.SHOW_ALERT, {
+          messageKey: CONTACT_BLOCKED_I18N_KEY,
+        });
+      }
     } finally {
       commit('setConversationUIFlag', { isCreating: false });
     }
@@ -47,10 +66,11 @@ export const actions = {
       // commit('deleteMessage', message.id);
       commit('pushMessageToConversation', { ...data, status: 'sent' });
     } catch (error) {
+      const blocked = isContactBlockedResponse(error);
       commit('pushMessageToConversation', { ...message, status: 'failed' });
       commit('updateMessageMeta', {
         id,
-        meta: { ...meta, error: '' },
+        meta: failedMessageMeta(meta, blocked),
       });
     }
   },
@@ -83,12 +103,12 @@ export const actions = {
       });
       commit('pushMessageToConversation', { ...data, status: 'sent' });
     } catch (error) {
+      const blocked = isContactBlockedResponse(error);
       commit('pushMessageToConversation', { ...tempMessage, status: 'failed' });
       commit('updateMessageMeta', {
         id: tempMessage.id,
-        meta: { ...meta, error: '' },
+        meta: failedMessageMeta(meta, blocked),
       });
-      // Show error
     }
   },
   fetchOldConversations: async ({ commit }, { before } = {}) => {
@@ -176,8 +196,16 @@ export const actions = {
     }
   },
 
-  resolveConversation: async () => {
-    await toggleStatus();
+  resolveConversation: async ({ dispatch }) => {
+    try {
+      await toggleStatus();
+      await dispatch('conversationAttributes/getAttributes', {}, { root: true });
+      await dispatch('conversation/syncLatestMessages');
+    } catch {
+      emitter.emit(BUS_EVENTS.SHOW_ALERT, {
+        messageKey: 'END_CONVERSATION_ERROR',
+      });
+    }
   },
 
   setCustomAttributes: async (_, customAttributes = {}) => {

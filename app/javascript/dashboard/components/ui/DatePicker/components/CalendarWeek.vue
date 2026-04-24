@@ -122,7 +122,7 @@ const dayClasses = day => ({
 </script>
 
 <template>
-  <div class="flex flex-col w-full gap-2 max-h-[312px]">
+  <div class="flex w-full min-w-0 flex-col gap-2">
     <CalendarAction
       :view-mode="MONTH"
       :calendar-type="calendarType"
@@ -144,7 +144,7 @@ const dayClasses = day => ({
     <div
       v-for="week in weeks(calendarType)"
       :key="week[0].getTime()"
-      class="grid max-w-md grid-cols-7 gap-2 mx-auto overflow-hidden rounded-lg"
+      class="grid w-full max-w-full grid-cols-7 gap-2 mx-auto overflow-hidden rounded-lg"
     >
       <div
         v-for="day in week"

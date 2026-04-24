@@ -198,7 +198,7 @@ class ActionCableListener < BaseListener
 
   def contact_tokens(contact_inbox, message)
     return [] if message.private?
-    return [] if message.activity?
+    # Activity messages (e.g. conversation resolved) must reach the web widget subscriber.
     return [] if contact_inbox.nil?
 
     contact_inbox_tokens(contact_inbox)

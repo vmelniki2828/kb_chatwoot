@@ -200,6 +200,12 @@ export const IFrameHelper = {
         Cookies.remove(getUserCookieName());
       }
     },
+    messagingBlocked: () => {
+      const holder = document.getElementById('cw-widget-holder');
+      if (holder?.parentNode) {
+        holder.parentNode.removeChild(holder);
+      }
+    },
     onEvent({ eventIdentifier: eventName, data }) {
       dispatchWindowEvent({ eventName, data });
     },

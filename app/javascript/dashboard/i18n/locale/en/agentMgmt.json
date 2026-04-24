@@ -82,6 +82,11 @@
           "PLACEHOLDER": "Please select an availability status",
           "ERROR": "Availability is required"
         },
+        "MAX_OPEN_CONVERSATIONS": {
+          "LABEL": "Max open conversations (per agent)",
+          "HELP": "Counts all open conversations assigned to this agent across every inbox. Leave empty to use inbox-based capacity rules only.",
+          "PLACEHOLDER": "No per-agent limit"
+        },
         "SUBMIT": "Edit Agent"
       },
       "BUTTON_TEXT": "Edit",

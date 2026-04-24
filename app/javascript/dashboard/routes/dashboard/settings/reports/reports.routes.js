@@ -21,6 +21,7 @@ import TeamReports from './TeamReports.vue';
 
 import CsatResponses from './CsatResponses.vue';
 import BotReports from './BotReports.vue';
+import AgentActivityReports from './AgentActivityReports.vue';
 import LiveReports from './LiveReports.vue';
 import SLAReports from './SLAReports.vue';
 
@@ -167,6 +168,12 @@ export default {
           name: 'bot_reports',
           meta,
           component: BotReports,
+        },
+        {
+          path: 'agent_activity',
+          name: 'agent_activity_reports',
+          meta,
+          component: AgentActivityReports,
         },
       ],
     },

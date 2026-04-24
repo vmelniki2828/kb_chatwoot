@@ -1,6 +1,18 @@
 module Enterprise::AutoAssignment::AssignmentService
   private
 
+  def perform_for_conversation(conversation)
+    return false unless assignable?(conversation)
+
+    agent = find_available_agent(conversation)
+    if agent.nil? && capacity_filtering_enabled?
+      AutoAssignment::QueueBusyMessageService.new(conversation: conversation).perform
+    end
+    return false unless agent
+
+    assign_conversation(conversation, agent)
+  end
+
   # Override assignment config to use policy if available
   def assignment_config
     return super unless policy
@@ -35,8 +47,11 @@ module Enterprise::AutoAssignment::AssignmentService
   end
 
   def capacity_filtering_enabled?
-    account.feature_enabled?('advanced_assignment') &&
-      account.account_users.joins(:agent_capacity_policy).exists?
+    return false unless account.feature_enabled?('advanced_assignment')
+
+    account.account_users.joins(:agent_capacity_policy).exists? ||
+      account.account_users.where.not(max_open_conversations: nil)
+        .where('account_users.max_open_conversations > ?', 0).exists?
   end
 
   def round_robin_selector

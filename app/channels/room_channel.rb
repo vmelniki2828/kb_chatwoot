@@ -20,13 +20,13 @@ class RoomChannel < ApplicationCable::Channel
     return if @current_account.blank?
 
     data = { account_id: @current_account.id, users: ::OnlineStatusTracker.get_available_users(@current_account.id) }
-    data[:contacts] = ::OnlineStatusTracker.get_available_contacts(@current_account.id) if @current_user.is_a? User
+    data[:contacts] = ::OnlineStatusTracker.get_available_contacts(@current_account.id) if @current_user.is_a?(::User)
     ActionCable.server.broadcast(pubsub_token, { event: 'presence.update', data: data })
   end
 
   def ensure_stream
     stream_from pubsub_token
-    stream_from "account_#{@current_account.id}" if @current_account.present? && @current_user.is_a?(User)
+    stream_from "account_#{@current_account.id}" if @current_account.present? && @current_user.is_a?(::User)
   end
 
   def update_subscription
@@ -43,14 +43,14 @@ class RoomChannel < ApplicationCable::Channel
     @current_user ||= if params[:user_id].blank?
                         ContactInbox.find_by!(pubsub_token: pubsub_token).contact
                       else
-                        User.find_by!(pubsub_token: pubsub_token, id: params[:user_id])
+                        ::User.find_by!(pubsub_token: pubsub_token, id: params[:user_id])
                       end
   end
 
   def current_account
     return if current_user.blank?
 
-    @current_account ||= if @current_user.is_a? Contact
+    @current_account ||= if @current_user.is_a?(::Contact)
                            @current_user.account
                          else
                            @current_user.accounts.find(params[:account_id])

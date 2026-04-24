@@ -18,6 +18,7 @@ import VariableList from '../conversation/VariableList.vue';
 import TagTools from '../conversation/TagTools.vue';
 import CopilotMenuBar from './CopilotMenuBar.vue';
 
+import { useStore, useMapGetter } from 'dashboard/composables/store';
 import { useEmitter } from 'dashboard/composables/emitter';
 import { useI18n } from 'vue-i18n';
 import { useCaptain } from 'dashboard/composables/useCaptain';
@@ -112,6 +113,8 @@ const emit = defineEmits([
 
 const { t } = useI18n();
 const { captainTasksEnabled } = useCaptain();
+const store = useStore();
+const accountLabels = useMapGetter('labels/getLabels');
 
 const TYPING_INDICATOR_IDLE_TIME = 4000;
 const MAXIMUM_FILE_UPLOAD_SIZE = 4; // in MB
@@ -693,6 +696,60 @@ function insertSpecialContent(type, content) {
   useTrack(event_map[type]);
 }
 
+async function mergeCannedLabelsIntoConversation(item) {
+  if (!props.conversationId || props.isPrivate) return;
+
+  const labelTitlesFromItem =
+    typeof item === 'object' && Array.isArray(item.labelTitles)
+      ? item.labelTitles
+          .map(t => String(t).trim())
+          .filter(Boolean)
+      : [];
+
+  let newTitles = [];
+  if (labelTitlesFromItem.length) {
+    newTitles = labelTitlesFromItem;
+  } else {
+    const labelIds =
+      typeof item === 'object' && Array.isArray(item.labelIds)
+        ? item.labelIds
+        : [];
+    if (!labelIds.length) return;
+
+    let labels = accountLabels.value || [];
+    if (!labels.length) {
+      await store.dispatch('labels/get');
+      labels = store.getters['labels/getLabels'] || [];
+    }
+    const idToTitle = Object.fromEntries(
+      labels.map(l => [Number(l.id), l.title])
+    );
+    newTitles = labelIds
+      .map(id => idToTitle[Number(id)])
+      .filter(Boolean);
+  }
+
+  if (!newTitles.length) return;
+
+  const convId = props.conversationId;
+  const saved =
+    store.getters['conversationLabels/getConversationLabels'](convId) || [];
+  const merged = [...new Set([...saved, ...newTitles])];
+  await store.dispatch('conversationLabels/update', {
+    conversationId: convId,
+    labels: merged,
+  });
+}
+
+async function onCannedResponseSelected(item) {
+  const content = typeof item === 'string' ? item : item.description;
+
+  insertSpecialContent('cannedResponse', content);
+  await mergeCannedLabelsIntoConversation(
+    typeof item === 'object' ? item : { labelIds: [], labelTitles: [] }
+  );
+}
+
 function handleLineBreakWhenCmdAndEnterToSendEnabled(event) {
   if (
     hasPressedCommandAndEnter(event) &&
@@ -853,7 +910,7 @@ useEmitter(BUS_EVENTS.INSERT_INTO_RICH_EDITOR, insertContentIntoEditor);
     <CannedResponse
       v-if="shouldShowCannedResponses"
       :search-key="cannedSearchTerm"
-      @replace="content => insertSpecialContent('cannedResponse', content)"
+      @replace="onCannedResponseSelected"
     />
     <VariableList
       v-if="shouldShowVariables"

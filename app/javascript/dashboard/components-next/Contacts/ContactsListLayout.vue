@@ -19,6 +19,7 @@ const props = defineProps({
   activeSegment: { type: Object, default: null },
   segmentsId: { type: [String, Number], default: 0 },
   hasAppliedFilters: { type: Boolean, default: false },
+  isBlockedView: { type: Boolean, default: false },
   isFetchingList: { type: Boolean, default: false },
   useInfiniteScroll: { type: Boolean, default: false },
   hasMore: { type: Boolean, default: false },
@@ -55,7 +56,8 @@ const showActiveFiltersPreview = computed(() => {
     (props.hasAppliedFilters || !isNotSegmentView.value) &&
     !props.isFetchingList &&
     !isLabelView.value &&
-    !isActiveView.value
+    !isActiveView.value &&
+    !props.isBlockedView
   );
 });
 
@@ -83,7 +85,7 @@ const showPagination = computed(() => {
     <div class="flex flex-col w-full h-full transition-all duration-300">
       <ContactListHeaderWrapper
         ref="contactListHeaderWrapper"
-        :show-search="isNotSegmentView && !isActiveView"
+        :show-search="isNotSegmentView && !isActiveView && !props.isBlockedView"
         :search-value="searchValue"
         :active-sort="activeSort"
         :active-ordering="activeOrdering"
@@ -92,7 +94,7 @@ const showPagination = computed(() => {
         :segments-id="segmentsId"
         :has-applied-filters="hasAppliedFilters"
         :is-label-view="isLabelView"
-        :is-active-view="isActiveView"
+        :is-active-view="isActiveView || props.isBlockedView"
         @update:sort="emit('update:sort', $event)"
         @search="emit('search', $event)"
         @apply-filter="emit('applyFilter', $event)"

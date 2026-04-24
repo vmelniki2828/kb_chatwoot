@@ -6,6 +6,7 @@
 #  active_at                :datetime
 #  auto_offline             :boolean          default(TRUE), not null
 #  availability             :integer          default("online"), not null
+#  max_open_conversations   :integer
 #  role                     :integer          default("agent")
 #  created_at               :datetime         not null
 #  updated_at               :datetime         not null
@@ -38,9 +39,13 @@ class AccountUser < ApplicationRecord
 
   after_create_commit :notify_creation, :create_notification_setting
   after_destroy :notify_deletion, :remove_user_from_account
+  before_update :remember_availability_transition
   after_save :update_presence_in_redis, if: :saved_change_to_availability?
+  after_commit :persist_availability_event, on: :update
 
   validates :user_id, uniqueness: { scope: :account_id }
+  validates :max_open_conversations,
+            numericality: { only_integer: true, greater_than: 0, allow_nil: true }
 
   def create_notification_setting
     setting = user.notification_settings.new(account_id: account.id)
@@ -78,6 +83,44 @@ class AccountUser < ApplicationRecord
 
   def update_presence_in_redis
     OnlineStatusTracker.set_status(account.id, user.id, availability)
+  end
+
+  def remember_availability_transition
+    pair = changes_to_save['availability']
+    return if pair.blank?
+
+    previous_val, current_val = pair.map { |v| coerce_availability_to_i(v) }
+    return if previous_val.nil? || current_val.nil?
+    return if previous_val == current_val
+
+    @pending_availability_transition = [previous_val, current_val]
+  end
+
+  def persist_availability_event
+    transition = @pending_availability_transition
+    @pending_availability_transition = nil
+    return if transition.blank?
+
+    previous_val, current_val = transition
+    return if previous_val == current_val
+
+    AgentAvailabilityEvent.create!(
+      account_id: account_id,
+      user_id: user_id,
+      previous_availability: previous_val,
+      availability: current_val
+    )
+  end
+
+  def coerce_availability_to_i(value)
+    case value
+    when Integer
+      value
+    when String, Symbol
+      self.class.availabilities[value.to_s]
+    else
+      value&.to_i
+    end
   end
 end
 

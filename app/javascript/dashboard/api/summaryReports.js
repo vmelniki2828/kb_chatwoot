@@ -36,14 +36,16 @@ class SummaryReportsAPI extends ApiClient {
     });
   }
 
-  getLabelReports({ since, until, businessHours } = {}) {
-    return axios.get(`${this.url}/label`, {
-      params: {
-        since,
-        until,
-        business_hours: businessHours,
-      },
-    });
+  getLabelReports({ since, until, businessHours, labelIds } = {}) {
+    const params = {
+      since,
+      until,
+      business_hours: businessHours,
+    };
+    if (labelIds?.length) {
+      params.label_ids = labelIds;
+    }
+    return axios.get(`${this.url}/label`, { params });
   }
 }
 

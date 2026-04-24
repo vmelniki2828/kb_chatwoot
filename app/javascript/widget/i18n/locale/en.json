@@ -9,7 +9,8 @@
     },
     "MESSAGE_BUBBLE": {
       "RETRY": "Send message again",
-      "ERROR_MESSAGE": "Couldn't send, try again"
+      "ERROR_MESSAGE": "Couldn't send, try again",
+      "CONTACT_BLOCKED": "You have been blocked from contacting support."
     }
   },
   "THUMBNAIL": {
@@ -44,6 +45,8 @@
   },
   "START_CONVERSATION": "Start Conversation",
   "END_CONVERSATION": "End Conversation",
+  "END_CONVERSATION_ERROR": "Could not end the conversation. Please try again.",
+  "CLOSE_CHAT": "Close chat",
   "CONTINUE_CONVERSATION": "Continue conversation",
   "YOU": "You",
   "START_NEW_CONVERSATION": "Start a new conversation",
