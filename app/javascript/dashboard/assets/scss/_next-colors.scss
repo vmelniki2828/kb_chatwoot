@@ -3,18 +3,18 @@
   // NEXT COLORS START
   :root {
     // slate
-    --slate-1: 252 252 253;
-    --slate-2: 249 249 251;
-    --slate-3: 240 240 243;
-    --slate-4: 232 232 236;
-    --slate-5: 224 225 230;
+    --slate-1: 255 255 255;
+    --slate-2: 249 250 251;
+    --slate-3: 243 244 246;
+    --slate-4: 236 236 236;
+    --slate-5: 229 229 229;
     --slate-6: 217 217 224;
     --slate-7: 205 206 214;
     --slate-8: 185 187 198;
-    --slate-9: 139 141 152;
+    --slate-9: 142 142 142;
     --slate-10: 128 131 141;
-    --slate-11: 96 100 108;
-    --slate-12: 28 32 36;
+    --slate-11: 107 107 107;
+    --slate-12: 13 13 13;
 
     --iris-1: 253 253 255;
     --iris-2: 248 248 255;
@@ -41,6 +41,19 @@
     --blue-10: 16 115 233;
     --blue-11: 8 109 224;
     --blue-12: 11 50 101;
+
+    --green-1: 240 253 250;
+    --green-2: 220 252 243;
+    --green-3: 187 247 231;
+    --green-4: 147 238 215;
+    --green-5: 100 220 194;
+    --green-6: 60 200 170;
+    --green-7: 32 178 150;
+    --green-8: 20 156 135;
+    --green-9: 16 163 127;
+    --green-10: 12 140 108;
+    --green-11: 8 115 88;
+    --green-12: 4 60 46;
 
     --ruby-1: 255 252 253;
     --ruby-2: 255 247 248;
@@ -107,25 +120,25 @@
     --violet-11: 101 85 183;
     --violet-12: 47 38 95;
 
-    --background-color: 247 247 247;
-    --surface-1: 254 254 254;
-    --surface-2: 255 255 255;
-    --surface-active: 255 255 255;
-    --background-input-box: 0, 0, 0, 0.03;
-    --text-blue: 1 22 44;
-    --text-purple: 2 4 49;
-    --text-amber: 37 24 1;
+    --background-color: 255 255 255;
+    --surface-1: 249 250 251;
+    --surface-2: 249 250 251;
+    --surface-active: 243 244 246;
+    --background-input-box: 0, 0, 0, 0.04;
+    --text-blue: 13 13 13;
+    --text-purple: 107 107 107;
+    --text-amber: 142 142 142;
     --border-container: 236 236 236;
-    --border-strong: 226 227 231;
-    --border-weak: 234 234 234;
-    --border-blue-strong: 18 61 117;
+    --border-strong: 229 229 229;
+    --border-weak: 236 236 236;
+    --border-blue-strong: 16 163 127;
     --solid-1: 255 255 255;
     --solid-2: 255 255 255;
     --solid-3: 255 255 255;
     --solid-active: 255 255 255;
     --solid-amber: 255 228 181;
-    --solid-blue: 218 236 255;
-    --solid-blue-2: 251 253 255;
+    --solid-blue: 16 163 127;
+    --solid-blue-2: 14 140 111;
     --solid-iris: 230 231 255;
     --solid-purple: 230 231 255;
     --solid-red: 254 200 201;
@@ -133,9 +146,9 @@
     --card-color: 255 255 255;
     --overlay: 0, 0, 0, 0.12;
     --overlay-avatar: 255, 255, 255, 0.67;
-    --button-color: 255 255 255;
-    --button-hover-color: 255, 255, 255, 0.2;
-    --label-background: 247 247 247;
+    --button-color: 249 250 251;
+    --button-hover-color: 243 244 246;
+    --label-background: 244 243 255;
     --label-border: 0, 0, 0, 0.04;
 
     --alpha-1: 215, 215, 215, 0.22;
@@ -143,24 +156,24 @@
     --alpha-3: 255, 255, 255, 0.96;
     --black-alpha-1: 0, 0, 0, 0.12;
     --black-alpha-2: 0, 0, 0, 0.04;
-    --border-blue: 39, 129, 246, 0.5;
+    --border-blue: 16, 163, 127, 0.5;
     --white-alpha: 255, 255, 255, 0.8;
   }
 
   .dark {
     // slate
-    --slate-1: 17 17 19;
-    --slate-2: 24 25 27;
-    --slate-3: 33 34 37;
-    --slate-4: 39 42 45;
-    --slate-5: 46 49 53;
+    --slate-1: 13 13 13;
+    --slate-2: 26 26 26;
+    --slate-3: 42 42 42;
+    --slate-4: 54 54 54;
+    --slate-5: 45 45 45;
     --slate-6: 54 58 63;
     --slate-7: 67 72 78;
     --slate-8: 90 97 105;
     --slate-9: 105 110 119;
     --slate-10: 119 123 132;
-    --slate-11: 176 180 186;
-    --slate-12: 237 238 240;
+    --slate-11: 172 172 172;
+    --slate-12: 236 236 236;
 
     --iris-1: 19 19 30;
     --iris-2: 23 22 37;
@@ -253,34 +266,34 @@
     --violet-11: 169 153 236;
     --violet-12: 226 221 254;
 
-    --background-color: 28 29 32;
-    --surface-1: 20 21 23;
-    --surface-2: 22 23 26;
-    --surface-active: 53 57 66;
-    --background-input-box: 255, 255, 255, 0.02;
-    --text-blue: 213 234 255;
-    --text-purple: 232 233 254;
-    --text-amber: 255 247 234;
-    --border-strong: 46 45 50;
-    --border-weak: 31 31 37;
-    --border-blue-strong: 201 226 255;
+    --background-color: 13 13 13;
+    --surface-1: 26 26 26;
+    --surface-2: 26 26 26;
+    --surface-active: 42 42 42;
+    --background-input-box: 255, 255, 255, 0.04;
+    --text-blue: 236 236 236;
+    --text-purple: 172 172 172;
+    --text-amber: 142 142 142;
+    --border-strong: 45 45 45;
+    --border-weak: 54 54 54;
+    --border-blue-strong: 16 163 127;
     --solid-1: 23 23 26;
-    --solid-2: 29 30 36;
+    --solid-2: 41 41 44;
     --solid-3: 44 45 54;
     --solid-active: 53 57 66;
     --solid-amber: 56 50 41;
-    --solid-blue: 15 57 102;
-    --solid-blue-2: 26 29 35;
+    --solid-blue: 16 163 127;
+    --solid-blue-2: 14 140 111;
     --solid-iris: 38 42 101;
     --solid-purple: 51 51 107;
     --solid-red: 90 33 34;
     --solid-amber-button: 255 221 141;
-    --card-color: 28 30 34;
+    --card-color: 26 26 26;
     --overlay: 0, 0, 0, 0.4;
     --overlay-avatar: 0, 0, 0, 0.05;
-    --button-color: 42 43 51;
-    --button-hover-color: 0, 0, 0, 0.15;
-    --label-background: 36 38 45;
+    --button-color: 26 26 26;
+    --button-hover-color: 42 42 42;
+    --label-background: 26 26 26;
     --label-border: 255, 255, 255, 0.03;
 
     --alpha-1: 35, 36, 42, 0.8;
@@ -288,7 +301,7 @@
     --alpha-3: 33, 34, 38, 0.95;
     --black-alpha-1: 0, 0, 0, 0.3;
     --black-alpha-2: 0, 0, 0, 0.2;
-    --border-blue: 39, 129, 246, 0.5;
+    --border-blue: 16, 163, 127, 0.5;
     --border-container: 255, 255, 255, 0;
     --white-alpha: 255, 255, 255, 0.1;
   }

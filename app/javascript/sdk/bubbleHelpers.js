@@ -25,27 +25,34 @@ export const setBubbleText = bubbleText => {
   }
 };
 
-export const createBubbleIcon = ({ className, path, target }) => {
+export const createBubbleIcon = ({ className, target }) => {
+  const ns = 'http://www.w3.org/2000/svg';
   let bubbleClassName = `${className} woot-elements--${window.$chatwoot.position}`;
-  const bubbleIcon = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'svg'
-  );
+
+  const bubbleIcon = document.createElementNS(ns, 'svg');
   bubbleIcon.setAttributeNS(null, 'id', 'woot-widget-bubble-icon');
-  bubbleIcon.setAttributeNS(null, 'width', '24');
-  bubbleIcon.setAttributeNS(null, 'height', '24');
-  bubbleIcon.setAttributeNS(null, 'viewBox', '0 0 240 240');
+  bubbleIcon.setAttributeNS(null, 'width', '36');
+  bubbleIcon.setAttributeNS(null, 'height', '36');
+  bubbleIcon.setAttributeNS(null, 'viewBox', '0 0 66 66');
   bubbleIcon.setAttributeNS(null, 'fill', 'none');
-  bubbleIcon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+  bubbleIcon.setAttribute('xmlns', ns);
 
-  const bubblePath = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'path'
-  );
-  bubblePath.setAttributeNS(null, 'd', path);
-  bubblePath.setAttributeNS(null, 'fill', '#FFFFFF');
+  // Облачко чата
+  const chatPath = document.createElementNS(ns, 'path');
+  chatPath.setAttributeNS(null, 'd', 'M57 9H9C6.24 9 4 11.24 4 14V42C4 44.76 6.24 47 9 47H14V57L26 47H57C59.76 47 62 44.76 62 42V14C62 11.24 59.76 9 57 9Z');
+  chatPath.setAttributeNS(null, 'fill', '#FFFFFF');
+  bubbleIcon.appendChild(chatPath);
 
-  bubbleIcon.appendChild(bubblePath);
+  // Три точки
+  [22, 33, 44].forEach(cx => {
+    const circle = document.createElementNS(ns, 'circle');
+    circle.setAttributeNS(null, 'cx', String(cx));
+    circle.setAttributeNS(null, 'cy', '28');
+    circle.setAttributeNS(null, 'r', '3.5');
+    circle.setAttributeNS(null, 'fill', '#20BDB0');
+    bubbleIcon.appendChild(circle);
+  });
+
   target.appendChild(bubbleIcon);
 
   if (isExpandedView(window.$chatwoot.type)) {

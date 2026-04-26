@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Тепер ви можете отримувати електронні листи на власний домен."
       }
     },
-    "UPDATE_CHATWOOT": "Доступне оновлення {latestChatwootVersion} для Chatwoot. Будь ласка, оновіть вашу копію.",
+    "UPDATE_QODEQ CHAT": "Доступне оновлення {latestQODEQ CHATVersion} для QODEQ CHAT. Будь ласка, оновіть вашу копію.",
     "LEARN_MORE": "Детальніше",
-    "PAYMENT_PENDING": "Очікується ваш платіж. Будь ласка, оновіть вашу платіжну інформацію, щоб продовжити використовувати Chatwoot",
-    "UPGRADE": "Upgrade to continue using Chatwoot",
-    "LIMITS_UPGRADE": "В вашому обліковому записі перевищено ліміт використання, будь ласка, поновіть ваш план, щоб продовжити використання Chatwoot",
+    "PAYMENT_PENDING": "Очікується ваш платіж. Будь ласка, оновіть вашу платіжну інформацію, щоб продовжити використовувати QODEQ CHAT",
+    "UPGRADE": "Upgrade to continue using QODEQ CHAT",
+    "LIMITS_UPGRADE": "В вашому обліковому записі перевищено ліміт використання, будь ласка, поновіть ваш план, щоб продовжити використання QODEQ CHAT",
     "OPEN_BILLING": "Відкрити рахунок"
   },
   "FORMS": {

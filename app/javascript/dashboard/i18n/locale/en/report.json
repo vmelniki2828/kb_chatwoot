@@ -153,6 +153,14 @@
     "INTRO": "Timeline and totals for each agent in the selected period. Online means accepting routed chats, Busy means not accepting new chats, and Offline means logged out.",
     "AGENT_FILTER": "Filter by agent",
     "ALL_AGENTS": "All agents",
+    "BACK": "Back to agent activity reports",
+    "DETAILS_BUTTON": "Agent activity detail",
+    "DETAIL_HEADER": "Agent activity detail for {agentName}",
+    "STATUSES": {
+      "ACCEPTING": "Accepting chats",
+      "NOT_ACCEPTING": "Not accepting chats",
+      "LOGGED_OUT": "Logged out"
+    },
     "COLUMNS": {
       "FROM": "From",
       "TO": "To",
@@ -167,8 +175,20 @@
     "TIMELINE": {
       "TITLE": "Timeline for selected range"
     },
+    "SCALE": {
+      "LABEL": "Timescale",
+      "HOURLY": "Hourly",
+      "DAILY": "Daily",
+      "WEEKLY": "Weekly",
+      "MONTHLY": "Monthly"
+    },
+    "NAV": {
+      "PREVIOUS": "Previous",
+      "NEXT": "Next",
+      "LATEST": "Latest"
+    },
     "EMPTY": "No activity data found in this period.",
-    "LIMIT_NOTE": "Use a 24-hour range to review exact accepting/not accepting/logout durations."
+    "LIMIT_NOTE": "Hover over timeline segments to see exact status durations."
   },
   "AGENT_REPORTS": {
     "HEADER": "Agents Overview",

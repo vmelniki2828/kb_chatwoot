@@ -1,7 +1,7 @@
 export const SDK_CSS = `
 :root {
   --b-100: #F2F3F7;
-  --s-700: #37546D;
+  --s-700:rgb(55, 106, 109);
 }
 
 .woot-widget-holder {
@@ -39,8 +39,8 @@ export const SDK_CSS = `
 }
 
 .woot-widget-bubble {
-  background: #1f93ff;
-  border-radius: 100px;
+  background: #20BDB0;
+  border-radius: 50%;
   border-width: 0px;
   bottom: 20px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, .16) !important;
@@ -52,6 +52,9 @@ export const SDK_CSS = `
   width: 64px;
   z-index: 2147483000 !important;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .woot-widget-bubble.woot-widget-bubble--flat {
@@ -129,15 +132,15 @@ export const SDK_CSS = `
 }
 
 .woot-widget-bubble:hover {
-  background: #1f93ff;
+  background: #1AADA0;
   box-shadow: 0 8px 32px rgba(0, 0, 0, .4) !important;
 }
 
 .woot-widget-bubble svg {
   all: revert;
-  height: 24px;
-  margin: 20px;
-  width: 24px;
+  height: 28px;
+  margin: 0;
+  width: 28px;
 }
 
 .woot-widget-bubble.woot-widget-bubble-color--lighter path{

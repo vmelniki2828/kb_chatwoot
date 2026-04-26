@@ -139,7 +139,7 @@ export const responsesList = [
       'Messenger may be deactivated because you are on a free plan or the limit for inboxes might have been reached.',
     created_at: 1736283330,
     id: 87,
-    question: 'Why is my Messenger in Chatwoot deactivated?',
+    question: 'Why is my Messenger in QODEQ CHATdeactivated?',
     status: 'pending',
     assistant: {
       account_id: 1,

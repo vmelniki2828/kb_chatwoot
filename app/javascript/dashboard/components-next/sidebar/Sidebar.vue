@@ -787,7 +787,7 @@ const menuItems = computed(() => {
         <RouterLink
           v-if="!isEffectivelyCollapsed"
           :to="{ name: 'search' }"
-          class="flex gap-2 items-center px-2 py-1 w-full h-7 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out"
+          class="flex gap-2 items-center px-2 py-1 w-full h-7 rounded-lg outline outline-1 outline-n-weak bg-n-surface-1 dark:bg-n-surface-1 hover:bg-n-surface-active dark:hover:bg-n-surface-active transition-all duration-100 ease-out"
         >
           <span class="flex-shrink-0 i-lucide-search size-4 text-n-slate-10" />
           <span class="flex-grow text-start text-n-slate-10">
@@ -802,7 +802,7 @@ const menuItems = computed(() => {
         <RouterLink
           v-else
           :to="{ name: 'search' }"
-          class="flex items-center justify-center size-8 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out hover:bg-n-alpha-2 dark:hover:bg-n-slate-9/30"
+          class="flex items-center justify-center size-8 rounded-lg outline outline-1 outline-n-weak bg-n-surface-1 dark:bg-n-surface-1 transition-all duration-100 ease-out hover:bg-n-surface-active dark:hover:bg-n-surface-active"
           :title="t('COMBOBOX.SEARCH_PLACEHOLDER')"
         >
           <span class="i-lucide-search size-4 text-n-slate-11" />
@@ -816,9 +816,9 @@ const menuItems = computed(() => {
               class="dark:hover:!bg-n-slate-9/30"
               :class="[
                 isEffectivelyCollapsed
-                  ? '!size-8 !outline-n-weak !text-n-slate-11'
-                  : '!h-7 !outline-n-weak !text-n-slate-11',
-                { '!bg-n-alpha-2 dark:!bg-n-slate-9/30': isOpen },
+                  ? '!size-8 !outline-n-weak !text-n-slate-11 !bg-n-surface-1 dark:!bg-n-surface-1'
+                  : '!h-7 !outline-n-weak !text-n-slate-11 !bg-n-surface-1 dark:!bg-n-surface-1',
+                { '!bg-n-surface-active dark:!bg-n-surface-active': isOpen },
               ]"
               @click="onComposeOpen(toggle)"
             />

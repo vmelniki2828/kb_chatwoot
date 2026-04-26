@@ -126,6 +126,48 @@
       "PER_PAGE_TEMPLATE": "{size} / page"
     }
   },
+  "AGENT_ACTIVITY_REPORT": {
+    "HEADER": "Активность операторов",
+    "INTRO": "Таймлайн и суммарная активность каждого оператора за выбранный период. Онлайн — принимает новые чаты, Не принимает чаты — новые чаты не назначаются, Оффлайн — не в сети.",
+    "AGENT_FILTER": "Фильтр по оператору",
+    "ALL_AGENTS": "Все операторы",
+    "BACK": "Назад к отчетам по активности операторов",
+    "DETAILS_BUTTON": "Детальный отчет по активности оператора",
+    "DETAIL_HEADER": "Детальный отчет по активности оператора {agentName}",
+    "STATUSES": {
+      "ACCEPTING": "Принимает чаты",
+      "NOT_ACCEPTING": "Не принимает чаты",
+      "LOGGED_OUT": "Оффлайн"
+    },
+    "COLUMNS": {
+      "FROM": "С",
+      "TO": "По",
+      "STATUS": "Статус",
+      "DURATION": "Длительность"
+    },
+    "TOTALS": {
+      "ACCEPTING": "Принимает чаты",
+      "NOT_ACCEPTING": "Не принимает чаты",
+      "LOGGED_OUT": "Оффлайн"
+    },
+    "TIMELINE": {
+      "TITLE": "Таймлайн за выбранный период"
+    },
+    "SCALE": {
+      "LABEL": "Шкала времени",
+      "HOURLY": "По часам",
+      "DAILY": "По дням",
+      "WEEKLY": "По неделям",
+      "MONTHLY": "По месяцам"
+    },
+    "NAV": {
+      "PREVIOUS": "Назад",
+      "NEXT": "Вперёд",
+      "LATEST": "К последнему"
+    },
+    "EMPTY": "За выбранный период данные по активности не найдены.",
+    "LIMIT_NOTE": "Наведите курсор на сегмент таймлайна, чтобы увидеть точную длительность статуса."
+  },
   "AGENT_REPORTS": {
     "HEADER": "Обзор агентов",
     "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",

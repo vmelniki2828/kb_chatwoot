@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Dabar galite gauti el. laiškus pasirinktame domene."
       }
     },
-    "UPDATE_CHATWOOT": "Yra Chatwoot naujinimas {latestChatwootVersion}. Atnaujinkite savo versiją.",
+    "UPDATE_QODEQ CHAT": "Yra QODEQ CHAT naujinimas {latestQODEQ CHATVersion}. Atnaujinkite savo versiją.",
     "LEARN_MORE": "Sužinoti daugiau",
-    "PAYMENT_PENDING": "Laukiama jūsų mokėjimo. Atnaujinkite savo mokėjimo informaciją, kad galėtumėte toliau naudoti Chatwoot",
-    "UPGRADE": "Upgrade to continue using Chatwoot",
-    "LIMITS_UPGRADE": "Jūsų paskyra viršijo naudojimo apribojimus, atnaujinkite savo planą, kad galėtumėte toliau naudoti Chatwoot",
+    "PAYMENT_PENDING": "Laukiama jūsų mokėjimo. Atnaujinkite savo mokėjimo informaciją, kad galėtumėte toliau naudoti QODEQ CHAT",
+    "UPGRADE": "Upgrade to continue using QODEQ CHAT",
+    "LIMITS_UPGRADE": "Jūsų paskyra viršijo naudojimo apribojimus, atnaujinkite savo planą, kad galėtumėte toliau naudoti QODEQ CHAT",
     "OPEN_BILLING": "Atidaryti mokėjimą"
   },
   "FORMS": {
