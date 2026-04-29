@@ -42,8 +42,8 @@
     "ADD": {
       "FORM": {
         "INBOX": {
-          "LABEL": "Select Inbox",
-          "PLACEHOLDER": "Select Inbox"
+          "LABEL": "Select Source",
+          "PLACEHOLDER": "Select Source"
         },
         "SUBMIT": "Създаване",
         "CANCEL": "Отмени"

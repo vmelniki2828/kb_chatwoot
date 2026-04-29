@@ -167,7 +167,7 @@
       "COPY_LINK_SUCCESS": "কথোপকথনের লিংক ক্লিপবোর্ডে কপি হয়েছে",
       "API": {
         "AGENT_ASSIGNMENT": {
-          "SUCCESFUL": "Conversation id {conversationId} assigned to \"{agentName}\"",
+          "SUCCESFUL": "Chat id {conversationId} assigned to \"{agentName}\"",
           "FAILED": "এজেন্ট নির্ধারণ করা যায়নি। আবার চেষ্টা করুন।"
         },
         "LABEL_ASSIGNMENT": {

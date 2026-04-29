@@ -3,7 +3,7 @@
     "HEADER": "Raporty rozmów",
     "LOADING_CHART": "Ładowanie danych wykresów...",
     "NO_ENOUGH_DATA": "Nie ma wystarczającej ilości danych do wygenerowania raportu. Spróbuj ponownie później.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Nie udało się pobrać danych, spróbuj ponownie później.",
     "SUMMARY_FETCHING_FAILED": "Nie udało się pobrać podsumowania, spróbuj ponownie później.",
     "METRICS": {
@@ -128,7 +128,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "Przegląd agentów",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "Ładowanie danych wykresów...",
     "NO_ENOUGH_DATA": "Nie ma wystarczającej ilości danych do wygenerowania raportu. Spróbuj ponownie później.",
     "DOWNLOAD_AGENT_REPORTS": "Pobierz raporty agenta",
@@ -201,7 +201,7 @@
   },
   "LABEL_REPORTS": {
     "HEADER": "Przegląd etykiet",
-    "DESCRIPTION": "Track label performance with key metrics including conversations, response times, resolution times, and resolved cases. Click a label name for detailed insights.",
+    "DESCRIPTION": "Monitor performance across tags using conversations handled, response and resolution times, and resolved cases metrics. Click a tag name to explore further.",
     "LOADING_CHART": "Ładowanie danych wykresów...",
     "NO_ENOUGH_DATA": "Nie ma wystarczającej ilości danych do wygenerowania raportu. Spróbuj ponownie później.",
     "DOWNLOAD_LABEL_REPORTS": "Pobierz raporty etykiety",
@@ -274,13 +274,13 @@
   },
   "INBOX_REPORTS": {
     "HEADER": "Przegląd skrzynki odbiorczej",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "Ładowanie danych wykresów...",
     "NO_ENOUGH_DATA": "Nie ma wystarczającej ilości danych do wygenerowania raportu. Spróbuj ponownie później.",
     "DOWNLOAD_INBOX_REPORTS": "Pobierz raporty skrzynki odbiorczej",
     "FILTER_DROPDOWN_LABEL": "Wybierz skrzynkę odbiorczą",
-    "ALL_INBOXES": "All Inboxes",
-    "SEARCH_INBOX": "Search Inbox",
+    "ALL_INBOXES": "All Sources",
+    "SEARCH_INBOX": "Search Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "INBOXES": "Search inboxes"
@@ -349,7 +349,7 @@
   },
   "TEAM_REPORTS": {
     "HEADER": "Przegląd zespołu",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "Ładowanie danych wykresów...",
     "NO_ENOUGH_DATA": "Nie ma wystarczającej ilości danych do wygenerowania raportu. Spróbuj ponownie później.",
     "DOWNLOAD_TEAM_REPORTS": "Pobierz raporty zespołu",
@@ -505,7 +505,7 @@
     "HEADER": "Bot Reports",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
+        "LABEL": "No. of Chats",
         "TOOLTIP": "Total number of conversations handled by the bot"
       },
       "TOTAL_RESPONSES": {
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {
@@ -623,7 +623,7 @@
         "TOOLTIP": "Total SLA misses in a certain period"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Number of Conversations",
+        "LABEL": "Number of Chats",
         "TOOLTIP": "Total number of conversations with SLA"
       }
     },

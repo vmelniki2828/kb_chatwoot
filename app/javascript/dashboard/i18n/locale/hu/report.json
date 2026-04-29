@@ -3,7 +3,7 @@
     "HEADER": "Beszélgetések",
     "LOADING_CHART": "Táblázat adatok betöltése...",
     "NO_ENOUGH_DATA": "Nem érkezett elég adat hogy jelentést generáljunk, kérjük próbáld később.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Sikertelen adatlekérés, kérlek próbáld újra később.",
     "SUMMARY_FETCHING_FAILED": "Sikertelen összefoglaló lekérés, kérlek próbáld újra később.",
     "METRICS": {
@@ -128,7 +128,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "Ügynök áttekintés",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "Táblázat adatok betöltése...",
     "NO_ENOUGH_DATA": "Nem érkezett elég adat hogy jelentést generáljunk, kérjük próbáld később.",
     "DOWNLOAD_AGENT_REPORTS": "Ügynök jelentések letöltése",
@@ -201,7 +201,7 @@
   },
   "LABEL_REPORTS": {
     "HEADER": "Címkék áttekintése",
-    "DESCRIPTION": "Track label performance with key metrics including conversations, response times, resolution times, and resolved cases. Click a label name for detailed insights.",
+    "DESCRIPTION": "Monitor performance across tags using conversations handled, response and resolution times, and resolved cases metrics. Click a tag name to explore further.",
     "LOADING_CHART": "Táblázat adatok betöltése...",
     "NO_ENOUGH_DATA": "Nem érkezett elég adat hogy jelentést generáljunk, kérjük próbáld később.",
     "DOWNLOAD_LABEL_REPORTS": "Címkejelentések letöltése",
@@ -274,13 +274,13 @@
   },
   "INBOX_REPORTS": {
     "HEADER": "Beérkezett üzenetek áttekintése",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "Táblázat adatok betöltése...",
     "NO_ENOUGH_DATA": "Nem érkezett elég adat hogy jelentést generáljunk, kérjük próbáld később.",
     "DOWNLOAD_INBOX_REPORTS": "Beérkezett üzenetek letöltése",
     "FILTER_DROPDOWN_LABEL": "Válassz egy fiókot",
-    "ALL_INBOXES": "All Inboxes",
-    "SEARCH_INBOX": "Search Inbox",
+    "ALL_INBOXES": "All Sources",
+    "SEARCH_INBOX": "Search Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "INBOXES": "Search inboxes"
@@ -349,7 +349,7 @@
   },
   "TEAM_REPORTS": {
     "HEADER": "Csapat áttekintés",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "Táblázat adatok betöltése...",
     "NO_ENOUGH_DATA": "Nem érkezett elég adat hogy jelentést generáljunk, kérjük próbáld később.",
     "DOWNLOAD_TEAM_REPORTS": "Csapat riport letöltése",
@@ -505,7 +505,7 @@
     "HEADER": "Bot Reports",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
+        "LABEL": "No. of Chats",
         "TOOLTIP": "Total number of conversations handled by the bot"
       },
       "TOTAL_RESPONSES": {
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {
@@ -623,7 +623,7 @@
         "TOOLTIP": "Total SLA misses in a certain period"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Number of Conversations",
+        "LABEL": "Number of Chats",
         "TOOLTIP": "Total number of conversations with SLA"
       }
     },

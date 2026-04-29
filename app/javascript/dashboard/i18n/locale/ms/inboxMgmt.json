@@ -531,7 +531,7 @@
       "ERROR_FB_UNAUTHORIZED": "Anda tidak dibenarkan untuk melakukan tindakan ini. ",
       "ERROR_FB_UNAUTHORIZED_HELP": "Please ensure you have access to the Facebook page with full control. You can read more about Facebook roles <a href=\" https://www.facebook.com/help/187316341316631\">here</a>.",
       "CREATING_CHANNEL": "Sedang membuat Peti Masuk anda...",
-      "TITLE": "Configure Inbox Details",
+      "TITLE": "Configure Source Details",
       "DESC": ""
     },
     "AGENTS": {
@@ -614,7 +614,7 @@
       "API": {
         "SUCCESS_MESSAGE": "Peti masuk berjaya dipadamkan",
         "ERROR_MESSAGE": "Tidak dapat memadam peti masuk. Sila cuba lagi kemudian.",
-        "AVATAR_SUCCESS_MESSAGE": "Inbox avatar deleted successfully",
+        "AVATAR_SUCCESS_MESSAGE": "Source avatar deleted successfully",
         "AVATAR_ERROR_MESSAGE": "Could not delete the inbox avatar. Please try again later."
       }
     },
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Dayakan/Matikan paparan nama Ejen dalam emel, jika dimatikan ia akan memaparkan nama perniagaan",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Enable conversation continuity via email",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Perbualan akan diteruskan melalui emel jika alamat emel kenalan tersedia.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Tetapan Peti Masuk",
       "INBOX_UPDATE_SUB_TEXT": "Kemas kini tetapan peti masuk anda",

@@ -16,7 +16,7 @@ const agentAssignments = [
         label: 'Add fair distribution rules to avoid overloading any agent',
       },
       {
-        icon: 'i-lucide-inbox',
+        icon: 'i-lucide-archive',
         label: 'Add inboxes to a policy - one policy per inbox',
       },
     ],
@@ -35,7 +35,7 @@ const agentAssignments = [
         label: 'Create exceptions based on labels and time',
       },
       {
-        icon: 'i-lucide-users-round',
+        icon: 'i-lucide-user-round-pen',
         label: 'Add agents to a policy - one policy per agent',
       },
     ],

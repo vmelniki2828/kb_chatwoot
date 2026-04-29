@@ -273,17 +273,17 @@
     }
   },
   "INBOX_REPORTS": {
-    "HEADER": "Panoramica Inbox",
+    "HEADER": "Panoramica Source",
     "DESCRIPTION": "Visualizza rapidamente le performance della tua inbox con metriche chiave come conversazioni, tempi di risposta, tempi di risoluzione e casi risolti — tutto in un unico posto. Fai clic su una inbox per maggiori dettagli.",
     "LOADING_CHART": "Caricamento dati grafici...",
     "NO_ENOUGH_DATA": "Non ci sono abbastanza dati per generare il report, riprova più tardi.",
-    "DOWNLOAD_INBOX_REPORTS": "Scarica report Inbox",
-    "FILTER_DROPDOWN_LABEL": "Seleziona Inbox",
-    "ALL_INBOXES": "Tutte le Inbox",
-    "SEARCH_INBOX": "Ricerca Inbox",
+    "DOWNLOAD_INBOX_REPORTS": "Scarica report Source",
+    "FILTER_DROPDOWN_LABEL": "Seleziona Source",
+    "ALL_INBOXES": "Tutte le Source",
+    "SEARCH_INBOX": "Ricerca Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
-        "INBOXES": "Ricerca Inbox"
+        "INBOXES": "Ricerca Source"
       }
     },
     "METRICS": {
@@ -435,7 +435,7 @@
       "NO_FILTER": "Nessun filtro disponibile",
       "INPUT_PLACEHOLDER": {
         "AGENTS": "Cerca operatori",
-        "INBOXES": "Ricerca Inbox",
+        "INBOXES": "Ricerca Source",
         "TEAMS": "Cerca team",
         "RATINGS": "Cerca valutazioni"
       },
@@ -443,7 +443,7 @@
         "LABEL": "Operatore"
       },
       "INBOXES": {
-        "LABEL": "Inbox"
+        "LABEL": "Source"
       },
       "TEAMS": {
         "LABEL": "Team"
@@ -607,7 +607,7 @@
         "TEAMS": "Nome del team"
       },
       "SLA": "Policy SLA",
-      "INBOXES": "Inbox",
+      "INBOXES": "Source",
       "AGENTS": "Operatore",
       "LABELS": "Etichetta",
       "TEAMS": "Team"
@@ -637,7 +637,7 @@
     }
   },
   "SUMMARY_REPORTS": {
-    "INBOX": "Inbox",
+    "INBOX": "Source",
     "AGENT": "Operatore",
     "TEAM": "Team",
     "LABEL": "Etichetta",

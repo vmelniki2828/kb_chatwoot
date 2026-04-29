@@ -35,9 +35,9 @@
             "ERROR": "Messaggio richiesto"
           },
           "INBOX": {
-            "LABEL": "Seleziona Inbox",
-            "PLACEHOLDER": "Seleziona Inbox",
-            "ERROR": "Inbox richiesta"
+            "LABEL": "Seleziona Source",
+            "PLACEHOLDER": "Seleziona Source",
+            "ERROR": "Source richiesta"
           },
           "SENT_BY": {
             "LABEL": "Inviata da",
@@ -112,9 +112,9 @@
             "ERROR": "Messaggio richiesto"
           },
           "INBOX": {
-            "LABEL": "Seleziona Inbox",
-            "PLACEHOLDER": "Seleziona Inbox",
-            "ERROR": "Inbox richiesta"
+            "LABEL": "Seleziona Source",
+            "PLACEHOLDER": "Seleziona Source",
+            "ERROR": "Source richiesta"
           },
           "AUDIENCE": {
             "LABEL": "Pubblico",
@@ -165,9 +165,9 @@
             "ERROR": "Titolo richiesto"
           },
           "INBOX": {
-            "LABEL": "Seleziona Inbox",
-            "PLACEHOLDER": "Seleziona Inbox",
-            "ERROR": "Inbox richiesta"
+            "LABEL": "Seleziona Source",
+            "PLACEHOLDER": "Seleziona Source",
+            "ERROR": "Source richiesta"
           },
           "TEMPLATE": {
             "LABEL": "Modello WhatsApp",

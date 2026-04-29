@@ -167,7 +167,7 @@
       "COPY_LINK_SUCCESS": "Vestluse link kopeeritud lõikelauale",
       "API": {
         "AGENT_ASSIGNMENT": {
-          "SUCCESFUL": "Conversation id {conversationId} assigned to \"{agentName}\"",
+          "SUCCESFUL": "Chat id {conversationId} assigned to \"{agentName}\"",
           "FAILED": "Agendi määramine ebaõnnestus. Palun proovi uuesti."
         },
         "LABEL_ASSIGNMENT": {

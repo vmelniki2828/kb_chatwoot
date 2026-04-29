@@ -116,7 +116,7 @@ const toggleConversationLayout = () => {
           <NextButton
             id="toggleConversationFilterButton"
             v-tooltip.top-end="$t('FILTER.CUSTOM_VIEWS.EDIT.EDIT_BUTTON')"
-            icon="i-lucide-pen-line"
+            icon="i-lucide-send-horizontal"
             slate
             xs
             faded
@@ -142,7 +142,7 @@ const toggleConversationLayout = () => {
         <NextButton
           id="toggleConversationFilterButton"
           v-tooltip.right="$t('FILTER.TOOLTIP_LABEL')"
-          icon="i-lucide-list-filter"
+          icon="i-lucide-funnel"
           slate
           xs
           faded

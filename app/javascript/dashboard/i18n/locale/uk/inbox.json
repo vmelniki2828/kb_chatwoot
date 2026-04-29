@@ -1,7 +1,7 @@
 {
   "INBOX": {
     "LIST": {
-      "TITLE": "My Inbox",
+      "TITLE": "Notifications",
       "DISPLAY_DROPDOWN": "Відобразити",
       "LOADING": "Завантаження сповіщень",
       "404": "Немає активних сповіщень у цій групі.",
@@ -30,7 +30,7 @@
     "TYPES_NEXT": {
       "CONVERSATION_MENTION": "Mentioned",
       "CONVERSATION_ASSIGNMENT": "Assigned to you",
-      "CONVERSATION_CREATION": "New Conversation",
+      "CONVERSATION_CREATION": "New Chat",
       "SLA_MISSED_FIRST_RESPONSE": "SLA breach",
       "SLA_MISSED_NEXT_RESPONSE": "SLA breach",
       "SLA_MISSED_RESOLUTION": "SLA breach",

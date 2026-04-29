@@ -317,7 +317,7 @@
     "CAPTAIN_TOOLS": "Tools",
     "CAPTAIN_SCENARIOS": "Scenarios",
     "CAPTAIN_PLAYGROUND": "Playground",
-    "CAPTAIN_INBOXES": "Inboxes",
+    "CAPTAIN_INBOXES": "Sources",
     "CAPTAIN_SETTINGS": "Settings",
     "HOME": "Domov",
     "AGENTS": "Agentje",
@@ -381,7 +381,7 @@
     "DOCS": "Preberite dokumentacijo",
     "SECURITY": "Security",
     "CAPTAIN_AI": "Captain",
-    "CONVERSATION_WORKFLOW": "Conversation Workflow"
+    "CONVERSATION_WORKFLOW": "Chat Workflow"
   },
   "CAPTAIN_SETTINGS": {
     "TITLE": "Captain Settings",
@@ -416,14 +416,14 @@
         "DESCRIPTION": "Automatically convert voice messages and call recordings into searchable text transcripts."
       },
       "HELP_CENTER_SEARCH": {
-        "TITLE": "Help Center Search Indexing",
-        "DESCRIPTION": "Use AI for context aware search inside your help center articles."
+        "TITLE": "Support Center Search Indexing",
+        "DESCRIPTION": "Use AI for context aware search inside your Support Center articles."
       },
       "LABEL_SUGGESTION": {
         "TITLE": "Label Suggestion",
-        "DESCRIPTION": "Automatically suggest relevant labels and tags for conversations based on content analysis and context.",
+        "DESCRIPTION": "Automatically suggest relevant Tags and tags for conversations based on content analysis and context.",
         "MODEL_TITLE": "Label Suggestion Model",
-        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate labels"
+        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate Tags"
       }
     },
     "API": {
@@ -560,7 +560,7 @@
   "CONVERSATION_WORKFLOW": {
     "INDEX": {
       "HEADER": {
-        "TITLE": "Conversation Workflows",
+        "TITLE": "Chat Workflows",
         "DESCRIPTION": "Configure rules and required fields for conversation resolution."
       }
     },
@@ -695,7 +695,7 @@
         "API": {
           "SUCCESS_MESSAGE": "Pravilo dodeljevanja je bilo uspešno ustvarjeno",
           "ERROR_MESSAGE": "Ustvarjanje pravila dodeljevanja ni uspelo",
-          "INBOX_LINKED": "Inbox has been linked to the policy"
+          "INBOX_LINKED": "Source has been linked to the policy"
         }
       },
       "EDIT": {
@@ -844,15 +844,15 @@
         },
         "INBOX_LIMIT_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox limit added successfully",
+            "SUCCESS_MESSAGE": "Source limit added successfully",
             "ERROR_MESSAGE": "Failed to add inbox limit"
           },
           "UPDATE": {
-            "SUCCESS_MESSAGE": "Inbox limit updated successfully",
+            "SUCCESS_MESSAGE": "Source limit updated successfully",
             "ERROR_MESSAGE": "Failed to update inbox limit"
           },
           "DELETE": {
-            "SUCCESS_MESSAGE": "Inbox limit deleted successfully",
+            "SUCCESS_MESSAGE": "Source limit deleted successfully",
             "ERROR_MESSAGE": "Failed to delete inbox limit"
           }
         }
@@ -867,7 +867,7 @@
           "PLACEHOLDER": "Enter description"
         },
         "INBOX_CAPACITY_LIMIT": {
-          "LABEL": "Inbox capacity limits",
+          "LABEL": "Source capacity limits",
           "ADD_BUTTON": "Add inbox",
           "FIELD": {
             "SELECT_INBOX": "Select inbox",
@@ -878,9 +878,9 @@
         },
         "EXCLUSION_RULES": {
           "LABEL": "Exclusion rules",
-          "DESCRIPTION": "Conversations that satisfy the following conditions would not count towards agent capacity",
-          "TAGS": {
-            "LABEL": "Exclude conversations tagged with specific labels",
+          "DESCRIPTION": "Chats that satisfy the following conditions would not count towards agent capacity",
+          "LABELS": {
+            "LABEL": "Exclude conversations tagged with specific Tags",
             "ADD_TAG": "add tag",
             "DROPDOWN": {
               "SEARCH_PLACEHOLDER": "Search and select tags to add"

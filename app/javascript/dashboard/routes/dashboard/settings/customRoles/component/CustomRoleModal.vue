@@ -154,46 +154,80 @@ const isSubmitDisabled = computed(
 
 <template>
   <div class="flex flex-col h-auto overflow-auto">
-    <woot-modal-header
-      :header-title="modalTitle"
-      :header-content="modalDescription"
-    />
-    <form class="flex flex-col w-full" @submit.prevent="handleCustomRole">
-      <div class="w-full">
-        <label :class="{ error: v$.name.$error }">
-          {{ $t('CUSTOM_ROLE.FORM.NAME.LABEL') }}
-          <input
-            ref="nameInput"
-            v-model.trim="name"
-            type="text"
-            :placeholder="$t('CUSTOM_ROLE.FORM.NAME.PLACEHOLDER')"
-            @blur="v$.name.$touch"
-          />
-        </label>
-      </div>
 
-      <div class="w-full">
-        <label :class="{ error: v$.description.$error }">
-          {{ $t('CUSTOM_ROLE.FORM.DESCRIPTION.LABEL') }}
+    <div class="px-8 pt-8 pb-6 border-b border-white/10">
+      <p class="text-xs font-semibold tracking-[0.2em] text-[#4ade80] uppercase mb-1">
+        {{ $t('CUSTOM_ROLE.FORM.PERMISSIONS.LABEL') }}
+      </p>
+      <h2 class="text-3xl font-black tracking-wide text-white uppercase">
+        {{ modalTitle }}
+      </h2>
+    </div>
 
-          <textarea
-            v-model="description"
-            :rows="3"
-            :placeholder="$t('CUSTOM_ROLE.FORM.DESCRIPTION.PLACEHOLDER')"
-            @blur="v$.description.$touch"
-          />
-        </label>
-      </div>
+    <form class="flex flex-col gap-6 px-8 py-6" @submit.prevent="handleCustomRole">
 
-      <div class="w-full">
-        <label :class="{ 'text-n-ruby-9': v$.selectedPermissions.$error }">
-          {{ $t('CUSTOM_ROLE.FORM.PERMISSIONS.LABEL') }}
-        </label>
-        <div class="flex flex-col gap-2.5 mb-4 mt-2">
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-[#4ade80] tracking-widest">01</span>
+          <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">Role Info</span>
+        </div>
+
+        <div class="grid grid-cols-1">
           <div
+            class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+            :class="{ 'border-red-500/50': v$.name.$error }"
+          >
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-[#4ade80] uppercase">
+              {{ $t('CUSTOM_ROLE.FORM.NAME.LABEL') }}
+            </span>
+            <input
+              ref="nameInput"
+              v-model.trim="name"
+              type="text"
+              :placeholder="$t('CUSTOM_ROLE.FORM.NAME.PLACEHOLDER')"
+              class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0"
+              @blur="v$.name.$touch"
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-2 pb-2 col-span-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+            :class="{ 'border-red-500/50': v$.description.$error }"
+          >
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">
+              {{ $t('CUSTOM_ROLE.FORM.DESCRIPTION.LABEL') }}
+            </span>
+            <textarea
+              v-model="description"
+              :rows="3"
+              :placeholder="$t('CUSTOM_ROLE.FORM.DESCRIPTION.PLACEHOLDER')"
+              class="bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0 resize-none"
+              @blur="v$.description.$touch"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10" />
+
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-[#4ade80] tracking-widest">02</span>
+          <span
+            class="text-xs font-semibold tracking-[0.18em] uppercase"
+            :class="v$.selectedPermissions.$error ? 'text-red-400' : 'text-n-slate-10'"
+          >
+            {{ $t('CUSTOM_ROLE.FORM.PERMISSIONS.LABEL') }}
+          </span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label
             v-for="permission in AVAILABLE_CUSTOM_ROLE_PERMISSIONS"
             :key="permission"
-            class="flex items-center"
+            :for="permission"
+            class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 cursor-pointer transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)]"
+            :class="{ 'border-[rgba(74,222,128,0.5)] bg-[rgba(74,222,128,0.05)]': selectedPermissions.includes(permission) }"
           >
             <input
               :id="permission"
@@ -201,26 +235,30 @@ const isSubmitDisabled = computed(
               type="checkbox"
               :value="permission"
               name="permissions"
-              class="ltr:mr-2 rtl:ml-2"
+              class="w-4 h-4 accent-[#4ade80] cursor-pointer"
             />
-            <label :for="permission" class="text-sm font-normal">
+            <span class="text-sm text-n-slate-9">
               {{ $t(`CUSTOM_ROLE.PERMISSIONS.${permission.toUpperCase()}`) }}
-            </label>
-          </div>
+            </span>
+          </label>
         </div>
       </div>
 
-      <div class="flex flex-row justify-end w-full gap-2 px-0 py-2">
+      <div class="border-t border-white/10" />
+
+      <div class="flex items-center justify-between gap-3 py-2">
         <Button
           faded
           slate
           type="reset"
           :label="$t('CUSTOM_ROLE.FORM.CANCEL_BUTTON_TEXT')"
+          class="h-10 hover:!no-underline hover:text-n-brand"
           @click.prevent="emit('close')"
         />
         <Button
           type="submit"
           :label="submitButtonText"
+          color="blue"
           :disabled="isSubmitDisabled"
           :is-loading="addCustomRole.showLoading"
         />

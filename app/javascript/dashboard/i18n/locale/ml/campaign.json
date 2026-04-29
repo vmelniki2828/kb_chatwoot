@@ -118,7 +118,7 @@
           },
           "AUDIENCE": {
             "LABEL": "പ്രേക്ഷകർ",
-            "PLACEHOLDER": "Select the customer labels",
+            "PLACEHOLDER": "Select the customer Tags",
             "ERROR": "പ്രേക്ഷകർ ആവശ്യമാണ്"
           },
           "SCHEDULED_AT": {
@@ -165,8 +165,8 @@
             "ERROR": "ശീർഷകം ആവശ്യമാണ്"
           },
           "INBOX": {
-            "LABEL": "Select Inbox",
-            "PLACEHOLDER": "Select Inbox",
+            "LABEL": "Select Source",
+            "PLACEHOLDER": "Select Source",
             "ERROR": "ഇൻബോക്സ് ആവശ്യമാണ്"
           },
           "TEMPLATE": {
@@ -182,7 +182,7 @@
           },
           "AUDIENCE": {
             "LABEL": "പ്രേക്ഷകർ",
-            "PLACEHOLDER": "Select the customer labels",
+            "PLACEHOLDER": "Select the customer Tags",
             "ERROR": "പ്രേക്ഷകർ ആവശ്യമാണ്"
           },
           "SCHEDULED_AT": {

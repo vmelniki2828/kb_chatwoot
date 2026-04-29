@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Public Help Center Access', type: :request do
+RSpec.describe 'Public Support Center Access', type: :request do
   let(:plan_name) { 'Startups' }
   let!(:account) { create(:account, custom_attributes: { 'plan_name' => plan_name }) }
   let!(:agent) { create(:user, account: account, role: :agent) }
@@ -21,14 +21,14 @@ RSpec.describe 'Public Help Center Access', type: :request do
     end
   end
 
-  it 'blocks chatwoot-hosted portal pages when the help center feature is disabled' do
+  it 'blocks chatwoot-hosted portal pages when the Support Center feature is disabled' do
     account.disable_features!(:help_center)
     host! 'help.chatwoot.com'
 
     get "/hc/#{portal.slug}/en"
 
     expect(response).to have_http_status(:payment_required)
-    expect(response.body).to include('Help Center Unavailable')
+    expect(response.body).to include('Support Center Unavailable')
   end
 
   context 'when the account is on the default plan' do

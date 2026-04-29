@@ -59,7 +59,7 @@
         },
         "MESSAGE": {
           "LABEL": "Custom auto-resolution message",
-          "PLACEHOLDER": "Conversation was marked resolved by system due to 15 days of inactivity",
+          "PLACEHOLDER": "Chat was marked resolved by system due to 15 days of inactivity",
           "HELP": "Message sent to the customer after conversation is auto-resolved"
         },
         "PREFERENCES": "Preferences",
@@ -115,7 +115,7 @@
         },
         "UPDATE_BUTTON": "Update",
         "MESSAGE_LABEL": "Custom resolution message",
-        "MESSAGE_PLACEHOLDER": "Conversation was marked resolved by system due to 15 days of inactivity",
+        "MESSAGE_PLACEHOLDER": "Chat was marked resolved by system due to 15 days of inactivity",
         "MESSAGE_HELP": "This message is sent to the customer when a conversation is automatically resolved by the system due to inactivity."
       },
       "FEATURES": {
@@ -191,7 +191,7 @@
       "CHANGE_ASSIGNEE": "Zmeniť prideleného agenta",
       "CHANGE_PRIORITY": "Change Priority",
       "CHANGE_TEAM": "Zmeniť tím",
-      "SNOOZE_CONVERSATION": "Snooze Conversation",
+      "SNOOZE_CONVERSATION": "Snooze Chat",
       "ADD_LABEL": "Pridať štítok do konverzácie",
       "REMOVE_LABEL": "Odstrániť štítok z konverzácie",
       "SETTINGS": "Nastavenia",
@@ -203,7 +203,7 @@
       "GO_TO_CONVERSATION_DASHBOARD": "Prejsť na ovládací panel konverzácie",
       "GO_TO_CONTACTS_DASHBOARD": "Prejsť na ovládací panel kontaktov",
       "GO_TO_REPORTS_OVERVIEW": "Prejsť na prehľad reportov",
-      "GO_TO_CONVERSATION_REPORTS": "Go to Conversation Reports",
+      "GO_TO_CONVERSATION_REPORTS": "Go to Chat Reports",
       "GO_TO_AGENT_REPORTS": "Prejsť na reporty o agentoch",
       "GO_TO_LABEL_REPORTS": "Prejsť na reporty o štítkoch",
       "GO_TO_INBOX_REPORTS": "Prejsť na reporty o schránkach",
@@ -228,7 +228,7 @@
       "REOPEN_CONVERSATION": "Reopen conversation",
       "RESOLVE_CONVERSATION": "Resolve conversation",
       "SEND_TRANSCRIPT": "Send an email transcript",
-      "SNOOZE_CONVERSATION": "Snooze Conversation",
+      "SNOOZE_CONVERSATION": "Snooze Chat",
       "UNTIL_NEXT_REPLY": "Until next reply",
       "UNTIL_NEXT_WEEK": "Until next week",
       "UNTIL_TOMORROW": "Until tomorrow",

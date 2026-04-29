@@ -27,11 +27,11 @@
       "PARTIAL_SUCCESS": "Some conversations need required attributes before resolving and were skipped"
     },
     "LABELS": {
-      "ASSIGN_LABELS": "Assign labels",
+      "ASSIGN_LABELS": "Assign Tags",
       "NO_LABELS_FOUND": "Tidak ada label",
       "ASSIGN_SELECTED_LABELS": "Tugaskan label terpilih",
       "ASSIGN_SUCCESFUL": "Label berhasil ditugaskan.",
-      "ASSIGN_FAILED": "Failed to assign labels. Please try again."
+      "ASSIGN_FAILED": "Failed to assign Tags. Please try again."
     },
     "TEAMS": {
       "TEAM_SELECT_LABEL": "Pilih tim",

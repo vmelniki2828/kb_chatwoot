@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Pilih halaman dari daftar",
         "INBOX_NAME": "Nama Kotak Masuk",
         "ADD_NAME": "Tambahkan nama untuk kotak masuk Anda",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Pilih",
         "CREATE_INBOX": "Buat Kotak Masuk"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agen",
         "DESC": "Di sini Anda dapat menambahkan agen untuk mengelola kotak masuk yang baru Anda buat. Hanya agen terpilih ini yang akan memiliki akses ke kotak masuk Anda. Agen yang bukan bagian dari kotak masuk ini tidak akan dapat melihat atau menanggapi pesan di kotak masuk ini saat mereka masuk. <br> <b> Keterangan: </b> Sebagai administrator, jika Anda memerlukan akses ke semua kotak masuk, Anda harus menambahkan diri Anda sebagai agen ke semua kotak masuk yang Anda buat.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Pilih agen untuk kotak masuk"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Aktifkan kontinuitas percakapan melalui email",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Percakapan akan berlanjut melalui email jika alamat email kontak tersedia.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Pengaturan Kotak Masuk",
       "INBOX_UPDATE_SUB_TEXT": "Perbarui pengaturan kotak masuk Anda",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "berisi",
           "DOES_NOT_CONTAINS": "tidak berisi"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

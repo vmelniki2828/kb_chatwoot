@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Zgjidh një faqe nga lista",
         "INBOX_NAME": "Emri i kutisë së postës",
         "ADD_NAME": "Shto një emër për kutinë tënde të postës",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Zgjidh një vlerë",
         "CREATE_INBOX": "Krijo Postën"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agjentë",
         "DESC": "Këtu mund të shtoni agjentë për të menaxhuar inbox-in e ri. Vetëm këta agjentë të zgjedhur do të kenë qasje në inbox-in tuaj. Agjentët që nuk janë pjesë e këtij inbox-i nuk do të mund të shohin ose t’u përgjigjen mesazheve në këtë inbox kur të kyçen. <br> <b>PS:</b> Si administrator, nëse keni nevojë për qasje në të gjitha inbox-et, duhet të shtoni veten si agjent në të gjitha inbox-et që krijoni.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Zgjidh agjentët për inbox-in"
       },
       "DETAILS": {
@@ -736,7 +736,7 @@
       "SENDER_NAME_SECTION": "Enable Agent Name in Email",
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Enable conversation continuity via email",
-      "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Conversations will continue over email if the contact email address is available.",
+      "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Chats will continue over email if the contact email address is available.",
       "LOCK_TO_SINGLE_CONVERSATION": "Rrjedhja e Bisedave",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Konfiguro krijimin e bisedave për kontaktet ekzistuese",
       "INBOX_UPDATE_TITLE": "Cilësimet e Postës",
@@ -789,7 +789,7 @@
       "SELECT_PLACEHOLDER": "Zgjidh Qendrën e Ndihmës",
       "NONE": "Asnjë",
       "REMOVE": "Hiq Qendrën e Ndihmës",
-      "SUB_TEXT": "Attach a Help Center with the inbox"
+      "SUB_TEXT": "Attach a Support Center with the inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Kufiri i caktimit automatik",

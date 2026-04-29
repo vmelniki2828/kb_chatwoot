@@ -27,11 +27,11 @@
       "PARTIAL_SUCCESS": "Some conversations need required attributes before resolving and were skipped"
     },
     "LABELS": {
-      "ASSIGN_LABELS": "Labels toewijzen",
-      "NO_LABELS_FOUND": "Geen labels gevonden",
-      "ASSIGN_SELECTED_LABELS": "Geselecteerde labels toewijzen",
-      "ASSIGN_SUCCESFUL": "Labels met succes toegewezen.",
-      "ASSIGN_FAILED": "Toewijzen van labels mislukt, probeer het opnieuw."
+      "ASSIGN_LABELS": "Tags toewijzen",
+      "NO_LABELS_FOUND": "Geen Tags gevonden",
+      "ASSIGN_SELECTED_LABELS": "Geselecteerde Tags toewijzen",
+      "ASSIGN_SUCCESFUL": "Tags met succes toegewezen.",
+      "ASSIGN_FAILED": "Toewijzen van Tags mislukt, probeer het opnieuw."
     },
     "TEAMS": {
       "TEAM_SELECT_LABEL": "Selecteer team",

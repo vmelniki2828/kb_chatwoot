@@ -126,7 +126,7 @@ const confirmPlaceHolderText = computed(() =>
               class="flex items-center flex-shrink-0 size-10 justify-center rounded-xl outline outline-1 outline-n-weak -outline-offset-1"
             >
               <Icon
-                icon="i-lucide-users-round"
+                icon="i-lucide-user-round-pen"
                 class="size-4 text-n-slate-11"
               />
             </div>

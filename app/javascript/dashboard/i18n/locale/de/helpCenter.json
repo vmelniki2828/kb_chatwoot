@@ -2,7 +2,7 @@
   "HELP_CENTER": {
     "TITLE": "Hilfezentrum",
     "NEW_PAGE": {
-      "DESCRIPTION": "Create self-service help center portals for your customers. Help them find answers quickly, without waiting. Streamline inquiries, boost agent efficiency, and elevate customer support.",
+      "DESCRIPTION": "Create self-service Support Center portals for your customers. Help them find answers quickly, without waiting. Streamline inquiries, boost agent efficiency, and elevate customer support.",
       "CREATE_PORTAL_BUTTON": "Portal erstellen"
     },
     "HEADER": {
@@ -207,7 +207,7 @@
             "BODY": "Grundlegende Informationen zum Portal"
           },
           "CUSTOMIZATION": {
-            "TITLE": "Anpassung des Help Centers",
+            "TITLE": "Anpassung des Support Centers",
             "BODY": "Portal anpassen"
           },
           "FINISH": {
@@ -224,7 +224,7 @@
           },
           "CUSTOMIZATION_PAGE": {
             "HEADER": "Portalanpassung",
-            "TITLE": "Anpassung des Help Centers",
+            "TITLE": "Anpassung des Support Centers",
             "UPDATE_PORTAL_BUTTON": "Portaleinstellungen aktualisieren"
           },
           "FINISH_PAGE": {
@@ -470,7 +470,7 @@
       "SEARCH_BUTTON": "Suchen",
       "INSERT_ARTICLE": "Link einfügen",
       "IFRAME_ERROR": "URL ist leer oder ungültig. Inhalt kann nicht angezeigt werden.",
-      "OPEN_ARTICLE_SEARCH": "Artikel aus dem Help Center einfügen",
+      "OPEN_ARTICLE_SEARCH": "Artikel aus dem Support Center einfügen",
       "SUCCESS_ARTICLE_INSERTED": "Artikel erfolgreich eingefügt",
       "PREVIEW_LINK": "Artikelvorschau anzeigen",
       "CANCEL": "Schließen",
@@ -488,7 +488,7 @@
       "FEATURES": {
         "PORTALS": {
           "TITLE": "Mehrere Portale",
-          "DESCRIPTION": "Erstellen Sie mehrere Help Center-Portale für verschiedene Produkte mit demselben Konto."
+          "DESCRIPTION": "Erstellen Sie mehrere Support Center-Portale für verschiedene Produkte mit demselben Konto."
         },
         "LOCALES": {
           "TITLE": "Vollständige Unterstützung für Sprachen",
@@ -751,7 +751,7 @@
         "LIVE_CHAT_WIDGET": {
           "LABEL": "Live chat widget",
           "PLACEHOLDER": "Select live chat widget",
-          "HELP_TEXT": "Select a live chat widget that will appear on your help center",
+          "HELP_TEXT": "Select a live chat widget that will appear on your Support Center",
           "NONE_OPTION": "No widget"
         },
         "BRAND_COLOR": {

@@ -6,11 +6,11 @@ properties:
     example: '#FFFFFF'
   custom_domain:
     type: string
-    description: Custom domain to display help center.
+    description: Custom domain to display Support Center.
     example: chatwoot.help
   header_text:
     type: string
-    description: Help center header
+    description: Support Center header
     example: Handbook
   homepage_link:
     type: string

@@ -56,13 +56,13 @@
     "FILTERS": {
       "FILTER_MESSAGE": "Filtra i messaggi per:",
       "FROM": "Mittente",
-      "IN": "Inbox",
+      "IN": "Source",
       "AGENTS": "Operatori",
       "CONTACTS": "Contatti",
-      "INBOXES": "Inbox",
+      "INBOXES": "Source",
       "NO_AGENTS": "Nessun operatore trovato",
       "NO_CONTACTS": "Avvia una ricerca per vedere risultati",
-      "NO_INBOXES": "Nessuna Inbox trovata"
+      "NO_INBOXES": "Nessuna Source trovata"
     }
   }
 }

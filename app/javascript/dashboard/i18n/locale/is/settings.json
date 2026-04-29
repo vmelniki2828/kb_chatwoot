@@ -290,16 +290,16 @@
   "CONFIRM_EMAIL": "Verifying...",
   "SETTINGS": {
     "INBOXES": {
-      "NEW_INBOX": "Add Inbox"
+      "NEW_INBOX": "Add Source"
     }
   },
   "SIDEBAR": {
     "NO_ITEMS": "No items",
     "CURRENTLY_VIEWING_ACCOUNT": "Currently viewing:",
     "SWITCH": "Switch",
-    "INBOX_VIEW": "Inbox View",
+    "INBOX_VIEW": "Source View",
     "CONVERSATIONS": "Samtöl",
-    "INBOX": "My Inbox",
+    "INBOX": "Notifications",
     "ALL_CONVERSATIONS": "Öll Samtöl",
     "MENTIONED_CONVERSATIONS": "Mentions",
     "PARTICIPATING_CONVERSATIONS": "Participating",
@@ -330,7 +330,7 @@
     "PROFILE_SETTINGS": "Stillingar Prófíls",
     "ACCOUNT_SETTINGS": "Account Settings",
     "APPLICATIONS": "Applications",
-    "LABELS": "Labels",
+    "LABELS": "Tags",
     "CUSTOM_ATTRIBUTES": "Custom Attributes",
     "AUTOMATION": "Automation",
     "MACROS": "Macros",
@@ -354,7 +354,7 @@
     "REPORTS_SLA": "SLA",
     "REPORTS_BOT": "Bot",
     "REPORTS_AGENT": "Þjónustufulltrúar",
-    "REPORTS_LABEL": "Labels",
+    "REPORTS_LABEL": "Tags",
     "REPORTS_INBOX": "Innhólf",
     "REPORTS_TEAM": "Team",
     "AGENT_ASSIGNMENT": "Agent Assignment",
@@ -363,10 +363,10 @@
     "SLA": "SLA",
     "CUSTOM_ROLES": "Custom Roles",
     "BETA": "Beta",
-    "REPORTS_OVERVIEW": "Overview",
+    "REPORTS_OVERVIEW": "Summary",
     "REAUTHORIZE": "Your inbox connection has expired, please reconnect\n to continue receiving and sending messages",
     "HELP_CENTER": {
-      "TITLE": "Help Center",
+      "TITLE": "Support Center",
       "ARTICLES": "Articles",
       "CATEGORIES": "Categories",
       "LOCALES": "Locales",
@@ -381,7 +381,7 @@
     "DOCS": "Read docs",
     "SECURITY": "Security",
     "CAPTAIN_AI": "Captain",
-    "CONVERSATION_WORKFLOW": "Conversation Workflow"
+    "CONVERSATION_WORKFLOW": "Chat Workflow"
   },
   "CAPTAIN_SETTINGS": {
     "TITLE": "Captain Settings",
@@ -416,14 +416,14 @@
         "DESCRIPTION": "Automatically convert voice messages and call recordings into searchable text transcripts."
       },
       "HELP_CENTER_SEARCH": {
-        "TITLE": "Help Center Search Indexing",
-        "DESCRIPTION": "Use AI for context aware search inside your help center articles."
+        "TITLE": "Support Center Search Indexing",
+        "DESCRIPTION": "Use AI for context aware search inside your Support Center articles."
       },
       "LABEL_SUGGESTION": {
         "TITLE": "Label Suggestion",
-        "DESCRIPTION": "Automatically suggest relevant labels and tags for conversations based on content analysis and context.",
+        "DESCRIPTION": "Automatically suggest relevant Tags and tags for conversations based on content analysis and context.",
         "MODEL_TITLE": "Label Suggestion Model",
-        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate labels"
+        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate Tags"
       }
     },
     "API": {
@@ -560,7 +560,7 @@
   "CONVERSATION_WORKFLOW": {
     "INDEX": {
       "HEADER": {
-        "TITLE": "Conversation Workflows",
+        "TITLE": "Chat Workflows",
         "DESCRIPTION": "Configure rules and required fields for conversation resolution."
       }
     },
@@ -633,8 +633,8 @@
       "OPEN_CONVERSATION": "Opna samtal",
       "RESOLVE_AND_NEXT": "Resolve and move to next",
       "NAVIGATE_DROPDOWN": "Navigate dropdown items",
-      "RESOLVE_CONVERSATION": "Resolve Conversation",
-      "GO_TO_CONVERSATION_DASHBOARD": "Go to Conversation Dashboard",
+      "RESOLVE_CONVERSATION": "Resolve Chat",
+      "GO_TO_CONVERSATION_DASHBOARD": "Go to Chat Dashboard",
       "ADD_ATTACHMENT": "Add Attachment",
       "GO_TO_CONTACTS_DASHBOARD": "Go to Contacts Dashboard",
       "TOGGLE_SIDEBAR": "Toggle Sidebar",
@@ -666,7 +666,7 @@
         "DESCRIPTION": "Manage workload for agents.",
         "FEATURES": [
           "Define maximum conversations per inbox",
-          "Create exceptions based on labels and time",
+          "Create exceptions based on Tags and time",
           "Add agents to a policy - one policy per agent"
         ]
       }
@@ -695,7 +695,7 @@
         "API": {
           "SUCCESS_MESSAGE": "Assignment policy created successfully",
           "ERROR_MESSAGE": "Failed to create assignment policy",
-          "INBOX_LINKED": "Inbox has been linked to the policy"
+          "INBOX_LINKED": "Source has been linked to the policy"
         }
       },
       "EDIT": {
@@ -721,11 +721,11 @@
         },
         "INBOX_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox added to policy successfully",
+            "SUCCESS_MESSAGE": "Source added to policy successfully",
             "ERROR_MESSAGE": "Failed to add inbox to policy"
           },
           "REMOVE": {
-            "SUCCESS_MESSAGE": "Inbox removed from policy successfully",
+            "SUCCESS_MESSAGE": "Source removed from policy successfully",
             "ERROR_MESSAGE": "Failed to remove inbox from policy"
           }
         }
@@ -773,7 +773,7 @@
           "LABEL": "Fair distribution policy",
           "DESCRIPTION": "Set the maximum number of conversations that can be assigned per agent within a time window to avoid overloading any one agent. This required field defaults to 100 conversations per hour.",
           "INPUT_MAX": "Assign max",
-          "DURATION": "Conversations per agent in every"
+          "DURATION": "Chats per agent in every"
         },
         "INBOXES": {
           "LABEL": "Added inboxes",
@@ -785,7 +785,7 @@
           },
           "EMPTY_STATE": "No inboxes added to this policy, add an inbox to get started",
           "API": {
-            "SUCCESS_MESSAGE": "Inbox successfully added to policy",
+            "SUCCESS_MESSAGE": "Source successfully added to policy",
             "ERROR_MESSAGE": "Failed to add inbox to policy"
           }
         }
@@ -844,15 +844,15 @@
         },
         "INBOX_LIMIT_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox limit added successfully",
+            "SUCCESS_MESSAGE": "Source limit added successfully",
             "ERROR_MESSAGE": "Failed to add inbox limit"
           },
           "UPDATE": {
-            "SUCCESS_MESSAGE": "Inbox limit updated successfully",
+            "SUCCESS_MESSAGE": "Source limit updated successfully",
             "ERROR_MESSAGE": "Failed to update inbox limit"
           },
           "DELETE": {
-            "SUCCESS_MESSAGE": "Inbox limit deleted successfully",
+            "SUCCESS_MESSAGE": "Source limit deleted successfully",
             "ERROR_MESSAGE": "Failed to delete inbox limit"
           }
         }
@@ -867,7 +867,7 @@
           "PLACEHOLDER": "Enter description"
         },
         "INBOX_CAPACITY_LIMIT": {
-          "LABEL": "Inbox capacity limits",
+          "LABEL": "Source capacity limits",
           "ADD_BUTTON": "Add inbox",
           "FIELD": {
             "SELECT_INBOX": "Select inbox",
@@ -878,9 +878,9 @@
         },
         "EXCLUSION_RULES": {
           "LABEL": "Exclusion rules",
-          "DESCRIPTION": "Conversations that satisfy the following conditions would not count towards agent capacity",
-          "TAGS": {
-            "LABEL": "Exclude conversations tagged with specific labels",
+          "DESCRIPTION": "Chats that satisfy the following conditions would not count towards agent capacity",
+          "LABELS": {
+            "LABEL": "Exclude conversations tagged with specific Tags",
             "ADD_TAG": "add tag",
             "DROPDOWN": {
               "SEARCH_PLACEHOLDER": "Search and select tags to add"

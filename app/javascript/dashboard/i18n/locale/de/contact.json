@@ -29,17 +29,17 @@
     },
     "LABELS": {
       "CONTACT": {
-        "TITLE": "Kontakt-Labels",
-        "ERROR": "Labels konnten nicht aktualisiert werden"
+        "TITLE": "Kontakt-Tags",
+        "ERROR": "Tags konnten nicht aktualisiert werden"
       },
       "CONVERSATION": {
         "TITLE": "Konversationslabels",
         "ADD_BUTTON": "Label hinzufügen"
       },
       "LABEL_SELECT": {
-        "TITLE": "Labels hinzufügen",
-        "PLACEHOLDER": "Labels suchen",
-        "NO_RESULT": "Keine Labels gefunden",
+        "TITLE": "Tags hinzufügen",
+        "PLACEHOLDER": "Tags suchen",
+        "NO_RESULT": "Keine Tags gefunden",
         "CREATE_LABEL": "Neues Label erstellen"
       }
     },
@@ -53,7 +53,7 @@
     "EDIT_LABEL": "Bearbeiten",
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "Benutzerdefinierte Attribute",
-      "CONTACT_LABELS": "Kontakt-Labels",
+      "CONTACT_LABELS": "Kontakt-Tags",
       "PREVIOUS_CONVERSATIONS": "Vorherige Konversationen",
       "NO_RECORDS_FOUND": "Keine Attribute gefunden"
     }
@@ -580,11 +580,11 @@
     "LOAD_MORE": "Load more"
   },
   "CONTACTS_BULK_ACTIONS": {
-    "ASSIGN_LABELS": "Labels zuweisen",
-    "ASSIGN_LABELS_SUCCESS": "Labels erfolgreich zugewiesen.",
-    "ASSIGN_LABELS_FAILED": "Fehler beim Zuweisen der Labels",
-    "DESCRIPTION": "Wählen Sie die Labels aus, die zu den ausgewählten Kontakten hinzugefügt werden sollen.",
-    "NO_LABELS_FOUND": "Noch keine Labels vorhanden.",
+    "ASSIGN_LABELS": "Tags zuweisen",
+    "ASSIGN_LABELS_SUCCESS": "Tags erfolgreich zugewiesen.",
+    "ASSIGN_LABELS_FAILED": "Fehler beim Zuweisen der Tags",
+    "DESCRIPTION": "Wählen Sie die Tags aus, die zu den ausgewählten Kontakten hinzugefügt werden sollen.",
+    "NO_LABELS_FOUND": "Noch keine Tags vorhanden.",
     "SELECTED_COUNT": "{count} selected",
     "CLEAR_SELECTION": "Auswahl löschen",
     "SELECT_ALL": "Alle auswählen ({count})",

@@ -1,8 +1,8 @@
 {
   "HELP_CENTER": {
-    "TITLE": "Help Center",
+    "TITLE": "Support Center",
     "NEW_PAGE": {
-      "DESCRIPTION": "Create self-service help center portals for your customers. Help them find answers quickly, without waiting. Streamline inquiries, boost agent efficiency, and elevate customer support.",
+      "DESCRIPTION": "Create self-service Support Center portals for your customers. Help them find answers quickly, without waiting. Streamline inquiries, boost agent efficiency, and elevate customer support.",
       "CREATE_PORTAL_BUTTON": "Create Portal"
     },
     "HEADER": {
@@ -203,11 +203,11 @@
       "ADD": {
         "CREATE_FLOW": {
           "BASIC": {
-            "TITLE": "Help center information",
+            "TITLE": "Support Center information",
             "BODY": "Basic information about portal"
           },
           "CUSTOMIZATION": {
-            "TITLE": "Help center customization",
+            "TITLE": "Support Center customization",
             "BODY": "Customize portal"
           },
           "FINISH": {
@@ -219,12 +219,12 @@
           "BACK_BUTTON": "Takaisin",
           "BASIC_SETTINGS_PAGE": {
             "HEADER": "Create Portal",
-            "TITLE": "Help center information",
+            "TITLE": "Support Center information",
             "CREATE_BASIC_SETTING_BUTTON": "Create portal basic settings"
           },
           "CUSTOMIZATION_PAGE": {
             "HEADER": "Portal customisation",
-            "TITLE": "Help center customization",
+            "TITLE": "Support Center customization",
             "UPDATE_PORTAL_BUTTON": "Update portal settings"
           },
           "FINISH_PAGE": {
@@ -470,7 +470,7 @@
       "SEARCH_BUTTON": "Etsi",
       "INSERT_ARTICLE": "Insert link",
       "IFRAME_ERROR": "URL is empty or invalid. Unable to display content.",
-      "OPEN_ARTICLE_SEARCH": "Insert article from Help Center",
+      "OPEN_ARTICLE_SEARCH": "Insert article from Support Center",
       "SUCCESS_ARTICLE_INSERTED": "Article inserted successfully",
       "PREVIEW_LINK": "Preview article",
       "CANCEL": "Sulje",
@@ -478,7 +478,7 @@
       "BACK_RESULTS": "Back to results"
     },
     "UPGRADE_PAGE": {
-      "TITLE": "Help Center",
+      "TITLE": "Support Center",
       "DESCRIPTION": "Create user-friendly self-service portals. Help your users to access the articles and get support 24/7. Upgrade your subscription to enable this feature.",
       "SELF_HOSTED_DESCRIPTION": "Create user-friendly self-service portals. Help your users to access the articles and get support 24/7. Please contact your administrator to enable this feature.",
       "BUTTON": {
@@ -488,7 +488,7 @@
       "FEATURES": {
         "PORTALS": {
           "TITLE": "Multiple portals",
-          "DESCRIPTION": "Create multiple help center portals for different products using the same account."
+          "DESCRIPTION": "Create multiple Support Center portals for different products using the same account."
         },
         "LOCALES": {
           "TITLE": "Full support for locales",
@@ -751,7 +751,7 @@
         "LIVE_CHAT_WIDGET": {
           "LABEL": "Live chat widget",
           "PLACEHOLDER": "Select live chat widget",
-          "HELP_TEXT": "Select a live chat widget that will appear on your help center",
+          "HELP_TEXT": "Select a live chat widget that will appear on your Support Center",
           "NONE_OPTION": "No widget"
         },
         "BRAND_COLOR": {

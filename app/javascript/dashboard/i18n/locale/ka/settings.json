@@ -120,8 +120,8 @@
         "ALERT_TYPE": {
           "TITLE": "Alert events for conversations",
           "NONE": "None",
-          "ASSIGNED": "Assigned Conversations",
-          "ALL_CONVERSATIONS": "All Conversations"
+          "ASSIGNED": "Assigned Chats",
+          "ALL_CONVERSATIONS": "All Chats"
         },
         "DEFAULT_TONE": {
           "TITLE": "Alert tone:"
@@ -297,10 +297,10 @@
     "NO_ITEMS": "No items",
     "CURRENTLY_VIEWING_ACCOUNT": "Currently viewing:",
     "SWITCH": "Switch",
-    "INBOX_VIEW": "Inbox View",
+    "INBOX_VIEW": "Source View",
     "CONVERSATIONS": "საუბრები",
-    "INBOX": "My Inbox",
-    "ALL_CONVERSATIONS": "All Conversations",
+    "INBOX": "Notifications",
+    "ALL_CONVERSATIONS": "All Chats",
     "MENTIONED_CONVERSATIONS": "Mentions",
     "PARTICIPATING_CONVERSATIONS": "Participating",
     "UNATTENDED_CONVERSATIONS": "Unattended",
@@ -317,7 +317,7 @@
     "CAPTAIN_TOOLS": "ინსტრუმენტები",
     "CAPTAIN_SCENARIOS": "Scenarios",
     "CAPTAIN_PLAYGROUND": "Playground",
-    "CAPTAIN_INBOXES": "Inboxes",
+    "CAPTAIN_INBOXES": "Sources",
     "CAPTAIN_SETTINGS": "Settings",
     "HOME": "მთავარი",
     "AGENTS": "აგენტები",
@@ -343,7 +343,7 @@
     "NEW_LABEL": "New label",
     "NEW_TEAM": "New team",
     "NEW_INBOX": "New inbox",
-    "REPORTS_CONVERSATION": "Conversations",
+    "REPORTS_CONVERSATION": "Chats",
     "CSAT": "CSAT",
     "LIVE_CHAT": "Live Chat",
     "SMS": "SMS",
@@ -354,8 +354,8 @@
     "REPORTS_SLA": "SLA",
     "REPORTS_BOT": "Bot",
     "REPORTS_AGENT": "Agents",
-    "REPORTS_LABEL": "Labels",
-    "REPORTS_INBOX": "Inbox",
+    "REPORTS_LABEL": "Tags",
+    "REPORTS_INBOX": "Source",
     "REPORTS_TEAM": "Team",
     "AGENT_ASSIGNMENT": "აგენტების მინიჭება",
     "SET_AVAILABILITY_TITLE": "Set yourself as",
@@ -363,10 +363,10 @@
     "SLA": "SLA",
     "CUSTOM_ROLES": "Custom Roles",
     "BETA": "Beta",
-    "REPORTS_OVERVIEW": "Overview",
+    "REPORTS_OVERVIEW": "Summary",
     "REAUTHORIZE": "Your inbox connection has expired, please reconnect\n to continue receiving and sending messages",
     "HELP_CENTER": {
-      "TITLE": "Help Center",
+      "TITLE": "Support Center",
       "ARTICLES": "Articles",
       "CATEGORIES": "Categories",
       "LOCALES": "Locales",
@@ -381,7 +381,7 @@
     "DOCS": "Read docs",
     "SECURITY": "უსაფრთხოება",
     "CAPTAIN_AI": "Captain",
-    "CONVERSATION_WORKFLOW": "Conversation Workflow"
+    "CONVERSATION_WORKFLOW": "Chat Workflow"
   },
   "CAPTAIN_SETTINGS": {
     "TITLE": "Captain Settings",
@@ -416,14 +416,14 @@
         "DESCRIPTION": "Automatically convert voice messages and call recordings into searchable text transcripts."
       },
       "HELP_CENTER_SEARCH": {
-        "TITLE": "Help Center Search Indexing",
-        "DESCRIPTION": "Use AI for context aware search inside your help center articles."
+        "TITLE": "Support Center Search Indexing",
+        "DESCRIPTION": "Use AI for context aware search inside your Support Center articles."
       },
       "LABEL_SUGGESTION": {
         "TITLE": "Label Suggestion",
-        "DESCRIPTION": "Automatically suggest relevant labels and tags for conversations based on content analysis and context.",
+        "DESCRIPTION": "Automatically suggest relevant Tags and tags for conversations based on content analysis and context.",
         "MODEL_TITLE": "Label Suggestion Model",
-        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate labels"
+        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate Tags"
       }
     },
     "API": {
@@ -560,7 +560,7 @@
   "CONVERSATION_WORKFLOW": {
     "INDEX": {
       "HEADER": {
-        "TITLE": "Conversation Workflows",
+        "TITLE": "Chat Workflows",
         "DESCRIPTION": "Configure rules and required fields for conversation resolution."
       }
     },
@@ -633,8 +633,8 @@
       "OPEN_CONVERSATION": "Open conversation",
       "RESOLVE_AND_NEXT": "Resolve and move to next",
       "NAVIGATE_DROPDOWN": "Navigate dropdown items",
-      "RESOLVE_CONVERSATION": "Resolve Conversation",
-      "GO_TO_CONVERSATION_DASHBOARD": "Go to Conversation Dashboard",
+      "RESOLVE_CONVERSATION": "Resolve Chat",
+      "GO_TO_CONVERSATION_DASHBOARD": "Go to Chat Dashboard",
       "ADD_ATTACHMENT": "Add Attachment",
       "GO_TO_CONTACTS_DASHBOARD": "Go to Contacts Dashboard",
       "TOGGLE_SIDEBAR": "Toggle Sidebar",
@@ -695,7 +695,7 @@
         "API": {
           "SUCCESS_MESSAGE": "მინიჭების პოლიტიკა წარმატებით შეიქმნა",
           "ERROR_MESSAGE": "მინიჭების პოლიტიკის შექმნა ვერ მოხერხდა",
-          "INBOX_LINKED": "Inbox has been linked to the policy"
+          "INBOX_LINKED": "Source has been linked to the policy"
         }
       },
       "EDIT": {
@@ -844,15 +844,15 @@
         },
         "INBOX_LIMIT_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox limit added successfully",
+            "SUCCESS_MESSAGE": "Source limit added successfully",
             "ERROR_MESSAGE": "Failed to add inbox limit"
           },
           "UPDATE": {
-            "SUCCESS_MESSAGE": "Inbox limit updated successfully",
+            "SUCCESS_MESSAGE": "Source limit updated successfully",
             "ERROR_MESSAGE": "Failed to update inbox limit"
           },
           "DELETE": {
-            "SUCCESS_MESSAGE": "Inbox limit deleted successfully",
+            "SUCCESS_MESSAGE": "Source limit deleted successfully",
             "ERROR_MESSAGE": "Failed to delete inbox limit"
           }
         }
@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "გამორიცხვის წესები",
           "DESCRIPTION": "საუბრები, რომლებიც აკმაყოფილებენ ქვემოთ მოცემულ პირობებს, აგენტის ტევადობაში არ ჩაითვლება",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "გამორიცხეთ კონკრეტული ჭდეებით მონიშნული საუბრები",
             "ADD_TAG": "ჭდის დამატება",
             "DROPDOWN": {

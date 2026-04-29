@@ -1,6 +1,6 @@
 {
   "INBOX_MGMT": {
-    "HEADER": "Mga Inbox",
+    "HEADER": "Mga Source",
     "DESCRIPTION": "Ang channel ay ang paraan ng komunikasyon na pinipili ng iyong customer upang makipag-ugnayan sa iyo. Ang inbox ay kung saan mo pinamamahalaan ang mga interaksyon para sa isang partikular na channel. Maaari itong magsama ng komunikasyon mula sa iba't ibang mga pinagmulan tulad ng email, live chat, at social media.",
     "LEARN_MORE": "Matuto nang higit pa tungkol sa mga inbox",
     "COUNT": "{n} inbox | {n} mga inbox",
@@ -19,7 +19,7 @@
         "BODY": "Pumili ng provider na nais mong i-integrate sa QODEQ CHAT."
       },
       "INBOX": {
-        "TITLE": "Gumawa ng Inbox",
+        "TITLE": "Gumawa ng Source",
         "BODY": "I-authenticate ang iyong account at gumawa ng inbox."
       },
       "AGENT": {
@@ -33,7 +33,7 @@
     },
     "ADD": {
       "CHANNEL_NAME": {
-        "LABEL": "Pangalan ng Inbox",
+        "LABEL": "Pangalan ng Source",
         "PLACEHOLDER": "Ilagay ang pangalan ng iyong inbox (hal: Acme Inc)",
         "ERROR": "Pakilagay ang wastong pangalan ng inbox"
       },
@@ -45,11 +45,11 @@
         "HELP": "PS: Sa pag-sign in, nakakakuha lang kami ng access sa mga mensahe ng iyong Pahina. Hindi kailanman maa-access ng QODEQ CHAT ang iyong mga pribadong mensahe.",
         "CHOOSE_PAGE": "Pumili ng Pahina",
         "CHOOSE_PLACEHOLDER": "Pumili ng pahina mula sa listahan",
-        "INBOX_NAME": "Pangalan ng Inbox",
+        "INBOX_NAME": "Pangalan ng Source",
         "ADD_NAME": "Magdagdag ng pangalan para sa iyong inbox",
-        "PICK_NAME": "Pumili ng Pangalan para sa iyong Inbox",
+        "PICK_NAME": "Pumili ng Pangalan para sa iyong Source",
         "PICK_A_VALUE": "Pumili ng halaga",
-        "CREATE_INBOX": "Gumawa ng Inbox"
+        "CREATE_INBOX": "Gumawa ng Source"
       },
       "INSTAGRAM": {
         "CONTINUE_WITH_INSTAGRAM": "Magpatuloy gamit ang Instagram",
@@ -159,7 +159,7 @@
           "ERROR": "Kinakailangan ang patlang na ito"
         },
         "CHANNEL_NAME": {
-          "LABEL": "Pangalan ng Inbox",
+          "LABEL": "Pangalan ng Source",
           "PLACEHOLDER": "Mangyaring ilagay ang pangalan ng inbox",
           "ERROR": "Kinakailangan ang patlang na ito"
         },
@@ -210,7 +210,7 @@
             "ERROR": "Kinakailangan ang patlang na ito"
           },
           "INBOX_NAME": {
-            "LABEL": "Pangalan ng Inbox",
+            "LABEL": "Pangalan ng Source",
             "PLACEHOLDER": "Pakilagay ang pangalan ng inbox",
             "ERROR": "Kinakailangan ang patlang na ito"
           },
@@ -246,7 +246,7 @@
           "DESCRIPTION": "Pumili ng iyong WhatsApp provider. Maaari kang kumonekta nang direkta sa Meta na hindi nangangailangan ng setup, o kumonekta sa pamamagitan ng Twilio gamit ang iyong mga kredensyal sa account."
         },
         "INBOX_NAME": {
-          "LABEL": "Pangalan ng Inbox",
+          "LABEL": "Pangalan ng Source",
           "PLACEHOLDER": "Mangyaring ilagay ang pangalan ng inbox",
           "ERROR": "Kinakailangan ang patlang na ito"
         },
@@ -494,11 +494,11 @@
       "AGENTS": {
         "TITLE": "Mga Ahente",
         "DESC": "Dito maaari kang magdagdag ng mga ahente upang pamahalaan ang iyong bagong likhang inbox. Tanging ang mga napiling ahenteng ito lamang ang magkakaroon ng access sa iyong inbox. Ang mga ahenteng hindi bahagi ng inbox na ito ay hindi makakakita o makakasagot sa mga mensahe sa inbox na ito kapag nag-login sila. <br> <b>PS:</b> Bilang isang administrador, kung kailangan mo ng access sa lahat ng inbox, dapat mong idagdag ang iyong sarili bilang ahente sa lahat ng inbox na iyong nilikha.",
-        "VALIDATION_ERROR": "Magdagdag ng kahit isang ahente sa iyong bagong Inbox",
+        "VALIDATION_ERROR": "Magdagdag ng kahit isang ahente sa iyong bagong Source",
         "PICK_AGENTS": "Pumili ng mga ahente para sa inbox"
       },
       "DETAILS": {
-        "TITLE": "Mga Detalye ng Inbox",
+        "TITLE": "Mga Detalye ng Source",
         "DESC": "Mula sa dropdown sa ibaba, piliin ang Facebook Page na nais mong ikonekta sa QODEQ CHAT. Maaari ka ring magbigay ng pasadyang pangalan sa iyong inbox para sa mas madaling pagkilala."
       },
       "FINISH": {
@@ -530,16 +530,16 @@
       "ERROR_FB_AUTH": "May nagkamaling nangyari, Pakirefresh ang pahina...",
       "ERROR_FB_UNAUTHORIZED": "Wala kang pahintulot na isagawa ang aksyong ito. ",
       "ERROR_FB_UNAUTHORIZED_HELP": "Pakisigurong may access ka sa Facebook page na may buong kontrol. Maaari kang magbasa pa tungkol sa mga papel sa Facebook <a href=\" https://www.facebook.com/help/187316341316631\">dito</a>.",
-      "CREATING_CHANNEL": "Gumagawa ng iyong Inbox...",
-      "TITLE": "I-configure ang Mga Detalye ng Inbox",
+      "CREATING_CHANNEL": "Gumagawa ng iyong Source...",
+      "TITLE": "I-configure ang Mga Detalye ng Source",
       "DESC": ""
     },
     "AGENTS": {
       "BUTTON_TEXT": "Magdagdag ng mga ahente",
-      "ADD_AGENTS": "Nagdaragdag ng mga Ahente sa iyong Inbox..."
+      "ADD_AGENTS": "Nagdaragdag ng mga Ahente sa iyong Source..."
     },
     "FINISH": {
-      "TITLE": "Handa na ang iyong Inbox!",
+      "TITLE": "Handa na ang iyong Source!",
       "MESSAGE": "Maaari mo nang makipag-ugnayan sa iyong mga customer sa pamamagitan ng iyong bagong Channel. Maligayang pagsuporta",
       "BUTTON_TEXT": "Dalhin mo ako doon",
       "MORE_SETTINGS": "Higit pang mga setting",
@@ -739,7 +739,7 @@
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Magpapatuloy ang mga pag-uusap sa email kung available ang email address ng contact.",
       "LOCK_TO_SINGLE_CONVERSATION": "Pag-ruta ng Pag-uusap",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "I-configure ang paggawa ng pag-uusap para sa mga umiiral na contact",
-      "INBOX_UPDATE_TITLE": "Mga Setting ng Inbox",
+      "INBOX_UPDATE_TITLE": "Mga Setting ng Source",
       "INBOX_UPDATE_SUB_TEXT": "I-update ang mga setting ng iyong inbox",
       "AUTO_ASSIGNMENT_SUB_TEXT": "Paganahin o huwag paganahin ang awtomatikong pagtatalaga ng mga bagong pag-uusap sa mga ahenteng idinagdag sa inbox na ito.",
       "HMAC_VERIFICATION": "Pagpapatunay ng Pagkakakilanlan ng Gumagamit",
@@ -747,7 +747,7 @@
       "HMAC_LINK_TO_DOCS": "Maaari kang magbasa pa dito.",
       "HMAC_MANDATORY_VERIFICATION": "Ipilit ang Pagpapatunay ng Identidad ng User",
       "HMAC_MANDATORY_DESCRIPTION": "Kung naka-enable, ang mga kahilingang hindi mapapatunayan ay tatanggihan.",
-      "INBOX_IDENTIFIER": "Identifier ng Inbox",
+      "INBOX_IDENTIFIER": "Identifier ng Source",
       "INBOX_IDENTIFIER_SUB_TEXT": "Gamitin ang `inbox_identifier` token na ipinapakita dito para sa pagpapatunay ng iyong mga API client.",
       "FORWARD_EMAIL_TITLE": "I-forward sa Email",
       "FORWARD_EMAIL_SUB_TEXT": "Simulan ang pag-forward ng iyong mga email sa sumusunod na email address.",
@@ -784,12 +784,12 @@
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "I-update ang Mga Setting ng Pre Chat Form"
     },
     "HELP_CENTER": {
-      "LABEL": "Help Center",
-      "PLACEHOLDER": "Piliin ang Help Center",
-      "SELECT_PLACEHOLDER": "Piliin ang Help Center",
+      "LABEL": "Support Center",
+      "PLACEHOLDER": "Piliin ang Support Center",
+      "SELECT_PLACEHOLDER": "Piliin ang Support Center",
       "NONE": "Wala",
-      "REMOVE": "Alisin ang Help Center",
-      "SUB_TEXT": "Ikabit ang Help Center sa inbox"
+      "REMOVE": "Alisin ang Support Center",
+      "SUB_TEXT": "Ikabit ang Support Center sa inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Limitasyon ng auto assignment",

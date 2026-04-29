@@ -1,12 +1,12 @@
 {
   "INBOX": {
     "LIST": {
-      "TITLE": "La mia Inbox",
+      "TITLE": "La mia Source",
       "DISPLAY_DROPDOWN": "Visualizza",
       "LOADING": "Caricamento notifiche",
       "404": "Non ci sono notifiche attive in questo gruppo.",
       "NO_NOTIFICATIONS": "Nessuna notifica",
-      "NOTE": "Notifiche da tutte le Inbox",
+      "NOTE": "Notifiche da tutte le Source",
       "NO_MESSAGES_AVAILABLE": "Oops! Impossibile recuperare i messaggi",
       "SNOOZED_UNTIL": "Posticipata fino a",
       "SNOOZED_UNTIL_TOMORROW": "Posticipata fino a domani",

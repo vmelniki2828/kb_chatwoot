@@ -4,7 +4,7 @@
     "DESCRIPTION": "Kanal müştərinizin sizinlə əlaqə qurmaq üçün seçdiyi ünsiyyət vasitəsidir. Poçt qutusu müəyyən bir kanal üçün qarşılıqlı əlaqələri idarə etdiyiniz yerdir. Bu, e-poçt, canlı çat və sosial media kimi müxtəlif mənbələrdən olan ünsiyyətləri əhatə edə bilər.",
     "LEARN_MORE": "Poçt qutuları haqqında daha çox öyrənin",
     "COUNT": "{n} inbox | {n} inboxlar",
-    "SEARCH_PLACEHOLDER": "Inboxlarda axtarış...",
+    "SEARCH_PLACEHOLDER": "Sourcelarda axtarış...",
     "NO_RESULTS": "Axtarışınıza uyğun inbox tapılmadı",
     "RECONNECTION_REQUIRED": "Poçt qutunuz bağlantısı kəsilib. Yenidən təsdiqləyənə qədər yeni mesajlar almayacaqsınız.",
     "CLICK_TO_RECONNECT": "Yenidən qoşulmaq üçün bura klikləyin.",
@@ -33,8 +33,8 @@
     },
     "ADD": {
       "CHANNEL_NAME": {
-        "LABEL": "Inbox adı",
-        "PLACEHOLDER": "Inbox adınızı daxil edin (məsələn: Acme Inc)",
+        "LABEL": "Source adı",
+        "PLACEHOLDER": "Source adınızı daxil edin (məsələn: Acme Inc)",
         "ERROR": "Zəhmət olmasa düzgün inbox adı daxil edin"
       },
       "WEBSITE_NAME": {
@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Siyahıdan səhifə seçin",
         "INBOX_NAME": "Gələn Qutu Adı",
         "ADD_NAME": "Gələn qutunuza ad əlavə edin",
-        "PICK_NAME": "Inbox üçün ad seçin",
+        "PICK_NAME": "Source üçün ad seçin",
         "PICK_A_VALUE": "Dəyər seçin",
         "CREATE_INBOX": "Poçt qutusu yaradın"
       },
@@ -210,7 +210,7 @@
             "ERROR": "Bu sahə tələb olunur"
           },
           "INBOX_NAME": {
-            "LABEL": "Inbox adı",
+            "LABEL": "Source adı",
             "PLACEHOLDER": "Zəhmət olmasa inbox adı daxil edin",
             "ERROR": "Bu sahə tələb olunur"
           },
@@ -554,7 +554,7 @@
       "API": {
         "SUCCESS_MESSAGE": "Gələn qutu parametrləri uğurla yeniləndi",
         "AUTO_ASSIGNMENT_SUCCESS_MESSAGE": "Avtomatik təyin etmə uğurla yeniləndi",
-        "ERROR_MESSAGE": "Inbox parametrlərini yeniləyə bilmədik. Zəhmət olmasa sonra yenidən cəhd edin."
+        "ERROR_MESSAGE": "Source parametrlərini yeniləyə bilmədik. Zəhmət olmasa sonra yenidən cəhd edin."
       },
       "EMAIL_COLLECT_BOX": {
         "ENABLED": "Aktivdir",
@@ -614,8 +614,8 @@
       "API": {
         "SUCCESS_MESSAGE": "Gələn qutu uğurla silindi",
         "ERROR_MESSAGE": "Gələn qutu silinə bilmədi. Zəhmət olmasa bir az sonra yenidən cəhd edin.",
-        "AVATAR_SUCCESS_MESSAGE": "Inbox avatarı uğurla silindi",
-        "AVATAR_ERROR_MESSAGE": "Inbox avatarını silmək mümkün olmadı. Zəhmət olmasa sonra yenidən cəhd edin."
+        "AVATAR_SUCCESS_MESSAGE": "Source avatarı uğurla silindi",
+        "AVATAR_ERROR_MESSAGE": "Source avatarını silmək mümkün olmadı. Zəhmət olmasa sonra yenidən cəhd edin."
       }
     },
     "TABS": {
@@ -747,7 +747,7 @@
       "HMAC_LINK_TO_DOCS": "Daha ətraflı buradan oxuya bilərsiniz.",
       "HMAC_MANDATORY_VERIFICATION": "İstifadəçi şəxsiyyətinin yoxlanmasını məcbur et",
       "HMAC_MANDATORY_DESCRIPTION": "Əgər aktivdirsə, təsdiqlənməyən sorğular rədd ediləcək.",
-      "INBOX_IDENTIFIER": "Inbox identifikatoru",
+      "INBOX_IDENTIFIER": "Source identifikatoru",
       "INBOX_IDENTIFIER_SUB_TEXT": "API müştərilərinizi təsdiqləmək üçün burada göstərilən `inbox_identifier` tokenindən istifadə edin.",
       "FORWARD_EMAIL_TITLE": "Elektron poçta yönləndir",
       "FORWARD_EMAIL_SUB_TEXT": "Elektron poçtlarınızı aşağıdakı elektron poçt ünvanına yönləndirməyə başlayın.",
@@ -789,7 +789,7 @@
       "SELECT_PLACEHOLDER": "Kömək Mərkəzini seçin",
       "NONE": "Heç biri",
       "REMOVE": "Kömək Mərkəzini Silin",
-      "SUB_TEXT": "Inbox ilə Kömək Mərkəzini birləşdirin"
+      "SUB_TEXT": "Source ilə Kömək Mərkəzini birləşdirin"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Avtomatik təyinat limiti",
@@ -837,7 +837,7 @@
     },
     "ASSIGNMENT_POLICY": {
       "DELETE_CONFIRM_TITLE": "Təyinat siyasətini silmək istəyirsiniz?",
-      "DELETE_CONFIRM_MESSAGE": "Bu təyinat siyasətini bu inboxdan silmək istədiyinizə əminsiniz? Inbox əsas təyinat qaydalarına qayıdacaq.",
+      "DELETE_CONFIRM_MESSAGE": "Bu təyinat siyasətini bu inboxdan silmək istədiyinizə əminsiniz? Source əsas təyinat qaydalarına qayıdacaq.",
       "CANCEL": "Ləğv et",
       "CONFIRM_DELETE": "Silin",
       "DELETE_SUCCESS": "Təyinat siyasəti uğurla silindi",

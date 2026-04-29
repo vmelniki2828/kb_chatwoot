@@ -19,35 +19,21 @@ const props = defineProps({
 });
 
 const isRelaxed = computed(() => props.type === 'relaxed');
-const headerClass = computed(() =>
-  isRelaxed.value
-    ? 'ltr:first:rounded-bl-lg ltr:first:rounded-tl-lg ltr:last:rounded-br-lg ltr:last:rounded-tr-lg rtl:first:rounded-br-lg rtl:first:rounded-tr-lg rtl:last:rounded-bl-lg rtl:last:rounded-tl-lg'
-    : ''
-);
+const rows = computed(() => props.table.getRowModel().rows);
+const headers = computed(() => props.table.getHeaderGroups()[0].headers);
 </script>
 
 <template>
-  <table :class="{ 'table-fixed': fixed }">
-    <thead class="sticky top-0 z-10 bg-n-slate-1">
-      <tr
-        v-for="headerGroup in table.getHeaderGroups()"
-        :key="headerGroup.id"
-        class="rounded-xl"
-      >
+  <table class="w-full border-collapse table-fixed rounded-xl overflow-hidden">
+    <thead>
+      <tr>
         <th
-          v-for="header in headerGroup.headers"
+          v-for="header in headers"
           :key="header.id"
-          :style="{
-            width: `${header.getSize()}px`,
-          }"
-          class="text-left py-3 px-5 font-medium text-sm text-n-slate-12"
-          :class="headerClass"
+          class="text-left py-2.5 px-4 text-xs font-medium text-n-slate-11 uppercase tracking-wider bg-n-slate-3 border-b border-n-weak first:rounded-tl-xl last:rounded-tr-xl cursor-pointer select-none"
           @click="header.column.getCanSort() && header.column.toggleSorting()"
         >
-          <div
-            v-if="!header.isPlaceholder"
-            class="flex place-items-center gap-1"
-          >
+          <div v-if="!header.isPlaceholder" class="flex items-center gap-1">
             <FlexRender
               :render="header.column.columnDef.header"
               :props="header.getContext()"
@@ -58,12 +44,20 @@ const headerClass = computed(() =>
       </tr>
     </thead>
 
-    <tbody class="divide-y divide-n-slate-2">
-      <tr v-for="row in table.getRowModel().rows" :key="row.id">
+    <tbody>
+      <tr
+        v-for="(row, rowIndex) in rows"
+        :key="row.id"
+        class="hover:bg-n-alpha-1 transition-colors duration-100"
+      >
         <td
           v-for="cell in row.getVisibleCells()"
           :key="cell.id"
-          :class="isRelaxed ? 'py-4 px-5' : 'py-2 px-5'"
+          class="text-sm text-n-slate-12 truncate border-b border-n-weak"
+          :class="[
+            isRelaxed ? 'py-3.5 px-4' : 'py-2 px-4',
+            rowIndex === rows.length - 1 ? 'border-b-0' : '',
+          ]"
         >
           <FlexRender
             :render="cell.column.columnDef.cell"

@@ -47,9 +47,9 @@
         "CHOOSE_PLACEHOLDER": "ከዝርዝር ገጽ ይምረጡ",
         "INBOX_NAME": "የኢንቦክስ ስም",
         "ADD_NAME": "ለኢንቦክስዎ ስም ያክሉ",
-        "PICK_NAME": "ለInboxዎ ስም ይምረጡ",
+        "PICK_NAME": "ለSourceዎ ስም ይምረጡ",
         "PICK_A_VALUE": "እሴት ይምረጡ",
-        "CREATE_INBOX": "Inbox ፍጠር"
+        "CREATE_INBOX": "Source ፍጠር"
       },
       "INSTAGRAM": {
         "CONTINUE_WITH_INSTAGRAM": "ከInstagram ጋር ቀጥሉ",

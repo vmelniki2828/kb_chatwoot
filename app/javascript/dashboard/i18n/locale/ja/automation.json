@@ -134,8 +134,8 @@
       "CONVERSATION_CREATED": "会話が作成されました",
       "CONVERSATION_UPDATED": "会話が更新されました",
       "MESSAGE_CREATED": "Message Created",
-      "CONVERSATION_RESOLVED": "Conversation Resolved",
-      "CONVERSATION_OPENED": "Conversation Opened"
+      "CONVERSATION_RESOLVED": "Chat Resolved",
+      "CONVERSATION_OPENED": "Chat Opened"
     },
     "ACTIONS": {
       "ASSIGN_AGENT": "Assign to Agent",
@@ -172,7 +172,7 @@
       "MESSAGE_CONTAINS": "Message Contains",
       "EMAIL": "Eメール",
       "INBOX": "受信トレイ",
-      "CONVERSATION_LANGUAGE": "Conversation Language",
+      "CONVERSATION_LANGUAGE": "Chat Language",
       "PHONE_NUMBER": "電話番号",
       "STATUS": "状況",
       "BROWSER_LANGUAGE": "ブラウザの言語",

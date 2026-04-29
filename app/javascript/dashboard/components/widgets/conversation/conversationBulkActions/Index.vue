@@ -185,7 +185,7 @@ export default {
         />
         <NextButton
           v-tooltip="$t('BULK_ACTION.UPDATE.CHANGE_STATUS')"
-          icon="i-lucide-repeat"
+          icon="i-lucide-refresh-ccw-dot"
           slate
           xs
           faded
@@ -201,7 +201,7 @@ export default {
         />
         <NextButton
           v-tooltip="$t('BULK_ACTION.ASSIGN_TEAM_TOOLTIP')"
-          icon="i-lucide-users-round"
+          icon="i-lucide-user-round-pen"
           slate
           xs
           faded

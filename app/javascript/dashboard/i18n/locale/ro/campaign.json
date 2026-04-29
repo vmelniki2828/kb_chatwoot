@@ -35,9 +35,9 @@
             "ERROR": "Este necesar un mesaj"
           },
           "INBOX": {
-            "LABEL": "Selectați Inbox",
-            "PLACEHOLDER": "Selectați Inbox",
-            "ERROR": "Inbox-ul este necesar"
+            "LABEL": "Selectați Source",
+            "PLACEHOLDER": "Selectați Source",
+            "ERROR": "Source-ul este necesar"
           },
           "SENT_BY": {
             "LABEL": "Trimis de",
@@ -112,9 +112,9 @@
             "ERROR": "Este necesar un mesaj"
           },
           "INBOX": {
-            "LABEL": "Selectați Inbox",
-            "PLACEHOLDER": "Selectați Inbox",
-            "ERROR": "Inbox-ul este necesar"
+            "LABEL": "Selectați Source",
+            "PLACEHOLDER": "Selectați Source",
+            "ERROR": "Source-ul este necesar"
           },
           "AUDIENCE": {
             "LABEL": "Audienţă",
@@ -165,9 +165,9 @@
             "ERROR": "Titlul este necesar"
           },
           "INBOX": {
-            "LABEL": "Selectați Inbox",
-            "PLACEHOLDER": "Selectați Inbox",
-            "ERROR": "Inbox-ul este necesar"
+            "LABEL": "Selectați Source",
+            "PLACEHOLDER": "Selectați Source",
+            "ERROR": "Source-ul este necesar"
           },
           "TEMPLATE": {
             "LABEL": "WhatsApp Template",

@@ -298,7 +298,7 @@
         "ERROR": "There was an error fetching the linear issues, please try again",
         "LINK_SUCCESS": "Issue linked successfully",
         "LINK_ERROR": "There was an error linking the issue, please try again",
-        "LINK_TITLE": "Conversation (#{conversationId}) with {name}"
+        "LINK_TITLE": "Chat (#{conversationId}) with {name}"
       },
       "ADD_OR_LINK": {
         "TITLE": "Create/link linear issue",
@@ -906,7 +906,7 @@
       "PENDING_FAQS": "Pending FAQs",
       "ADD_NEW": "Yeni SSS oluştur",
       "DOCUMENTABLE": {
-        "CONVERSATION": "Conversation #{id}"
+        "CONVERSATION": "Chat #{id}"
       },
       "SELECTED": "{count} selected",
       "SELECT_ALL": "Tümünü seç ({count})",
@@ -988,7 +988,7 @@
       }
     },
     "INBOXES": {
-      "HEADER": "Connected Inboxes",
+      "HEADER": "Connected Sources",
       "ADD_NEW": "Connect a new inbox",
       "OPTIONS": {
         "DISCONNECT": "Bağlantıyı Kes"
@@ -1002,7 +1002,7 @@
       },
       "FORM_DESCRIPTION": "Choose an inbox to connect with the assistant.",
       "CREATE": {
-        "TITLE": "Connect an Inbox",
+        "TITLE": "Connect an Source",
         "SUCCESS_MESSAGE": "The inbox was successfully connected.",
         "ERROR_MESSAGE": "An error occurred while connecting the inbox. Please try again."
       },
@@ -1014,7 +1014,7 @@
         }
       },
       "EMPTY_STATE": {
-        "TITLE": "No Connected Inboxes",
+        "TITLE": "No Connected Sources",
         "SUBTITLE": "Bir gelen kutusunu bağlamak, asistanın müşterilerinizden gelen ilk soruları size aktarmadan önce ele almasını sağlar."
       }
     }

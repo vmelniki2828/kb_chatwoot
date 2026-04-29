@@ -30,10 +30,11 @@ const actionMenuItems = computed(() => {
 
   if (!currentChat.value.muted) {
     items.push({
-      icon: 'i-lucide-volume-off',
+      icon: 'i-lucide-ban',
       label: t('CONTACT_PANEL.MUTE_CONTACT'),
       action: 'mute',
       value: 'mute',
+      action: 'delete',
     });
   } else {
     items.push({

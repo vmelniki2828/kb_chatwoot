@@ -142,7 +142,7 @@ const saveReviewNotes = async () => {
         class="flex items-center gap-4"
       >
         <div class="flex items-center gap-1.5 text-n-slate-11 shrink-0 w-36">
-          <i class="i-lucide-user-pen size-4" />
+          <i class="i-lucide-user-round-cog size-4" />
           <span class="text-sm font-medium">
             {{ $t('CSAT_REPORTS.REVIEW_NOTES.UPDATED_BY_LABEL') }}
           </span>

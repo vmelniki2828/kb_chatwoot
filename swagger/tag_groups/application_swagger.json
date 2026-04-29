@@ -2382,7 +2382,7 @@
       ],
       "post": {
         "tags": [
-          "Help Center"
+          "Support Center"
         ],
         "operationId": "add-new-portal-to-account",
         "summary": "Add a new portal",
@@ -2427,7 +2427,7 @@
       },
       "get": {
         "tags": [
-          "Help Center"
+          "Support Center"
         ],
         "operationId": "get-portal",
         "summary": "List all portals in an account",
@@ -2526,7 +2526,7 @@
       ],
       "patch": {
         "tags": [
-          "Help Center"
+          "Support Center"
         ],
         "operationId": "update-portal-to-account",
         "summary": "Update a portal",
@@ -2658,7 +2658,7 @@
       ],
       "post": {
         "tags": [
-          "Help Center"
+          "Support Center"
         ],
         "operationId": "add-new-category-to-account",
         "summary": "Add a new category",
@@ -2713,7 +2713,7 @@
       ],
       "post": {
         "tags": [
-          "Help Center"
+          "Support Center"
         ],
         "operationId": "add-new-article-to-account",
         "summary": "Add a new article",
@@ -10585,7 +10585,7 @@
           },
           "portal_id": {
             "type": "integer",
-            "description": "Id of the help center portal to attach to the inbox",
+            "description": "Id of the Support Center portal to attach to the inbox",
             "example": 1
           },
           "sender_name_type": {
@@ -10708,7 +10708,7 @@
           },
           "portal_id": {
             "type": "integer",
-            "description": "Id of the help center portal to attach to the inbox",
+            "description": "Id of the Support Center portal to attach to the inbox",
             "example": 1
           },
           "sender_name_type": {
@@ -10965,12 +10965,12 @@
           },
           "custom_domain": {
             "type": "string",
-            "description": "Custom domain to display help center.",
+            "description": "Custom domain to display Support Center.",
             "example": "chatwoot.help"
           },
           "header_text": {
             "type": "string",
-            "description": "Help center header",
+            "description": "Support Center header",
             "example": "Handbook"
           },
           "homepage_link": {
@@ -13295,7 +13295,7 @@
       "description": "Workflow automation rules"
     },
     {
-      "name": "Help Center",
+      "name": "Support Center",
       "description": "Knowledge base management"
     }
   ],
@@ -13333,7 +13333,7 @@
         "Teams",
         "Webhooks",
         "Automation Rule",
-        "Help Center"
+        "Support Center"
       ]
     },
     {

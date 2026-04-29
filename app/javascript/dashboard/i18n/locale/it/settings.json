@@ -62,7 +62,7 @@
       },
       "MESSAGE_SIGNATURE_SECTION": {
         "TITLE": "Firma del messaggio",
-        "NOTE": "Crea una firma di messaggio univoca da visualizzare alla fine di ogni messaggio che invii da qualsiasi Inbox. È anche possibile includere un'immagine inline, che è supportata in live-chat, e-mail e API.",
+        "NOTE": "Crea una firma di messaggio univoca da visualizzare alla fine di ogni messaggio che invii da qualsiasi Source. È anche possibile includere un'immagine inline, che è supportata in live-chat, e-mail e API.",
         "BTN_TEXT": "Salva firma del messaggio",
         "API_ERROR": "Impossibile salvare la firma! Riprova",
         "API_SUCCESS": "Firma salvata con successo",
@@ -290,16 +290,16 @@
   "CONFIRM_EMAIL": "Verifica...",
   "SETTINGS": {
     "INBOXES": {
-      "NEW_INBOX": "Aggiungi Inbox"
+      "NEW_INBOX": "Aggiungi Source"
     }
   },
   "SIDEBAR": {
     "NO_ITEMS": "Nessun elemento",
     "CURRENTLY_VIEWING_ACCOUNT": "Visualizzazione attuale:",
     "SWITCH": "Cambia",
-    "INBOX_VIEW": "Vista Inbox",
+    "INBOX_VIEW": "Vista Source",
     "CONVERSATIONS": "Conversazioni",
-    "INBOX": "La mia Inbox",
+    "INBOX": "La mia Source",
     "ALL_CONVERSATIONS": "Tutte le Conversazioni",
     "MENTIONED_CONVERSATIONS": "Menzioni",
     "PARTICIPATING_CONVERSATIONS": "Partecipate",
@@ -317,13 +317,13 @@
     "CAPTAIN_TOOLS": "Strumenti",
     "CAPTAIN_SCENARIOS": "Scenari",
     "CAPTAIN_PLAYGROUND": "Playground",
-    "CAPTAIN_INBOXES": "Inbox",
+    "CAPTAIN_INBOXES": "Source",
     "CAPTAIN_SETTINGS": "Impostazioni",
     "HOME": "Home",
     "AGENTS": "Operatori",
     "AGENT_BOTS": "Bots",
     "AUDIT_LOGS": "Audit Logs",
-    "INBOXES": "Inbox",
+    "INBOXES": "Source",
     "NOTIFICATIONS": "Notifiche",
     "CANNED_RESPONSES": "Risposte Predefinite",
     "INTEGRATIONS": "Integrazioni",
@@ -342,7 +342,7 @@
     "TAGGED_WITH": "Etichettato con",
     "NEW_LABEL": "Nuova etichetta",
     "NEW_TEAM": "Nuovo team",
-    "NEW_INBOX": "Nuova Inbox",
+    "NEW_INBOX": "Nuova Source",
     "REPORTS_CONVERSATION": "Conversazioni",
     "CSAT": "CSAT",
     "LIVE_CHAT": "Live Chat",
@@ -355,7 +355,7 @@
     "REPORTS_BOT": "Bot",
     "REPORTS_AGENT": "Operatori",
     "REPORTS_LABEL": "Etichette",
-    "REPORTS_INBOX": "Inbox",
+    "REPORTS_INBOX": "Source",
     "REPORTS_TEAM": "Team",
     "AGENT_ASSIGNMENT": "Assegnazione Operatori",
     "SET_AVAILABILITY_TITLE": "Impostati come",
@@ -364,9 +364,9 @@
     "CUSTOM_ROLES": "Ruoli Personalizzati",
     "BETA": "Beta",
     "REPORTS_OVERVIEW": "Panoramica",
-    "REAUTHORIZE": "La tua connessione alla Inbox è scaduta, ricollegati per continuare a ricevere e inviare messaggi",
+    "REAUTHORIZE": "La tua connessione alla Source è scaduta, ricollegati per continuare a ricevere e inviare messaggi",
     "HELP_CENTER": {
-      "TITLE": "Help Center",
+      "TITLE": "Support Center",
       "ARTICLES": "Articoli",
       "CATEGORIES": "Categorie",
       "LOCALES": "Lingue",
@@ -416,8 +416,8 @@
         "DESCRIPTION": "Converte automaticamente i messaggi vocali e le registrazioni delle chiamate in trascrizioni di testo ricercabili."
       },
       "HELP_CENTER_SEARCH": {
-        "TITLE": "Indicizzazione Ricerca Help Center",
-        "DESCRIPTION": "Usa l'AI per effettuare una ricerca contestualizzata tra gli articoli dell'help center."
+        "TITLE": "Indicizzazione Ricerca Support Center",
+        "DESCRIPTION": "Usa l'AI per effettuare una ricerca contestualizzata tra gli articoli dell'Support Center."
       },
       "LABEL_SUGGESTION": {
         "TITLE": "Suggerimento Etichette",
@@ -650,11 +650,11 @@
     "INDEX": {
       "HEADER": {
         "TITLE": "Assegnazione operatori",
-        "DESCRIPTION": "Definisci delle policy per gestire al meglio il carico di lavoro e indirizzare le conversazioni in base alle esigenze delle Inbox e degli operatori. Scopri di più qui"
+        "DESCRIPTION": "Definisci delle policy per gestire al meglio il carico di lavoro e indirizzare le conversazioni in base alle esigenze delle Source e degli operatori. Scopri di più qui"
       },
       "ASSIGNMENT_POLICY": {
         "TITLE": "Policy di assegnazione",
-        "DESCRIPTION": "Gestisci come vengono assegnate le conversazioni nelle Inbox.",
+        "DESCRIPTION": "Gestisci come vengono assegnate le conversazioni nelle Source.",
         "FEATURES": [
           "Assegna le conversazioni in modo uniforme o in base al limite di conversazioni per operatore",
           "Aggiungi regole di distribuzione equa per evitare di sovraccaricare gli operatori",
@@ -682,7 +682,7 @@
           "PRIORITY": "Priorità",
           "ACTIVE": "Attiva",
           "INACTIVE": "Inattive",
-          "POPOVER": "Inbox aggiunte",
+          "POPOVER": "Source aggiunte",
           "EDIT": "Modifica"
         },
         "NO_RECORDS_FOUND": "Nessuna policy di assegnazione trovata"
@@ -704,8 +704,8 @@
         },
         "EDIT_BUTTON": "Aggiorna policy",
         "CONFIRM_ADD_INBOX_DIALOG": {
-          "TITLE": "Aggiungi Inbox",
-          "DESCRIPTION": "La Inbox {inboxName} è già collegata ad un'altra policy. Sei sicuro di volerla collegare a questa policy? Sarà scollegata dall'altra policy.",
+          "TITLE": "Aggiungi Source",
+          "DESCRIPTION": "La Source {inboxName} è già collegata ad un'altra policy. Sei sicuro di volerla collegare a questa policy? Sarà scollegata dall'altra policy.",
           "CONFIRM_BUTTON_LABEL": "Continua",
           "CANCEL_BUTTON_LABEL": "Annulla"
         },
@@ -721,12 +721,12 @@
         },
         "INBOX_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox aggiunta con successo alla policy",
-            "ERROR_MESSAGE": "Impossibile aggiungere la Inbox alla policy"
+            "SUCCESS_MESSAGE": "Source aggiunta con successo alla policy",
+            "ERROR_MESSAGE": "Impossibile aggiungere la Source alla policy"
           },
           "REMOVE": {
-            "SUCCESS_MESSAGE": "Inbox rimossa dalla policy correttamente",
-            "ERROR_MESSAGE": "Impossibile rimuovere la Inbox dalla policy"
+            "SUCCESS_MESSAGE": "Source rimossa dalla policy correttamente",
+            "ERROR_MESSAGE": "Impossibile rimuovere la Source dalla policy"
           }
         }
       },
@@ -776,17 +776,17 @@
           "DURATION": "Conversazioni per operatore ogni"
         },
         "INBOXES": {
-          "LABEL": "Inbox aggiunte",
+          "LABEL": "Source aggiunte",
           "DESCRIPTION": "Aggiungi le inbox a cui applicare questa policy.",
-          "ADD_BUTTON": "Aggiungi Inbox",
+          "ADD_BUTTON": "Aggiungi Source",
           "DROPDOWN": {
             "SEARCH_PLACEHOLDER": "Cerca e seleziona le inbox da aggiungere",
             "ADD_BUTTON": "Aggiungi"
           },
           "EMPTY_STATE": "Nessuna inbox aggiunta a questa policy, aggiungine una per iniziare",
           "API": {
-            "SUCCESS_MESSAGE": "Inbox aggiunta correttamente alla policy",
-            "ERROR_MESSAGE": "Impossibile aggiungere la Inbox alla policy"
+            "SUCCESS_MESSAGE": "Source aggiunta correttamente alla policy",
+            "ERROR_MESSAGE": "Impossibile aggiungere la Source alla policy"
           }
         }
       },
@@ -868,18 +868,18 @@
         },
         "INBOX_CAPACITY_LIMIT": {
           "LABEL": "Limiti di conversazioni per inbox",
-          "ADD_BUTTON": "Aggiungi Inbox",
+          "ADD_BUTTON": "Aggiungi Source",
           "FIELD": {
-            "SELECT_INBOX": "Seleziona Inbox",
+            "SELECT_INBOX": "Seleziona Source",
             "MAX_CONVERSATIONS": "Max conversazioni",
             "SET_LIMIT": "Imposta limite"
           },
-          "EMPTY_STATE": "Nessun limite Inbox impostato"
+          "EMPTY_STATE": "Nessun limite Source impostato"
         },
         "EXCLUSION_RULES": {
           "LABEL": "Regole di esclusione",
           "DESCRIPTION": "Le conversazioni che soddisfano le seguenti condizioni non verranno conteggiate nel limite di conversazioni per operatore",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "Escludi conversazioni taggate con etichette specifiche",
             "ADD_TAG": "aggiungi tag",
             "DROPDOWN": {

@@ -2,12 +2,12 @@
   "CANNED_MGMT": {
     "HEADER": "Canned Responses",
     "LEARN_MORE": "Learn more about canned responses",
-    "DESCRIPTION": "Canned Responses are pre-written reply templates that help you quickly respond to a conversation. Agents can type the '/' character followed by the shortcode to insert a canned response during a conversation. You can attach labels so they are applied to the conversation when the template is used.",
+    "DESCRIPTION": "Canned Responses are pre-written reply templates that help you quickly respond to a conversation. Agents can type the '/' character followed by the shortcode to insert a canned response during a conversation. You can attach Tags so they are applied to the conversation when the template is used.",
     "COUNT": "{n} canned response | {n} canned responses",
     "HEADER_BTN_TXT": "Add canned response",
     "IMPORT": {
       "BUTTON": "Import from spreadsheet",
-      "HELP": "Upload Excel (.xlsx), TSV, or CSV: column 1 = short code, column 2 = message. If you have no header row and exactly 3 columns, column 3 is always label name(s) (comma / semicolon / pipe for several; labels are created if missing). With a header row, column 3 is topic unless the header or cell indicates labels. Use 4 columns for topic + labels (cols 3 and 4). First .xlsx sheet only.",
+      "HELP": "Upload Excel (.xlsx), TSV, or CSV: column 1 = short code, column 2 = message. If you have no header row and exactly 3 columns, column 3 is always label name(s) (comma / semicolon / pipe for several; Tags are created if missing). With a header row, column 3 is topic unless the header or cell indicates Tags. Use 4 columns for topic + Tags (cols 3 and 4). First .xlsx sheet only.",
       "SUCCESS": "Imported {count} canned response(s).",
       "PARTIAL": "Some rows could not be imported.",
       "LINE_PREFIX": "Line {line}:",
@@ -24,7 +24,7 @@
       "TABLE_HEADER": {
         "SHORT_CODE": "Short code",
         "CONTENT": "Content",
-        "LABELS": "Labels",
+        "LABELS": "Tags",
         "ACTIONS": "Actions"
       }
     },
@@ -44,11 +44,11 @@
           "ERROR": "Message is required."
         },
         "LABELS": {
-          "LABEL": "Labels",
-          "HINT": "These labels are added to the conversation when an agent inserts this canned response.",
-          "EMPTY": "No labels in this account yet. Create labels under Settings → Labels.",
-          "PLACEHOLDER": "Select labels…",
-          "SEARCH_PLACEHOLDER": "Search labels…"
+          "LABEL": "Tags",
+          "HINT": "These Tags are added to the conversation when an agent inserts this canned response.",
+          "EMPTY": "No Tags in this account yet. Create Tags under Settings → Tags.",
+          "PLACEHOLDER": "Select Tags…",
+          "SEARCH_PLACEHOLDER": "Search Tags…"
         },
         "SUBMIT": "Submit"
       },
@@ -72,10 +72,10 @@
           "ERROR": "Message is required."
         },
         "LABELS": {
-          "LABEL": "Labels",
-          "HINT": "These labels are added to the conversation when an agent inserts this canned response.",
-          "PLACEHOLDER": "Select labels…",
-          "SEARCH_PLACEHOLDER": "Search labels…"
+          "LABEL": "Tags",
+          "HINT": "These Tags are added to the conversation when an agent inserts this canned response.",
+          "PLACEHOLDER": "Select Tags…",
+          "SEARCH_PLACEHOLDER": "Search Tags…"
         },
         "SUBMIT": "Submit"
       },

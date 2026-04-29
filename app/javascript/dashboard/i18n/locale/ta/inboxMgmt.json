@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "மின்னஞ்சலில் முகவரின் பெயரை காட்ட/மறைக்க இயக்கு, மறைக்கப்பட்டால் வணிகப் பெயர் காட்டப்படும்",
       "ENABLE_CONTINUITY_VIA_EMAIL": "மின்னஞ்சல் மூலம் உரையாடல் தொடர்ச்சியை இயக்கு",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "தொடர்பு மின்னஞ்சல் முகவரி கிடைக்கும் போது உரையாடல்கள் மின்னஞ்சல் வழியாக தொடரும்.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "இன்பாக்ஸ் அமைப்புகள்",
       "INBOX_UPDATE_SUB_TEXT": "உங்கள் இன்பாக்ஸ் அமைப்புகளைப் புதுப்பிக்கவும்",
@@ -797,7 +797,7 @@
       "MAX_ASSIGNMENT_LIMIT_SUB_TEXT": "இந்த இன்பாக்ஸில் இருந்து ஒரு முகவருக்கு தானாக ஒதுக்கப்படக்கூடிய உரையாடல்களின் அதிகபட்ச எண்ணிக்கையை வரையறுக்கவும்"
     },
     "ASSIGNMENT": {
-      "TITLE": "Conversation Assignment",
+      "TITLE": "Chat Assignment",
       "DESCRIPTION": "Automatically assign incoming conversations to available agents based on assignment policies",
       "ENABLE_AUTO_ASSIGNMENT": "Enable automatic conversation assignment",
       "DEFAULT_RULES_TITLE": "Default assignment rules",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "contains",
           "DOES_NOT_CONTAINS": "does not contain"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

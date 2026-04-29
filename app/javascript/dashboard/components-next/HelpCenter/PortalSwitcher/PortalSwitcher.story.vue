@@ -4,7 +4,7 @@ import PortalSwitcher from './PortalSwitcher.vue';
 const portals = [
   {
     id: 1,
-    name: 'Chatwoot Help Center',
+    name: 'Chatwoot Support Center',
     articles: 67,
     domain: 'chatwoot.help',
     slug: 'help-center',
@@ -36,7 +36,7 @@ const portals = [
         <PortalSwitcher
           :portals="portals"
           header="Choose a Portal"
-          description="Select from available help center portals"
+          description="Select from available Support Center portals"
         />
       </div>
     </Variant>

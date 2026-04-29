@@ -29,17 +29,17 @@
     },
     "LABELS": {
       "CONTACT": {
-        "TITLE": "Contact Labels",
-        "ERROR": "Kan labels niet bijwerken"
+        "TITLE": "Contact Tags",
+        "ERROR": "Kan Tags niet bijwerken"
       },
       "CONVERSATION": {
-        "TITLE": "Labels voor gesprekken",
-        "ADD_BUTTON": "Labels toevoegen"
+        "TITLE": "Tags voor gesprekken",
+        "ADD_BUTTON": "Tags toevoegen"
       },
       "LABEL_SELECT": {
-        "TITLE": "Labels toevoegen",
-        "PLACEHOLDER": "Zoek op labels",
-        "NO_RESULT": "Geen labels gevonden",
+        "TITLE": "Tags toevoegen",
+        "PLACEHOLDER": "Zoek op Tags",
+        "NO_RESULT": "Geen Tags gevonden",
         "CREATE_LABEL": "Nieuw label aanmaken"
       }
     },
@@ -53,7 +53,7 @@
     "EDIT_LABEL": "Bewerken",
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "Aanpasbare attributen",
-      "CONTACT_LABELS": "Contact Labels",
+      "CONTACT_LABELS": "Contact Tags",
       "PREVIOUS_CONVERSATIONS": "Vorige gesprekken",
       "NO_RECORDS_FOUND": "Geen attributen gevonden"
     }
@@ -581,10 +581,10 @@
   },
   "CONTACTS_BULK_ACTIONS": {
     "ASSIGN_LABELS": "Label toewijzen",
-    "ASSIGN_LABELS_SUCCESS": "Labels met succes toegewezen.",
-    "ASSIGN_LABELS_FAILED": "Failed to assign labels",
-    "DESCRIPTION": "Select the labels you want to add to the selected contacts.",
-    "NO_LABELS_FOUND": "No labels available yet.",
+    "ASSIGN_LABELS_SUCCESS": "Tags met succes toegewezen.",
+    "ASSIGN_LABELS_FAILED": "Failed to assign Tags",
+    "DESCRIPTION": "Select the Tags you want to add to the selected contacts.",
+    "NO_LABELS_FOUND": "No Tags available yet.",
     "SELECTED_COUNT": "{count} selected",
     "CLEAR_SELECTION": "Clear selection",
     "SELECT_ALL": "Select all ({count})",

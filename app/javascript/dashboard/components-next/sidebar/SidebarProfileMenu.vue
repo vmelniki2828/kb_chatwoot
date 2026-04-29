@@ -68,14 +68,14 @@ const menuItems = computed(() => {
       show: true,
       showOnCustomBrandedInstance: true,
       label: t('SIDEBAR_ITEMS.PROFILE_SETTINGS'),
-      icon: 'i-lucide-user-pen',
+      icon: 'i-lucide-user-round-cog',
       link: { name: 'profile_settings_index' },
     },
     {
       show: true,
       showOnCustomBrandedInstance: true,
       label: t('SIDEBAR_ITEMS.APPEARANCE'),
-      icon: 'i-lucide-palette',
+      icon: 'i-lucide-paintbrush',
       click: () => {
         const ninja = document.querySelector('ninja-keys');
         ninja.open({ parent: 'appearance_settings' });
@@ -112,7 +112,7 @@ const menuItems = computed(() => {
       show: true,
       showOnCustomBrandedInstance: true,
       label: t('SIDEBAR_ITEMS.LOGOUT'),
-      icon: 'i-lucide-power',
+      icon: 'i-lucide-log-out',
       click: Auth.logout,
     },
   ];
@@ -131,9 +131,9 @@ const allowedMenuItems = computed(() => {
   >
     <template #trigger="{ toggle, isOpen }">
       <button
-        class="flex gap-2 items-center p-1 text-left rounded-lg cursor-pointer hover:bg-n-alpha-1"
+        class="flex gap-2 items-center p-1 text-left rounded-lg cursor-pointer hover:bg-n-alpha-1 border border-transparent"
         :class="[
-          { 'bg-n-alpha-1': isOpen },
+          { 'bg-n-alpha-1 border-n-weak/70': isOpen },
           isCollapsed ? 'justify-center' : 'w-full',
         ]"
         :title="isCollapsed ? currentUser.available_name : undefined"
@@ -147,7 +147,7 @@ const allowedMenuItems = computed(() => {
           class="flex-shrink-0"
           rounded-full
         />
-        <div v-if="!isCollapsed" class="min-w-0">
+        <div v-if="!isCollapsed" class="min-w-0 flex-1">
           <div class="text-sm font-medium leading-4 truncate text-n-slate-12">
             {{ currentUser.available_name }}
           </div>

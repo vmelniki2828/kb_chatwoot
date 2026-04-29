@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "Çıxarış qaydaları",
           "DESCRIPTION": "Aşağıdakı şərtlərə cavab verən söhbətlər agentin tutumuna daxil edilməyəcək",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "Xüsusi etiketlərlə işarələnmiş söhbətləri çıxar",
             "ADD_TAG": "etiket əlavə et",
             "DROPDOWN": {

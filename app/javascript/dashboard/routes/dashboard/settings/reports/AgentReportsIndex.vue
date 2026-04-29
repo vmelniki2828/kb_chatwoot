@@ -18,7 +18,7 @@ const onDownloadClick = () => {
   >
     <V4Button
       :label="$t('AGENT_REPORTS.DOWNLOAD_AGENT_REPORTS')"
-      icon="i-ph-download-simple"
+      icon="i-ph-file-arrow-down"
       size="sm"
       @click="onDownloadClick"
     />

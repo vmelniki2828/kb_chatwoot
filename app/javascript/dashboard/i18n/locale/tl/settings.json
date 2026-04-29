@@ -290,16 +290,16 @@
   "CONFIRM_EMAIL": "Tine-verify...",
   "SETTINGS": {
     "INBOXES": {
-      "NEW_INBOX": "Magdagdag ng Inbox"
+      "NEW_INBOX": "Magdagdag ng Source"
     }
   },
   "SIDEBAR": {
     "NO_ITEMS": "Walang mga item",
     "CURRENTLY_VIEWING_ACCOUNT": "Kasulukuyang tinitingnan:",
     "SWITCH": "Palitan",
-    "INBOX_VIEW": "Tingnan ang Inbox",
+    "INBOX_VIEW": "Tingnan ang Source",
     "CONVERSATIONS": "Mga Usapan",
-    "INBOX": "Aking Inbox",
+    "INBOX": "Aking Source",
     "ALL_CONVERSATIONS": "Lahat ng Usapan",
     "MENTIONED_CONVERSATIONS": "Mga Binanggit",
     "PARTICIPATING_CONVERSATIONS": "Kasali",
@@ -317,13 +317,13 @@
     "CAPTAIN_TOOLS": "Mga Kasangkapan",
     "CAPTAIN_SCENARIOS": "Mga Senaryo",
     "CAPTAIN_PLAYGROUND": "Palaruan",
-    "CAPTAIN_INBOXES": "Mga Inbox",
+    "CAPTAIN_INBOXES": "Mga Source",
     "CAPTAIN_SETTINGS": "Mga Setting",
     "HOME": "Bahay",
     "AGENTS": "Mga Ahente",
     "AGENT_BOTS": "Mga Bot",
     "AUDIT_LOGS": "Mga Audit Log",
-    "INBOXES": "Mga Inbox",
+    "INBOXES": "Mga Source",
     "NOTIFICATIONS": "Mga Abiso",
     "CANNED_RESPONSES": "Mga Nakahandang Sagot",
     "INTEGRATIONS": "Mga Integrasyon",
@@ -355,7 +355,7 @@
     "REPORTS_BOT": "Bot",
     "REPORTS_AGENT": "Ahente",
     "REPORTS_LABEL": "Mga Label",
-    "REPORTS_INBOX": "Inbox",
+    "REPORTS_INBOX": "Source",
     "REPORTS_TEAM": "Koponan",
     "AGENT_ASSIGNMENT": "Pagtatalaga ng Ahente",
     "SET_AVAILABILITY_TITLE": "Itakda ang iyong sarili bilang",
@@ -416,8 +416,8 @@
         "DESCRIPTION": "Awtomatikong i-convert ang mga voice message at recording ng tawag sa mga tekstong transcript na maaaring hanapin."
       },
       "HELP_CENTER_SEARCH": {
-        "TITLE": "Pag-index ng Paghahanap sa Help Center",
-        "DESCRIPTION": "Gamitin ang AI para sa kontekstuwal na paghahanap sa loob ng iyong mga artikulo sa help center."
+        "TITLE": "Pag-index ng Paghahanap sa Support Center",
+        "DESCRIPTION": "Gamitin ang AI para sa kontekstuwal na paghahanap sa loob ng iyong mga artikulo sa Support Center."
       },
       "LABEL_SUGGESTION": {
         "TITLE": "Mungkahi ng Label",
@@ -695,7 +695,7 @@
         "API": {
           "SUCCESS_MESSAGE": "Matagumpay na nalikha ang patakaran sa pagtatalaga",
           "ERROR_MESSAGE": "Nabigong likhain ang patakaran sa pagtatalaga",
-          "INBOX_LINKED": "Naka-link na ang Inbox sa patakaran"
+          "INBOX_LINKED": "Naka-link na ang Source sa patakaran"
         }
       },
       "EDIT": {
@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "Mga patakaran sa pagbubukod",
           "DESCRIPTION": "Ang mga pag-uusap na tumutugon sa mga sumusunod na kondisyon ay hindi bibilangin sa kapasidad ng ahente",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "I-exclude ang mga pag-uusap na may partikular na mga label",
             "ADD_TAG": "magdagdag ng tag",
             "DROPDOWN": {

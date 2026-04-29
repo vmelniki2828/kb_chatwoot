@@ -3,7 +3,7 @@
     "HEADER": "Converses",
     "LOADING_CHART": "S'estan carregant dades del gràfic...",
     "NO_ENOUGH_DATA": "No hem rebut suficients punts de dades per generar l'informe. Torneu-ho a provar més endavant.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "No s'han pogut obtenir les dades. Intenta-ho més tard.",
     "SUMMARY_FETCHING_FAILED": "No s'ha pogut obtenir el resum; torna-ho a provar més tard.",
     "METRICS": {
@@ -128,7 +128,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "Visió general dels agents",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "S'estan carregant dades del gràfic...",
     "NO_ENOUGH_DATA": "No hem rebut suficients punts de dades per generar l'informe. Torneu-ho a provar més endavant.",
     "DOWNLOAD_AGENT_REPORTS": "Descarregar Informes d'Agent",
@@ -201,7 +201,7 @@
   },
   "LABEL_REPORTS": {
     "HEADER": "Visió general de les etiquetes",
-    "DESCRIPTION": "Track label performance with key metrics including conversations, response times, resolution times, and resolved cases. Click a label name for detailed insights.",
+    "DESCRIPTION": "Monitor performance across tags using conversations handled, response and resolution times, and resolved cases metrics. Click a tag name to explore further.",
     "LOADING_CHART": "S'estan carregant dades del gràfic...",
     "NO_ENOUGH_DATA": "No hem rebut suficients punts de dades per generar l'informe. Torneu-ho a provar més endavant.",
     "DOWNLOAD_LABEL_REPORTS": "Descarregar Informes d'etiquetes",
@@ -274,13 +274,13 @@
   },
   "INBOX_REPORTS": {
     "HEADER": "Visió general de la safata d'entrada",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "S'estan carregant dades del gràfic...",
     "NO_ENOUGH_DATA": "No hem rebut suficients punts de dades per generar l'informe. Torneu-ho a provar més endavant.",
     "DOWNLOAD_INBOX_REPORTS": "Baixa els informes de la safata d'entrada",
     "FILTER_DROPDOWN_LABEL": "Selecciona Safata d'entrada",
-    "ALL_INBOXES": "All Inboxes",
-    "SEARCH_INBOX": "Search Inbox",
+    "ALL_INBOXES": "All Sources",
+    "SEARCH_INBOX": "Search Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "INBOXES": "Search inboxes"
@@ -349,7 +349,7 @@
   },
   "TEAM_REPORTS": {
     "HEADER": "Visió general de l'equip",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "S'estan carregant dades del gràfic...",
     "NO_ENOUGH_DATA": "No hem rebut suficients punts de dades per generar l'informe. Torneu-ho a provar més endavant.",
     "DOWNLOAD_TEAM_REPORTS": "Descarregar Informes d'equip",
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {

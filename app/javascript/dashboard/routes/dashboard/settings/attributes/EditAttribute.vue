@@ -168,116 +168,188 @@ export default {
 
 <template>
   <div class="flex flex-col h-auto overflow-auto">
-    <woot-modal-header :header-title="pageTitle" />
-    <form class="flex flex-col w-full" @submit.prevent="editAttributes">
-      <div class="w-full">
-        <woot-input
-          v-model="displayName"
-          :label="$t('ATTRIBUTES_MGMT.ADD.FORM.NAME.LABEL')"
-          type="text"
-          :class="{ error: v$.displayName.$error }"
-          :error="
-            v$.displayName.$error
-              ? $t('ATTRIBUTES_MGMT.ADD.FORM.NAME.ERROR')
-              : ''
-          "
-          :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.NAME.PLACEHOLDER')"
-          @blur="v$.displayName.$touch"
-        />
-        <woot-input
-          v-model="attributeKey"
-          :label="$t('ATTRIBUTES_MGMT.ADD.FORM.KEY.LABEL')"
-          type="text"
-          :class="{ error: v$.attributeKey.$error }"
-          :error="v$.attributeKey.$error ? keyErrorMessage : ''"
-          :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.KEY.PLACEHOLDER')"
-          readonly
-          @blur="v$.attributeKey.$touch"
-        />
-        <label :class="{ error: v$.description.$error }">
-          {{ $t('ATTRIBUTES_MGMT.ADD.FORM.DESC.LABEL') }}
+
+    <div class="px-8 pt-8 pb-6 border-b border-white/10">
+      <p class="text-xs font-semibold tracking-[0.2em] text-[#4ade80] uppercase mb-1">
+        {{ $t('ATTRIBUTES_MGMT.ADD.FORM.MODEL.LABEL') }}
+      </p>
+      <h2 class="text-3xl font-black tracking-wide text-white uppercase">
+        {{ pageTitle }}
+      </h2>
+    </div>
+
+    <form class="flex flex-col gap-6 px-8 py-6" @submit.prevent="editAttributes">
+
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-[#4ade80] tracking-widest">01</span>
+          <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">Attribute Info</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div
+            class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+            :class="{ 'border-red-500/50': v$.displayName.$error }"
+          >
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-[#4ade80] uppercase">
+              {{ $t('ATTRIBUTES_MGMT.ADD.FORM.NAME.LABEL') }}
+            </span>
+            <input
+              v-model="displayName"
+              type="text"
+              :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.NAME.PLACEHOLDER')"
+              class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0"
+              @blur="v$.displayName.$touch"
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 opacity-60 cursor-not-allowed"
+          >
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">
+              {{ $t('ATTRIBUTES_MGMT.ADD.FORM.KEY.LABEL') }}
+            </span>
+            <input
+              v-model="attributeKey"
+              type="text"
+              :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.KEY.PLACEHOLDER')"
+              class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0 cursor-not-allowed"
+              readonly
+            />
+          </div>
+
+          <div
+            class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 opacity-60 cursor-not-allowed col-span-2"
+          >
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">
+              {{ $t('ATTRIBUTES_MGMT.ADD.FORM.TYPE.LABEL') }}
+            </span>
+            <select
+              v-model="attributeType"
+              disabled
+              class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 p-0 appearance-none cursor-not-allowed"
+            >
+              <option v-for="type in types" :key="type.id" :value="type.id" class="bg-n-solid-3">
+                {{ type.option }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div
+          class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-2 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+          :class="{ 'border-red-500/50': v$.description.$error }"
+        >
+          <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">
+            {{ $t('ATTRIBUTES_MGMT.ADD.FORM.DESC.LABEL') }}
+          </span>
           <textarea
             v-model="description"
-            rows="5"
-            type="text"
+            rows="4"
             :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.DESC.PLACEHOLDER')"
+            class="bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0 resize-none"
             @blur="v$.description.$touch"
           />
-          <span v-if="v$.description.$error" class="message">
-            {{ $t('ATTRIBUTES_MGMT.ADD.FORM.DESC.ERROR') }}
-          </span>
-        </label>
-        <label :class="{ error: v$.attributeType.$error }">
-          {{ $t('ATTRIBUTES_MGMT.ADD.FORM.TYPE.LABEL') }}
-          <select v-model="attributeType" disabled>
-            <option v-for="type in types" :key="type.id" :value="type.id">
-              {{ type.option }}
-            </option>
-          </select>
-          <span v-if="v$.attributeType.$error" class="message">
-            {{ $t('ATTRIBUTES_MGMT.ADD.FORM.TYPE.ERROR') }}
-          </span>
-        </label>
-        <div v-if="isAttributeTypeList" class="mb-4">
-          <label class="mb-1 block">
-            {{ $t('ATTRIBUTES_MGMT.EDIT.TYPE.LIST.LABEL') }}
-          </label>
+        </div>
+      </div>
+
+      <template v-if="isAttributeTypeList">
+        <div class="border-t border-white/10" />
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-[#4ade80] tracking-widest">02</span>
+            <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">
+              {{ $t('ATTRIBUTES_MGMT.EDIT.TYPE.LIST.LABEL') }}
+            </span>
+          </div>
           <div
-            class="rounded-xl border px-3 py-2"
-            :class="isTagInputInvalid ? 'border-n-ruby-9' : 'border-n-weak'"
+            class="rounded-xl border px-3 py-2 transition-all duration-200"
+            :class="isTagInputInvalid ? 'border-red-500/50' : 'border-white/10 bg-white/5 hover:border-[rgba(74,222,128,0.4)]'"
           >
             <TagInput
               v-model="values"
-              :placeholder="
-                $t('ATTRIBUTES_MGMT.ADD.FORM.TYPE.LIST.PLACEHOLDER')
-              "
+              :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.TYPE.LIST.PLACEHOLDER')"
               allow-create
               @blur="tagInputTouched = true"
             />
           </div>
-          <label
-            v-show="isTagInputInvalid"
-            class="text-n-ruby-9 dark:text-n-ruby-9 text-sm font-normal mt-1"
-          >
+          <span v-show="isTagInputInvalid" class="text-red-400 text-sm font-normal">
             {{ $t('ATTRIBUTES_MGMT.ADD.FORM.TYPE.LIST.ERROR') }}
+          </span>
+        </div>
+      </template>
+
+      <template v-if="isAttributeTypeText">
+        <div class="border-t border-white/10" />
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-[#4ade80] tracking-widest">02</span>
+            <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">Validation</span>
+          </div>
+
+          <label
+            class="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 cursor-pointer transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)]"
+          >
+            <input
+              v-model="regexEnabled"
+              type="checkbox"
+              class="w-4 h-4 accent-[#4ade80] cursor-pointer"
+              @input="toggleRegexEnabled"
+            />
+            <span class="text-sm text-n-slate-9">
+              {{ $t('ATTRIBUTES_MGMT.ADD.FORM.ENABLE_REGEX.LABEL') }}
+            </span>
           </label>
+
+          <template v-if="isRegexEnabled">
+            <div class="grid grid-cols-2 gap-3">
+              <div
+                class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+              >
+                <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">
+                  {{ $t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_PATTERN.LABEL') }}
+                </span>
+                <input
+                  v-model="regexPattern"
+                  type="text"
+                  :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_PATTERN.PLACEHOLDER')"
+                  class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0 font-mono"
+                />
+              </div>
+
+              <div
+                class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+              >
+                <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">
+                  {{ $t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_CUE.LABEL') }}
+                </span>
+                <input
+                  v-model="regexCue"
+                  type="text"
+                  :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_CUE.PLACEHOLDER')"
+                  class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0"
+                />
+              </div>
+            </div>
+          </template>
         </div>
-        <div v-if="isAttributeTypeText">
-          <input
-            v-model="regexEnabled"
-            type="checkbox"
-            @input="toggleRegexEnabled"
-          />
-          {{ $t('ATTRIBUTES_MGMT.ADD.FORM.ENABLE_REGEX.LABEL') }}
-        </div>
-        <woot-input
-          v-if="isAttributeTypeText && isRegexEnabled"
-          v-model="regexPattern"
-          :label="$t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_PATTERN.LABEL')"
-          type="text"
-          :placeholder="
-            $t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_PATTERN.PLACEHOLDER')
-          "
-        />
-        <woot-input
-          v-if="isAttributeTypeText && isRegexEnabled"
-          v-model="regexCue"
-          :label="$t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_CUE.LABEL')"
-          type="text"
-          :placeholder="$t('ATTRIBUTES_MGMT.ADD.FORM.REGEX_CUE.PLACEHOLDER')"
-        />
-      </div>
-      <div class="flex flex-row justify-end w-full gap-2 px-0 py-2">
+      </template>
+
+      <div class="border-t border-white/10" />
+
+      <div class="flex items-center justify-between gap-3 py-2">
         <NextButton
           faded
           slate
           type="reset"
           :label="$t('ATTRIBUTES_MGMT.ADD.CANCEL_BUTTON_TEXT')"
+          class="h-10 hover:!no-underline hover:text-n-brand"
           @click.prevent="onClose"
         />
         <NextButton
           type="submit"
           :label="$t('ATTRIBUTES_MGMT.EDIT.UPDATE_BUTTON_TEXT')"
+          color="blue"
           :is-loading="isUpdating"
           :disabled="isButtonDisabled"
         />

@@ -79,12 +79,19 @@ const emitNewAccount = () => {
         ]"
         @click="() => showAccountSwitcher && toggle()"
       >
-        <span
-          class="text-sm font-medium leading-5 text-n-slate-12 truncate"
-          aria-live="polite"
-        >
-          {{ currentAccount.name }}
-        </span>
+        <div class="flex items-center gap-2 min-w-0">
+          <span
+            class="grid place-content-center size-8 rounded-lg border border-n-brand/40 bg-n-brand/10 text-n-brand/90 flex-shrink-0"
+          >
+            <Logo class="size-4" />
+          </span>
+          <span
+            class="text-sm font-medium leading-5 text-n-slate-12 truncate"
+            aria-live="polite"
+          >
+            {{ currentAccount.name }}
+          </span>
+        </div>
 
         <span
           v-if="showAccountSwitcher"

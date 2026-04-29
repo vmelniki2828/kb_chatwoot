@@ -4026,7 +4026,7 @@
           },
           "portal_id": {
             "type": "integer",
-            "description": "Id of the help center portal to attach to the inbox",
+            "description": "Id of the Support Center portal to attach to the inbox",
             "example": 1
           },
           "sender_name_type": {
@@ -4149,7 +4149,7 @@
           },
           "portal_id": {
             "type": "integer",
-            "description": "Id of the help center portal to attach to the inbox",
+            "description": "Id of the Support Center portal to attach to the inbox",
             "example": 1
           },
           "sender_name_type": {
@@ -4406,12 +4406,12 @@
           },
           "custom_domain": {
             "type": "string",
-            "description": "Custom domain to display help center.",
+            "description": "Custom domain to display Support Center.",
             "example": "chatwoot.help"
           },
           "header_text": {
             "type": "string",
-            "description": "Help center header",
+            "description": "Support Center header",
             "example": "Handbook"
           },
           "homepage_link": {
@@ -6710,7 +6710,7 @@
         "Teams",
         "Webhooks",
         "Automation Rule",
-        "Help Center"
+        "Support Center"
       ]
     },
     {

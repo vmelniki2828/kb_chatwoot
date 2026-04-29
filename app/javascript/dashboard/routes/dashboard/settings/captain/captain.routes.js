@@ -15,7 +15,7 @@ export default {
       component: SettingsWrapper,
       props: {
         headerTitle: 'CAPTAIN_SETTINGS.TITLE',
-        icon: 'i-lucide-bot',
+        icon: 'i-lucide-bot-message-square',
         showNewButton: false,
       },
       children: [

@@ -59,7 +59,7 @@
         },
         "MESSAGE": {
           "LABEL": "Custom auto-resolution message",
-          "PLACEHOLDER": "Conversation was marked resolved by system due to 15 days of inactivity",
+          "PLACEHOLDER": "Chat was marked resolved by system due to 15 days of inactivity",
           "HELP": "Message sent to the customer after conversation is auto-resolved"
         },
         "PREFERENCES": "Preferințe",
@@ -115,7 +115,7 @@
         },
         "UPDATE_BUTTON": "Actualizare",
         "MESSAGE_LABEL": "Custom resolution message",
-        "MESSAGE_PLACEHOLDER": "Conversation was marked resolved by system due to 15 days of inactivity",
+        "MESSAGE_PLACEHOLDER": "Chat was marked resolved by system due to 15 days of inactivity",
         "MESSAGE_HELP": "This message is sent to the customer when a conversation is automatically resolved by the system due to inactivity."
       },
       "FEATURES": {
@@ -206,11 +206,11 @@
       "GO_TO_CONVERSATION_REPORTS": "Accesați Rapoartele conversațiilor",
       "GO_TO_AGENT_REPORTS": "Accesați povestea Instagram",
       "GO_TO_LABEL_REPORTS": "Accesați Etichetarea rapoartelor",
-      "GO_TO_INBOX_REPORTS": "Accesați Rapoarte Inbox",
+      "GO_TO_INBOX_REPORTS": "Accesați Rapoarte Source",
       "GO_TO_TEAM_REPORTS": "Accesați Rapoarte de echipă",
       "GO_TO_SETTINGS_AGENTS": "Accesați Setări agent",
       "GO_TO_SETTINGS_TEAMS": "Accesați Setările echipei",
-      "GO_TO_SETTINGS_INBOXES": "Accesați Setări Inbox",
+      "GO_TO_SETTINGS_INBOXES": "Accesați Setări Source",
       "GO_TO_SETTINGS_LABELS": "Accesați Setări etichetă",
       "GO_TO_SETTINGS_CANNED_RESPONSES": "Accesați Setări răspuns conservat",
       "GO_TO_SETTINGS_APPLICATIONS": "Accesați Setări aplicație",

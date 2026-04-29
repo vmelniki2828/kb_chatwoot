@@ -1,6 +1,6 @@
 {
   "HELP_CENTER": {
-    "TITLE": "Help Center",
+    "TITLE": "Support Center",
     "NEW_PAGE": {
       "DESCRIPTION": "Crea portali di assistenza self-service per i tuoi clienti. Aiutali a trovare rapidamente le risposte che cercano, senza attese. Semplifica le richieste, migliora l'efficienza degli operatori e migliora l'assistenza clienti.",
       "CREATE_PORTAL_BUTTON": "Crea Portale"
@@ -219,12 +219,12 @@
           "BACK_BUTTON": "Indietro",
           "BASIC_SETTINGS_PAGE": {
             "HEADER": "Crea Portale",
-            "TITLE": "Informazioni Help Center",
+            "TITLE": "Informazioni Support Center",
             "CREATE_BASIC_SETTING_BUTTON": "Crea impostazioni di base del portale"
           },
           "CUSTOMIZATION_PAGE": {
             "HEADER": "Personalizzazione del portale",
-            "TITLE": "Personalizzazione help center",
+            "TITLE": "Personalizzazione Support Center",
             "UPDATE_PORTAL_BUTTON": "Aggiorna impostazioni del portale"
           },
           "FINISH_PAGE": {
@@ -470,7 +470,7 @@
       "SEARCH_BUTTON": "Cerca",
       "INSERT_ARTICLE": "Inserisci link",
       "IFRAME_ERROR": "URL vuoto o non valido. Impossibile visualizzare il contenuto.",
-      "OPEN_ARTICLE_SEARCH": "Inserisci articolo dall'Help Center",
+      "OPEN_ARTICLE_SEARCH": "Inserisci articolo dall'Support Center",
       "SUCCESS_ARTICLE_INSERTED": "Articolo inserito correttamente",
       "PREVIEW_LINK": "Anteprima articolo",
       "CANCEL": "Chiudi",
@@ -478,7 +478,7 @@
       "BACK_RESULTS": "Torna ai risultati"
     },
     "UPGRADE_PAGE": {
-      "TITLE": "Help Center",
+      "TITLE": "Support Center",
       "DESCRIPTION": "Crea portali self-service user-friendly. Aiuta i tuoi utenti ad accedere agli articoli e ottieni supporto 24/7. Aggiorna il tuo abbonamento per abilitare questa funzionalità.",
       "SELF_HOSTED_DESCRIPTION": "Crea portali self-service user-friendly. Aiuta i tuoi utenti ad accedere agli articoli e ottieni supporto 24/7. Contatta l'amministratore per abilitare questa funzione.",
       "BUTTON": {
@@ -488,7 +488,7 @@
       "FEATURES": {
         "PORTALS": {
           "TITLE": "Più portali",
-          "DESCRIPTION": "Crea più portali help center per diversi prodotti utilizzando lo stesso account."
+          "DESCRIPTION": "Crea più portali Support Center per diversi prodotti utilizzando lo stesso account."
         },
         "LOCALES": {
           "TITLE": "Supporto completo per le lingue",
@@ -751,7 +751,7 @@
         "LIVE_CHAT_WIDGET": {
           "LABEL": "Widget live chat",
           "PLACEHOLDER": "Seleziona widget live chat",
-          "HELP_TEXT": "Seleziona un widget di live chat che apparirà nel tuo help center",
+          "HELP_TEXT": "Seleziona un widget di live chat che apparirà nel tuo Support Center",
           "NONE_OPTION": "Nessun widget"
         },
         "BRAND_COLOR": {

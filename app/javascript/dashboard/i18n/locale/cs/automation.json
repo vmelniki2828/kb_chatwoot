@@ -1,7 +1,7 @@
 {
   "AUTOMATION": {
     "HEADER": "Automation",
-    "DESCRIPTION": "Automation can replace and streamline existing processes that require manual effort, such as adding labels and assigning conversations to the most suitable agent. This allows the team to focus on their strengths while reducing time spent on routine tasks.",
+    "DESCRIPTION": "Automation can replace and streamline existing processes that require manual effort, such as adding Tags and assigning conversations to the most suitable agent. This allows the team to focus on their strengths while reducing time spent on routine tasks.",
     "LEARN_MORE": "Learn more about automation",
     "COUNT": "{n} automation | {n} automations",
     "HEADER_BTN_TXT": "Create Automation",
@@ -92,7 +92,7 @@
     "CONDITION": {
       "DELETE_MESSAGE": "You need to have atleast one condition to save",
       "CONTACT_CUSTOM_ATTR_LABEL": "Contact Custom Attributes",
-      "CONVERSATION_CUSTOM_ATTR_LABEL": "Conversation Custom Attributes"
+      "CONVERSATION_CUSTOM_ATTR_LABEL": "Chat Custom Attributes"
     },
     "ACTION": {
       "DELETE_MESSAGE": "You need to have atleast one action to save",
@@ -131,10 +131,10 @@
     },
     "NONE_OPTION": "Nic",
     "EVENTS": {
-      "CONVERSATION_CREATED": "Conversation Created",
-      "CONVERSATION_UPDATED": "Conversation Updated",
+      "CONVERSATION_CREATED": "Chat Created",
+      "CONVERSATION_UPDATED": "Chat Updated",
       "MESSAGE_CREATED": "Zpráva vytvořena",
-      "CONVERSATION_RESOLVED": "Conversation Resolved",
+      "CONVERSATION_RESOLVED": "Chat Resolved",
       "CONVERSATION_OPENED": "Konverzace otevřena"
     },
     "ACTIONS": {
@@ -145,8 +145,8 @@
       "SEND_EMAIL_TO_TEAM": "Poslat e-mail týmu",
       "SEND_EMAIL_TRANSCRIPT": "Send an Email Transcript",
       "MUTE_CONVERSATION": "Ztlumit konverzaci",
-      "SNOOZE_CONVERSATION": "Snooze Conversation",
-      "RESOLVE_CONVERSATION": "Resolve Conversation",
+      "SNOOZE_CONVERSATION": "Snooze Chat",
+      "RESOLVE_CONVERSATION": "Resolve Chat",
       "SEND_WEBHOOK_EVENT": "Send Webhook Event",
       "SEND_ATTACHMENT": "Odeslat přílohu",
       "SEND_MESSAGE": "Odeslat zprávu",
@@ -171,7 +171,7 @@
       "MESSAGE_TYPE": "Typ zprávy",
       "MESSAGE_CONTAINS": "Zpráva obsahuje",
       "EMAIL": "E-mailová adresa",
-      "INBOX": "Inbox",
+      "INBOX": "Source",
       "CONVERSATION_LANGUAGE": "Jazyk konverzace",
       "PHONE_NUMBER": "Telefonní číslo",
       "STATUS": "Stav",

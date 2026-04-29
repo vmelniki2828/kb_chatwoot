@@ -29,16 +29,16 @@
     },
     "LABELS": {
       "CONTACT": {
-        "TITLE": "Contact Labels",
-        "ERROR": "Couldn't update labels"
+        "TITLE": "Contact Tags",
+        "ERROR": "Couldn't update Tags"
       },
       "CONVERSATION": {
-        "TITLE": "Conversation Labels",
-        "ADD_BUTTON": "Add Labels"
+        "TITLE": "Chat Tags",
+        "ADD_BUTTON": "Add Tags"
       },
       "LABEL_SELECT": {
-        "TITLE": "Add Labels",
-        "PLACEHOLDER": "Search labels",
+        "TITLE": "Add Tags",
+        "PLACEHOLDER": "Search Tags",
         "NO_RESULT": "कुनै लेबल फेला परेन",
         "CREATE_LABEL": "Create new label"
       }
@@ -53,7 +53,7 @@
     "EDIT_LABEL": "Edit",
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "अनुकूलित विशेषताहरू",
-      "CONTACT_LABELS": "Contact Labels",
+      "CONTACT_LABELS": "Contact Tags",
       "PREVIOUS_CONVERSATIONS": "अघिल्लो कुराकानीहरू",
       "NO_RECORDS_FOUND": "कुनै विशेषता फेला परेन"
     }
@@ -164,7 +164,7 @@
         "LABEL": "लाई"
       },
       "INBOX": {
-        "LABEL": "Inbox",
+        "LABEL": "Source",
         "PLACEHOLDER": "Choose source inbox",
         "ERROR": "Select an inbox"
       },
@@ -580,9 +580,9 @@
     "LOAD_MORE": "Load more"
   },
   "CONTACTS_BULK_ACTIONS": {
-    "ASSIGN_LABELS": "Assign Labels",
+    "ASSIGN_LABELS": "Assign Tags",
     "ASSIGN_LABELS_SUCCESS": "लेबलहरू सफलतापूर्वक असाइन गरियो।",
-    "ASSIGN_LABELS_FAILED": "Failed to assign labels",
+    "ASSIGN_LABELS_FAILED": "Failed to assign Tags",
     "DESCRIPTION": "चयनित सम्पर्कहरूमा थप्न चाहनुभएको लेबलहरू छान्नुहोस्।",
     "NO_LABELS_FOUND": "अहिलेसम्म कुनै लेबलहरू उपलब्ध छैनन्।",
     "SELECTED_COUNT": "{count} चयन गरियो",

@@ -4,7 +4,7 @@ import ArticleCard from './ArticleCard.vue';
 const articles = [
   {
     id: 1,
-    title: "How to get an SSL certificate for your Help Center's custom domain",
+    title: "How to get an SSL certificate for your Support Center's custom domain",
     status: 'draft',
     updatedAt: 1729048936,
     author: {
@@ -20,7 +20,7 @@ const articles = [
   },
   {
     id: 2,
-    title: 'Setting up your first Help Center portal',
+    title: 'Setting up your first Support Center portal',
     status: '',
     updatedAt: 1729048936,
     author: {
@@ -36,7 +36,7 @@ const articles = [
   },
   {
     id: 3,
-    title: 'Best practices for organizing your Help Center content',
+    title: 'Best practices for organizing your Support Center content',
     status: 'archived',
     updatedAt: 1729048936,
     author: {

@@ -56,10 +56,10 @@
     "FILTERS": {
       "FILTER_MESSAGE": "Filter messages by:",
       "FROM": "Sender",
-      "IN": "Inbox",
+      "IN": "Source",
       "AGENTS": "Agenti",
       "CONTACTS": "Contacts",
-      "INBOXES": "Inboxes",
+      "INBOXES": "Sources",
       "NO_AGENTS": "No agents found",
       "NO_CONTACTS": "Start by searching to see results",
       "NO_INBOXES": "No inboxes found"

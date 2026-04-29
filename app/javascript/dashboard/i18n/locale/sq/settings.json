@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "Rregullat e përjashtimit",
           "DESCRIPTION": "Bisedat që plotësojnë kushtet e mëposhtme nuk do të llogariten në kapacitetin e agjentit",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "Përjashto bisedat e etiketuar me etiketa specifike",
             "ADD_TAG": "shto etiketë",
             "DROPDOWN": {

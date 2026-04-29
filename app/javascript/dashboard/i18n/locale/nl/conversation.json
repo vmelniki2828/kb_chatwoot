@@ -28,7 +28,7 @@
     "UNREAD_MESSAGES": "Ongelezen berichten",
     "UNREAD_MESSAGE": "Ongelezen bericht",
     "CLICK_HERE": "Klik hier",
-    "LOADING_INBOXES": "Inboxen laden",
+    "LOADING_INBOXES": "Sourceen laden",
     "LOADING_CONVERSATIONS": "Conversaties laden",
     "CANNOT_REPLY": "Je kunt niet reageren omdat",
     "24_HOURS_WINDOW": "Beperking van 24-uur berichtenvenster",
@@ -39,7 +39,7 @@
     "BOT_HANDOFF_MESSAGE": "You are responding to a conversation which is currently handled by an assistant or a bot.",
     "BOT_HANDOFF_ACTION": "Mark open and assign to you",
     "BOT_HANDOFF_REOPEN_ACTION": "Mark conversation open",
-    "BOT_HANDOFF_SUCCESS": "Conversation has been handed over to you",
+    "BOT_HANDOFF_SUCCESS": "Chat has been handed over to you",
     "BOT_HANDOFF_ERROR": "Failed to take over the conversation. Please try again.",
     "TWILIO_WHATSAPP_CAN_REPLY": "Je kunt dit gesprek alleen beantwoorden met een sjabloon bericht vanwege",
     "TWILIO_WHATSAPP_24_HOURS_WINDOW": "Beperking van 24-uur berichtenvenster",
@@ -70,8 +70,8 @@
     "FEEDBACK_TITLE": "Feedback",
     "REPLY_MESSAGE_NOT_FOUND": "Bericht niet beschikbaar",
     "CARD": {
-      "SHOW_LABELS": "Labels weergeven",
-      "HIDE_LABELS": "Labels verbergen"
+      "SHOW_LABELS": "Tags weergeven",
+      "HIDE_LABELS": "Tags verbergen"
     },
     "VOICE_CALL": {
       "INCOMING_CALL": "Incoming call",
@@ -164,7 +164,7 @@
       "DELETE": "Delete conversation",
       "OPEN_IN_NEW_TAB": "Open in new tab",
       "COPY_LINK": "Copy conversation link",
-      "COPY_LINK_SUCCESS": "Conversation link copied to clipboard",
+      "COPY_LINK_SUCCESS": "Chat link copied to clipboard",
       "API": {
         "AGENT_ASSIGNMENT": {
           "SUCCESFUL": "Gesprek id {conversationId} toegewezen aan \"{agentName}\"",
@@ -247,13 +247,13 @@
     },
     "VISIBLE_TO_AGENTS": "Privéopmerking: alleen zichtbaar voor jou en je team",
     "CHANGE_STATUS": "Gespreksstatus veranderd",
-    "CHANGE_STATUS_FAILED": "Conversation status change failed",
+    "CHANGE_STATUS_FAILED": "Chat status change failed",
     "CHANGE_AGENT": "Toegewezen persoon voor dit gesprek is veranderd",
     "CHANGE_AGENT_FAILED": "Assignee change failed",
     "ASSIGN_LABEL_SUCCESFUL": "Label assigned successfully",
     "ASSIGN_LABEL_FAILED": "Label assignment failed",
-    "CHANGE_TEAM": "Conversation team changed",
-    "SUCCESS_DELETE_CONVERSATION": "Conversation deleted successfully",
+    "CHANGE_TEAM": "Chat team changed",
+    "SUCCESS_DELETE_CONVERSATION": "Chat deleted successfully",
     "FAIL_DELETE_CONVERSATION": "Couldn't delete conversation! Try again",
     "FILE_SIZE_LIMIT": "File exceeds the {MAXIMUM_SUPPORTED_FILE_UPLOAD_SIZE} MB attachment limit",
     "FILE_TYPE_NOT_SUPPORTED": "This {fileName} file type is not supported in this conversation",
@@ -335,8 +335,8 @@
       "NEW_LINK": "Click here to invite a team member"
     },
     "LABELS": {
-      "TITLE": "Organize conversations with labels",
-      "DESCRIPTION": "Labels provide an easier way to categorize your conversation. Create some labels like #support-enquiry, #billing-question etc., so that you can use them in a conversation later.",
+      "TITLE": "Organize conversations with Tags",
+      "DESCRIPTION": "Tags provide an easier way to categorize your conversation. Create some Tags like #support-enquiry, #billing-question etc., so that you can use them in a conversation later.",
       "NEW_LINK": "Click here to create tags"
     },
     "CANNED_RESPONSES": {
@@ -354,9 +354,9 @@
     },
     "ACCORDION": {
       "CONTACT_DETAILS": "Contactgegevens",
-      "CONVERSATION_ACTIONS": "Conversation Actions",
-      "CONVERSATION_LABELS": "Labels voor gesprekken",
-      "CONVERSATION_INFO": "Conversation Information",
+      "CONVERSATION_ACTIONS": "Chat Actions",
+      "CONVERSATION_LABELS": "Tags voor gesprekken",
+      "CONVERSATION_INFO": "Chat Information",
       "CONTACT_NOTES": "Contact Notes",
       "CONTACT_ATTRIBUTES": "Contact Attributes",
       "PREVIOUS_CONVERSATION": "Vorige gesprekken",
@@ -416,7 +416,7 @@
   },
   "CONVERSATION_PARTICIPANTS": {
     "SIDEBAR_MENU_TITLE": "Participating",
-    "SIDEBAR_TITLE": "Conversation participants",
+    "SIDEBAR_TITLE": "Chat participants",
     "NO_RECORDS_FOUND": "Geen resultaten gevonden",
     "ADD_PARTICIPANTS": "Select participants",
     "REMANING_PARTICIPANTS_TEXT": "+{count} others",

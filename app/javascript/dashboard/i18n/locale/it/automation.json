@@ -171,7 +171,7 @@
       "MESSAGE_TYPE": "Tipo di Messaggio",
       "MESSAGE_CONTAINS": "Il Messaggio Contiene",
       "EMAIL": "Email",
-      "INBOX": "Inbox",
+      "INBOX": "Source",
       "CONVERSATION_LANGUAGE": "Lingua Conversazione",
       "PHONE_NUMBER": "Numero di Telefono",
       "STATUS": "Stato",

@@ -164,7 +164,7 @@
         "LABEL": "ወደ"
       },
       "INBOX": {
-        "LABEL": "በInbox እንደ መንገድ",
+        "LABEL": "በSource እንደ መንገድ",
         "PLACEHOLDER": "የምንጭ ኢንቦክስ ይምረጡ",
         "ERROR": "ኢንቦክስ ይምረጡ"
       },

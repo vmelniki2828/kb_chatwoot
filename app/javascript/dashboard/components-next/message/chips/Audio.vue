@@ -174,7 +174,7 @@ const downloadAudio = async () => {
         class="p-0 border-0 size-8 grid place-content-center"
         @click="toggleMute"
       >
-        <Icon v-if="isMuted" class="size-4" icon="i-lucide-volume-off" />
+        <Icon v-if="isMuted" class="size-4" icon="i-lucide-ban" />
         <Icon v-else class="size-4" icon="i-lucide-volume-2" />
       </button>
       <button

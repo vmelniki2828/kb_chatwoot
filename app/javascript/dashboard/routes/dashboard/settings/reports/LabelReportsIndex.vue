@@ -18,7 +18,7 @@ const onDownloadClick = () => {
   >
     <V4Button
       :label="$t('LABEL_REPORTS.DOWNLOAD_LABEL_REPORTS')"
-      icon="i-ph-download-simple"
+      icon="i-ph-file-arrow-down"
       size="sm"
       @click="onDownloadClick"
     />

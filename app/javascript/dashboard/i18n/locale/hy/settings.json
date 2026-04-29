@@ -695,7 +695,7 @@
         "API": {
           "SUCCESS_MESSAGE": "Առանձնացման քաղաքականությունը հաջողությամբ ստեղծվեց",
           "ERROR_MESSAGE": "Չհաջողվեց ստեղծել առանձնացման քաղաքականությունը",
-          "INBOX_LINKED": "Inbox has been linked to the policy"
+          "INBOX_LINKED": "Source has been linked to the policy"
         }
       },
       "EDIT": {
@@ -844,15 +844,15 @@
         },
         "INBOX_LIMIT_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox limit added successfully",
+            "SUCCESS_MESSAGE": "Source limit added successfully",
             "ERROR_MESSAGE": "Failed to add inbox limit"
           },
           "UPDATE": {
-            "SUCCESS_MESSAGE": "Inbox limit updated successfully",
+            "SUCCESS_MESSAGE": "Source limit updated successfully",
             "ERROR_MESSAGE": "Failed to update inbox limit"
           },
           "DELETE": {
-            "SUCCESS_MESSAGE": "Inbox limit deleted successfully",
+            "SUCCESS_MESSAGE": "Source limit deleted successfully",
             "ERROR_MESSAGE": "Failed to delete inbox limit"
           }
         }
@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "Բացառման կանոններ",
           "DESCRIPTION": "Զրույցները, որոնք համապատասխանում են հետևյալ պայմաններին, չեն հաշվում գործակալների տարողության մեջ",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "Բացառել զրույցները, որոնք նշագրված են հատուկ պիտակներով",
             "ADD_TAG": "ավելացնել պիտակ",
             "DROPDOWN": {

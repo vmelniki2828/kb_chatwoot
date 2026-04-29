@@ -15,7 +15,7 @@ const mockItems = [
   {
     id: 3,
     name: 'WhatsApp Business',
-    icon: 'i-lucide-message-circle',
+    icon: 'i-lucide-message-square',
   },
   {
     id: 4,
@@ -68,7 +68,7 @@ const mockUsers = [
         <CardPopover
           :count="3"
           title="Added Inboxes"
-          icon="i-lucide-inbox"
+          icon="i-lucide-archive"
           :items="mockItems.slice(0, 3)"
           @fetch="() => console.log('Fetch triggered')"
         />
@@ -79,7 +79,7 @@ const mockUsers = [
         <CardPopover
           :count="3"
           title="Added Agents"
-          icon="i-lucide-users-round"
+          icon="i-lucide-user-round-pen"
           :items="mockUsers.slice(0, 3)"
           @fetch="() => console.log('Fetch triggered')"
         />

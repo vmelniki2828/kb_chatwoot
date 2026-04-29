@@ -164,7 +164,7 @@
         "LABEL": "Către"
       },
       "INBOX": {
-        "LABEL": "Prin Inbox",
+        "LABEL": "Prin Source",
         "PLACEHOLDER": "Alegeți căsuța poștală sursă",
         "ERROR": "Selectați un inbox"
       },
@@ -582,9 +582,9 @@
   "CONTACTS_BULK_ACTIONS": {
     "ASSIGN_LABELS": "Atribuiți etichete",
     "ASSIGN_LABELS_SUCCESS": "Etichete atribuite cu succes.",
-    "ASSIGN_LABELS_FAILED": "Failed to assign labels",
-    "DESCRIPTION": "Select the labels you want to add to the selected contacts.",
-    "NO_LABELS_FOUND": "No labels available yet.",
+    "ASSIGN_LABELS_FAILED": "Failed to assign Tags",
+    "DESCRIPTION": "Select the Tags you want to add to the selected contacts.",
+    "NO_LABELS_FOUND": "No Tags available yet.",
     "SELECTED_COUNT": "{count} selected",
     "CLEAR_SELECTION": "Clear selection",
     "SELECT_ALL": "Select all ({count})",

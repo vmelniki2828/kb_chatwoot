@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "Regras de exclusão",
           "DESCRIPTION": "Conversas que atendam às seguintes condições não serão contabilizadas na capacidade do agente",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "Excluir conversas marcadas com rótulos específicos",
             "ADD_TAG": "adicionar etiqueta",
             "DROPDOWN": {

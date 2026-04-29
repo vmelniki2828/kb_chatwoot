@@ -1,7 +1,7 @@
 {
   "INBOX": {
     "LIST": {
-      "TITLE": "My Inbox",
+      "TITLE": "Notifications",
       "DISPLAY_DROPDOWN": "Hiển thị",
       "LOADING": "Tải thông báo",
       "404": "Không có thông báo nào đang hoạt động trong nhóm này.",
@@ -30,7 +30,7 @@
     "TYPES_NEXT": {
       "CONVERSATION_MENTION": "Mentioned",
       "CONVERSATION_ASSIGNMENT": "Assigned to you",
-      "CONVERSATION_CREATION": "New Conversation",
+      "CONVERSATION_CREATION": "New Chat",
       "SLA_MISSED_FIRST_RESPONSE": "SLA breach",
       "SLA_MISSED_NEXT_RESPONSE": "SLA breach",
       "SLA_MISSED_RESOLUTION": "SLA breach",
@@ -61,7 +61,7 @@
         "SNOOZED": "Tạm dừng",
         "READ": "\bĐọc",
         "LABELS": "Nhãn",
-        "CONVERSATION_ID": "Conversation ID"
+        "CONVERSATION_ID": "Chat ID"
       }
     },
     "ALERTS": {

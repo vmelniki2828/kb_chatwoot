@@ -37,7 +37,7 @@
           "INBOX": {
             "LABEL": "Selecteer een inbox",
             "PLACEHOLDER": "Selecteer een inbox",
-            "ERROR": "Inbox is required"
+            "ERROR": "Source is required"
           },
           "SENT_BY": {
             "LABEL": "Verzonden door",
@@ -114,11 +114,11 @@
           "INBOX": {
             "LABEL": "Selecteer een inbox",
             "PLACEHOLDER": "Selecteer een inbox",
-            "ERROR": "Inbox is required"
+            "ERROR": "Source is required"
           },
           "AUDIENCE": {
             "LABEL": "Audience",
-            "PLACEHOLDER": "Select the customer labels",
+            "PLACEHOLDER": "Select the customer Tags",
             "ERROR": "Audience is required"
           },
           "SCHEDULED_AT": {
@@ -167,7 +167,7 @@
           "INBOX": {
             "LABEL": "Selecteer een inbox",
             "PLACEHOLDER": "Selecteer een inbox",
-            "ERROR": "Inbox is required"
+            "ERROR": "Source is required"
           },
           "TEMPLATE": {
             "LABEL": "WhatsApp Template",
@@ -182,7 +182,7 @@
           },
           "AUDIENCE": {
             "LABEL": "Audience",
-            "PLACEHOLDER": "Select the customer labels",
+            "PLACEHOLDER": "Select the customer Tags",
             "ERROR": "Audience is required"
           },
           "SCHEDULED_AT": {

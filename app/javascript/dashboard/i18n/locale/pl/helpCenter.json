@@ -2,7 +2,7 @@
   "HELP_CENTER": {
     "TITLE": "Centrum pomocy",
     "NEW_PAGE": {
-      "DESCRIPTION": "Create self-service help center portals for your customers. Help them find answers quickly, without waiting. Streamline inquiries, boost agent efficiency, and elevate customer support.",
+      "DESCRIPTION": "Create self-service Support Center portals for your customers. Help them find answers quickly, without waiting. Streamline inquiries, boost agent efficiency, and elevate customer support.",
       "CREATE_PORTAL_BUTTON": "Utwórz portal"
     },
     "HEADER": {
@@ -470,7 +470,7 @@
       "SEARCH_BUTTON": "Szukaj",
       "INSERT_ARTICLE": "Insert link",
       "IFRAME_ERROR": "URL is empty or invalid. Unable to display content.",
-      "OPEN_ARTICLE_SEARCH": "Insert article from Help Center",
+      "OPEN_ARTICLE_SEARCH": "Insert article from Support Center",
       "SUCCESS_ARTICLE_INSERTED": "Article inserted successfully",
       "PREVIEW_LINK": "Podgląd artykułu",
       "CANCEL": "Zamknij",
@@ -488,7 +488,7 @@
       "FEATURES": {
         "PORTALS": {
           "TITLE": "Multiple portals",
-          "DESCRIPTION": "Create multiple help center portals for different products using the same account."
+          "DESCRIPTION": "Create multiple Support Center portals for different products using the same account."
         },
         "LOCALES": {
           "TITLE": "Full support for locales",
@@ -751,7 +751,7 @@
         "LIVE_CHAT_WIDGET": {
           "LABEL": "Live chat widget",
           "PLACEHOLDER": "Select live chat widget",
-          "HELP_TEXT": "Select a live chat widget that will appear on your help center",
+          "HELP_TEXT": "Select a live chat widget that will appear on your Support Center",
           "NONE_OPTION": "No widget"
         },
         "BRAND_COLOR": {

@@ -118,7 +118,7 @@
           },
           "AUDIENCE": {
             "LABEL": "Zielgruppe",
-            "PLACEHOLDER": "Kunden-Labels auswählen",
+            "PLACEHOLDER": "Kunden-Tags auswählen",
             "ERROR": "Zielgruppe ist erforderlich"
           },
           "SCHEDULED_AT": {
@@ -182,7 +182,7 @@
           },
           "AUDIENCE": {
             "LABEL": "Zielgruppe",
-            "PLACEHOLDER": "Kunden-Labels auswählen",
+            "PLACEHOLDER": "Kunden-Tags auswählen",
             "ERROR": "Zielgruppe ist erforderlich"
           },
           "SCHEDULED_AT": {

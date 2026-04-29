@@ -3,13 +3,13 @@
     "TABS": {
       "ALL": "All results",
       "CONTACTS": "Contacts",
-      "CONVERSATIONS": "Conversations",
+      "CONVERSATIONS": "Chats",
       "MESSAGES": "Messages",
       "ARTICLES": "Articles"
     },
     "SECTION": {
       "CONTACTS": "Contacts",
-      "CONVERSATIONS": "Conversations",
+      "CONVERSATIONS": "Chats",
       "MESSAGES": "Messages",
       "ARTICLES": "Articles"
     },
@@ -56,10 +56,10 @@
     "FILTERS": {
       "FILTER_MESSAGE": "Filter messages by:",
       "FROM": "Sender",
-      "IN": "Inbox",
+      "IN": "Source",
       "AGENTS": "Ejen",
       "CONTACTS": "Contacts",
-      "INBOXES": "Inboxes",
+      "INBOXES": "Sources",
       "NO_AGENTS": "Tiada ejen dijumpa",
       "NO_CONTACTS": "Start by searching to see results",
       "NO_INBOXES": "No inboxes found"

@@ -67,7 +67,7 @@ const handleFetchInboxes = () => {
             :title="
               t('ASSIGNMENT_POLICY.AGENT_ASSIGNMENT_POLICY.INDEX.CARD.POPOVER')
             "
-            icon="i-lucide-inbox"
+            icon="i-lucide-archive"
             :count="assignedInboxCount"
             :items="inboxes"
             :is-fetching="isFetchingInboxes"

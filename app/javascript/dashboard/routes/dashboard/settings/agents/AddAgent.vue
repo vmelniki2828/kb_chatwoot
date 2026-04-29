@@ -103,61 +103,73 @@ const addAgent = async () => {
 </script>
 
 <template>
-  <div class="flex flex-col h-auto overflow-auto">
-    <woot-modal-header
-      :header-title="$t('AGENT_MGMT.ADD.TITLE')"
-      :header-content="$t('AGENT_MGMT.ADD.DESC')"
-    />
-    <form class="flex flex-col items-start w-full" @submit.prevent="addAgent">
-      <div class="w-full">
-        <label :class="{ error: v$.agentName.$error }">
-          {{ $t('AGENT_MGMT.ADD.FORM.NAME.LABEL') }}
-          <input
-            v-model="agentName"
-            type="text"
-            :placeholder="$t('AGENT_MGMT.ADD.FORM.NAME.PLACEHOLDER')"
-            @input="v$.agentName.$touch"
-          />
-        </label>
+  <div class="flex flex-col gap-0">
+    <div class="px-8 pt-8 pb-6 border-b border-white/10">
+      <p class="text-xs font-semibold tracking-[0.2em] text-[#4ade80] uppercase mb-1">Agents</p>
+      <h2 class="text-3xl font-black tracking-wide text-white uppercase">{{ $t('AGENT_MGMT.ADD.TITLE') }}</h2>
+    </div>
+
+    <form class="flex flex-col gap-6 px-8 py-6" @submit.prevent="addAgent">
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold text-[#4ade80] tracking-widest">01</span>
+          <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">Agent Info</span>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+            :class="{ 'border-red-500/50': v$.agentName.$error }">
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-[#4ade80] uppercase">{{ $t('AGENT_MGMT.ADD.FORM.NAME.LABEL') }}</span>
+            <input
+              v-model="agentName"
+              type="text"
+              :placeholder="$t('AGENT_MGMT.ADD.FORM.NAME.PLACEHOLDER')"
+              class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0"
+              @input="v$.agentName.$touch"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+            :class="{ 'border-red-500/50': v$.agentEmail.$error }">
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">{{ $t('AGENT_MGMT.ADD.FORM.EMAIL.LABEL') }}</span>
+            <input
+              v-model="agentEmail"
+              type="email"
+              :placeholder="$t('AGENT_MGMT.ADD.FORM.EMAIL.PLACEHOLDER')"
+              class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0"
+              @input="v$.agentEmail.$touch"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+            :class="{ 'border-red-500/50': v$.selectedRoleId.$error }">
+            <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">{{ $t('AGENT_MGMT.ADD.FORM.AGENT_TYPE.LABEL') }}</span>
+            <select
+              v-model="selectedRoleId"
+              class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 p-0 appearance-none cursor-pointer"
+              @change="v$.selectedRoleId.$touch"
+            >
+              <option v-for="role in roles" :key="role.id" :value="role.id" class="bg-n-solid-3">
+                {{ role.label }}
+              </option>
+            </select>
+          </div>
+        </div>
       </div>
 
-      <div class="w-full">
-        <label :class="{ error: v$.selectedRoleId.$error }">
-          {{ $t('AGENT_MGMT.ADD.FORM.AGENT_TYPE.LABEL') }}
-          <select v-model="selectedRoleId" @change="v$.selectedRoleId.$touch">
-            <option v-for="role in roles" :key="role.id" :value="role.id">
-              {{ role.label }}
-            </option>
-          </select>
-          <span v-if="v$.selectedRoleId.$error" class="message">
-            {{ $t('AGENT_MGMT.ADD.FORM.AGENT_TYPE.ERROR') }}
-          </span>
-        </label>
-      </div>
+      <div class="border-t border-white/10" />
 
-      <div class="w-full">
-        <label :class="{ error: v$.agentEmail.$error }">
-          {{ $t('AGENT_MGMT.ADD.FORM.EMAIL.LABEL') }}
-          <input
-            v-model="agentEmail"
-            type="email"
-            :placeholder="$t('AGENT_MGMT.ADD.FORM.EMAIL.PLACEHOLDER')"
-            @input="v$.agentEmail.$touch"
-          />
-        </label>
-      </div>
-
-      <div class="flex flex-row justify-end w-full gap-2 px-0 py-2">
+      <div class="flex items-center justify-between gap-3 py-2">
         <Button
-          faded
-          slate
-          type="reset"
           :label="$t('AGENT_MGMT.ADD.CANCEL_BUTTON_TEXT')"
+          variant="link"
+          type="reset"
+          class="h-10 hover:!no-underline hover:text-n-brand"
           @click.prevent="emit('close')"
         />
         <Button
           type="submit"
           :label="$t('AGENT_MGMT.ADD.FORM.SUBMIT')"
+          color="blue"
           :disabled="v$.$invalid || uiFlags.isCreating"
           :is-loading="uiFlags.isCreating"
         />

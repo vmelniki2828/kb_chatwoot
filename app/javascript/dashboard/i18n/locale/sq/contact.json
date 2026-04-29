@@ -30,7 +30,7 @@
     "LABELS": {
       "CONTACT": {
         "TITLE": "Etiketat e kontaktit",
-        "ERROR": "Couldn't update labels"
+        "ERROR": "Couldn't update Tags"
       },
       "CONVERSATION": {
         "TITLE": "Etiketat e bisedës",
@@ -164,7 +164,7 @@
         "LABEL": "Drejtuar"
       },
       "INBOX": {
-        "LABEL": "Via Inbox",
+        "LABEL": "Via Source",
         "PLACEHOLDER": "Zgjidhni kutinë hyrëse të burimit",
         "ERROR": "Zgjidhni një postë hyrëse"
       },

@@ -222,9 +222,9 @@ RSpec.describe Messages::MarkdownRendererService, type: :service do
       end
 
       it 'preserves URLs in messages with multiple links' do
-        content = 'Visit [our site](https://example.com) or [help center](https://help.example.com)'
+        content = 'Visit [our site](https://example.com) or [Support Center](https://help.example.com)'
         result = described_class.new(content, channel_type).render
-        expect(result).to eq('Visit our site https://example.com or help center https://help.example.com')
+        expect(result).to eq('Visit our site https://example.com or Support Center https://help.example.com')
       end
 
       it 'preserves link text and URL when both are present' do

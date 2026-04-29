@@ -988,7 +988,7 @@
       }
     },
     "INBOXES": {
-      "HEADER": "Connected Inboxes",
+      "HEADER": "Connected Sources",
       "ADD_NEW": "Sambungkan peti masuk baru",
       "OPTIONS": {
         "DISCONNECT": "Putuskan sambungan"

@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "担当者名をメールに表示するかどうかを設定します。無効にするとビジネス名が表示されます。",
       "ENABLE_CONTINUITY_VIA_EMAIL": "メールによる会話の継続を有効にする",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "連絡先のメールアドレスが利用可能な場合、会話はメールで継続されます。",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "受信トレイの設定",
       "INBOX_UPDATE_SUB_TEXT": "受信トレイの設定を更新する",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "含む",
           "DOES_NOT_CONTAINS": "含まない"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

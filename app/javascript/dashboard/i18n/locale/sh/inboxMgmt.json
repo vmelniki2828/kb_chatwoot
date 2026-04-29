@@ -19,7 +19,7 @@
         "BODY": "Odaberite davatelja kojeg želite integrirati s QODEQ CHAT."
       },
       "INBOX": {
-        "TITLE": "Create Inbox",
+        "TITLE": "Create Source",
         "BODY": "Authenticate your account and create an inbox."
       },
       "AGENT": {
@@ -47,9 +47,9 @@
         "CHOOSE_PLACEHOLDER": "Odaberite stranicu s popisa",
         "INBOX_NAME": "Naziv sandučića",
         "ADD_NAME": "Dodajte naziv za svoj sandučić",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Odaberite vrijednost",
-        "CREATE_INBOX": "Create Inbox"
+        "CREATE_INBOX": "Create Source"
       },
       "INSTAGRAM": {
         "CONTINUE_WITH_INSTAGRAM": "Nastavi s Instagramom",
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agent",
         "DESC": "Ovdje možete dodati agente za upravljanje vašim novokreiranim inboxom. Samo odabrani agenti imat će pristup vašem inboxu. Agenti koji nisu dio ovog inboxa neće moći vidjeti niti odgovoriti na poruke u ovom inboxu kada se prijave. <br> <b>PS:</b> Kao administrator, ako trebate pristup svim inboxima, trebali biste sebe dodati kao agenta u sve inboxe koje kreirate.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Pick agents for the inbox"
       },
       "DETAILS": {
@@ -531,15 +531,15 @@
       "ERROR_FB_UNAUTHORIZED": "Niste ovlašteni za izvođenje ove radnje. ",
       "ERROR_FB_UNAUTHORIZED_HELP": "Please ensure you have access to the Facebook page with full control. You can read more about Facebook roles <a href=\" https://www.facebook.com/help/187316341316631\">here</a>.",
       "CREATING_CHANNEL": "Stvaranje vaše Poštanske kutije...",
-      "TITLE": "Configure Inbox Details",
+      "TITLE": "Configure Source Details",
       "DESC": ""
     },
     "AGENTS": {
       "BUTTON_TEXT": "Dodaj agente",
-      "ADD_AGENTS": "Adding Agents to your Inbox..."
+      "ADD_AGENTS": "Adding Agents to your Source..."
     },
     "FINISH": {
-      "TITLE": "Your Inbox is ready!",
+      "TITLE": "Your Source is ready!",
       "MESSAGE": "Sada možete komunicirati sa svojim kupcima putem svog novog Kanala. Sretno s podrškom",
       "BUTTON_TEXT": "Odvedi me tamo",
       "MORE_SETTINGS": "Više postavki",
@@ -552,7 +552,7 @@
     "VIEW": "Pregled",
     "EDIT": {
       "API": {
-        "SUCCESS_MESSAGE": "Inbox settings updated successfully",
+        "SUCCESS_MESSAGE": "Source settings updated successfully",
         "AUTO_ASSIGNMENT_SUCCESS_MESSAGE": "Automatska dodjela uspješno ažurirana",
         "ERROR_MESSAGE": "Nismo mogli ažurirati postavke sandučića. Molimo pokušajte ponovno kasnije."
       },
@@ -612,9 +612,9 @@
         "NO": "Ne, zadrži "
       },
       "API": {
-        "SUCCESS_MESSAGE": "Inbox deleted successfully",
+        "SUCCESS_MESSAGE": "Source deleted successfully",
         "ERROR_MESSAGE": "Could not delete inbox. Please try again later.",
-        "AVATAR_SUCCESS_MESSAGE": "Inbox avatar deleted successfully",
+        "AVATAR_SUCCESS_MESSAGE": "Source avatar deleted successfully",
         "AVATAR_ERROR_MESSAGE": "Nije bilo moguće izbrisati avatar sandučića. Molimo pokušajte ponovo kasnije."
       }
     },
@@ -789,7 +789,7 @@
       "SELECT_PLACEHOLDER": "Odaberite Centar za pomoć",
       "NONE": "Nijedan",
       "REMOVE": "Ukloni Centar za pomoć",
-      "SUB_TEXT": "Attach a Help Center with the inbox"
+      "SUB_TEXT": "Attach a Support Center with the inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Ograničenje automatske dodjele",

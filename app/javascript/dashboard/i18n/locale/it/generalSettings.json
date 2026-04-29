@@ -2,7 +2,7 @@
   "GENERAL_SETTINGS": {
     "LIMIT_MESSAGES": {
       "CONVERSATION": "Hai superato il limite di conversazioni. Il piano Hacker consente fino a 500 conversazioni.",
-      "INBOXES": "Hai superato il limite di Inbox. Il piano Hacker supporta solo la live-chat sul sito web. Ulteriori Inbox come e-mail, WhatsApp ecc. richiedono un piano a pagamento.",
+      "INBOXES": "Hai superato il limite di Source. Il piano Hacker supporta solo la live-chat sul sito web. Ulteriori Source come e-mail, WhatsApp ecc. richiedono un piano a pagamento.",
       "AGENTS": "Hai superato il limite di operatori. Il tuo piano consente solo {allowedAgents} operatori.",
       "NON_ADMIN": "Contatta l'amministratore per aggiornare il piano e continuare a utilizzare tutte le funzionalità."
     },
@@ -206,11 +206,11 @@
       "GO_TO_CONVERSATION_REPORTS": "Vai ai Report delle Conversazioni",
       "GO_TO_AGENT_REPORTS": "Vai ai Report degli Operatori",
       "GO_TO_LABEL_REPORTS": "Vai ai Report delle Etichette",
-      "GO_TO_INBOX_REPORTS": "Vai ai Report delle Inbox",
+      "GO_TO_INBOX_REPORTS": "Vai ai Report delle Source",
       "GO_TO_TEAM_REPORTS": "Vai ai Report dei Team",
       "GO_TO_SETTINGS_AGENTS": "Vai alle Impostazioni Operatore",
       "GO_TO_SETTINGS_TEAMS": "Vai alle Impostazioni Team",
-      "GO_TO_SETTINGS_INBOXES": "Vai alle Impostazioni Inbox",
+      "GO_TO_SETTINGS_INBOXES": "Vai alle Impostazioni Source",
       "GO_TO_SETTINGS_LABELS": "Vai alle Impostazioni Etichette",
       "GO_TO_SETTINGS_CANNED_RESPONSES": "Vai alle Impostazioni delle Risposte Predefinite",
       "GO_TO_SETTINGS_APPLICATIONS": "Vai alle Impostazioni Applicazione",

@@ -25,7 +25,7 @@
     },
     "CONVERSATIONS": {
       "NO_RECORDS_FOUND": "Il n'y a aucune conversation précédente associée à ce contact.",
-      "TITLE": "Conversations précédentes"
+      "TITLE": "Chats précédentes"
     },
     "LABELS": {
       "CONTACT": {
@@ -54,7 +54,7 @@
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "Attributs personnalisés",
       "CONTACT_LABELS": "Libellés des contacts",
-      "PREVIOUS_CONVERSATIONS": "Conversations précédentes",
+      "PREVIOUS_CONVERSATIONS": "Chats précédentes",
       "NO_RECORDS_FOUND": "Aucun attribut trouvé"
     }
   },
@@ -582,9 +582,9 @@
   "CONTACTS_BULK_ACTIONS": {
     "ASSIGN_LABELS": "Assigner des étiquettes",
     "ASSIGN_LABELS_SUCCESS": "Étiquettes attribuées avec succès.",
-    "ASSIGN_LABELS_FAILED": "Failed to assign labels",
-    "DESCRIPTION": "Select the labels you want to add to the selected contacts.",
-    "NO_LABELS_FOUND": "No labels available yet.",
+    "ASSIGN_LABELS_FAILED": "Failed to assign Tags",
+    "DESCRIPTION": "Select the Tags you want to add to the selected contacts.",
+    "NO_LABELS_FOUND": "No Tags available yet.",
     "SELECTED_COUNT": "{count} selected",
     "CLEAR_SELECTION": "Clear selection",
     "SELECT_ALL": "Select all ({count})",

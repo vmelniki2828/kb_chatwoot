@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Sélectionnez une page dans la liste",
         "INBOX_NAME": "Nom de la boîte de réception",
         "ADD_NAME": "Ajouter un nom pour votre boîte de réception",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Choisir une valeur",
         "CREATE_INBOX": "Créer une boîte de réception"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agents",
         "DESC": "Ici vous pouvez ajouter des agents pour gérer votre boîte de réception nouvellement créée. Seuls ces agents sélectionnés auront accès à votre boîte de réception. Les agents qui ne font pas partie de cette boîte de réception ne seront pas en mesure de voir ou de répondre aux messages de cette boîte de réception lorsqu'ils se connectent. <br> <b>PS :</b> En tant qu'administrateur, si vous avez besoin d'accéder à toutes les boîtes de réception, vous devriez vous ajouter en tant qu'agent à toutes les boîtes de réception que vous créez.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Sélectionner les agents de la boîte de réception"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Activer/Désactiver l'affichage du nom de l'agent dans l'e-mail, si désactivé, il affichera le nom de l'entreprise",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Activer la continuité de la conversation par e-mail",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Les conversations se poursuivront par courrier électronique si l'adresse e-mail du contact est disponible.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Paramètres de boîtes de réception",
       "INBOX_UPDATE_SUB_TEXT": "Mettre à jour les paramètres de votre boîte de réception",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "contient",
           "DOES_NOT_CONTAINS": "ne contient pas"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

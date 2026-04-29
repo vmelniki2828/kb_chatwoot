@@ -306,7 +306,7 @@
   delete:
     $ref: ./application/automation_rule/delete.yml
 
-# Help Center
+# Support Center
 /api/v1/accounts/{account_id}/portals:
   parameters:
     - $ref: '#/components/parameters/account_id'
@@ -321,7 +321,7 @@
   patch:
     $ref: ./application/portal/update.yml
 
-# Help Center category
+# Support Center category
 /api/v1/accounts/{account_id}/portals/{id}/categories:
   parameters:
     - $ref: '#/components/parameters/account_id'
@@ -329,7 +329,7 @@
   post:
     $ref: ./application/category/create.yml
 
-# Help Center article
+# Support Center article
 /api/v1/accounts/{account_id}/portals/{id}/articles:
   parameters:
     - $ref: '#/components/parameters/account_id'

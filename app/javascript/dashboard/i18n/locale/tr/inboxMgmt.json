@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Listeden bir sayfa seçin",
         "INBOX_NAME": "Gelen Kutusu Adı",
         "ADD_NAME": "Gelen kutunuza bir isim ekleyin",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Bir değer seçin",
         "CREATE_INBOX": "Gelen Kutusu Oluştur"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Kullanıcılar",
         "DESC": "Yeni oluşturulan gelen kutunuzu yönetmek için burada aracılar ekleyebilirsiniz. Yalnızca bu seçilen temsilciler gelen kutunuza erişebilir. Bu gelen kutusunun parçası olmayan temsilciler, oturum açtıklarında bu gelen kutusundaki mesajları göremeyecek veya yanıtlayamayacak. <br> <b> Not: </b> Bir yönetici olarak, tüm gelen kutularına erişmeniz gerekiyorsa, kendinizi oluşturduğunuz tüm gelen kutularına aracı olarak eklemelisiniz.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Gelen kutusu için aracı seçin"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "E-postada Ajanın adını göstermeyi/Devre dışı bırakmayı etkinleştirin, devre dışı bırakıldığında iş adını gösterir",
       "ENABLE_CONTINUITY_VIA_EMAIL": "E-posta aracılığıyla konuşma sürekliliğini etkinleştir",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "E-posta adresi mevcut ise konuşmalar e-posta aracılığıyla devam eder.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Gelen Kutusu Ayarları",
       "INBOX_UPDATE_SUB_TEXT": "Gelen kutusu ayarlarınızı güncelleyin",

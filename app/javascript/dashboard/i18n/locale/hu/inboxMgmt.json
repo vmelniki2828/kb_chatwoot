@@ -11,7 +11,7 @@
     "WHATSAPP_REGISTRATION_INCOMPLETE": "Your WhatsApp Business registration isn’t complete. Please check your display name status in Meta Business Manager before reconnecting.",
     "COMPLETE_REGISTRATION": "Complete Registration",
     "LIST": {
-      "404": "Nincs Inbox kapcsolva ehhez a fiókhoz."
+      "404": "Nincs Source kapcsolva ehhez a fiókhoz."
     },
     "CREATE_FLOW": {
       "CHANNEL": {
@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Válaszd ki az oldalt a listából",
         "INBOX_NAME": "Fiók név",
         "ADD_NAME": "Adj nevet a fiókodnak",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Válassz értéket",
         "CREATE_INBOX": "Fiók létrehozása"
       },
@@ -494,12 +494,12 @@
       "AGENTS": {
         "TITLE": "Ügynökök",
         "DESC": "Itt hozzáadhatsz ügynököket az újonan létrehooztt inboxodhoz. Csak ezek a kiválasztott ügynökök fognak hozzáférni az inboxodhoz. Az ügynökök akik nem részei az inboxnak, nem látják és nem tudnak válaszolni az üzenetekre belépésük után. <br><b>UI:</b>Adminisztrátorként hozzáférésed van az összes inboxhoz, add hozzá magad az összes inboxhoz ügynökként.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Válaszd ki az inboxhoz hozzárendelt ügynököket"
       },
       "DETAILS": {
         "TITLE": "Fiók részletek",
-        "DESC": "A legördülő listából kérjük válaszd ki hogy melyik Facebook oldalt szeretnéd a QODEQ CHAThoz kötni. Egyedi nevet is adhatsz az Inboxnak a jobb azonosíthatóság érdekében."
+        "DESC": "A legördülő listából kérjük válaszd ki hogy melyik Facebook oldalt szeretnéd a QODEQ CHAThoz kötni. Egyedi nevet is adhatsz az Sourcenak a jobb azonosíthatóság érdekében."
       },
       "FINISH": {
         "TITLE": "Sikerült!",
@@ -530,8 +530,8 @@
       "ERROR_FB_AUTH": "Valami elromlott, kérjük töltsd újra az oldalt...",
       "ERROR_FB_UNAUTHORIZED": "Nincs jogosultsága erre a tevékenységre. ",
       "ERROR_FB_UNAUTHORIZED_HELP": "Bizonyosodjon meg, hogy teljes hozzáférése van a Facebook oldalhoz. Bővebb információt <a href=\" https://www.facebook.com/help/187316341316631\">itt talál</a>.",
-      "CREATING_CHANNEL": "Inbox létrehozása...",
-      "TITLE": "Inbox részletek beállítása",
+      "CREATING_CHANNEL": "Source létrehozása...",
+      "TITLE": "Source részletek beállítása",
       "DESC": ""
     },
     "AGENTS": {
@@ -552,7 +552,7 @@
     "VIEW": "Megtekintés",
     "EDIT": {
       "API": {
-        "SUCCESS_MESSAGE": "Inbox beállítások sikeresen frissítve",
+        "SUCCESS_MESSAGE": "Source beállítások sikeresen frissítve",
         "AUTO_ASSIGNMENT_SUCCESS_MESSAGE": "Automatikus hozzárendelés sikeresen frissítve",
         "ERROR_MESSAGE": "Nem tudtuk frissíteni a beérkező levelek beállításait. Kérlek, próbáld újra később."
       },
@@ -612,7 +612,7 @@
         "NO": "Nem, Mégse "
       },
       "API": {
-        "SUCCESS_MESSAGE": "Inbox sikeresen törölve",
+        "SUCCESS_MESSAGE": "Source sikeresen törölve",
         "ERROR_MESSAGE": "Nem sikerült a fiók törlése. Kérjük próbáld később.",
         "AVATAR_SUCCESS_MESSAGE": "Fiók avatar sikeresen törölve",
         "AVATAR_ERROR_MESSAGE": "A fiók avatar törlése nem lehetséges. Kérjük próbáld később."
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Az ügynök nevének megjelenítésének engedélyezése/letiltása az e-mailben, ha le van tiltva, akkor a cég neve jelenik meg",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Beszélgetés folytatásának engedélyezése emailen keresztül",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "A beszélgetések e-mailben folytatódnak, ha elérhető a kapcsolattartási e-mail cím.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Fiókbeállítások",
       "INBOX_UPDATE_SUB_TEXT": "Frissítsd az inbox beállításaidat",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "tartalmaz",
           "DOES_NOT_CONTAINS": "nem tartalmaz"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

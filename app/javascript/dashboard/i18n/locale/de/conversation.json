@@ -70,8 +70,8 @@
     "FEEDBACK_TITLE": "Feedback",
     "REPLY_MESSAGE_NOT_FOUND": "Nachricht nicht verfügbar",
     "CARD": {
-      "SHOW_LABELS": "Labels anzeigen",
-      "HIDE_LABELS": "Labels ausblenden"
+      "SHOW_LABELS": "Tags anzeigen",
+      "HIDE_LABELS": "Tags ausblenden"
     },
     "VOICE_CALL": {
       "INCOMING_CALL": "Eingehender Anruf",
@@ -335,8 +335,8 @@
       "NEW_LINK": "Klicken Sie hier, um ein Teammitglied einzuladen"
     },
     "LABELS": {
-      "TITLE": "Organisieren Sie Konversationen mit Labels",
-      "DESCRIPTION": "Labels bieten eine einfachere Möglichkeit, Ihre Konversation zu kategorisieren. Erstellen Sie einige Labels wie #support-enquiry, #billing-quest etc., damit Sie sie später in einem Gespräch verwenden können.",
+      "TITLE": "Organisieren Sie Konversationen mit Tags",
+      "DESCRIPTION": "Tags bieten eine einfachere Möglichkeit, Ihre Konversation zu kategorisieren. Erstellen Sie einige Tags wie #support-enquiry, #billing-quest etc., damit Sie sie später in einem Gespräch verwenden können.",
       "NEW_LINK": "Hier klicken, um Tags zu erstellen"
     },
     "CANNED_RESPONSES": {

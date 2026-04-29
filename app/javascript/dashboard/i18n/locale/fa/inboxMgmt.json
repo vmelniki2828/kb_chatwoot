@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "از لیست صفحه مورد نظر را انتخاب کنید",
         "INBOX_NAME": "عنوان صندوق ورودی",
         "ADD_NAME": "یک اسم به صندوق ورودی خود اضافه کنید",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "یک مقدار انتخاب کنید",
         "CREATE_INBOX": "ساخت صندوق ورودی"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "ایجنت ها",
         "DESC": "در اینجا می‌توانید ایجنت ها را به صندوق‌ ورودی خود اختصاص دهید. توجه داشته باشید که فقط ایجنت هایی که در اینجا معرفی شده باشند می‌توانند به پیام‌های این صندوق پاسخ بدهند. دیگر ایجنت ها نخواهند توانست پیام‌های این صندوق را ببینید یا به آن‌ها پاسخی بدهند. <br> <b>پانویس:</b>به عنوان مدیر اگر می‌خواهید به همه صندوق‌های ورودی دسترسی داشته باشید می‌بایست خود را به عنوان ایجنت به همه صندوق‌ها اضافه کنید.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "انتخاب ایجنت ها برای این صندوق ورودی"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "فعال/غیرفعال کردن نمایش نام اپراتور در ایمیل، اگر غیرفعال باشد نام کسب و کار نشان داده می شود",
       "ENABLE_CONTINUITY_VIA_EMAIL": "ادامه مکالمه را از طریق ایمیل فعال کنید",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "اگر آدرس ایمیل تماس در دسترس باشد، مکالمات از طریق ایمیل ادامه خواهد یافت.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "تنظیمات صندوق ورودی",
       "INBOX_UPDATE_SUB_TEXT": "تغییر پارامترهای صندوق ورودی",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "شامل",
           "DOES_NOT_CONTAINS": "شامل نمی‌شود"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

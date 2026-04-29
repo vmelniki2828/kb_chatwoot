@@ -33,7 +33,7 @@
     },
     "LIST": {
       "FETCHING": "Preluarea cârligelor de integrare",
-      "INBOX": "Inbox",
+      "INBOX": "Source",
       "ACTIONS": "Actiuni",
       "DELETE": {
         "BUTTON_TEXT": "Şterge"
@@ -42,8 +42,8 @@
     "ADD": {
       "FORM": {
         "INBOX": {
-          "LABEL": "Selectați Inbox",
-          "PLACEHOLDER": "Selectați Inbox"
+          "LABEL": "Selectați Source",
+          "PLACEHOLDER": "Selectați Source"
         },
         "SUBMIT": "Creeaza",
         "CANCEL": "Renunță"

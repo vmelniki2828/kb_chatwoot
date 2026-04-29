@@ -3,7 +3,7 @@
     "HEADER": "Диалоги",
     "LOADING_CHART": "Загрузка данных графика...",
     "NO_ENOUGH_DATA": "Недостаточно данных для создания отчета, пожалуйста, повторите попытку позже.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Не удалось загрузить данные. Пожалуйста, попробуйте позже.",
     "SUMMARY_FETCHING_FAILED": "Не удалось загрузить сводку. Пожалуйста, попробуйте позже.",
     "METRICS": {
@@ -170,7 +170,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "Обзор агентов",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "Загрузка данных графика...",
     "NO_ENOUGH_DATA": "Недостаточно данных для создания отчета, пожалуйста, повторите попытку позже.",
     "DOWNLOAD_AGENT_REPORTS": "Сказать отчёт по агентам",
@@ -391,7 +391,7 @@
   },
   "TEAM_REPORTS": {
     "HEADER": "Обзор команды",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "Загрузка данных графика...",
     "NO_ENOUGH_DATA": "Недостаточно данных для создания отчета, пожалуйста, повторите попытку позже.",
     "DOWNLOAD_TEAM_REPORTS": "Скачать отчет по команде",
@@ -602,7 +602,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {

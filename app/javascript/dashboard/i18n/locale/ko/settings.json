@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "제외 규칙",
           "DESCRIPTION": "다음 조건을 만족하는 대화는 에이전트 용량에 포함되지 않습니다",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "특정 라벨이 태그된 대화 제외",
             "ADD_TAG": "태그 추가",
             "DROPDOWN": {

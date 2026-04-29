@@ -1,7 +1,7 @@
 {
   "AUTOMATION": {
     "HEADER": "Automatizare",
-    "DESCRIPTION": "Automation can replace and streamline existing processes that require manual effort, such as adding labels and assigning conversations to the most suitable agent. This allows the team to focus on their strengths while reducing time spent on routine tasks.",
+    "DESCRIPTION": "Automation can replace and streamline existing processes that require manual effort, such as adding Tags and assigning conversations to the most suitable agent. This allows the team to focus on their strengths while reducing time spent on routine tasks.",
     "LEARN_MORE": "Learn more about automation",
     "COUNT": "{n} automation | {n} automations",
     "HEADER_BTN_TXT": "Create Automation",
@@ -134,8 +134,8 @@
       "CONVERSATION_CREATED": "Conversație creată",
       "CONVERSATION_UPDATED": "Conversație actualizată",
       "MESSAGE_CREATED": "Message Created",
-      "CONVERSATION_RESOLVED": "Conversation Resolved",
-      "CONVERSATION_OPENED": "Conversation Opened"
+      "CONVERSATION_RESOLVED": "Chat Resolved",
+      "CONVERSATION_OPENED": "Chat Opened"
     },
     "ACTIONS": {
       "ASSIGN_AGENT": "Assign to Agent",
@@ -171,8 +171,8 @@
       "MESSAGE_TYPE": "Message Type",
       "MESSAGE_CONTAINS": "Message Contains",
       "EMAIL": "E-mail",
-      "INBOX": "Inbox",
-      "CONVERSATION_LANGUAGE": "Conversation Language",
+      "INBOX": "Source",
+      "CONVERSATION_LANGUAGE": "Chat Language",
       "PHONE_NUMBER": "Număr de telefon",
       "STATUS": "Status",
       "BROWSER_LANGUAGE": "Limba browserului",

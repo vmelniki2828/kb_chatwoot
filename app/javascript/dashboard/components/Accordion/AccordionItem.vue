@@ -1,62 +1,62 @@
 <script setup>
 import EmojiOrIcon from 'shared/components/EmojiOrIcon.vue';
-import { defineEmits } from 'vue';
 
 defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  compact: {
-    type: Boolean,
-    default: false,
-  },
-  icon: {
-    type: String,
-    default: '',
-  },
-  emoji: {
-    type: String,
-    default: '',
-  },
-  isOpen: {
-    type: Boolean,
-    default: true,
-  },
+  title: { type: String, required: true },
+  compact: { type: Boolean, default: false },
+  icon: { type: String, default: '' },
+  emoji: { type: String, default: '' },
+  isOpen: { type: Boolean, default: true },
 });
 
 const emit = defineEmits(['toggle']);
-
-const onToggle = () => {
-  emit('toggle');
-};
+const onToggle = () => emit('toggle');
 </script>
 
 <template>
   <div class="text-sm">
     <button
-      class="flex items-center select-none w-full rounded-lg bg-n-slate-2 outline outline-1 outline-n-weak m-0 cursor-grab justify-between py-2 px-4 drag-handle"
-      :class="{ 'rounded-bl-none rounded-br-none': isOpen }"
+      class="flex items-center w-full px-3 py-2.5 gap-2.5 rounded-lg bg-transparent hover:bg-n-slate-2 transition-colors duration-150 m-0 border-0"
+      :class="{ 'bg-n-slate-2 rounded-bl-none rounded-br-none': isOpen }"
       @click.stop="onToggle"
     >
-      <div class="flex justify-between">
-        <EmojiOrIcon class="inline-block w-5" :icon="icon" :emoji="emoji" />
-        <h5 class="text-n-slate-12 text-sm mb-0 py-0 pr-2 pl-0">
+      <div
+        class="w-0.5 h-4 rounded-full flex-shrink-0 transition-colors duration-150"
+        :style="isOpen ? 'background: #10A37F' : ''"
+        :class="{ 'bg-n-slate-6': !isOpen }"
+      />
+
+      <div class="flex items-center gap-2 flex-1 min-w-0">
+        <EmojiOrIcon
+          v-if="icon || emoji"
+          class="inline-block w-4 flex-shrink-0 text-n-slate-10"
+          :icon="icon"
+          :emoji="emoji"
+        />
+        <span
+          class="text-sm font-medium text-n-slate-12 truncate transition-colors duration-150"
+          :style="isOpen ? 'color: #10A37F' : ''"
+        >
           {{ title }}
-        </h5>
+        </span>
       </div>
-      <div class="flex flex-row">
+
+      <div class="flex items-center gap-1 flex-shrink-0">
         <slot name="button" />
-        <div class="flex justify-end w-3 text-n-blue-11 cursor-pointer">
-          <fluent-icon v-if="isOpen" size="24" icon="subtract" type="solid" />
-          <fluent-icon v-else size="24" icon="add" type="solid" />
-        </div>
+        <span
+          class="transition-transform duration-200 text-n-slate-9"
+          :class="{ 'rotate-45': isOpen }"
+          :style="isOpen ? 'color: #10A37F' : ''"
+        >
+          <fluent-icon size="14" icon="add" type="solid" />
+        </span>
       </div>
     </button>
+
     <div
       v-if="isOpen"
-      class="outline outline-1 outline-n-weak -mt-[-1px] border-t-0 rounded-br-lg rounded-bl-lg"
-      :class="compact ? 'p-0' : 'px-2 py-4'"
+      class="bg-n-slate-2 rounded-bl-lg rounded-br-lg border-t border-n-weak"
+      :class="compact ? 'p-0' : 'px-3 py-3'"
     >
       <slot />
     </div>

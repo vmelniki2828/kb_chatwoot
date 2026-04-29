@@ -8,7 +8,7 @@
     "COMPANY": "Şirkət",
     "LOCATION": "Yer",
     "BROWSER_LANGUAGE": "Browser Language",
-    "CONVERSATION_TITLE": "Conversation Details",
+    "CONVERSATION_TITLE": "Chat Details",
     "VIEW_PROFILE": "View Profile",
     "BROWSER": "Browser",
     "OS": "Əməliyyat Sistemi",
@@ -29,17 +29,17 @@
     },
     "LABELS": {
       "CONTACT": {
-        "TITLE": "Contact Labels",
-        "ERROR": "Couldn't update labels"
+        "TITLE": "Contact Tags",
+        "ERROR": "Couldn't update Tags"
       },
       "CONVERSATION": {
-        "TITLE": "Conversation Labels",
-        "ADD_BUTTON": "Add Labels"
+        "TITLE": "Chat Tags",
+        "ADD_BUTTON": "Add Tags"
       },
       "LABEL_SELECT": {
-        "TITLE": "Add Labels",
-        "PLACEHOLDER": "Search labels",
-        "NO_RESULT": "No labels found",
+        "TITLE": "Add Tags",
+        "PLACEHOLDER": "Search Tags",
+        "NO_RESULT": "No Tags found",
         "CREATE_LABEL": "Create new label"
       }
     },
@@ -53,7 +53,7 @@
     "EDIT_LABEL": "Redaktə et",
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "Custom Attributes",
-      "CONTACT_LABELS": "Contact Labels",
+      "CONTACT_LABELS": "Contact Tags",
       "PREVIOUS_CONVERSATIONS": "Əvvəlki Söhbətlər",
       "NO_RECORDS_FOUND": "No attributes found"
     }
@@ -164,7 +164,7 @@
         "LABEL": "Kimə"
       },
       "INBOX": {
-        "LABEL": "Via Inbox",
+        "LABEL": "Via Source",
         "PLACEHOLDER": "Choose source inbox",
         "ERROR": "Bir qutu seçin"
       },
@@ -580,11 +580,11 @@
     "LOAD_MORE": "Load more"
   },
   "CONTACTS_BULK_ACTIONS": {
-    "ASSIGN_LABELS": "Assign Labels",
-    "ASSIGN_LABELS_SUCCESS": "Labels assigned successfully.",
-    "ASSIGN_LABELS_FAILED": "Failed to assign labels",
-    "DESCRIPTION": "Select the labels you want to add to the selected contacts.",
-    "NO_LABELS_FOUND": "No labels available yet.",
+    "ASSIGN_LABELS": "Assign Tags",
+    "ASSIGN_LABELS_SUCCESS": "Tags assigned successfully.",
+    "ASSIGN_LABELS_FAILED": "Failed to assign Tags",
+    "DESCRIPTION": "Select the Tags you want to add to the selected contacts.",
+    "NO_LABELS_FOUND": "No Tags available yet.",
     "SELECTED_COUNT": "{count} seçildi",
     "CLEAR_SELECTION": "Clear selection",
     "SELECT_ALL": "Select all ({count})",

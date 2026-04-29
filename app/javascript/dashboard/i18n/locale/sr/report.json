@@ -3,7 +3,7 @@
     "HEADER": "Razgovori",
     "LOADING_CHART": "Učitavanje podataka grafikona...",
     "NO_ENOUGH_DATA": "Nismo primili dovoljno podataka da bi smo generisali izveštaj, Molim vas pokušajte ponovo.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Failed to fetch data, please try again later.",
     "SUMMARY_FETCHING_FAILED": "Failed to fetch summary, please try again later.",
     "METRICS": {
@@ -128,7 +128,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "Pregled agenata",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "Učitavanje podataka grafikona...",
     "NO_ENOUGH_DATA": "Nismo primili dovoljno podataka da bi smo generisali izveštaj, Molim vas pokušajte ponovo.",
     "DOWNLOAD_AGENT_REPORTS": "Preuzmi izveštaj o agentima",
@@ -201,7 +201,7 @@
   },
   "LABEL_REPORTS": {
     "HEADER": "Pregled oznaka",
-    "DESCRIPTION": "Track label performance with key metrics including conversations, response times, resolution times, and resolved cases. Click a label name for detailed insights.",
+    "DESCRIPTION": "Monitor performance across tags using conversations handled, response and resolution times, and resolved cases metrics. Click a tag name to explore further.",
     "LOADING_CHART": "Učitavanje podataka grafikona...",
     "NO_ENOUGH_DATA": "Nismo primili dovoljno podataka da bi smo generisali izveštaj, Molim vas pokušajte ponovo.",
     "DOWNLOAD_LABEL_REPORTS": "Preuzmi izveštaj o oznakama",
@@ -274,13 +274,13 @@
   },
   "INBOX_REPORTS": {
     "HEADER": "Pregled prijemnih sandučića",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "Učitavanje podataka grafikona...",
     "NO_ENOUGH_DATA": "Nismo primili dovoljno podataka da bi smo generisali izveštaj, Molim vas pokušajte ponovo.",
     "DOWNLOAD_INBOX_REPORTS": "Preuzmi izveštaj o prijemnim sandučićima",
     "FILTER_DROPDOWN_LABEL": "Izaberi prijemno sanduče",
-    "ALL_INBOXES": "All Inboxes",
-    "SEARCH_INBOX": "Search Inbox",
+    "ALL_INBOXES": "All Sources",
+    "SEARCH_INBOX": "Search Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "INBOXES": "Search inboxes"
@@ -349,7 +349,7 @@
   },
   "TEAM_REPORTS": {
     "HEADER": "Pregled tima",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "Učitavanje podataka grafikona...",
     "NO_ENOUGH_DATA": "Nismo primili dovoljno podataka da bi smo generisali izveštaj, Molim vas pokušajte ponovo.",
     "DOWNLOAD_TEAM_REPORTS": "Preuzmi izveštaj o timu",
@@ -428,7 +428,7 @@
     "NO_RECORDS": "No responses yet",
     "NO_RECORDS_DESCRIPTION": "CSAT survey responses will appear here once customers start providing feedback.",
     "DOWNLOAD": "Preuzmite izveštaje o zadovoljstvu korisnika",
-    "DOWNLOAD_FAILED": "Failed to download CSAT Reports",
+    "DOWNLOAD_FAILED": "Failed to Download CSV",
     "FILTERS": {
       "ADD_FILTER": "Add filter",
       "CLEAR_ALL": "Clear all",
@@ -505,7 +505,7 @@
     "HEADER": "Bot Reports",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
+        "LABEL": "No. of Chats",
         "TOOLTIP": "Total number of conversations handled by the bot"
       },
       "TOTAL_RESPONSES": {
@@ -534,7 +534,7 @@
       "PENDING": "Nerešen"
     },
     "CONVERSATION_HEATMAP": {
-      "HEADER": "Conversation Traffic",
+      "HEADER": "Chat Traffic",
       "NO_CONVERSATIONS": "No conversations",
       "CONVERSATION": "{count} conversation",
       "CONVERSATIONS": "{count} conversations",
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {
@@ -623,7 +623,7 @@
         "TOOLTIP": "Total SLA misses in a certain period"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Number of Conversations",
+        "LABEL": "Number of Chats",
         "TOOLTIP": "Total number of conversations with SLA"
       }
     },

@@ -33,7 +33,7 @@
     },
     "LIST": {
       "FETCHING": "Caricamento hook integrazioni",
-      "INBOX": "Inbox",
+      "INBOX": "Source",
       "ACTIONS": "Azioni",
       "DELETE": {
         "BUTTON_TEXT": "Elimina"
@@ -42,8 +42,8 @@
     "ADD": {
       "FORM": {
         "INBOX": {
-          "LABEL": "Seleziona Inbox",
-          "PLACEHOLDER": "Seleziona Inbox"
+          "LABEL": "Seleziona Source",
+          "PLACEHOLDER": "Seleziona Source"
         },
         "SUBMIT": "Crea",
         "CANCEL": "Annulla"

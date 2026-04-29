@@ -3,13 +3,13 @@
     "TABS": {
       "ALL": "All results",
       "CONTACTS": "Contacts",
-      "CONVERSATIONS": "Conversations",
+      "CONVERSATIONS": "Chats",
       "MESSAGES": "Messages",
       "ARTICLES": "სტატიები"
     },
     "SECTION": {
       "CONTACTS": "Contacts",
-      "CONVERSATIONS": "Conversations",
+      "CONVERSATIONS": "Chats",
       "MESSAGES": "Messages",
       "ARTICLES": "სტატიები"
     },
@@ -56,10 +56,10 @@
     "FILTERS": {
       "FILTER_MESSAGE": "Filter messages by:",
       "FROM": "Sender",
-      "IN": "Inbox",
+      "IN": "Source",
       "AGENTS": "Agents",
       "CONTACTS": "Contacts",
-      "INBOXES": "Inboxes",
+      "INBOXES": "Sources",
       "NO_AGENTS": "No agents found",
       "NO_CONTACTS": "Start by searching to see results",
       "NO_INBOXES": "No inboxes found"

@@ -158,15 +158,15 @@
     "BUTTON_LABEL": "Avvia conversazione",
     "TITLE": "Nuova conversazione",
     "DESC": "Avvia una nuova conversazione inviando un nuovo messaggio.",
-    "NO_INBOX": "Impossibile trovare una Inbox per avviare una nuova conversazione con questo contatto.",
+    "NO_INBOX": "Impossibile trovare una Source per avviare una nuova conversazione con questo contatto.",
     "FORM": {
       "TO": {
         "LABEL": "A"
       },
       "INBOX": {
-        "LABEL": "Via Inbox",
+        "LABEL": "Via Source",
         "PLACEHOLDER": "Seleziona una inbox di origine",
-        "ERROR": "Seleziona una Inbox"
+        "ERROR": "Seleziona una Source"
       },
       "SUBJECT": {
         "LABEL": "Oggetto",

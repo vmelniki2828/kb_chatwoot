@@ -33,7 +33,7 @@
     },
     "ADD": {
       "CHANNEL_NAME": {
-        "LABEL": "Nume Inbox",
+        "LABEL": "Nume Source",
         "PLACEHOLDER": "Introduceți numele inboxului (de exemplu: Acme Inc)",
         "ERROR": "Vă rugăm să introduceți un nume valid de inbox"
       },
@@ -45,9 +45,9 @@
         "HELP": "PS: Prin conectare, vom avea acces doar la mesajele paginii tale. Mesajele tale private nu pot fi accesate niciodată de QODEQ CHAT.",
         "CHOOSE_PAGE": "Alege pagina",
         "CHOOSE_PLACEHOLDER": "Selectaţi o pagină din listă",
-        "INBOX_NAME": "Nume Inbox",
+        "INBOX_NAME": "Nume Source",
         "ADD_NAME": "Adaugă un nume pentru inbox-ul tău",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Alege o valoare",
         "CREATE_INBOX": "Crează căsuța"
       },
@@ -159,7 +159,7 @@
           "ERROR": "Acest câmp este obligatoriu"
         },
         "CHANNEL_NAME": {
-          "LABEL": "Nume Inbox",
+          "LABEL": "Nume Source",
           "PLACEHOLDER": "Vă rugăm să introduceți un nume de inbox",
           "ERROR": "Acest câmp este obligatoriu"
         },
@@ -210,7 +210,7 @@
             "ERROR": "Acest câmp este obligatoriu"
           },
           "INBOX_NAME": {
-            "LABEL": "Nume Inbox",
+            "LABEL": "Nume Source",
             "PLACEHOLDER": "Vă rugăm să introduceți un nume de inbox",
             "ERROR": "Acest câmp este obligatoriu"
           },
@@ -246,7 +246,7 @@
           "DESCRIPTION": "Choose your WhatsApp provider. You can connect directly through Meta which requires no setup, or connect through Twilio using your account credentials."
         },
         "INBOX_NAME": {
-          "LABEL": "Nume Inbox",
+          "LABEL": "Nume Source",
           "PLACEHOLDER": "Vă rugăm să introduceți un nume de inbox",
           "ERROR": "Acest câmp este obligatoriu"
         },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agenți",
         "DESC": "Aici puteți adăuga agenți care să gestioneze inboxul nou creat. Numai acești agenți selectați vor avea acces la căsuța poștală. Agenții care nu fac parte din această căsuță poștală nu vor putea vedea sau răspunde la mesajele din această căsuță atunci când se autentifică. <br> <b>PS:</b> În calitate de administrator, dacă aveţi nevoie de acces la toate mesajele, ar trebui să vă adăugați ca agent la toate cutiile de mesaje pe care le creați.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Alegerea agenților pentru inbox"
       },
       "DETAILS": {
@@ -539,7 +539,7 @@
       "ADD_AGENTS": "Adăugare agenți la inbox-ul dumneavoastra..."
     },
     "FINISH": {
-      "TITLE": "Inbox-ul este gata!",
+      "TITLE": "Source-ul este gata!",
       "MESSAGE": "Acum poți intra în contact cu clienții tăi prin noul tău Canal. Suport fericit",
       "BUTTON_TEXT": "Du-mă acolo",
       "MORE_SETTINGS": "Mai multe setări",
@@ -552,7 +552,7 @@
     "VIEW": "Vizualizare",
     "EDIT": {
       "API": {
-        "SUCCESS_MESSAGE": "Setări Inbox actualizate cu succes",
+        "SUCCESS_MESSAGE": "Setări Source actualizate cu succes",
         "AUTO_ASSIGNMENT_SUCCESS_MESSAGE": "Atribuire automată actualizată cu succes",
         "ERROR_MESSAGE": "Nu am putut actualiza setările inboxului. Încercați din nou mai târziu."
       },
@@ -612,7 +612,7 @@
         "NO": "Nu, păstreaza "
       },
       "API": {
-        "SUCCESS_MESSAGE": "Inbox șters cu succes",
+        "SUCCESS_MESSAGE": "Source șters cu succes",
         "ERROR_MESSAGE": "Nu s-a putut șterge inbox-ul. Vă rugăm să încercați din nou mai târziu.",
         "AVATAR_SUCCESS_MESSAGE": "Avatar inbox șters cu succes",
         "AVATAR_ERROR_MESSAGE": "Nu s-a putut șterge avatarul inboxului. Încercați din nou mai târziu."
@@ -737,9 +737,9 @@
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Activați continuitatea conversației prin e-mail",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Conversațiile vor continua prin e-mail dacă adresa de e-mail de contact este disponibilă.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
-      "INBOX_UPDATE_TITLE": "Setări Inbox",
+      "INBOX_UPDATE_TITLE": "Setări Source",
       "INBOX_UPDATE_SUB_TEXT": "Actualizează setările de inbox",
       "AUTO_ASSIGNMENT_SUB_TEXT": "Activează sau dezactivează atribuirea automată a conversațiilor noi la agenții adăugați la această căsuță poștală.",
       "HMAC_VERIFICATION": "Validarea identității utilizatorului",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "conține",
           "DOES_NOT_CONTAINS": "nu conține"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

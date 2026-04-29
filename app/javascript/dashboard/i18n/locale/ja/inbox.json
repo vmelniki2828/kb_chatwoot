@@ -1,7 +1,7 @@
 {
   "INBOX": {
     "LIST": {
-      "TITLE": "My Inbox",
+      "TITLE": "Notifications",
       "DISPLAY_DROPDOWN": "表示",
       "LOADING": "通知を取得中",
       "404": "このグループにはアクティブな通知がありません。",

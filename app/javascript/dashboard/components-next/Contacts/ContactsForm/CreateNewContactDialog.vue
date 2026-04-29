@@ -52,7 +52,7 @@ defineExpose({ dialogRef, contactsFormRef, onSuccess });
       @update="createNewContact"
     />
     <template #footer>
-      <div class="flex items-center justify-between w-full gap-3">
+      <div class="flex items-center justify-between w-full gap-3 px-8 py-6 border-t border-white/10">
         <Button
           :label="t('DIALOG.BUTTONS.CANCEL')"
           variant="link"
@@ -62,9 +62,7 @@ defineExpose({ dialogRef, contactsFormRef, onSuccess });
         />
         <Button
           type="submit"
-          :label="
-            t('CONTACTS_LAYOUT.HEADER.ACTIONS.CONTACT_CREATION.SAVE_CONTACT')
-          "
+          :label="t('CONTACTS_LAYOUT.HEADER.ACTIONS.CONTACT_CREATION.SAVE_CONTACT')"
           color="blue"
           :disabled="contactsFormRef?.isFormInvalid"
           :is-loading="isCreatingContact"

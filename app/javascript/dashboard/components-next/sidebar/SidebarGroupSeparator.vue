@@ -15,10 +15,10 @@ defineProps({
 
 <template>
   <div
-    class="flex items-center gap-2 px-2 py-1.5 rounded-lg h-8 text-n-slate-10 select-none pointer-events-none"
+    class="flex items-center gap-2 px-2 py-1.5 rounded-lg h-8 text-n-brand/90 select-none pointer-events-none"
   >
     <Icon v-if="icon" :icon="icon" class="size-4" />
-    <span class="text-sm font-medium leading-5 flex-grow">
+    <span class="text-sm font-semibold uppercase tracking-wide leading-5 flex-grow">
       {{ label }}
     </span>
   </div>

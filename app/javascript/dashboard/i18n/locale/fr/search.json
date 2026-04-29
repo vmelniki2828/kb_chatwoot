@@ -3,13 +3,13 @@
     "TABS": {
       "ALL": "All results",
       "CONTACTS": "Contacts",
-      "CONVERSATIONS": "Conversations",
+      "CONVERSATIONS": "Chats",
       "MESSAGES": "Messages",
       "ARTICLES": "Articles"
     },
     "SECTION": {
       "CONTACTS": "Contacts",
-      "CONVERSATIONS": "Conversations",
+      "CONVERSATIONS": "Chats",
       "MESSAGES": "Messages",
       "ARTICLES": "Articles"
     },

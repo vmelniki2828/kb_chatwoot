@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Izaberite stranicu iz spiska",
         "INBOX_NAME": "Naziv prijemnog sandučeta",
         "ADD_NAME": "Dodajte naziv vašem prijemnom sandučetu",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Izaberite vrednost",
         "CREATE_INBOX": "Napravi prijemno sanduče"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agenti",
         "DESC": "Ovde možete da dodate agente da upravljaju vašim novokreiranim poštaniskim sandučetom. Samo ovi agenti će imati pristup vašem poštanskom sandučetu. Agenti koji nisu deo ovog poštanskog sandučeta neće moći da vide ili odgovaraju na poruke u ovom poštanskom sandučetu kada se prijave. <br> <b>PS:</b> Kao administrator, ako vam je potreban pristup svim poštanskim sandučićima, trebalo bi da dodate sebe kao agenta u sve poštanske sandučiće koje napravite.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Izaberite agente za prijemno sanduče"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Omogući nastavljanje razgovora putem e-pošte",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Razgovori će se nastaviti putem e-pošte ako je dostupna adresa e-pošte kontakta.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Podešavanja prijemnog sandučeta",
       "INBOX_UPDATE_SUB_TEXT": "Izmenite podešavanja vašeg prijemnog sandučeta",
@@ -784,12 +784,12 @@
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings"
     },
     "HELP_CENTER": {
-      "LABEL": "Help Center",
-      "PLACEHOLDER": "Select Help Center",
-      "SELECT_PLACEHOLDER": "Select Help Center",
+      "LABEL": "Support Center",
+      "PLACEHOLDER": "Select Support Center",
+      "SELECT_PLACEHOLDER": "Select Support Center",
       "NONE": "Niko",
-      "REMOVE": "Remove Help Center",
-      "SUB_TEXT": "Attach a Help Center with the inbox"
+      "REMOVE": "Remove Support Center",
+      "SUB_TEXT": "Attach a Support Center with the inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Ograničenje automatskog dodeljivanja",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "sadrži",
           "DOES_NOT_CONTAINS": "ne sadrži"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

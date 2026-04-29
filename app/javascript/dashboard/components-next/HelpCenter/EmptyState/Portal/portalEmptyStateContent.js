@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    title: "How to get an SSL certificate for your Help Center's custom domain",
+    title: "How to get an SSL certificate for your Support Center's custom domain",
     status: 'draft',
     updatedAt: 1729205669,
     author: { availableName: 'Michael' },
@@ -14,7 +14,7 @@ export default [
   },
   {
     id: 2,
-    title: 'Setting up your first Help Center portal',
+    title: 'Setting up your first Support Center portal',
     status: 'published',
     updatedAt: 1729205669,
     author: { availableName: 'John' },
@@ -23,7 +23,7 @@ export default [
   },
   {
     id: 3,
-    title: 'Best practices for organizing your Help Center content',
+    title: 'Best practices for organizing your Support Center content',
     status: 'archived',
     updatedAt: 1729205669,
     author: { availableName: 'Fernando' },
@@ -32,7 +32,7 @@ export default [
   },
   {
     id: 4,
-    title: 'Customizing the appearance of your Help Center',
+    title: 'Customizing the appearance of your Support Center',
     status: 'draft',
     updatedAt: 1729205669,
     author: { availableName: 'Jane' },
@@ -41,7 +41,7 @@ export default [
   },
   {
     id: 5,
-    title: 'Integrating your Help Center with third-party tools',
+    title: 'Integrating your Support Center with third-party tools',
     status: 'published',
     updatedAt: 1729205669,
     author: { availableName: 'Sarah' },
@@ -54,7 +54,7 @@ export default [
   },
   {
     id: 6,
-    title: 'Managing user permissions in your Help Center',
+    title: 'Managing user permissions in your Support Center',
     status: 'draft',
     updatedAt: 1729205669,
     author: { availableName: 'Alex' },
@@ -80,7 +80,7 @@ export default [
   },
   {
     id: 8,
-    title: 'Implementing search functionality in your Help Center',
+    title: 'Implementing search functionality in your Support Center',
     status: 'archived',
     updatedAt: 1729205669,
     author: { availableName: 'David' },
@@ -93,7 +93,7 @@ export default [
   },
   {
     id: 9,
-    title: 'Analyzing Help Center usage metrics',
+    title: 'Analyzing Support Center usage metrics',
     status: 'published',
     updatedAt: 1729205669,
     author: { availableName: 'Rachel' },
@@ -106,7 +106,7 @@ export default [
   },
   {
     id: 10,
-    title: 'Setting up multilingual support in your Help Center',
+    title: 'Setting up multilingual support in your Support Center',
     status: 'draft',
     updatedAt: 1729205669,
     author: { availableName: 'Carlos' },
@@ -132,7 +132,7 @@ export default [
   },
   {
     id: 12,
-    title: 'Implementing a feedback system in your Help Center',
+    title: 'Implementing a feedback system in your Support Center',
     status: 'draft',
     updatedAt: 1729205669,
     author: { availableName: 'Nathan' },
@@ -145,7 +145,7 @@ export default [
   },
   {
     id: 13,
-    title: 'Optimizing Help Center content for SEO',
+    title: 'Optimizing Support Center content for SEO',
     status: 'published',
     updatedAt: 1729205669,
     author: { availableName: 'Sophia' },

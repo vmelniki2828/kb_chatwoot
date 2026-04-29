@@ -18,7 +18,7 @@ const mockItems = [
     id: 3,
     name: 'WhatsApp Business',
     phoneNumber: '+1 555-0123',
-    icon: 'i-lucide-message-circle',
+    icon: 'i-lucide-message-square',
   },
 ];
 

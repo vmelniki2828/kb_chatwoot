@@ -134,8 +134,8 @@
       "CONVERSATION_CREATED": "Konversation erstellt",
       "CONVERSATION_UPDATED": "Konversation aktualisiert",
       "MESSAGE_CREATED": "Message Created",
-      "CONVERSATION_RESOLVED": "Conversation Resolved",
-      "CONVERSATION_OPENED": "Conversation Opened"
+      "CONVERSATION_RESOLVED": "Chat Resolved",
+      "CONVERSATION_OPENED": "Chat Opened"
     },
     "ACTIONS": {
       "ASSIGN_AGENT": "Assign to Agent",
@@ -172,7 +172,7 @@
       "MESSAGE_CONTAINS": "Message Contains",
       "EMAIL": "E-Mail",
       "INBOX": "Posteingang",
-      "CONVERSATION_LANGUAGE": "Conversation Language",
+      "CONVERSATION_LANGUAGE": "Chat Language",
       "PHONE_NUMBER": "Telefonnummer",
       "STATUS": "Status",
       "BROWSER_LANGUAGE": "Browsersprache",
@@ -182,7 +182,7 @@
       "ASSIGNEE_NAME": "Zugewiesener",
       "TEAM_NAME": "Team",
       "PRIORITY": "Priorität",
-      "LABELS": "Labels"
+      "LABELS": "Tags"
     }
   }
 }

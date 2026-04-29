@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Valitse sivu listasta",
         "INBOX_NAME": "Kansion nimi",
         "ADD_NAME": "Lisää kansiolle nimi",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Valitse arvo",
         "CREATE_INBOX": "Luo saapet-kansio"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Edustajat",
         "DESC": "Täällä voit lisätä edustajia hallitsemaan juuri luotua saapuneet-kansiota. Vain näillä valituilla edustajilla on pääsy tähän saapuneet-kansioon. Edustajat, jotka eivät kuulu tähän saapuneet-kansioon, eivät pysty näkemään tai vastaamaan viesteihin tässä saapuneet-kansiossa, kun he kirjautuvat. <br> <b>PS:</b> Jos tarvitset ylläpitäjänä pääsyn kaikkiin saapuneisiin, sinun pitäisi lisätä itsesi edustajaksi kaikkiin laatikoihin, jotka luot.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Valitse edustajat postilaatikolle"
       },
       "DETAILS": {
@@ -614,7 +614,7 @@
       "API": {
         "SUCCESS_MESSAGE": "Postilaatikko poistettu onnistuneesti",
         "ERROR_MESSAGE": "Postilaatikkoa ei voitu poistaa. Yritä myöhemmin uudelleen.",
-        "AVATAR_SUCCESS_MESSAGE": "Inbox avatar deleted successfully",
+        "AVATAR_SUCCESS_MESSAGE": "Source avatar deleted successfully",
         "AVATAR_ERROR_MESSAGE": "Could not delete the inbox avatar. Please try again later."
       }
     },
@@ -624,7 +624,7 @@
       "CONFIGURATION": "Määritykset",
       "CAMPAIGN": "Campaigns",
       "PRE_CHAT_FORM": "Pre Chat Form",
-      "BUSINESS_HOURS": "Business Hours",
+      "BUSINESS_HOURS": "Work Hours",
       "WIDGET_BUILDER": "Widget Builder",
       "BOT_CONFIGURATION": "Bot Configuration",
       "ACCOUNT_HEALTH": "Account Health",
@@ -727,7 +727,7 @@
       },
       "INBOX_AGENTS": "Edustajat",
       "INBOX_AGENTS_SUB_TEXT": "Lisää tai poista edustajia tästä saapuneet-kansiosta",
-      "AGENT_ASSIGNMENT": "Conversation Assignment",
+      "AGENT_ASSIGNMENT": "Chat Assignment",
       "AGENT_ASSIGNMENT_SUB_TEXT": "Update conversation assignment settings",
       "UPDATE": "Päivitä",
       "ENABLE_EMAIL_COLLECT_BOX": "Enable email collect box",
@@ -736,8 +736,8 @@
       "SENDER_NAME_SECTION": "Enable Agent Name in Email",
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Enable conversation continuity via email",
-      "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Conversations will continue over email if the contact email address is available.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Chats will continue over email if the contact email address is available.",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Postilaatikon tiedot",
       "INBOX_UPDATE_SUB_TEXT": "Päivitä postilaatikon asetukset",
@@ -747,7 +747,7 @@
       "HMAC_LINK_TO_DOCS": "You can read more here.",
       "HMAC_MANDATORY_VERIFICATION": "Enforce User Identity Validation",
       "HMAC_MANDATORY_DESCRIPTION": "If enabled, requests missing the `identifier_hash` will be rejected.",
-      "INBOX_IDENTIFIER": "Inbox Identifier",
+      "INBOX_IDENTIFIER": "Source Identifier",
       "INBOX_IDENTIFIER_SUB_TEXT": "Use the `inbox_identifier` token shown here to authentication your API clients.",
       "FORWARD_EMAIL_TITLE": "Forward to Email",
       "FORWARD_EMAIL_SUB_TEXT": "Aloita välittämällä sähköpostit seuraavaan osoitteeseen.",
@@ -784,12 +784,12 @@
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings"
     },
     "HELP_CENTER": {
-      "LABEL": "Help Center",
-      "PLACEHOLDER": "Select Help Center",
-      "SELECT_PLACEHOLDER": "Select Help Center",
+      "LABEL": "Support Center",
+      "PLACEHOLDER": "Select Support Center",
+      "SELECT_PLACEHOLDER": "Select Support Center",
       "NONE": "None",
-      "REMOVE": "Remove Help Center",
-      "SUB_TEXT": "Attach a Help Center with the inbox"
+      "REMOVE": "Remove Support Center",
+      "SUB_TEXT": "Attach a Support Center with the inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Auto assignment limit",
@@ -797,7 +797,7 @@
       "MAX_ASSIGNMENT_LIMIT_SUB_TEXT": "Limit the maximum number of conversations from this inbox that can be auto assigned to an agent"
     },
     "ASSIGNMENT": {
-      "TITLE": "Conversation Assignment",
+      "TITLE": "Chat Assignment",
       "DESCRIPTION": "Automatically assign incoming conversations to available agents based on assignment policies",
       "ENABLE_AUTO_ASSIGNMENT": "Enable automatic conversation assignment",
       "DEFAULT_RULES_TITLE": "Default assignment rules",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "contains",
           "DOES_NOT_CONTAINS": "does not contain"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

@@ -1,12 +1,12 @@
 {
   "INBOX_MGMT": {
-    "HEADER": "Inbox",
-    "DESCRIPTION": "Un canale è il mezzo di comunicazione che il cliente usa per interagire con te. Una Inbox è lo spazio in cui gestisci le interazioni di uno specifico canale. Può includere comunicazioni provenienti da diverse fonti, come email, live chat e social media.",
-    "LEARN_MORE": "Scopri di più sulle Inbox",
+    "HEADER": "Source",
+    "DESCRIPTION": "Un canale è il mezzo di comunicazione che il cliente usa per interagire con te. Una Source è lo spazio in cui gestisci le interazioni di uno specifico canale. Può includere comunicazioni provenienti da diverse fonti, come email, live chat e social media.",
+    "LEARN_MORE": "Scopri di più sulle Source",
     "COUNT": "{n} inbox | {n} inbox",
-    "SEARCH_PLACEHOLDER": "Ricerca Inbox...",
+    "SEARCH_PLACEHOLDER": "Ricerca Source...",
     "NO_RESULTS": "Nessuna inbox trovata corrispondente alla tua ricerca",
-    "RECONNECTION_REQUIRED": "La tua Inbox è disconnessa. Non riceverai nuovi messaggi finché non la autorizzerai nuovamente.",
+    "RECONNECTION_REQUIRED": "La tua Source è disconnessa. Non riceverai nuovi messaggi finché non la autorizzerai nuovamente.",
     "CLICK_TO_RECONNECT": "Clicca qui per riconnetterti.",
     "WHATSAPP_REGISTRATION_INCOMPLETE": "La registrazione di WhatsApp Business non è completa. Si prega di controllare lo stato del nome visualizzato in Meta Business Manager prima di riconnettersi.",
     "COMPLETE_REGISTRATION": "Completa Registrazione",
@@ -19,7 +19,7 @@
         "BODY": "Scegli il provider che vuoi integrare con QODEQ CHAT."
       },
       "INBOX": {
-        "TITLE": "Crea Inbox",
+        "TITLE": "Crea Source",
         "BODY": "Autentica il tuo account e crea una inbox."
       },
       "AGENT": {
@@ -33,9 +33,9 @@
     },
     "ADD": {
       "CHANNEL_NAME": {
-        "LABEL": "Nome Inbox",
-        "PLACEHOLDER": "Inserisci il nome della tua Inbox (ad esempio: Acme Srl)",
-        "ERROR": "Inserisci un nome Inbox valido"
+        "LABEL": "Nome Source",
+        "PLACEHOLDER": "Inserisci il nome della tua Source (ad esempio: Acme Srl)",
+        "ERROR": "Inserisci un nome Source valido"
       },
       "WEBSITE_NAME": {
         "LABEL": "Nome Sito Web",
@@ -45,11 +45,11 @@
         "HELP": "PS: Accedendo, abbiamo accesso solo ai messaggi della tua pagina. QODEQ CHAT non potrà accedere ai tuoi messaggi privati.",
         "CHOOSE_PAGE": "Scegli una Pagina",
         "CHOOSE_PLACEHOLDER": "Seleziona una pagina dalla lista",
-        "INBOX_NAME": "Nome Inbox",
+        "INBOX_NAME": "Nome Source",
         "ADD_NAME": "Aggiungi un nome per la tua inbox",
-        "PICK_NAME": "Scegli un nome per la tua Inbox",
+        "PICK_NAME": "Scegli un nome per la tua Source",
         "PICK_A_VALUE": "Scegli un valore",
-        "CREATE_INBOX": "Crea Inbox"
+        "CREATE_INBOX": "Crea Source"
       },
       "INSTAGRAM": {
         "CONTINUE_WITH_INSTAGRAM": "Continua con Instagram",
@@ -57,8 +57,8 @@
         "HELP": "Per aggiungere il tuo profilo Instagram come canale, devi autenticare il tuo profilo Instagram cliccando su 'Continua con Instagram' ",
         "ERROR_MESSAGE": "Si è verificato un errore nella connessione a Instagram, riprova",
         "ERROR_AUTH": "Si è verificato un errore nella connessione a Instagram, riprova",
-        "NEW_INBOX_SUGGESTION": "Questo account Instagram era precedentemente collegato a una Inbox diversa ed è stato ora migrato qui. Tutti i nuovi messaggi appariranno qui. La vecchia Inbox non sarà più in grado di inviare o ricevere messaggi per questo account.",
-        "DUPLICATE_INBOX_BANNER": "Questo account Instagram è stato migrato alla nuova Inbox del canale Instagram. Non sarai più in grado di inviare/ricevere messaggi Instagram da questa Inbox."
+        "NEW_INBOX_SUGGESTION": "Questo account Instagram era precedentemente collegato a una Source diversa ed è stato ora migrato qui. Tutti i nuovi messaggi appariranno qui. La vecchia Source non sarà più in grado di inviare o ricevere messaggi per questo account.",
+        "DUPLICATE_INBOX_BANNER": "Questo account Instagram è stato migrato alla nuova Source del canale Instagram. Non sarai più in grado di inviare/ricevere messaggi Instagram da questa Source."
       },
       "TIKTOK": {
         "CONTINUE_WITH_TIKTOK": "Continua con TikTok",
@@ -119,7 +119,7 @@
           "LABEL": "Colore del widget",
           "PLACEHOLDER": "Aggiorna il colore del widget utilizzato nel widget"
         },
-        "SUBMIT_BUTTON": "Crea Inbox",
+        "SUBMIT_BUTTON": "Crea Source",
         "API": {
           "ERROR_MESSAGE": "Impossibile creare il canale sito web, riprova"
         }
@@ -159,8 +159,8 @@
           "ERROR": "Questo campo è obbligatorio"
         },
         "CHANNEL_NAME": {
-          "LABEL": "Nome Inbox",
-          "PLACEHOLDER": "Inserisci un nome della Inbox",
+          "LABEL": "Nome Source",
+          "PLACEHOLDER": "Inserisci un nome della Source",
           "ERROR": "Questo campo è obbligatorio"
         },
         "PHONE_NUMBER": {
@@ -210,8 +210,8 @@
             "ERROR": "Questo campo è obbligatorio"
           },
           "INBOX_NAME": {
-            "LABEL": "Nome Inbox",
-            "PLACEHOLDER": "Inserisci un nome della Inbox",
+            "LABEL": "Nome Source",
+            "PLACEHOLDER": "Inserisci un nome della Source",
             "ERROR": "Questo campo è obbligatorio"
           },
           "PHONE_NUMBER": {
@@ -246,8 +246,8 @@
           "DESCRIPTION": "Scegli il tuo provider WhatsApp. Puoi connetterti direttamente tramite Meta che non richiede alcuna configurazione o connetterti tramite Twilio utilizzando le credenziali del tuo account."
         },
         "INBOX_NAME": {
-          "LABEL": "Nome Inbox",
-          "PLACEHOLDER": "Inserisci un nome della Inbox",
+          "LABEL": "Nome Source",
+          "PLACEHOLDER": "Inserisci un nome della Source",
           "ERROR": "Questo campo è obbligatorio"
         },
         "PHONE_NUMBER": {
@@ -392,7 +392,7 @@
           "ERROR_MESSAGE": "Impossibile salvare il canale email"
         },
         "FINISH_MESSAGE": "Inizia a inoltrare le tue email al seguente indirizzo email.",
-        "FINISH_MESSAGE_NO_FORWARDING": "La tua Inbox email è stata creata con successo! Devi configurare le credenziali SMTP e IMAP per inviare e ricevere e-mail. Senza queste impostazioni non sarà possibile gestire le email.",
+        "FINISH_MESSAGE_NO_FORWARDING": "La tua Source email è stata creata con successo! Devi configurare le credenziali SMTP e IMAP per inviare e ricevere e-mail. Senza queste impostazioni non sarà possibile gestire le email.",
         "FORWARDING_ADDRESS_LABEL": "Inoltra le email a questo indirizzo:",
         "CONFIGURE_SMTP_IMAP_LINK": "Clicca qui",
         "CONFIGURE_SMTP_IMAP_TEXT": " per configurare le impostazioni IMAP e SMTP"
@@ -494,11 +494,11 @@
       "AGENTS": {
         "TITLE": "Operatori",
         "DESC": "Qui puoi aggiungere operatori per gestire la tua inbox appena creata. Solo questi operatori selezionati avranno accesso alla tua inbox. Gli operatori che non fanno parte di questa inbox non saranno in grado di vedere o rispondere ai messaggi in questa inbox quando effettuano il login. <br> <b>PS:</b> come amministratore, se hai bisogno di accedere a tutte le inbox, devi aggiungerti come operatore a tutte le inbox che crei.",
-        "VALIDATION_ERROR": "Aggiungi almeno un operatore alla tua nuova Inbox",
-        "PICK_AGENTS": "Scegli gli operatori per la Inbox"
+        "VALIDATION_ERROR": "Aggiungi almeno un operatore alla tua nuova Source",
+        "PICK_AGENTS": "Scegli gli operatori per la Source"
       },
       "DETAILS": {
-        "TITLE": "Dettagli Inbox",
+        "TITLE": "Dettagli Source",
         "DESC": "Dal menu a tendina qui sotto, seleziona la pagina Facebook che vuoi collegare a QODEQ CHAT. Puoi anche assegnare un nome personalizzato alla tua inbox per una migliore identificazione."
       },
       "FINISH": {
@@ -511,14 +511,14 @@
       },
       "MICROSOFT": {
         "TITLE": "Microsoft Email",
-        "DESCRIPTION": "Clicca sul pulsante Accedi con Microsoft per iniziare. Sarai reindirizzato alla pagina di accesso. Una volta accettati i permessi richiesti, verrai reindirizzato alla creazione della Inbox.",
+        "DESCRIPTION": "Clicca sul pulsante Accedi con Microsoft per iniziare. Sarai reindirizzato alla pagina di accesso. Una volta accettati i permessi richiesti, verrai reindirizzato alla creazione della Source.",
         "EMAIL_PLACEHOLDER": "Inserisci indirizzo email",
         "SIGN_IN": "Accedi con Microsoft",
         "ERROR_MESSAGE": "Si è verificato un errore nella connessione a Microsoft, riprova"
       },
       "GOOGLE": {
         "TITLE": "Google Email",
-        "DESCRIPTION": "Clicca sul pulsante Accedi con Google per iniziare. Sarai reindirizzato alla pagina di accesso. Una volta accettati i permessi richiesti, verrai reindirizzato alla creazione della Inbox.",
+        "DESCRIPTION": "Clicca sul pulsante Accedi con Google per iniziare. Sarai reindirizzato alla pagina di accesso. Una volta accettati i permessi richiesti, verrai reindirizzato alla creazione della Source.",
         "SIGN_IN": "Accedi con Google",
         "EMAIL_PLACEHOLDER": "Inserisci indirizzo email",
         "ERROR_MESSAGE": "Si è verificato un errore nella connessione a Google, riprova"
@@ -530,31 +530,31 @@
       "ERROR_FB_AUTH": "Qualcosa è andato storto, per favore aggiorna la pagina...",
       "ERROR_FB_UNAUTHORIZED": "Non sei autorizzato ad eseguire questa azione. ",
       "ERROR_FB_UNAUTHORIZED_HELP": "Assicurati di avere accesso alla pagina Facebook con pieno controllo. Puoi leggere di più sui ruoli di Facebook <a href=\" https://www.facebook.com/help/187316341316631\">qui</a>.",
-      "CREATING_CHANNEL": "Creazione Inbox...",
-      "TITLE": "Configura Dettagli Inbox",
+      "CREATING_CHANNEL": "Creazione Source...",
+      "TITLE": "Configura Dettagli Source",
       "DESC": ""
     },
     "AGENTS": {
       "BUTTON_TEXT": "Aggiungi operatori",
-      "ADD_AGENTS": "Aggiungendo Operatori alla Inbox..."
+      "ADD_AGENTS": "Aggiungendo Operatori alla Source..."
     },
     "FINISH": {
-      "TITLE": "L'Inbox è pronta!",
+      "TITLE": "L'Source è pronta!",
       "MESSAGE": "Ora puoi interagire con i tuoi clienti attraverso il nuovo canale. Buona assistenza",
       "BUTTON_TEXT": "Fatto",
       "MORE_SETTINGS": "Impostazioni Aggiuntive",
       "WEBSITE_SUCCESS": "Hai completato la creazione di un canale sito web. Copia il codice mostrato qui sotto e incollalo sul tuo sito. La prossima volta che un cliente usa la live chat, la conversazione apparirà automaticamente nella tua inbox.",
-      "WHATSAPP_QR_INSTRUCTION": "Scansiona il QR Code qui sopra per testare rapidamente la tua Inbox WhatsApp",
-      "MESSENGER_QR_INSTRUCTION": "Scansiona il QR Code qui sopra per testare rapidamente la tua Inbox Facebook Messenger",
-      "TELEGRAM_QR_INSTRUCTION": "Scansiona il QR Code qui sopra per testare rapidamente la tua Inbox Telegram"
+      "WHATSAPP_QR_INSTRUCTION": "Scansiona il QR Code qui sopra per testare rapidamente la tua Source WhatsApp",
+      "MESSENGER_QR_INSTRUCTION": "Scansiona il QR Code qui sopra per testare rapidamente la tua Source Facebook Messenger",
+      "TELEGRAM_QR_INSTRUCTION": "Scansiona il QR Code qui sopra per testare rapidamente la tua Source Telegram"
     },
     "REAUTH": "Riautorizza",
     "VIEW": "Visualizza",
     "EDIT": {
       "API": {
-        "SUCCESS_MESSAGE": "Impostazioni della Inbox aggiornate con successo",
+        "SUCCESS_MESSAGE": "Impostazioni della Source aggiornate con successo",
         "AUTO_ASSIGNMENT_SUCCESS_MESSAGE": "Assegnazione automatica aggiornata correttamente",
-        "ERROR_MESSAGE": "Impossibile aggiornare le impostazioni della Inbox. Riprova più tardi."
+        "ERROR_MESSAGE": "Impossibile aggiornare le impostazioni della Source. Riprova più tardi."
       },
       "EMAIL_COLLECT_BOX": {
         "ENABLED": "Abilitato",
@@ -612,10 +612,10 @@
         "NO": "No, conserva "
       },
       "API": {
-        "SUCCESS_MESSAGE": "Inbox eliminata con successo",
+        "SUCCESS_MESSAGE": "Source eliminata con successo",
         "ERROR_MESSAGE": "Impossibile eliminare l'inbox. Riprova più tardi.",
-        "AVATAR_SUCCESS_MESSAGE": "Avatar Inbox eliminata con successo",
-        "AVATAR_ERROR_MESSAGE": "Impossibile eliminare l'avatar della Inbox. Riprova più tardi."
+        "AVATAR_SUCCESS_MESSAGE": "Avatar Source eliminata con successo",
+        "AVATAR_ERROR_MESSAGE": "Impossibile eliminare l'avatar della Source. Riprova più tardi."
       }
     },
     "TABS": {
@@ -703,7 +703,7 @@
       "DISPLAY_FILE_PICKER": "Mostra il selettore file sul widget",
       "DISPLAY_EMOJI_PICKER": "Mostra il selettore emoji sul widget",
       "ALLOW_END_CONVERSATION": "Consenti agli utenti di terminare la conversazione dal widget",
-      "USE_INBOX_AVATAR_FOR_BOT": "Usa il nome e l'avatar della Inbox per il bot"
+      "USE_INBOX_AVATAR_FOR_BOT": "Usa il nome e l'avatar della Source per il bot"
     },
     "SETTINGS_POPUP": {
       "MESSENGER_HEADING": "Script Messenger",
@@ -739,7 +739,7 @@
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Le conversazioni continueranno via email se l'indirizzo email del contatto è disponibile.",
       "LOCK_TO_SINGLE_CONVERSATION": "Routing Conversazioni",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Gestisci come vengono create le conversazioni per i contatti esistenti",
-      "INBOX_UPDATE_TITLE": "Impostazioni Inbox",
+      "INBOX_UPDATE_TITLE": "Impostazioni Source",
       "INBOX_UPDATE_SUB_TEXT": "Aggiorna le impostazioni inbox",
       "AUTO_ASSIGNMENT_SUB_TEXT": "Abilita o disabilita l'assegnazione automatica di nuove conversazioni agli agenti aggiunti a questa casella.",
       "HMAC_VERIFICATION": "Convalida Identità Utente",
@@ -747,11 +747,11 @@
       "HMAC_LINK_TO_DOCS": "Leggi di più qui.",
       "HMAC_MANDATORY_VERIFICATION": "Forza Convalida Identità Utente",
       "HMAC_MANDATORY_DESCRIPTION": "Se abilitata, le richieste che non possono essere verificate saranno respinte.",
-      "INBOX_IDENTIFIER": "Identificatore Inbox",
+      "INBOX_IDENTIFIER": "Identificatore Source",
       "INBOX_IDENTIFIER_SUB_TEXT": "Usa il token `inbox_identifier` mostrato qui per l'autenticazione dei tuoi client API.",
       "FORWARD_EMAIL_TITLE": "Inoltra a Email",
       "FORWARD_EMAIL_SUB_TEXT": "Inizia a inoltrare le tue email al seguente indirizzo email.",
-      "FORWARD_EMAIL_NOT_CONFIGURED": "L'inoltro delle email alla tua Inbox è attualmente disabilitato su questa installazione. Per utilizzare questa funzione, deve essere abilitata dal tuo amministratore, contattalo per procedere.",
+      "FORWARD_EMAIL_NOT_CONFIGURED": "L'inoltro delle email alla tua Source è attualmente disabilitato su questa installazione. Per utilizzare questa funzione, deve essere abilitata dal tuo amministratore, contattalo per procedere.",
       "ALLOW_MESSAGES_AFTER_RESOLVED": "Consenti messaggi dopo la risoluzione della conversazione",
       "ALLOW_MESSAGES_AFTER_RESOLVED_SUB_TEXT": "Consenti agli utenti finali di inviare messaggi anche dopo che la conversazione è stata risolta.",
       "WHATSAPP_SECTION_SUBHEADER": "Questa chiave API viene utilizzata per l'integrazione con le API WhatsApp.",
@@ -761,12 +761,12 @@
       "WHATSAPP_SECTION_UPDATE_PLACEHOLDER": "Inserisci qui la nuova chiave API",
       "WHATSAPP_SECTION_UPDATE_BUTTON": "Aggiorna",
       "WHATSAPP_EMBEDDED_SIGNUP_TITLE": "WhatsApp Embedded Signup",
-      "WHATSAPP_EMBEDDED_SIGNUP_SUBHEADER": "Questa Inbox è connessa tramite WhatsApp Embedded Signup.",
-      "WHATSAPP_EMBEDDED_SIGNUP_DESCRIPTION": "Puoi riconfigurare questa Inbox per aggiornare le impostazioni WhatsApp Business.",
+      "WHATSAPP_EMBEDDED_SIGNUP_SUBHEADER": "Questa Source è connessa tramite WhatsApp Embedded Signup.",
+      "WHATSAPP_EMBEDDED_SIGNUP_DESCRIPTION": "Puoi riconfigurare questa Source per aggiornare le impostazioni WhatsApp Business.",
       "WHATSAPP_RECONFIGURE_BUTTON": "Riconfigura",
       "WHATSAPP_CONNECT_TITLE": "Connetti a WhatsApp Business",
       "WHATSAPP_CONNECT_SUBHEADER": "Passa alla WhatsApp Embedded Signup per una gestione più semplice.",
-      "WHATSAPP_CONNECT_DESCRIPTION": "Collega questa Inbox a WhatsApp Business per avere funzionalità avanzate e una gestione più semplice.",
+      "WHATSAPP_CONNECT_DESCRIPTION": "Collega questa Source a WhatsApp Business per avere funzionalità avanzate e una gestione più semplice.",
       "WHATSAPP_CONNECT_BUTTON": "Connetti",
       "WHATSAPP_CONNECT_SUCCESS": "Connesso correttamente a WhatsApp Business!",
       "WHATSAPP_CONNECT_ERROR": "Impossibile connettersi a WhatsApp Business. Riprova.",
@@ -784,12 +784,12 @@
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Aggiorna le Impostazioni del Modulo Pre Chat"
     },
     "HELP_CENTER": {
-      "LABEL": "Help Center",
-      "PLACEHOLDER": "Seleziona Help Center",
-      "SELECT_PLACEHOLDER": "Seleziona Help Center",
+      "LABEL": "Support Center",
+      "PLACEHOLDER": "Seleziona Support Center",
+      "SELECT_PLACEHOLDER": "Seleziona Support Center",
       "NONE": "Nessuno",
-      "REMOVE": "Rimuovi Help Center",
-      "SUB_TEXT": "Allega un Help Center con la Inbox"
+      "REMOVE": "Rimuovi Support Center",
+      "SUB_TEXT": "Allega un Support Center con la Source"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Limite assegnazione automatica",
@@ -951,7 +951,7 @@
       "WEEKLY_TITLE": "Imposta le ore settimanali",
       "TIMEZONE_LABEL": "Seleziona fuso orario",
       "UPDATE": "Aggiorna le impostazioni dell'orario di lavoro",
-      "TOGGLE_AVAILABILITY": "Abilita la disponibilità aziendale per questa Inbox",
+      "TOGGLE_AVAILABILITY": "Abilita la disponibilità aziendale per questa Source",
       "UNAVAILABLE_MESSAGE_LABEL": "Messaggio non disponibile per i visitatori",
       "TOGGLE_HELP": "Abilitare la disponibilità aziendale mostrerà le ore disponibili sul widget live chat anche se tutti gli operatori sono offline. Al di fuori delle ore di disponibilità gli utenti possono essere avvisati con un messaggio ed un modulo pre-chat.",
       "DAY": {
@@ -970,7 +970,7 @@
       "SUBTITLE": "Imposta i dettagli IMAP",
       "NOTE_TEXT": "Prima di abilitare SMTP, configura IMAP.",
       "UPDATE": "Aggiorna impostazioni IMAP",
-      "TOGGLE_AVAILABILITY": "Abilita la configurazione IMAP per questa Inbox",
+      "TOGGLE_AVAILABILITY": "Abilita la configurazione IMAP per questa Source",
       "TOGGLE_HELP": "Abilitare IMAP aiuterà l'utente a ricevere email",
       "EDIT": {
         "SUCCESS_MESSAGE": "Impostazioni IMAP aggiornate con successo",
@@ -1002,7 +1002,7 @@
       "TITLE": "SMTP",
       "SUBTITLE": "Imposta i dettagli SMTP",
       "UPDATE": "Aggiorna impostazioni SMTP",
-      "TOGGLE_AVAILABILITY": "Abilita la configurazione SMTP per questa Inbox",
+      "TOGGLE_AVAILABILITY": "Abilita la configurazione SMTP per questa Source",
       "TOGGLE_HELP": "Abilitare SMTP aiuterà l'utente a inviare email",
       "EDIT": {
         "SUCCESS_MESSAGE": "Impostazioni SMTP aggiornate con successo",

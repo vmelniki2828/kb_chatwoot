@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Vælg en side fra listen",
         "INBOX_NAME": "Indbakke Navn",
         "ADD_NAME": "Tilføj et navn til din indbakke",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Vælg en værdi",
         "CREATE_INBOX": "Opret Indbakke"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agenter",
         "DESC": "Her kan du tilføje agenter til at håndtere din nyoprettede indbakke. Kun disse valgte agenter vil have adgang til din indbakke. Agenter som ikke er en del af denne indbakke, vil ikke kunne se eller reagere på beskeder i denne indbakke, når de logger ind. <br> <b>PS:</b> Som administrator, hvis du har brug for adgang til alle indbakker, bør du tilføje dig selv som agent til alle indbakker, du opretter.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Vælg agenter for indbakken"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Aktivér konversationskontinuitet via e-mail",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Samtaler vil fortsætte via e-mail, hvis kontaktpersonens e-mailadresse er tilgængelig.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Indbakke Indstillinger",
       "INBOX_UPDATE_SUB_TEXT": "Opdater dine indbakkeindstillinger",
@@ -784,12 +784,12 @@
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings"
     },
     "HELP_CENTER": {
-      "LABEL": "Help Center",
-      "PLACEHOLDER": "Select Help Center",
-      "SELECT_PLACEHOLDER": "Select Help Center",
+      "LABEL": "Support Center",
+      "PLACEHOLDER": "Select Support Center",
+      "SELECT_PLACEHOLDER": "Select Support Center",
       "NONE": "Ingen",
-      "REMOVE": "Remove Help Center",
-      "SUB_TEXT": "Attach a Help Center with the inbox"
+      "REMOVE": "Remove Support Center",
+      "SUB_TEXT": "Attach a Support Center with the inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Grænse for automatisk tildeling",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "indeholder",
           "DOES_NOT_CONTAINS": "indeholder ikke"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

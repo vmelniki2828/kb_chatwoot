@@ -43,7 +43,7 @@
     "BOT_HANDOFF_ERROR": "Impossibile prendere la conversazione. Riprova.",
     "TWILIO_WHATSAPP_CAN_REPLY": "È possibile rispondere a questa conversazione solo utilizzando un messaggio modello a causa di",
     "TWILIO_WHATSAPP_24_HOURS_WINDOW": "Restrizione finestra messaggio 24 ore",
-    "OLD_INSTAGRAM_INBOX_REPLY_BANNER": "Questo account Instagram è stato migrato alla nuova Inbox del canale Instagram. Tutti i nuovi messaggi verranno visualizzati lì. Non sarà più possibile inviare messaggi da questa conversazione.",
+    "OLD_INSTAGRAM_INBOX_REPLY_BANNER": "Questo account Instagram è stato migrato alla nuova Source del canale Instagram. Tutti i nuovi messaggi verranno visualizzati lì. Non sarà più possibile inviare messaggi da questa conversazione.",
     "REPLYING_TO": "Stai rispondendo a:",
     "REMOVE_SELECTION": "Rimuovi Selezione",
     "DOWNLOAD": "Scarica",
@@ -327,7 +327,7 @@
     "ALL_CONVERSATION": {
       "TITLE": "Tutte le tue conversazioni in un unico luogo",
       "DESCRIPTION": "Visualizza tutte le conversazioni con i clienti in una singola dashboard. Puoi filtrare le conversazioni in base al canale, all'etichetta e allo stato.",
-      "NEW_LINK": "Clicca qui per creare una Inbox"
+      "NEW_LINK": "Clicca qui per creare una Source"
     },
     "TEAM_MEMBERS": {
       "TITLE": "Invita i membri del tuo team",

@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "เลือกหน้าจากรายชื่อ",
         "INBOX_NAME": "ชื่อกล่องข้อความ",
         "ADD_NAME": "เพิ่มชื่อให้กล่องข้อความของคุณ",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "เลือกค่า",
         "CREATE_INBOX": "สร้างกล่องข้อความ"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "พนักงาน",
         "DESC": "คุณสามารถเพิ่มพนักงานเพื่อจัดการกล่องข้อความที่สร้างใหม่ พนักงานที่ได้รับสิทธิ์เท่านั้นที่สามารถเข้าถึงกล่องข้อความนี้ได้ พนักงานที่ไม่มีสิทธิ์จะไม่สามารถเห็นหรือใช้กล่องสนทนานี้ได้ <br><b>หมายเหตุ:</b>ในฐานะของผู้ดูแล คุณจะสามารถเพิ่มตัวเองในกล่องข้อความทุกกล่องที่คุณสร้าง",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "เลือกพนักงานสำหรับกล่องข้อความนี้"
       },
       "DETAILS": {
@@ -727,7 +727,7 @@
       },
       "INBOX_AGENTS": "พนักงาน",
       "INBOX_AGENTS_SUB_TEXT": "เพิ่มหรือลบพนักงานจากกล่องสนทนานี้",
-      "AGENT_ASSIGNMENT": "Conversation Assignment",
+      "AGENT_ASSIGNMENT": "Chat Assignment",
       "AGENT_ASSIGNMENT_SUB_TEXT": "Update conversation assignment settings",
       "UPDATE": "อัพเดท",
       "ENABLE_EMAIL_COLLECT_BOX": "เปิดใช้งานกล่องรวมอีเมล",
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "เปิดให้มีการสนทนาต่อทางอีเมลได้",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "การสนทนาจะสามารถดำเนินการต่อผ่านทางอีเมลได้ หากลูกค้าให้อีเมลไว้",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "ตั้งค่ากล่องข้อความ",
       "INBOX_UPDATE_SUB_TEXT": "อัปเดตกล่องข้อความ",
@@ -784,12 +784,12 @@
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings"
     },
     "HELP_CENTER": {
-      "LABEL": "Help Center",
-      "PLACEHOLDER": "Select Help Center",
-      "SELECT_PLACEHOLDER": "Select Help Center",
+      "LABEL": "Support Center",
+      "PLACEHOLDER": "Select Support Center",
+      "SELECT_PLACEHOLDER": "Select Support Center",
       "NONE": "ไม่มี",
-      "REMOVE": "Remove Help Center",
-      "SUB_TEXT": "Attach a Help Center with the inbox"
+      "REMOVE": "Remove Support Center",
+      "SUB_TEXT": "Attach a Support Center with the inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Auto assignment limit",
@@ -797,7 +797,7 @@
       "MAX_ASSIGNMENT_LIMIT_SUB_TEXT": "Limit the maximum number of conversations from this inbox that can be auto assigned to an agent"
     },
     "ASSIGNMENT": {
-      "TITLE": "Conversation Assignment",
+      "TITLE": "Chat Assignment",
       "DESCRIPTION": "Automatically assign incoming conversations to available agents based on assignment policies",
       "ENABLE_AUTO_ASSIGNMENT": "Enable automatic conversation assignment",
       "DEFAULT_RULES_TITLE": "Default assignment rules",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "มี",
           "DOES_NOT_CONTAINS": "ไม่มี"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

@@ -118,7 +118,7 @@ defineExpose({ open, close });
   <TeleportWithDirection to="body">
     <dialog
       ref="dialogRef"
-      class="w-full transition-all duration-300 ease-in-out shadow-xl rounded-xl"
+      class="w-full transition-all duration-300 ease-in-out rounded-2xl"
       :class="[
         maxWidthClass,
         positionClass,
@@ -129,11 +129,12 @@ defineExpose({ open, close });
       <OnClickOutside @trigger="handleClickOutside">
         <form
           ref="dialogContentRef"
-          class="flex flex-col w-full h-auto gap-6 p-6 overflow-visible text-start align-middle transition-all duration-300 ease-in-out transform bg-n-alpha-3 backdrop-blur-[100px] shadow-xl rounded-xl"
+          class="flex flex-col w-full h-auto overflow-visible text-start align-middle transition-all duration-300 ease-in-out transform bg-n-alpha-3 backdrop-blur-[100px] rounded-2xl"
           @submit.prevent="confirm"
           @click.stop
         >
-          <div v-if="title || description" class="flex flex-col gap-2">
+          <!-- title/description slot — если нет кастомного контента -->
+          <div v-if="title || description" class="flex flex-col gap-2 px-6 pt-6">
             <h3 class="text-base font-medium leading-6 text-n-slate-12">
               {{ title }}
             </h3>
@@ -143,12 +144,13 @@ defineExpose({ open, close });
               </p>
             </slot>
           </div>
+
           <slot v-if="isOpen" />
-          <!-- Dialog content will be injected here -->
+
           <slot name="footer">
             <div
               v-if="showCancelButton || showConfirmButton"
-              class="flex items-center justify-between w-full gap-3"
+              class="flex items-center justify-between w-full gap-3 px-6 pb-6 pt-4 border-t border-white/10"
             >
               <Button
                 v-if="showCancelButton"
@@ -184,5 +186,13 @@ dialog::backdrop {
 .dialog-position-top {
   margin-top: clamp(2rem, 5vh, 5rem);
   margin-bottom: auto;
+}
+
+dialog[open] {
+  outline: none;
+  box-shadow:
+    0 0 0 1px rgba(74, 222, 128, 0.3),
+    0 0 24px 4px rgba(74, 222, 128, 0.08),
+    0 24px 64px rgba(0, 0, 0, 0.5);
 }
 </style>

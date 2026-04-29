@@ -59,7 +59,7 @@
         },
         "MESSAGE": {
           "LABEL": "Custom auto-resolution message",
-          "PLACEHOLDER": "Conversation was marked resolved by system due to 15 days of inactivity",
+          "PLACEHOLDER": "Chat was marked resolved by system due to 15 days of inactivity",
           "HELP": "Message sent to the customer after conversation is auto-resolved"
         },
         "PREFERENCES": "تنظیمات",
@@ -115,7 +115,7 @@
         },
         "UPDATE_BUTTON": "اعمال شود",
         "MESSAGE_LABEL": "Custom resolution message",
-        "MESSAGE_PLACEHOLDER": "Conversation was marked resolved by system due to 15 days of inactivity",
+        "MESSAGE_PLACEHOLDER": "Chat was marked resolved by system due to 15 days of inactivity",
         "MESSAGE_HELP": "This message is sent to the customer when a conversation is automatically resolved by the system due to inactivity."
       },
       "FEATURES": {

@@ -220,6 +220,10 @@ watch(
     :feature-flag="resolveFeatureFlag(to)"
     as="li"
     class="grid gap-1 text-sm cursor-pointer select-none min-w-0"
+    :class="{
+      'mt-2 pt-2 border-t border-n-weak/70':
+        !isCollapsed && ['Settings', 'Campaigns', 'Portals', 'Captain'].includes(name),
+    }"
   >
     <!-- Collapsed State -->
     <template v-if="isCollapsed">
@@ -297,59 +301,3 @@ watch(
     </template>
   </Policy>
 </template>
-
-<style>
-.sidebar-group-children .child-item::before {
-  content: '';
-  position: absolute;
-  width: 0.125rem;
-  /* 0.5px */
-  height: 100%;
-}
-
-.sidebar-group-children .child-item:first-child::before {
-  border-radius: 4px 4px 0 0;
-}
-
-/* This selects the last child in a group */
-/* https://codepen.io/scmmishra/pen/yLmKNLW */
-.sidebar-group-children > .child-item:last-child::before,
-.sidebar-group-children
-  > *:last-child
-  > *:last-child
-  > .child-item:last-child::before {
-  height: 20%;
-}
-
-.sidebar-group-children > .child-item:last-child::after,
-.sidebar-group-children
-  > *:last-child
-  > *:last-child
-  > .child-item:last-child::after {
-  content: '';
-  position: absolute;
-  width: 10px;
-  height: 12px;
-  bottom: calc(50% - 2px);
-  border-bottom-width: 0.125rem;
-  border-left-width: 0.125rem;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-radius: 0 0 0 4px;
-  left: 0;
-}
-
-#app[dir='rtl'] .sidebar-group-children > .child-item:last-child::after,
-#app[dir='rtl']
-  .sidebar-group-children
-  > *:last-child
-  > *:last-child
-  > .child-item:last-child::after {
-  right: 0;
-  border-bottom-width: 0.125rem;
-  border-right-width: 0.125rem;
-  border-left-width: 0px;
-  border-top-width: 0px;
-  border-radius: 0 0 4px 0px;
-}
-</style>

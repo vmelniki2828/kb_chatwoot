@@ -56,7 +56,7 @@
     "FILTERS": {
       "FILTER_MESSAGE": "Filter messages by:",
       "FROM": "Sender",
-      "IN": "Inbox",
+      "IN": "Source",
       "AGENTS": "Edustajat",
       "CONTACTS": "Yhteystiedot",
       "INBOXES": "Saapuneet-kansiot",

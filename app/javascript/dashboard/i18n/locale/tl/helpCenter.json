@@ -2,7 +2,7 @@
   "HELP_CENTER": {
     "TITLE": "Sentro ng Tulong",
     "NEW_PAGE": {
-      "DESCRIPTION": "Gumawa ng mga self-service na help center portal para sa iyong mga customer. Tulungan silang makahanap ng sagot agad, nang hindi naghihintay. Pabilisin ang mga katanungan, pataasin ang pagiging epektibo ng ahente, at itaas ang kalidad ng suporta sa customer.",
+      "DESCRIPTION": "Gumawa ng mga self-service na Support Center portal para sa iyong mga customer. Tulungan silang makahanap ng sagot agad, nang hindi naghihintay. Pabilisin ang mga katanungan, pataasin ang pagiging epektibo ng ahente, at itaas ang kalidad ng suporta sa customer.",
       "CREATE_PORTAL_BUTTON": "Gumawa ng Portal"
     },
     "HEADER": {
@@ -203,11 +203,11 @@
       "ADD": {
         "CREATE_FLOW": {
           "BASIC": {
-            "TITLE": "Impormasyon ng help center",
+            "TITLE": "Impormasyon ng Support Center",
             "BODY": "Pangunahing impormasyon tungkol sa portal"
           },
           "CUSTOMIZATION": {
-            "TITLE": "Pag-customize ng help center",
+            "TITLE": "Pag-customize ng Support Center",
             "BODY": "I-customize ang portal"
           },
           "FINISH": {
@@ -219,12 +219,12 @@
           "BACK_BUTTON": "Bumalik",
           "BASIC_SETTINGS_PAGE": {
             "HEADER": "Gumawa ng Portal",
-            "TITLE": "Impormasyon ng help center",
+            "TITLE": "Impormasyon ng Support Center",
             "CREATE_BASIC_SETTING_BUTTON": "Gumawa ng pangunahing setting ng portal"
           },
           "CUSTOMIZATION_PAGE": {
             "HEADER": "Pagpapasadya ng portal",
-            "TITLE": "Pagpapasadya ng help center",
+            "TITLE": "Pagpapasadya ng Support Center",
             "UPDATE_PORTAL_BUTTON": "I-update ang mga setting ng portal"
           },
           "FINISH_PAGE": {
@@ -470,7 +470,7 @@
       "SEARCH_BUTTON": "Hanapin",
       "INSERT_ARTICLE": "Ilagay ang link",
       "IFRAME_ERROR": "Walang laman o hindi wasto ang URL. Hindi maipakita ang nilalaman.",
-      "OPEN_ARTICLE_SEARCH": "Maglagay ng artikulo mula sa Help Center",
+      "OPEN_ARTICLE_SEARCH": "Maglagay ng artikulo mula sa Support Center",
       "SUCCESS_ARTICLE_INSERTED": "Matagumpay na naipasok ang artikulo",
       "PREVIEW_LINK": "I-preview ang artikulo",
       "CANCEL": "Isara",
@@ -488,7 +488,7 @@
       "FEATURES": {
         "PORTALS": {
           "TITLE": "Maramihang portal",
-          "DESCRIPTION": "Lumikha ng maraming help center portal para sa iba't ibang produkto gamit ang parehong account."
+          "DESCRIPTION": "Lumikha ng maraming Support Center portal para sa iba't ibang produkto gamit ang parehong account."
         },
         "LOCALES": {
           "TITLE": "Kumpletong suporta para sa mga lokal na wika",
@@ -751,7 +751,7 @@
         "LIVE_CHAT_WIDGET": {
           "LABEL": "Live chat widget",
           "PLACEHOLDER": "Pumili ng live chat widget",
-          "HELP_TEXT": "Pumili ng live chat widget na lalabas sa iyong help center",
+          "HELP_TEXT": "Pumili ng live chat widget na lalabas sa iyong Support Center",
           "NONE_OPTION": "Walang widget"
         },
         "BRAND_COLOR": {

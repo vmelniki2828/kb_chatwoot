@@ -1,9 +1,9 @@
 {
   "REPORT": {
-    "HEADER": "Conversations",
+    "HEADER": "Chats",
     "LOADING_CHART": "ገበታ ውሂብ በማስጫን ላይ...",
     "NO_ENOUGH_DATA": "ሪፖርት ለማመንጨት በቂ ውሂብ ነጥቦች አልደረሰንም፣ እባክዎ በኋላ ደግመው ይሞክሩ።",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Failed to fetch data, please try again later.",
     "SUMMARY_FETCHING_FAILED": "Failed to fetch summary, please try again later.",
     "METRICS": {
@@ -116,7 +116,7 @@
         "groupBy": "Year"
       }
     ],
-    "BUSINESS_HOURS": "Business Hours",
+    "BUSINESS_HOURS": "Work Hours",
     "FILTER_ACTIONS": {
       "CLEAR_FILTER": "Clear filter",
       "EMPTY_LIST": "No results found"
@@ -128,7 +128,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "የወኪሎች እይታ",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "የቅርጸ ቁምፊ ውሂብ በመጫን ላይ...",
     "NO_ENOUGH_DATA": "ሪፖርት ለማቅረብ በቂ ውሂብ አልደረሰንም፣ እባክዎ በኋላ ደግመው ይሞክሩ።.",
     "DOWNLOAD_AGENT_REPORTS": "የAgent ሪፖርቶችን አውርድ",
@@ -200,20 +200,20 @@
     }
   },
   "LABEL_REPORTS": {
-    "HEADER": "Labels Overview",
-    "DESCRIPTION": "Track label performance with key metrics including conversations, response times, resolution times, and resolved cases. Click a label name for detailed insights.",
+    "HEADER": "Tags Statistics",
+    "DESCRIPTION": "Monitor performance across tags using conversations handled, response and resolution times, and resolved cases metrics. Click a tag name to explore further.",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
-    "DOWNLOAD_LABEL_REPORTS": "Download label reports",
+    "DOWNLOAD_LABEL_REPORTS": "Download CSV",
     "FILTER_DROPDOWN_LABEL": "Select Label",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
-        "LABELS": "Search labels"
+        "LABELS": "Search Tags"
       }
     },
     "METRICS": {
       "CONVERSATIONS": {
-        "NAME": "Conversations",
+        "NAME": "Chats",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
@@ -273,14 +273,14 @@
     }
   },
   "INBOX_REPORTS": {
-    "HEADER": "Inbox Overview",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "HEADER": "Source Statistics",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
-    "DOWNLOAD_INBOX_REPORTS": "Download inbox reports",
-    "FILTER_DROPDOWN_LABEL": "Select Inbox",
-    "ALL_INBOXES": "All Inboxes",
-    "SEARCH_INBOX": "Search Inbox",
+    "DOWNLOAD_INBOX_REPORTS": "Download CSV",
+    "FILTER_DROPDOWN_LABEL": "Select Source",
+    "ALL_INBOXES": "All Sources",
+    "SEARCH_INBOX": "Search Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "INBOXES": "Search inboxes"
@@ -288,7 +288,7 @@
     },
     "METRICS": {
       "CONVERSATIONS": {
-        "NAME": "Conversations",
+        "NAME": "Chats",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
@@ -348,11 +348,11 @@
     }
   },
   "TEAM_REPORTS": {
-    "HEADER": "Team Overview",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "HEADER": "Team Statistics",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "We've not received enough data points to generate report, Please try again later.",
-    "DOWNLOAD_TEAM_REPORTS": "Download team reports",
+    "DOWNLOAD_TEAM_REPORTS": "Download CSV",
     "FILTER_DROPDOWN_LABEL": "Select Team",
     "FILTERS": {
       "ADD_FILTER": "Add filter",
@@ -364,7 +364,7 @@
     },
     "METRICS": {
       "CONVERSATIONS": {
-        "NAME": "Conversations",
+        "NAME": "Chats",
         "DESC": "( Total )"
       },
       "INCOMING_MESSAGES": {
@@ -427,8 +427,8 @@
     "HEADER": "CSAT ሪፖርቶች",
     "NO_RECORDS": "No responses yet",
     "NO_RECORDS_DESCRIPTION": "CSAT survey responses will appear here once customers start providing feedback.",
-    "DOWNLOAD": "Download CSAT Reports",
-    "DOWNLOAD_FAILED": "Failed to download CSAT Reports",
+    "DOWNLOAD": "Download CSV",
+    "DOWNLOAD_FAILED": "Failed to Download CSV",
     "FILTERS": {
       "ADD_FILTER": "Add filter",
       "CLEAR_ALL": "Clear all",
@@ -443,7 +443,7 @@
         "LABEL": "Agent"
       },
       "INBOXES": {
-        "LABEL": "Inbox"
+        "LABEL": "Source"
       },
       "TEAMS": {
         "LABEL": "Team"
@@ -458,7 +458,7 @@
         "AGENT_NAME": "Agent",
         "RATING": "እምነት ደረጃ",
         "FEEDBACK_TEXT": "አስተያየት አስተያየት",
-        "CONVERSATION": "Conversation",
+        "CONVERSATION": "Chat",
         "CUSTOMER": "Customer",
         "RESPONSE": "Response",
         "HANDLED_BY": "Handled by"
@@ -505,7 +505,7 @@
     "HEADER": "Bot Reports",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
+        "LABEL": "No. of Chats",
         "TOOLTIP": "Total number of conversations handled by the bot"
       },
       "TOTAL_RESPONSES": {
@@ -523,10 +523,10 @@
     }
   },
   "OVERVIEW_REPORTS": {
-    "HEADER": "Overview",
+    "HEADER": "Summary",
     "LIVE": "Live",
     "ACCOUNT_CONVERSATIONS": {
-      "HEADER": "Open Conversations",
+      "HEADER": "Open Chats",
       "LOADING_MESSAGE": "Loading conversation metrics...",
       "OPEN": "Open",
       "UNATTENDED": "Unattended",
@@ -534,7 +534,7 @@
       "PENDING": "Pending"
     },
     "CONVERSATION_HEATMAP": {
-      "HEADER": "Conversation Traffic",
+      "HEADER": "Chat Traffic",
       "NO_CONVERSATIONS": "No conversations",
       "CONVERSATION": "{count} conversation",
       "CONVERSATIONS": "{count} conversations",
@@ -548,7 +548,7 @@
       "DOWNLOAD_REPORT": "Download report"
     },
     "AGENT_CONVERSATIONS": {
-      "HEADER": "Conversations by agents",
+      "HEADER": "Chats by agents",
       "LOADING_MESSAGE": "Loading agent metrics...",
       "NO_AGENTS": "There are no conversations by agents",
       "TABLE_HEADER": {
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {
@@ -602,12 +602,12 @@
       "INPUT_PLACEHOLDER": {
         "SLA": "SLA name",
         "AGENTS": "Agent name",
-        "INBOXES": "Inbox name",
+        "INBOXES": "Source name",
         "LABELS": "Label name",
         "TEAMS": "Team name"
       },
       "SLA": "SLA Policy",
-      "INBOXES": "Inbox",
+      "INBOXES": "Source",
       "AGENTS": "Agent",
       "LABELS": "Label",
       "TEAMS": "Team"
@@ -623,21 +623,21 @@
         "TOOLTIP": "Total SLA misses in a certain period"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Number of Conversations",
+        "LABEL": "Number of Chats",
         "TOOLTIP": "Total number of conversations with SLA"
       }
     },
     "TABLE": {
       "HEADER": {
         "POLICY": "Policy",
-        "CONVERSATION": "Conversation",
+        "CONVERSATION": "Chat",
         "AGENT": "Agent"
       },
       "VIEW_DETAILS": "View Details"
     }
   },
   "SUMMARY_REPORTS": {
-    "INBOX": "Inbox",
+    "INBOX": "Source",
     "AGENT": "Agent",
     "TEAM": "Team",
     "LABEL": "Label",

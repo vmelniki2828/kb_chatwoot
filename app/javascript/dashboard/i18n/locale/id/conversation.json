@@ -39,7 +39,7 @@
     "BOT_HANDOFF_MESSAGE": "You are responding to a conversation which is currently handled by an assistant or a bot.",
     "BOT_HANDOFF_ACTION": "Mark open and assign to you",
     "BOT_HANDOFF_REOPEN_ACTION": "Mark conversation open",
-    "BOT_HANDOFF_SUCCESS": "Conversation has been handed over to you",
+    "BOT_HANDOFF_SUCCESS": "Chat has been handed over to you",
     "BOT_HANDOFF_ERROR": "Failed to take over the conversation. Please try again.",
     "TWILIO_WHATSAPP_CAN_REPLY": "Anda hanya dapat membalas percakapan ini menggunakan pesan template karena",
     "TWILIO_WHATSAPP_24_HOURS_WINDOW": "Pembatasan jendela pesan 24 jam",
@@ -164,7 +164,7 @@
       "DELETE": "Delete conversation",
       "OPEN_IN_NEW_TAB": "Open in new tab",
       "COPY_LINK": "Copy conversation link",
-      "COPY_LINK_SUCCESS": "Conversation link copied to clipboard",
+      "COPY_LINK_SUCCESS": "Chat link copied to clipboard",
       "API": {
         "AGENT_ASSIGNMENT": {
           "SUCCESFUL": "Id percakapan {conversationId} ditugaskan ke \"{agentName}\"",
@@ -253,7 +253,7 @@
     "ASSIGN_LABEL_SUCCESFUL": "Label berhasil ditugaskan",
     "ASSIGN_LABEL_FAILED": "Gagal menugaskan label",
     "CHANGE_TEAM": "Percakapan diubah oleh tim",
-    "SUCCESS_DELETE_CONVERSATION": "Conversation deleted successfully",
+    "SUCCESS_DELETE_CONVERSATION": "Chat deleted successfully",
     "FAIL_DELETE_CONVERSATION": "Couldn't delete conversation! Try again",
     "FILE_SIZE_LIMIT": "Lampiran melebihi batas ukuran {MAXIMUM_SUPPORTED_FILE_UPLOAD_SIZE} MB",
     "FILE_TYPE_NOT_SUPPORTED": "This {fileName} file type is not supported in this conversation",

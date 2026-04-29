@@ -167,7 +167,7 @@
       "COPY_LINK_SUCCESS": "Le lien de conversation a été copié dans le presse-papiers",
       "API": {
         "AGENT_ASSIGNMENT": {
-          "SUCCESFUL": "Conversation id {conversationId} assignée à \"{agentName}\"",
+          "SUCCESFUL": "Chat id {conversationId} assignée à \"{agentName}\"",
           "FAILED": "Impossible d'assigner l'agent. Veuillez réessayer."
         },
         "LABEL_ASSIGNMENT": {
@@ -253,7 +253,7 @@
     "ASSIGN_LABEL_SUCCESFUL": "Étiquette attribuée avec succès",
     "ASSIGN_LABEL_FAILED": "Échec de l'attribution de l'étiquette",
     "CHANGE_TEAM": "L'équipe de conversation a été modifiée",
-    "SUCCESS_DELETE_CONVERSATION": "Conversation supprimée avec succès",
+    "SUCCESS_DELETE_CONVERSATION": "Chat supprimée avec succès",
     "FAIL_DELETE_CONVERSATION": "Impossible de supprimer la conversation ! Veuillez réessayer",
     "FILE_SIZE_LIMIT": "Le fichier dépasse la limite de {MAXIMUM_SUPPORTED_FILE_UPLOAD_SIZE} pour les pièces jointes",
     "FILE_TYPE_NOT_SUPPORTED": "This {fileName} file type is not supported in this conversation",
@@ -335,8 +335,8 @@
       "NEW_LINK": "Cliquez ici pour inviter un membre de l'équipe"
     },
     "LABELS": {
-      "TITLE": "Organiser les conversations avec des labels",
-      "DESCRIPTION": "Les labels fournissent un moyen plus facile de catégoriser votre conversation. Créez des étiquettes comme #demande-support, #question-facturation etc., afin que vous puissiez les utiliser dans une conversation plus tard.",
+      "TITLE": "Organiser les conversations avec des Tags",
+      "DESCRIPTION": "Les Tags fournissent un moyen plus facile de catégoriser votre conversation. Créez des étiquettes comme #demande-support, #question-facturation etc., afin que vous puissiez les utiliser dans une conversation plus tard.",
       "NEW_LINK": "Cliquez ici pour créer des tags"
     },
     "CANNED_RESPONSES": {
@@ -359,7 +359,7 @@
       "CONVERSATION_INFO": "Informations de la conversation",
       "CONTACT_NOTES": "Notes du contact",
       "CONTACT_ATTRIBUTES": "Attributs du contact",
-      "PREVIOUS_CONVERSATION": "Conversations précédentes",
+      "PREVIOUS_CONVERSATION": "Chats précédentes",
       "MACROS": "Macros",
       "LINEAR_ISSUES": "Problèmes Linear liés",
       "SHOPIFY_ORDERS": "Shopify Orders"

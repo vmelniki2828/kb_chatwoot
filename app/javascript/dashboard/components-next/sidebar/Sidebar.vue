@@ -21,7 +21,6 @@ import SidebarChangelogButton from './SidebarChangelogButton.vue';
 import ChannelLeaf from './ChannelLeaf.vue';
 import ChannelIcon from 'next/icon/ChannelIcon.vue';
 import SidebarAccountSwitcher from './SidebarAccountSwitcher.vue';
-import Logo from 'next/icon/Logo.vue';
 import ComposeConversation from 'dashboard/components-next/NewConversation/ComposeConversation.vue';
 
 const props = defineProps({
@@ -195,24 +194,24 @@ const onComposeClose = () => {
 
 const newReportRoutes = () => [
   {
-    name: 'Reports Agent',
+    name: 'Agent Statistics',
     label: t('SIDEBAR.REPORTS_AGENT'),
     to: accountScopedRoute('agent_reports_index'),
     activeOn: ['agent_reports_show'],
   },
   {
-    name: 'Reports Label',
+    name: 'Tag Statistics',
     label: t('SIDEBAR.REPORTS_LABEL'),
     to: accountScopedRoute('label_reports_index'),
   },
   {
-    name: 'Reports Inbox',
+    name: 'Inbox Statistics',
     label: t('SIDEBAR.REPORTS_INBOX'),
     to: accountScopedRoute('inbox_reports_index'),
     activeOn: ['inbox_reports_show'],
   },
   {
-    name: 'Reports Team',
+    name: 'Team Statistics',
     label: t('SIDEBAR.REPORTS_TEAM'),
     to: accountScopedRoute('team_reports_index'),
     activeOn: ['team_reports_show'],
@@ -226,7 +225,7 @@ const menuItems = computed(() => {
     {
       name: 'Inbox',
       label: t('SIDEBAR.INBOX'),
-      icon: 'i-lucide-inbox',
+      icon: 'i-lucide-bell',
       to: accountScopedRoute('inbox_view'),
       activeOn: ['inbox_view', 'inbox_view_conversation'],
       getterKeys: {
@@ -236,7 +235,7 @@ const menuItems = computed(() => {
     {
       name: 'Conversation',
       label: t('SIDEBAR.CONVERSATIONS'),
-      icon: 'i-lucide-message-circle',
+      icon: 'i-lucide-message-square',
       children: [
         {
           name: 'All',
@@ -316,80 +315,9 @@ const menuItems = computed(() => {
       ],
     },
     {
-      name: 'Captain',
-      icon: 'i-woot-captain',
-      label: t('SIDEBAR.CAPTAIN'),
-      activeOn: ['captain_assistants_create_index'],
-      children: [
-        {
-          name: 'FAQs',
-          label: t('SIDEBAR.CAPTAIN_RESPONSES'),
-          activeOn: [
-            'captain_assistants_responses_index',
-            'captain_assistants_responses_pending',
-          ],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_responses_index',
-          }),
-        },
-        {
-          name: 'Documents',
-          label: t('SIDEBAR.CAPTAIN_DOCUMENTS'),
-          activeOn: ['captain_assistants_documents_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_documents_index',
-          }),
-        },
-        {
-          name: 'Scenarios',
-          label: t('SIDEBAR.CAPTAIN_SCENARIOS'),
-          activeOn: ['captain_assistants_scenarios_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_scenarios_index',
-          }),
-        },
-        {
-          name: 'Playground',
-          label: t('SIDEBAR.CAPTAIN_PLAYGROUND'),
-          activeOn: ['captain_assistants_playground_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_playground_index',
-          }),
-        },
-        {
-          name: 'Inboxes',
-          label: t('SIDEBAR.CAPTAIN_INBOXES'),
-          activeOn: ['captain_assistants_inboxes_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_inboxes_index',
-          }),
-        },
-        {
-          name: 'Tools',
-          label: t('SIDEBAR.CAPTAIN_TOOLS'),
-          activeOn: ['captain_tools_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_tools_index',
-          }),
-        },
-        {
-          name: 'Settings',
-          label: t('SIDEBAR.CAPTAIN_SETTINGS'),
-          activeOn: [
-            'captain_assistants_settings_index',
-            'captain_assistants_guidelines_index',
-            'captain_assistants_guardrails_index',
-          ],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_settings_index',
-          }),
-        },
-      ],
-    },
-    {
       name: 'Contacts',
       label: t('SIDEBAR.CONTACTS'),
-      icon: 'i-lucide-contact',
+      icon: 'i-lucide-book-user',
       children: [
         {
           name: 'All Contacts',
@@ -473,40 +401,193 @@ const menuItems = computed(() => {
       ],
     },
     {
-      name: 'Reports',
+      name: 'Statistics',
       label: t('SIDEBAR.REPORTS'),
-      icon: 'i-lucide-chart-spline',
+      icon: 'i-lucide-chart-no-axes-combined',
       children: [
         {
-          name: 'Report Overview',
+          name: 'Overview Statistics',
           label: t('SIDEBAR.REPORTS_OVERVIEW'),
           to: accountScopedRoute('account_overview_reports'),
         },
         {
-          name: 'Report Conversation',
+          name: 'Agent Activity Statistics',
+          label: t('SIDEBAR.REPORTS_AGENT_ACTIVITY'),
+          to: accountScopedRoute('agent_activity_reports'),
+        },
+        {
+          name: 'Conversation Statistics',
           label: t('SIDEBAR.REPORTS_CONVERSATION'),
           to: accountScopedRoute('conversation_reports'),
         },
         ...reportRoutes.value,
         {
-          name: 'Reports CSAT',
-          label: t('SIDEBAR.CSAT'),
-          to: accountScopedRoute('csat_reports'),
-        },
-        {
-          name: 'Reports SLA',
-          label: t('SIDEBAR.REPORTS_SLA'),
-          to: accountScopedRoute('sla_reports'),
-        },
-        {
-          name: 'Reports Bot',
+          name: 'Bot Statistics',
           label: t('SIDEBAR.REPORTS_BOT'),
           to: accountScopedRoute('bot_reports'),
         },
         {
-          name: 'Reports Agent activity',
-          label: t('SIDEBAR.REPORTS_AGENT_ACTIVITY'),
-          to: accountScopedRoute('agent_activity_reports'),
+          name: 'CSAT Statistics',
+          label: t('SIDEBAR.CSAT'),
+          to: accountScopedRoute('csat_reports'),
+        },
+        {
+          name: 'SLA Statistics',
+          label: t('SIDEBAR.REPORTS_SLA'),
+          to: accountScopedRoute('sla_reports'),
+        },
+      ],
+    },
+
+    {
+      name: 'Settings',
+      label: t('SIDEBAR.SETTINGS'),
+      icon: 'i-lucide-cog',
+      children: [
+        {
+          name: 'Settings Account Settings',
+          label: t('SIDEBAR.ACCOUNT_SETTINGS'),
+          icon: 'i-lucide-wrench',
+          to: accountScopedRoute('general_settings_index'),
+        },
+        // {
+        //   name: 'Settings Captain',
+        //   label: t('SIDEBAR.CAPTAIN_AI'),
+        //   icon: 'i-woot-captain',
+        //   to: accountScopedRoute('captain_settings_index'),
+        // },
+        {
+          name: 'Settings Agents',
+          label: t('SIDEBAR.AGENTS'),
+          icon: 'i-lucide-user-round-pen',
+          to: accountScopedRoute('agent_list'),
+        },
+        {
+          name: 'Settings Teams',
+          label: t('SIDEBAR.TEAMS'),
+          icon: 'i-lucide-users',
+          activeOn: [
+            'settings_teams_list',
+            'settings_teams_new',
+            'settings_teams_finish',
+            'settings_teams_add_agents',
+            'settings_teams_show',
+            'settings_teams_edit',
+            'settings_teams_edit_members',
+            'settings_teams_edit_finish',
+          ],
+          to: accountScopedRoute('settings_teams_list'),
+        },
+        ...(hasAdvancedAssignment.value
+          ? [
+              {
+                name: 'Settings Agent Assignment',
+                label: t('SIDEBAR.AGENT_ASSIGNMENT'),
+                icon: 'i-lucide-key-round',
+                activeOn: [
+                  'assignment_policy_index',
+                  'agent_assignment_policy_index',
+                  'agent_assignment_policy_create',
+                  'agent_assignment_policy_edit',
+                  'agent_capacity_policy_index',
+                  'agent_capacity_policy_create',
+                  'agent_capacity_policy_edit',
+                ],
+                to: accountScopedRoute('assignment_policy_index'),
+              },
+            ]
+          : []),
+        {
+          name: 'Settings Inboxes',
+          label: t('SIDEBAR.INBOXES'),
+          icon: 'i-lucide-archive',
+          activeOn: [
+            'settings_inbox_list',
+            'settings_inbox_show',
+            'settings_inbox_new',
+            'settings_inbox_finish',
+            'settings_inboxes_page_channel',
+            'settings_inboxes_add_agents',
+          ],
+          to: accountScopedRoute('settings_inbox_list'),
+        },
+        {
+          name: 'Settings Labels',
+          label: t('SIDEBAR.LABELS'),
+          icon: 'i-lucide-tags',
+          to: accountScopedRoute('labels_list'),
+        },
+        {
+          name: 'Settings Custom Attributes',
+          label: t('SIDEBAR.CUSTOM_ATTRIBUTES'),
+          icon: 'i-lucide-code',
+          to: accountScopedRoute('attributes_list'),
+        },
+        {
+          name: 'Settings Automation',
+          label: t('SIDEBAR.AUTOMATION'),
+          icon: 'i-lucide-refresh-ccw-dot',
+          to: accountScopedRoute('automation_list'),
+        },
+        {
+          name: 'Settings Agent Bots',
+          label: t('SIDEBAR.AGENT_BOTS'),
+          icon: 'i-lucide-bot-message-square',
+          to: accountScopedRoute('agent_bots'),
+        },
+        {
+          name: 'Settings Macros',
+          label: t('SIDEBAR.MACROS'),
+          icon: 'i-lucide-toy-brick',
+          to: accountScopedRoute('macros_wrapper'),
+        },
+        {
+          name: 'Settings Canned Responses',
+          label: t('SIDEBAR.CANNED_RESPONSES'),
+          icon: 'i-lucide-message-square-code',
+          to: accountScopedRoute('canned_list'),
+        },
+        {
+          name: 'Settings Integrations',
+          label: t('SIDEBAR.INTEGRATIONS'),
+          icon: 'i-lucide-blocks',
+          to: accountScopedRoute('settings_applications'),
+        },
+        {
+          name: 'Settings Audit Logs',
+          label: t('SIDEBAR.AUDIT_LOGS'),
+          icon: 'i-lucide-scroll-text',
+          to: accountScopedRoute('auditlogs_list'),
+        },
+        {
+          name: 'Settings Custom Roles',
+          label: t('SIDEBAR.CUSTOM_ROLES'),
+          icon: 'i-lucide-shield-plus',
+          to: accountScopedRoute('custom_roles_list'),
+        },
+        {
+          name: 'Settings Sla',
+          label: t('SIDEBAR.SLA'),
+          icon: 'i-lucide-timer-reset',
+          to: accountScopedRoute('sla_list'),
+        },
+        {
+          name: 'Conversation Workflow',
+          label: t('SIDEBAR.CONVERSATION_WORKFLOW'),
+          icon: 'i-lucide-workflow',
+          to: accountScopedRoute('conversation_workflow_index'),
+        },
+        {
+          name: 'Settings Security',
+          label: t('SIDEBAR.SECURITY'),
+          icon: 'i-lucide-shield',
+          to: accountScopedRoute('security_settings_index'),
+        },
+        {
+          name: 'Settings Billing',
+          label: t('SIDEBAR.BILLING'),
+          icon: 'i-lucide-credit-card',
+          to: accountScopedRoute('billing_settings_index'),
         },
       ],
     },
@@ -535,7 +616,7 @@ const menuItems = computed(() => {
     {
       name: 'Portals',
       label: t('SIDEBAR.HELP_CENTER.TITLE'),
-      icon: 'i-lucide-library-big',
+      icon: 'i-lucide-book-search',
       children: [
         {
           name: 'Articles',
@@ -580,154 +661,73 @@ const menuItems = computed(() => {
       ],
     },
     {
-      name: 'Settings',
-      label: t('SIDEBAR.SETTINGS'),
-      icon: 'i-lucide-bolt',
+      name: 'Captain',
+      icon: 'i-woot-captain',
+      label: t('SIDEBAR.CAPTAIN'),
+      activeOn: ['captain_assistants_create_index'],
       children: [
         {
-          name: 'Settings Account Settings',
-          label: t('SIDEBAR.ACCOUNT_SETTINGS'),
-          icon: 'i-lucide-briefcase',
-          to: accountScopedRoute('general_settings_index'),
-        },
-        // {
-        //   name: 'Settings Captain',
-        //   label: t('SIDEBAR.CAPTAIN_AI'),
-        //   icon: 'i-woot-captain',
-        //   to: accountScopedRoute('captain_settings_index'),
-        // },
-        {
-          name: 'Settings Agents',
-          label: t('SIDEBAR.AGENTS'),
-          icon: 'i-lucide-square-user',
-          to: accountScopedRoute('agent_list'),
-        },
-        {
-          name: 'Settings Teams',
-          label: t('SIDEBAR.TEAMS'),
-          icon: 'i-lucide-users',
+          name: 'FAQs',
+          label: t('SIDEBAR.CAPTAIN_RESPONSES'),
           activeOn: [
-            'settings_teams_list',
-            'settings_teams_new',
-            'settings_teams_finish',
-            'settings_teams_add_agents',
-            'settings_teams_show',
-            'settings_teams_edit',
-            'settings_teams_edit_members',
-            'settings_teams_edit_finish',
+            'captain_assistants_responses_index',
+            'captain_assistants_responses_pending',
           ],
-          to: accountScopedRoute('settings_teams_list'),
+          to: accountScopedRoute('captain_assistants_index', {
+            navigationPath: 'captain_assistants_responses_index',
+          }),
         },
-        ...(hasAdvancedAssignment.value
-          ? [
-              {
-                name: 'Settings Agent Assignment',
-                label: t('SIDEBAR.AGENT_ASSIGNMENT'),
-                icon: 'i-lucide-user-cog',
-                activeOn: [
-                  'assignment_policy_index',
-                  'agent_assignment_policy_index',
-                  'agent_assignment_policy_create',
-                  'agent_assignment_policy_edit',
-                  'agent_capacity_policy_index',
-                  'agent_capacity_policy_create',
-                  'agent_capacity_policy_edit',
-                ],
-                to: accountScopedRoute('assignment_policy_index'),
-              },
-            ]
-          : []),
         {
-          name: 'Settings Inboxes',
-          label: t('SIDEBAR.INBOXES'),
-          icon: 'i-lucide-inbox',
+          name: 'Documents',
+          label: t('SIDEBAR.CAPTAIN_DOCUMENTS'),
+          activeOn: ['captain_assistants_documents_index'],
+          to: accountScopedRoute('captain_assistants_index', {
+            navigationPath: 'captain_assistants_documents_index',
+          }),
+        },
+        {
+          name: 'Scenarios',
+          label: t('SIDEBAR.CAPTAIN_SCENARIOS'),
+          activeOn: ['captain_assistants_scenarios_index'],
+          to: accountScopedRoute('captain_assistants_index', {
+            navigationPath: 'captain_assistants_scenarios_index',
+          }),
+        },
+        {
+          name: 'Playground',
+          label: t('SIDEBAR.CAPTAIN_PLAYGROUND'),
+          activeOn: ['captain_assistants_playground_index'],
+          to: accountScopedRoute('captain_assistants_index', {
+            navigationPath: 'captain_assistants_playground_index',
+          }),
+        },
+        {
+          name: 'Inboxes',
+          label: t('SIDEBAR.CAPTAIN_INBOXES'),
+          activeOn: ['captain_assistants_inboxes_index'],
+          to: accountScopedRoute('captain_assistants_index', {
+            navigationPath: 'captain_assistants_inboxes_index',
+          }),
+        },
+        {
+          name: 'Tools',
+          label: t('SIDEBAR.CAPTAIN_TOOLS'),
+          activeOn: ['captain_tools_index'],
+          to: accountScopedRoute('captain_assistants_index', {
+            navigationPath: 'captain_tools_index',
+          }),
+        },
+        {
+          name: 'Settings',
+          label: t('SIDEBAR.CAPTAIN_SETTINGS'),
           activeOn: [
-            'settings_inbox_list',
-            'settings_inbox_show',
-            'settings_inbox_new',
-            'settings_inbox_finish',
-            'settings_inboxes_page_channel',
-            'settings_inboxes_add_agents',
+            'captain_assistants_settings_index',
+            'captain_assistants_guidelines_index',
+            'captain_assistants_guardrails_index',
           ],
-          to: accountScopedRoute('settings_inbox_list'),
-        },
-        {
-          name: 'Settings Labels',
-          label: t('SIDEBAR.LABELS'),
-          icon: 'i-lucide-tags',
-          to: accountScopedRoute('labels_list'),
-        },
-        {
-          name: 'Settings Custom Attributes',
-          label: t('SIDEBAR.CUSTOM_ATTRIBUTES'),
-          icon: 'i-lucide-code',
-          to: accountScopedRoute('attributes_list'),
-        },
-        {
-          name: 'Settings Automation',
-          label: t('SIDEBAR.AUTOMATION'),
-          icon: 'i-lucide-repeat',
-          to: accountScopedRoute('automation_list'),
-        },
-        {
-          name: 'Settings Agent Bots',
-          label: t('SIDEBAR.AGENT_BOTS'),
-          icon: 'i-lucide-bot',
-          to: accountScopedRoute('agent_bots'),
-        },
-        {
-          name: 'Settings Macros',
-          label: t('SIDEBAR.MACROS'),
-          icon: 'i-lucide-toy-brick',
-          to: accountScopedRoute('macros_wrapper'),
-        },
-        {
-          name: 'Settings Canned Responses',
-          label: t('SIDEBAR.CANNED_RESPONSES'),
-          icon: 'i-lucide-message-square-quote',
-          to: accountScopedRoute('canned_list'),
-        },
-        {
-          name: 'Settings Integrations',
-          label: t('SIDEBAR.INTEGRATIONS'),
-          icon: 'i-lucide-blocks',
-          to: accountScopedRoute('settings_applications'),
-        },
-        {
-          name: 'Settings Audit Logs',
-          label: t('SIDEBAR.AUDIT_LOGS'),
-          icon: 'i-lucide-briefcase',
-          to: accountScopedRoute('auditlogs_list'),
-        },
-        {
-          name: 'Settings Custom Roles',
-          label: t('SIDEBAR.CUSTOM_ROLES'),
-          icon: 'i-lucide-shield-plus',
-          to: accountScopedRoute('custom_roles_list'),
-        },
-        {
-          name: 'Settings Sla',
-          label: t('SIDEBAR.SLA'),
-          icon: 'i-lucide-clock-alert',
-          to: accountScopedRoute('sla_list'),
-        },
-        {
-          name: 'Conversation Workflow',
-          label: t('SIDEBAR.CONVERSATION_WORKFLOW'),
-          icon: 'i-lucide-workflow',
-          to: accountScopedRoute('conversation_workflow_index'),
-        },
-        {
-          name: 'Settings Security',
-          label: t('SIDEBAR.SECURITY'),
-          icon: 'i-lucide-shield',
-          to: accountScopedRoute('security_settings_index'),
-        },
-        {
-          name: 'Settings Billing',
-          label: t('SIDEBAR.BILLING'),
-          icon: 'i-lucide-credit-card',
-          to: accountScopedRoute('billing_settings_index'),
+          to: accountScopedRoute('captain_assistants_index', {
+            navigationPath: 'captain_assistants_settings_index',
+          }),
         },
       ],
     },
@@ -770,20 +770,33 @@ const menuItems = computed(() => {
           />
         </template>
         <template v-else>
-          <div class="grid flex-shrink-0 place-content-center size-6">
-            <Logo class="size-4" />
-          </div>
-          <div class="flex-shrink-0 w-px h-3 bg-n-strong" />
           <SidebarAccountSwitcher
-            class="flex-grow -mx-1 min-w-0"
+            class="flex-grow min-w-0"
             @show-create-account-modal="emit('showCreateAccountModal')"
           />
         </template>
       </div>
       <div
         class="flex gap-2"
-        :class="isEffectivelyCollapsed ? 'flex-col items-center' : 'px-2'"
+        :class="isEffectivelyCollapsed ? 'flex-col items-center' : 'px-4'"
       >
+      <ComposeConversation align-position="right" @close="onComposeClose">
+          <template #trigger="{ toggle, isOpen }">
+            <Button
+              icon="i-lucide-send-horizontal"
+              color="slate"
+              size="sm"
+              class="dark:hover:!bg-n-slate-9/30"
+              :class="[
+                isEffectivelyCollapsed
+                  ? '!size-8 !outline-n-weak !text-n-slate-11 !bg-n-surface-1 dark:!bg-n-surface-1'
+                  : '!h-7 !outline-n-weak !text-n-slate-11 !bg-n-surface-1 dark:!bg-n-surface-1',
+                { '!bg-n-surface-active dark:!bg-n-surface-active': isOpen },
+              ]"
+              @click="onComposeOpen(toggle)"
+            />
+          </template>
+        </ComposeConversation>
         <RouterLink
           v-if="!isEffectivelyCollapsed"
           :to="{ name: 'search' }"
@@ -807,23 +820,6 @@ const menuItems = computed(() => {
         >
           <span class="i-lucide-search size-4 text-n-slate-11" />
         </RouterLink>
-        <ComposeConversation align-position="right" @close="onComposeClose">
-          <template #trigger="{ toggle, isOpen }">
-            <Button
-              icon="i-lucide-pen-line"
-              color="slate"
-              size="sm"
-              class="dark:hover:!bg-n-slate-9/30"
-              :class="[
-                isEffectivelyCollapsed
-                  ? '!size-8 !outline-n-weak !text-n-slate-11 !bg-n-surface-1 dark:!bg-n-surface-1'
-                  : '!h-7 !outline-n-weak !text-n-slate-11 !bg-n-surface-1 dark:!bg-n-surface-1',
-                { '!bg-n-surface-active dark:!bg-n-surface-active': isOpen },
-              ]"
-              @click="onComposeOpen(toggle)"
-            />
-          </template>
-        </ComposeConversation>
       </div>
     </section>
     <nav

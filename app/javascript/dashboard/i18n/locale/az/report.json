@@ -3,7 +3,7 @@
     "HEADER": "Söhbətlər",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "Hesabat yaratmaq üçün kifayət qədər məlumat nöqtəsi alınmayıb, zəhmət olmasa bir az sonra yenidən cəhd edin.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Məlumatları əldə etmək mümkün olmadı, zəhmət olmasa bir az sonra yenidən cəhd edin.",
     "SUMMARY_FETCHING_FAILED": "Yekunu əldə etmək mümkün olmadı, zəhmət olmasa bir az sonra yenidən cəhd edin.",
     "METRICS": {
@@ -127,11 +127,11 @@
     }
   },
   "AGENT_REPORTS": {
-    "HEADER": "Agents Overview",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "HEADER": "Agents Statistics",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "Hesabat yaratmaq üçün kifayət qədər məlumat nöqtəsi almamışıq, zəhmət olmasa sonra yenidən cəhd edin.",
-    "DOWNLOAD_AGENT_REPORTS": "Download agent reports",
+    "DOWNLOAD_AGENT_REPORTS": "Download CSV",
     "FILTER_DROPDOWN_LABEL": "Agent seçin",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
@@ -200,15 +200,15 @@
     }
   },
   "LABEL_REPORTS": {
-    "HEADER": "Labels Overview",
+    "HEADER": "Tags Statistics",
     "DESCRIPTION": "Nişan nəticələrini söhbətlər, cavab müddəti, həll müddəti və həll olunmuş hallar üzrə yoxlayın. Ətraflı məlumat üçün nişan adını açın.",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "Hesabat yaratmaq üçün kifayət qədər məlumat nöqtəsi almamışıq, zəhmət olmasa bir az sonra yenidən cəhd edin.",
-    "DOWNLOAD_LABEL_REPORTS": "Download label reports",
+    "DOWNLOAD_LABEL_REPORTS": "Download CSV",
     "FILTER_DROPDOWN_LABEL": "Select Label",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
-        "LABELS": "Search labels"
+        "LABELS": "Search Tags"
       }
     },
     "METRICS": {
@@ -273,11 +273,11 @@
     }
   },
   "INBOX_REPORTS": {
-    "HEADER": "Inbox Overview",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "HEADER": "Source Statistics",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "Hesabat yaratmaq üçün kifayət qədər məlumat nöqtəsi almamışıq, zəhmət olmasa bir az sonra yenidən cəhd edin.",
-    "DOWNLOAD_INBOX_REPORTS": "Download inbox reports",
+    "DOWNLOAD_INBOX_REPORTS": "Download CSV",
     "FILTER_DROPDOWN_LABEL": "Qutu seçin",
     "ALL_INBOXES": "Bütün Qutular",
     "SEARCH_INBOX": "Qutu üzrə axtarış",
@@ -348,11 +348,11 @@
     }
   },
   "TEAM_REPORTS": {
-    "HEADER": "Team Overview",
+    "HEADER": "Team Statistics",
     "DESCRIPTION": "Komanda nəticələrini söhbətlər, cavab müddəti, həll müddəti və həll olunmuş hallar üzrə yoxlayın. Ətraflı məlumat üçün komanda adını açın.",
     "LOADING_CHART": "Loading chart data...",
     "NO_ENOUGH_DATA": "Hesabat yaratmaq üçün kifayət qədər məlumat nöqtəsi almamışıq, zəhmət olmasa sonra yenidən cəhd edin.",
-    "DOWNLOAD_TEAM_REPORTS": "Download team reports",
+    "DOWNLOAD_TEAM_REPORTS": "Download CSV",
     "FILTER_DROPDOWN_LABEL": "Komandanı seçin",
     "FILTERS": {
       "ADD_FILTER": "Add filter",
@@ -427,8 +427,8 @@
     "HEADER": "CSAT Hesabatları",
     "NO_RECORDS": "Hələ cavab yoxdur",
     "NO_RECORDS_DESCRIPTION": "CSAT survey responses will appear here once customers start providing feedback.",
-    "DOWNLOAD": "Download CSAT Reports",
-    "DOWNLOAD_FAILED": "Failed to download CSAT Reports",
+    "DOWNLOAD": "Download CSV",
+    "DOWNLOAD_FAILED": "Failed to Download CSV",
     "FILTERS": {
       "ADD_FILTER": "Add filter",
       "CLEAR_ALL": "Clear all",
@@ -505,7 +505,7 @@
     "HEADER": "Bot Reports",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
+        "LABEL": "No. of Chats",
         "TOOLTIP": "Total number of conversations handled by the bot"
       },
       "TOTAL_RESPONSES": {
@@ -534,7 +534,7 @@
       "PENDING": "Gözləyir"
     },
     "CONVERSATION_HEATMAP": {
-      "HEADER": "Conversation Traffic",
+      "HEADER": "Chat Traffic",
       "NO_CONVERSATIONS": "Söhbət yoxdur",
       "CONVERSATION": "{count} söhbət",
       "CONVERSATIONS": "{count} söhbət",
@@ -548,7 +548,7 @@
       "DOWNLOAD_REPORT": "Download report"
     },
     "AGENT_CONVERSATIONS": {
-      "HEADER": "Conversations by agents",
+      "HEADER": "Chats by agents",
       "LOADING_MESSAGE": "Loading agent metrics...",
       "NO_AGENTS": "There are no conversations by agents",
       "TABLE_HEADER": {
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "Məlumat mövcud deyil",
       "TABLE_HEADER": {
@@ -602,7 +602,7 @@
       "INPUT_PLACEHOLDER": {
         "SLA": "SLA name",
         "AGENTS": "Agent name",
-        "INBOXES": "Inbox name",
+        "INBOXES": "Source name",
         "LABELS": "Label name",
         "TEAMS": "Team name"
       },
@@ -623,7 +623,7 @@
         "TOOLTIP": "Total SLA misses in a certain period"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Number of Conversations",
+        "LABEL": "Number of Chats",
         "TOOLTIP": "SLA ilə ümumi söhbət sayı"
       }
     },

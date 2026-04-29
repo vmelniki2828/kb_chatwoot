@@ -56,7 +56,7 @@ const handleFetchUsers = () => {
             :title="
               t('ASSIGNMENT_POLICY.AGENT_CAPACITY_POLICY.INDEX.CARD.POPOVER')
             "
-            icon="i-lucide-users-round"
+            icon="i-lucide-user-round-pen"
             :count="assignedAgentCount"
             :items="users"
             :is-fetching="isFetchingUsers"

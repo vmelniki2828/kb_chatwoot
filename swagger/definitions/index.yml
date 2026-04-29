@@ -171,7 +171,7 @@ integrations_hook_update_payload:
 automation_rule_create_update_payload:
   $ref: ./request/automation_rule/create_update_payload.yml
 
-# Help Center
+# Support Center
 portal_create_update_payload:
   $ref: ./request/portal/portal_create_update_payload.yml
 category_create_update_payload:

@@ -32,7 +32,7 @@ const agentAssignments = computed(() => {
           label: t('ASSIGNMENT_POLICY.INDEX.ASSIGNMENT_POLICY.FEATURES.1'),
         },
         {
-          icon: 'i-lucide-inbox',
+          icon: 'i-lucide-archive',
           label: t('ASSIGNMENT_POLICY.INDEX.ASSIGNMENT_POLICY.FEATURES.2'),
         },
       ],
@@ -67,7 +67,7 @@ const agentAssignments = computed(() => {
           label: t('ASSIGNMENT_POLICY.INDEX.AGENT_CAPACITY_POLICY.FEATURES.1'),
         },
         {
-          icon: 'i-lucide-users-round',
+          icon: 'i-lucide-user-round-pen',
           label: t('ASSIGNMENT_POLICY.INDEX.AGENT_CAPACITY_POLICY.FEATURES.2'),
         },
       ],

@@ -167,7 +167,7 @@
       "COPY_LINK_SUCCESS": "वार्ताको लिङ्क क्लिपबोर्डमा प्रतिलिपि गरियो",
       "API": {
         "AGENT_ASSIGNMENT": {
-          "SUCCESFUL": "Conversation id {conversationId} assigned to \"{agentName}\"",
+          "SUCCESFUL": "Chat id {conversationId} assigned to \"{agentName}\"",
           "FAILED": "एजेन्ट सौंप्न सकेन। कृपया फेरि प्रयास गर्नुहोस्।"
         },
         "LABEL_ASSIGNMENT": {

@@ -110,6 +110,24 @@ const defaulSpanRender = cellProps =>
     cellProps.getValue()
   );
 
+const renderTimePill = value =>
+  value && value !== '--'
+    ? h(
+        'span',
+        {
+          class:
+            'inline-flex items-center justify-center px-3 py-1 rounded-full bg-n-alpha-2 text-n-slate-12 text-xs font-medium whitespace-nowrap',
+        },
+        value
+      )
+    : h(
+        'span',
+        { class: 'text-n-slate-11 whitespace-nowrap' },
+        value || '--'
+      );
+
+const renderTimeCell = cellProps => renderTimePill(cellProps.getValue());
+
 const periodShortLabel = (fromUnix, toUnix) => {
   try {
     return `${format(fromUnixTime(fromUnix), 'dd MMM')} – ${format(
@@ -125,32 +143,32 @@ const columns = computed(() => {
   const base = [
     columnHelper.accessor('name', {
       header: t(`SUMMARY_REPORTS.${props.type.toUpperCase()}`),
-      width: 300,
+      //width: 300,
       cell: cellProps => h(SummaryReportLink, cellProps),
     }),
     columnHelper.accessor('conversationsCount', {
       header: t('SUMMARY_REPORTS.CONVERSATIONS'),
-      width: 200,
+      //width: 200,
       cell: defaulSpanRender,
     }),
     columnHelper.accessor('avgFirstResponseTime', {
       header: t('SUMMARY_REPORTS.AVG_FIRST_RESPONSE_TIME'),
-      width: 200,
-      cell: defaulSpanRender,
+      //width: 200,
+      cell: renderTimeCell,
     }),
     columnHelper.accessor('avgResolutionTime', {
       header: t('SUMMARY_REPORTS.AVG_RESOLUTION_TIME'),
-      width: 200,
-      cell: defaulSpanRender,
+      //width: 200,
+      cell: renderTimeCell,
     }),
     columnHelper.accessor('avgReplyTime', {
       header: t('SUMMARY_REPORTS.AVG_REPLY_TIME'),
-      width: 200,
-      cell: defaulSpanRender,
+      //width: 200,
+      cell: renderTimeCell,
     }),
     columnHelper.accessor('resolutionsCount', {
       header: t('SUMMARY_REPORTS.RESOLUTION_COUNT'),
-      width: 200,
+      //width: 200,
       cell: defaulSpanRender,
     }),
   ];
@@ -168,19 +186,19 @@ const columns = computed(() => {
         id: `cmp${si}_avgFirstResponseTime`,
         header: `${t('SUMMARY_REPORTS.AVG_FIRST_RESPONSE_TIME')} (${rh})`,
         width: 200,
-        cell: defaulSpanRender,
+        cell: renderTimeCell,
       }),
       columnHelper.accessor(`cmp${si}_avgResolutionTime`, {
         id: `cmp${si}_avgResolutionTime`,
         header: `${t('SUMMARY_REPORTS.AVG_RESOLUTION_TIME')} (${rh})`,
         width: 200,
-        cell: defaulSpanRender,
+        cell: renderTimeCell,
       }),
       columnHelper.accessor(`cmp${si}_avgReplyTime`, {
         id: `cmp${si}_avgReplyTime`,
         header: `${t('SUMMARY_REPORTS.AVG_REPLY_TIME')} (${rh})`,
         width: 200,
-        cell: defaulSpanRender,
+        cell: renderTimeCell,
       }),
       columnHelper.accessor(`cmp${si}_resolutionsCount`, {
         id: `cmp${si}_resolutionsCount`,
@@ -212,6 +230,9 @@ const tableData = computed(() =>
       id: row.id,
       name: row.name ?? row.title,
       type: props.type,
+      thumbnail: row.thumbnail,
+      email: row.email,
+      status: row.availability_status,
       conversationsCount: renderCount(conversationsCount),
       avgFirstResponseTime: renderAvgTime(avgFirstResponseTime),
       avgReplyTime: renderAvgTime(avgReplyTime),

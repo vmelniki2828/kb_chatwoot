@@ -25,7 +25,7 @@ const dialogRef = ref(null);
 const inboxName = computed(() => props.inbox?.name || '');
 
 const inboxIcon = computed(() => {
-  if (!props.inbox) return 'i-lucide-inbox';
+  if (!props.inbox) return 'i-lucide-archive';
   return getInboxIconByType(
     props.inbox.channelType,
     props.inbox.medium,

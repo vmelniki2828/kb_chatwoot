@@ -19,7 +19,7 @@
         "BODY": "Choose the provider you want to integrate with QODEQ CHAT."
       },
       "INBOX": {
-        "TITLE": "Create Inbox",
+        "TITLE": "Create Source",
         "BODY": "Authenticate your account and create an inbox."
       },
       "AGENT": {
@@ -47,9 +47,9 @@
         "CHOOSE_PLACEHOLDER": "Valige nimekirjast leht",
         "INBOX_NAME": "Postkasti nimi",
         "ADD_NAME": "Lisa oma postkastile nimi",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Vali väärtus",
-        "CREATE_INBOX": "Create Inbox"
+        "CREATE_INBOX": "Create Source"
       },
       "INSTAGRAM": {
         "CONTINUE_WITH_INSTAGRAM": "Continue with Instagram",
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agendid",
         "DESC": "Siin saate lisada agente, kes haldavad teie äsja loodud postkasti. Ainult valitud agendid pääsevad teie postkastile ligi. Agendid, kes ei kuulu sellesse postkasti, ei näe ega saa vastata selle postkasti sõnumitele, kui nad sisse logivad. <br> <b>PS:</b> Administraatorina, kui vajate ligipääsu kõigile postkastidele, peaksite lisama end agentideks kõigisse loodud postkastidesse.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Vali postkasti agendid"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Luba/keela agendi nime kuvamine e-kirjas, kui keelatud, kuvatakse ettevõtte nimi",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Luba vestluse jätkumine e-posti teel",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Vestlused jätkuvad e-posti teel, kui kontakti e-posti aadress on olemas.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Postkasti seaded",
       "INBOX_UPDATE_SUB_TEXT": "Uuenda oma postkasti seadeid",
@@ -797,7 +797,7 @@
       "MAX_ASSIGNMENT_LIMIT_SUB_TEXT": "Piira selle postkasti vestluste maksimaalset arvu, mida saab automaatselt agendile määrata"
     },
     "ASSIGNMENT": {
-      "TITLE": "Conversation Assignment",
+      "TITLE": "Chat Assignment",
       "DESCRIPTION": "Automatically assign incoming conversations to available agents based on assignment policies",
       "ENABLE_AUTO_ASSIGNMENT": "Enable automatic conversation assignment",
       "DEFAULT_RULES_TITLE": "Default assignment rules",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "contains",
           "DOES_NOT_CONTAINS": "does not contain"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

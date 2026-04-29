@@ -3,7 +3,7 @@
     "HEADER": "സംഭാഷണങ്ങൾ",
     "LOADING_CHART": "ചാർട്ട് ഡാറ്റ ലോഡു ചെയ്യുകയാണ്...",
     "NO_ENOUGH_DATA": "റിപ്പോർട്ട് സൃഷ്ടിക്കുന്നതിന് ആവശ്യമായ ഡാറ്റ ഞങ്ങൾക്ക് ലഭിച്ചിട്ടില്ല, ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Failed to fetch data, please try again later.",
     "SUMMARY_FETCHING_FAILED": "Failed to fetch summary, please try again later.",
     "METRICS": {
@@ -116,7 +116,7 @@
         "groupBy": "മാസം"
       }
     ],
-    "BUSINESS_HOURS": "Business Hours",
+    "BUSINESS_HOURS": "Work Hours",
     "FILTER_ACTIONS": {
       "CLEAR_FILTER": "Clear filter",
       "EMPTY_LIST": "ഒരു ഫലവും കണ്ടെത്താനായില്ല"
@@ -128,7 +128,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "ഏജന്റുമാരുടെ അവലോകനം",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "ചാർട്ട് ഡാറ്റ ലോഡു ചെയ്യുകയാണ്...",
     "NO_ENOUGH_DATA": "റിപ്പോർട്ട് സൃഷ്ടിക്കുന്നതിന് ആവശ്യമായ ഡാറ്റ ഞങ്ങൾക്ക് ലഭിച്ചിട്ടില്ല, ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.",
     "DOWNLOAD_AGENT_REPORTS": "ഏജന്റ് റിപ്പോർട്ടുകൾ ഡൗൺലോഡ് ചെയ്യുക",
@@ -201,7 +201,7 @@
   },
   "LABEL_REPORTS": {
     "HEADER": "ലേബലുകൾ അവലോകനം",
-    "DESCRIPTION": "Track label performance with key metrics including conversations, response times, resolution times, and resolved cases. Click a label name for detailed insights.",
+    "DESCRIPTION": "Monitor performance across tags using conversations handled, response and resolution times, and resolved cases metrics. Click a tag name to explore further.",
     "LOADING_CHART": "ചാർട്ട് ഡാറ്റ ലോഡു ചെയ്യുകയാണ്...",
     "NO_ENOUGH_DATA": "റിപ്പോർട്ട് സൃഷ്ടിക്കുന്നതിന് ആവശ്യമായ ഡാറ്റ ഞങ്ങൾക്ക് ലഭിച്ചിട്ടില്ല, ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.",
     "DOWNLOAD_LABEL_REPORTS": "ലേബൽ റിപ്പോർട്ടുകൾ ഡൗൺലോഡ് ചെയ്യുക",
@@ -274,13 +274,13 @@
   },
   "INBOX_REPORTS": {
     "HEADER": "ഇൻബോക്സ് അവലോകനം",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "ചാർട്ട് ഡാറ്റ ലോഡു ചെയ്യുകയാണ്...",
     "NO_ENOUGH_DATA": "റിപ്പോർട്ട് സൃഷ്ടിക്കുന്നതിന് ആവശ്യമായ ഡാറ്റ ഞങ്ങൾക്ക് ലഭിച്ചിട്ടില്ല, ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.",
     "DOWNLOAD_INBOX_REPORTS": "ഇൻബോക്സ് റിപ്പോർട്ടുകൾ ഡൗൺലോഡ് ചെയ്യുക",
     "FILTER_DROPDOWN_LABEL": "ഇൻബോക്സ് തിരഞ്ഞെടുക്കുക",
-    "ALL_INBOXES": "All Inboxes",
-    "SEARCH_INBOX": "Search Inbox",
+    "ALL_INBOXES": "All Sources",
+    "SEARCH_INBOX": "Search Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "INBOXES": "Search inboxes"
@@ -349,7 +349,7 @@
   },
   "TEAM_REPORTS": {
     "HEADER": "ടീം അവലോകനം",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "ചാർട്ട് ഡാറ്റ ലോഡു ചെയ്യുകയാണ്...",
     "NO_ENOUGH_DATA": "റിപ്പോർട്ട് സൃഷ്ടിക്കുന്നതിന് ആവശ്യമായ ഡാറ്റ ഞങ്ങൾക്ക് ലഭിച്ചിട്ടില്ല, ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.",
     "DOWNLOAD_TEAM_REPORTS": "ടീം റിപ്പോർട്ടുകൾ ഡൗൺലോഡ് ചെയ്യുക",
@@ -427,8 +427,8 @@
     "HEADER": "CSAT റിപ്പോർട്ടുകൾ",
     "NO_RECORDS": "No responses yet",
     "NO_RECORDS_DESCRIPTION": "CSAT survey responses will appear here once customers start providing feedback.",
-    "DOWNLOAD": "Download CSAT Reports",
-    "DOWNLOAD_FAILED": "Failed to download CSAT Reports",
+    "DOWNLOAD": "Download CSV",
+    "DOWNLOAD_FAILED": "Failed to Download CSV",
     "FILTERS": {
       "ADD_FILTER": "ഫിൽട്ടർ ചേർക്കുക",
       "CLEAR_ALL": "Clear all",
@@ -505,7 +505,7 @@
     "HEADER": "Bot Reports",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
+        "LABEL": "No. of Chats",
         "TOOLTIP": "Total number of conversations handled by the bot"
       },
       "TOTAL_RESPONSES": {
@@ -526,7 +526,7 @@
     "HEADER": "അവലോകനം",
     "LIVE": "Live",
     "ACCOUNT_CONVERSATIONS": {
-      "HEADER": "Open Conversations",
+      "HEADER": "Open Chats",
       "LOADING_MESSAGE": "Loading conversation metrics...",
       "OPEN": "സജീവം",
       "UNATTENDED": "Unattended",
@@ -534,7 +534,7 @@
       "PENDING": "കെട്ടിക്കിടക്കുന്നു"
     },
     "CONVERSATION_HEATMAP": {
-      "HEADER": "Conversation Traffic",
+      "HEADER": "Chat Traffic",
       "NO_CONVERSATIONS": "No conversations",
       "CONVERSATION": "{count} conversation",
       "CONVERSATIONS": "{count} conversations",
@@ -548,7 +548,7 @@
       "DOWNLOAD_REPORT": "Download report"
     },
     "AGENT_CONVERSATIONS": {
-      "HEADER": "Conversations by agents",
+      "HEADER": "Chats by agents",
       "LOADING_MESSAGE": "Loading agent metrics...",
       "NO_AGENTS": "There are no conversations by agents",
       "TABLE_HEADER": {
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {
@@ -602,7 +602,7 @@
       "INPUT_PLACEHOLDER": {
         "SLA": "SLA name",
         "AGENTS": "Agent name",
-        "INBOXES": "Inbox name",
+        "INBOXES": "Source name",
         "LABELS": "ലേബൽ നാമം",
         "TEAMS": "ടീമിന്റെ പേര്"
       },
@@ -623,7 +623,7 @@
         "TOOLTIP": "Total SLA misses in a certain period"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Number of Conversations",
+        "LABEL": "Number of Chats",
         "TOOLTIP": "Total number of conversations with SLA"
       }
     },

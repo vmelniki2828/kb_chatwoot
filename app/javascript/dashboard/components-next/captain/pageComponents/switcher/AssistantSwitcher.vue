@@ -134,7 +134,7 @@ const openCreateAssistantDialog = () => {
           v-if="assistant"
           :name="assistant.name"
           :size="20"
-          icon-name="i-lucide-bot"
+          icon-name="i-lucide-bot-message-square"
           rounded-full
         />
       </Button>

@@ -417,7 +417,7 @@
       },
       "HELP_CENTER_SEARCH": {
         "TITLE": "Abi keskuse otsingu indekseerimine",
-        "DESCRIPTION": "Use AI for context aware search inside your help center articles."
+        "DESCRIPTION": "Use AI for context aware search inside your Support Center articles."
       },
       "LABEL_SUGGESTION": {
         "TITLE": "Sildi soovitus",
@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "Väljaarvamise reeglid",
           "DESCRIPTION": "Vestlused, mis vastavad järgmistele tingimustele, ei arvata agendi mahusse",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "Jäta välja vestlused, millel on kindlad sildid",
             "ADD_TAG": "lisa silt",
             "DROPDOWN": {

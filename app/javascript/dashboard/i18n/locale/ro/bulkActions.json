@@ -27,11 +27,11 @@
       "PARTIAL_SUCCESS": "Some conversations need required attributes before resolving and were skipped"
     },
     "LABELS": {
-      "ASSIGN_LABELS": "Assign labels",
+      "ASSIGN_LABELS": "Assign Tags",
       "NO_LABELS_FOUND": "Nu s-au găsit etichete",
       "ASSIGN_SELECTED_LABELS": "Atribuiți etichetele selectate",
       "ASSIGN_SUCCESFUL": "Etichete atribuite cu succes.",
-      "ASSIGN_FAILED": "Failed to assign labels. Please try again."
+      "ASSIGN_FAILED": "Failed to assign Tags. Please try again."
     },
     "TEAMS": {
       "TEAM_SELECT_LABEL": "Selectați echipa",

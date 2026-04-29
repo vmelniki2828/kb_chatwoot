@@ -47,9 +47,9 @@
     "ATTRIBUTES": {
       "STATUS": "Status",
       "ASSIGNEE_NAME": "Assignee name",
-      "INBOX_NAME": "Nume Inbox",
+      "INBOX_NAME": "Nume Source",
       "TEAM_NAME": "Numele echipei",
-      "CONVERSATION_IDENTIFIER": "Conversation identifier",
+      "CONVERSATION_IDENTIFIER": "Chat identifier",
       "CAMPAIGN_NAME": "Campaign name",
       "LABELS": "Etichete",
       "BROWSER_LANGUAGE": "Browser language",

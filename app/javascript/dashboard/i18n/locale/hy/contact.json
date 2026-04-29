@@ -164,7 +164,7 @@
         "LABEL": "Ուղղությամբ"
       },
       "INBOX": {
-        "LABEL": "Inbox",
+        "LABEL": "Source",
         "PLACEHOLDER": "Ընտրեք աղբյուրի փոստարկղը",
         "ERROR": "Ընտրեք մուտքուղի"
       },
@@ -583,7 +583,7 @@
     "ASSIGN_LABELS": "Նշումներ նշանակել",
     "ASSIGN_LABELS_SUCCESS": "Նշումները հաջողությամբ նշանակվեցին։",
     "ASSIGN_LABELS_FAILED": "Հնարավոր չեղավ նշանակել պիտակները",
-    "DESCRIPTION": "Select the labels you want to add to the selected contacts.",
+    "DESCRIPTION": "Select the Tags you want to add to the selected contacts.",
     "NO_LABELS_FOUND": "Դեռ պիտակներ չկան։",
     "SELECTED_COUNT": "{count} ընտրված",
     "CLEAR_SELECTION": "Մաքրել ընտրությունը",

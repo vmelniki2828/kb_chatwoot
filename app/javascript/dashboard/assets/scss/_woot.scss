@@ -146,3 +146,14 @@ body {
     letter-spacing: -0.24px;
   }
 }
+
+[class*="i-lucide-"] {
+  color: #10A37F !important;
+}
+
+.text-n-ruby-11 [class*="i-lucide-"] {
+  color: inherit !important;
+}
+[class*="i-woot-captain"] {
+  color: #10A37F !important;
+}

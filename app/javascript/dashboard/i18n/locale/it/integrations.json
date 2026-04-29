@@ -574,7 +574,7 @@
       },
       "EMPTY_STATE": {
         "TITLE": "Nessun assistente disponibile",
-        "SUBTITLE": "Crea un assistente per fornire risposte rapide e accurate agli utenti. Può imparare dagli articoli dell'Help Center e dalle conversazioni passate.",
+        "SUBTITLE": "Crea un assistente per fornire risposte rapide e accurate agli utenti. Può imparare dagli articoli dell'Support Center e dalle conversazioni passate.",
         "FEATURE_SPOTLIGHT": {
           "TITLE": "Captain Assistant",
           "NOTE": "Captain Assistant interagisce direttamente con i clienti, impara dai documenti e dalle conversazioni passate e fornisce risposte rapide e accurate. Gestisce le richieste iniziali, fornendo risoluzioni rapide prima di trasferire ad un operatore quando necessario."
@@ -788,7 +788,7 @@
         "SUBTITLE": "I documenti sono utilizzati dal tuo assistente per generare FAQ. Puoi importare documenti per fornire contesto al tuo assistente.",
         "FEATURE_SPOTLIGHT": {
           "TITLE": "Documento Captain",
-          "NOTE": "Un documento in Captain serve come risorsa di knowledge base per l'assistente. Collegando documenti help center e guide, Captain può analizzare il contenuto e fornire risposte accurate per le richieste dei clienti."
+          "NOTE": "Un documento in Captain serve come risorsa di knowledge base per l'assistente. Collegando documenti Support Center e guide, Captain può analizzare il contenuto e fornire risposte accurate per le richieste dei clienti."
         }
       }
     },
@@ -988,7 +988,7 @@
       }
     },
     "INBOXES": {
-      "HEADER": "Inbox Connesse",
+      "HEADER": "Source Connesse",
       "ADD_NEW": "Collega una nuova inbox",
       "OPTIONS": {
         "DISCONNECT": "Disconnetti"
@@ -997,24 +997,24 @@
         "TITLE": "Sei sicuro di voler disconnettere la inbox?",
         "DESCRIPTION": "",
         "CONFIRM": "Sì, elimina",
-        "SUCCESS_MESSAGE": "Inbox disconnessa con successo.",
+        "SUCCESS_MESSAGE": "Source disconnessa con successo.",
         "ERROR_MESSAGE": "Si è verificato un errore durante la disconnessione della inbox, riprova."
       },
       "FORM_DESCRIPTION": "Scegli una inbox da connettere all'assistente.",
       "CREATE": {
-        "TITLE": "Connetti una Inbox",
-        "SUCCESS_MESSAGE": "Inbox connessa con successo.",
+        "TITLE": "Connetti una Source",
+        "SUCCESS_MESSAGE": "Source connessa con successo.",
         "ERROR_MESSAGE": "Si è verificato un errore durante la connessione della inbox. Riprova."
       },
       "FORM": {
         "INBOX": {
-          "LABEL": "Inbox",
+          "LABEL": "Source",
           "PLACEHOLDER": "Scegli la inbox in cui deployare l'assistente.",
           "ERROR": "È richiesta una inbox."
         }
       },
       "EMPTY_STATE": {
-        "TITLE": "Nessuna Inbox Connessa",
+        "TITLE": "Nessuna Source Connessa",
         "SUBTITLE": "Connettendo una inbox, l'assistente potrà gestire le richieste iniziali dei clienti, ed eventualmente trasferirle a voi."
       }
     }

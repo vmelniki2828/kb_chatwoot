@@ -17,7 +17,7 @@ const { t } = useI18n();
 const attributeConfig = {
   'pre-chat': {
     colorClass: 'text-n-blue-11',
-    icon: 'i-lucide-message-circle',
+    icon: 'i-lucide-message-square',
     labelKey: 'ATTRIBUTES_MGMT.BADGES.PRE_CHAT',
     color: 'slate',
   },

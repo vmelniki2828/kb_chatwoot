@@ -24,7 +24,7 @@
     },
     "ADD": {
       "TITLE": "Aggiungi operatore al tuo team",
-      "DESC": "Puoi aggiungere persone per gestire il supporto nelle tue Inbox.",
+      "DESC": "Puoi aggiungere persone per gestire il supporto nelle tue Source.",
       "CANCEL_BUTTON_TEXT": "Annulla",
       "FORM": {
         "NAME": {

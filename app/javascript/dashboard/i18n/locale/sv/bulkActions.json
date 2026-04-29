@@ -10,16 +10,16 @@
     "SEARCH_INPUT_PLACEHOLDER": "Sök",
     "ASSIGN_AGENT_TOOLTIP": "Tilldela agent",
     "ASSIGN_TEAM_TOOLTIP": "Tilldela team",
-    "ASSIGN_SUCCESFUL": "Conversations assigned successfully.",
+    "ASSIGN_SUCCESFUL": "Chats assigned successfully.",
     "ASSIGN_FAILED": "Failed to assign conversations. Please try again.",
-    "RESOLVE_SUCCESFUL": "Conversations resolved successfully.",
+    "RESOLVE_SUCCESFUL": "Chats resolved successfully.",
     "RESOLVE_FAILED": "Failed to resolve conversations. Please try again.",
-    "ALL_CONVERSATIONS_SELECTED_ALERT": "Conversations visible on this page are only selected.",
+    "ALL_CONVERSATIONS_SELECTED_ALERT": "Chats visible on this page are only selected.",
     "AGENT_LIST_LOADING": "Laddar agenter",
     "UPDATE": {
       "CHANGE_STATUS": "Change status",
       "SNOOZE_UNTIL": "Snooza",
-      "UPDATE_SUCCESFUL": "Conversation status updated successfully.",
+      "UPDATE_SUCCESFUL": "Chat status updated successfully.",
       "UPDATE_FAILED": "Failed to update conversations. Please try again."
     },
     "RESOLVE": {
@@ -27,11 +27,11 @@
       "PARTIAL_SUCCESS": "Some conversations need required attributes before resolving and were skipped"
     },
     "LABELS": {
-      "ASSIGN_LABELS": "Assign labels",
+      "ASSIGN_LABELS": "Assign Tags",
       "NO_LABELS_FOUND": "Inga etiketter hittades",
-      "ASSIGN_SELECTED_LABELS": "Assign selected labels",
-      "ASSIGN_SUCCESFUL": "Labels assigned successfully.",
-      "ASSIGN_FAILED": "Failed to assign labels. Please try again."
+      "ASSIGN_SELECTED_LABELS": "Assign selected Tags",
+      "ASSIGN_SUCCESFUL": "Tags assigned successfully.",
+      "ASSIGN_FAILED": "Failed to assign Tags. Please try again."
     },
     "TEAMS": {
       "TEAM_SELECT_LABEL": "Välj team",

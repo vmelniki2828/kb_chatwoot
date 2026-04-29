@@ -117,7 +117,7 @@ export default {
   <ReportHeader :header-title="$t('REPORT.HEADER')">
     <V4Button
       :label="$t('REPORT.DOWNLOAD_CONVERSATION_REPORTS')"
-      icon="i-ph-download-simple"
+      icon="i-ph-file-arrow-down"
       size="sm"
       @click="downloadConversationReports"
     />

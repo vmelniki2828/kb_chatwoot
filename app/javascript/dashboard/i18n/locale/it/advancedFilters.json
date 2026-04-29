@@ -47,7 +47,7 @@
     "ATTRIBUTES": {
       "STATUS": "Stato",
       "ASSIGNEE_NAME": "Nome assegnatario",
-      "INBOX_NAME": "Nome Inbox",
+      "INBOX_NAME": "Nome Source",
       "TEAM_NAME": "Nome team",
       "CONVERSATION_IDENTIFIER": "Identificativo conversazione",
       "CAMPAIGN_NAME": "Nome campagna",

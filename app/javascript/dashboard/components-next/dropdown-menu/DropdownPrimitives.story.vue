@@ -23,7 +23,7 @@ const menuItems = ref([
   },
   {
     label: 'Profile Settings',
-    icon: 'i-lucide-user-pen',
+    icon: 'i-lucide-user-round-cog',
     click: () => console.log('Profile Settings'),
   },
   {

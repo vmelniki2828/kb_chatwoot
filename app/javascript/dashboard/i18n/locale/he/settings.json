@@ -381,7 +381,7 @@
     "DOCS": "קרא מסמכים",
     "SECURITY": "אבטחה",
     "CAPTAIN_AI": "קפטן",
-    "CONVERSATION_WORKFLOW": "Conversation Workflow"
+    "CONVERSATION_WORKFLOW": "Chat Workflow"
   },
   "CAPTAIN_SETTINGS": {
     "TITLE": "Captain Settings",
@@ -416,14 +416,14 @@
         "DESCRIPTION": "Automatically convert voice messages and call recordings into searchable text transcripts."
       },
       "HELP_CENTER_SEARCH": {
-        "TITLE": "Help Center Search Indexing",
-        "DESCRIPTION": "Use AI for context aware search inside your help center articles."
+        "TITLE": "Support Center Search Indexing",
+        "DESCRIPTION": "Use AI for context aware search inside your Support Center articles."
       },
       "LABEL_SUGGESTION": {
         "TITLE": "Label Suggestion",
-        "DESCRIPTION": "Automatically suggest relevant labels and tags for conversations based on content analysis and context.",
+        "DESCRIPTION": "Automatically suggest relevant Tags and tags for conversations based on content analysis and context.",
         "MODEL_TITLE": "Label Suggestion Model",
-        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate labels"
+        "MODEL_DESCRIPTION": "Select the AI model to use for analyzing conversations and suggesting appropriate Tags"
       }
     },
     "API": {
@@ -560,7 +560,7 @@
   "CONVERSATION_WORKFLOW": {
     "INDEX": {
       "HEADER": {
-        "TITLE": "Conversation Workflows",
+        "TITLE": "Chat Workflows",
         "DESCRIPTION": "Configure rules and required fields for conversation resolution."
       }
     },
@@ -695,7 +695,7 @@
         "API": {
           "SUCCESS_MESSAGE": "מדיניות ההקצאה נוצרה בהצלחה",
           "ERROR_MESSAGE": "יצירת מדיניות ההקצאה נכשלה",
-          "INBOX_LINKED": "Inbox has been linked to the policy"
+          "INBOX_LINKED": "Source has been linked to the policy"
         }
       },
       "EDIT": {
@@ -844,15 +844,15 @@
         },
         "INBOX_LIMIT_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox limit added successfully",
+            "SUCCESS_MESSAGE": "Source limit added successfully",
             "ERROR_MESSAGE": "Failed to add inbox limit"
           },
           "UPDATE": {
-            "SUCCESS_MESSAGE": "Inbox limit updated successfully",
+            "SUCCESS_MESSAGE": "Source limit updated successfully",
             "ERROR_MESSAGE": "Failed to update inbox limit"
           },
           "DELETE": {
-            "SUCCESS_MESSAGE": "Inbox limit deleted successfully",
+            "SUCCESS_MESSAGE": "Source limit deleted successfully",
             "ERROR_MESSAGE": "Failed to delete inbox limit"
           }
         }
@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "כללי חריגה",
           "DESCRIPTION": "שיחות העומדות בתנאים הבאים לא ייכללו בחישוב קיבולת הסוכן",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "אל תכלול שיחות מתויגות בתוויות ספציפיות",
             "ADD_TAG": "הוסף תג",
             "DROPDOWN": {

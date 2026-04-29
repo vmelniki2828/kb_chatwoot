@@ -134,8 +134,8 @@
       "CONVERSATION_CREATED": "تم إنشاء المحادثة",
       "CONVERSATION_UPDATED": "تم تحديث المحادثة",
       "MESSAGE_CREATED": "Message Created",
-      "CONVERSATION_RESOLVED": "Conversation Resolved",
-      "CONVERSATION_OPENED": "Conversation Opened"
+      "CONVERSATION_RESOLVED": "Chat Resolved",
+      "CONVERSATION_OPENED": "Chat Opened"
     },
     "ACTIONS": {
       "ASSIGN_AGENT": "Assign to Agent",
@@ -172,7 +172,7 @@
       "MESSAGE_CONTAINS": "Message Contains",
       "EMAIL": "البريد الإلكتروني",
       "INBOX": "صندوق الوارد",
-      "CONVERSATION_LANGUAGE": "Conversation Language",
+      "CONVERSATION_LANGUAGE": "Chat Language",
       "PHONE_NUMBER": "رقم الهاتف",
       "STATUS": "الحالة",
       "BROWSER_LANGUAGE": "لغة المتصفح",

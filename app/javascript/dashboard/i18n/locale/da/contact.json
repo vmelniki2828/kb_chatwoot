@@ -29,17 +29,17 @@
     },
     "LABELS": {
       "CONTACT": {
-        "TITLE": "Kontakt Labels",
+        "TITLE": "Kontakt Tags",
         "ERROR": "Kunne ikke opdatere etiketter"
       },
       "CONVERSATION": {
         "TITLE": "Samtale Etiketter",
-        "ADD_BUTTON": "Tilføj Labels"
+        "ADD_BUTTON": "Tilføj Tags"
       },
       "LABEL_SELECT": {
-        "TITLE": "Tilføj Labels",
-        "PLACEHOLDER": "Søg efter labels",
-        "NO_RESULT": "Ingen labels fundet",
+        "TITLE": "Tilføj Tags",
+        "PLACEHOLDER": "Søg efter Tags",
+        "NO_RESULT": "Ingen Tags fundet",
         "CREATE_LABEL": "Create new label"
       }
     },
@@ -53,7 +53,7 @@
     "EDIT_LABEL": "Rediger",
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "Brugerdefinerede Egenskaber",
-      "CONTACT_LABELS": "Kontakt Labels",
+      "CONTACT_LABELS": "Kontakt Tags",
       "PREVIOUS_CONVERSATIONS": "Tidligere Samtaler",
       "NO_RECORDS_FOUND": "Ingen attributter fundet"
     }
@@ -582,9 +582,9 @@
   "CONTACTS_BULK_ACTIONS": {
     "ASSIGN_LABELS": "Tildel Etiketter",
     "ASSIGN_LABELS_SUCCESS": "Etiketter tildelt med succes.",
-    "ASSIGN_LABELS_FAILED": "Failed to assign labels",
-    "DESCRIPTION": "Select the labels you want to add to the selected contacts.",
-    "NO_LABELS_FOUND": "No labels available yet.",
+    "ASSIGN_LABELS_FAILED": "Failed to assign Tags",
+    "DESCRIPTION": "Select the Tags you want to add to the selected contacts.",
+    "NO_LABELS_FOUND": "No Tags available yet.",
     "SELECTED_COUNT": "{count} selected",
     "CLEAR_SELECTION": "Clear selection",
     "SELECT_ALL": "Select all ({count})",

@@ -29,7 +29,7 @@
     },
     "LABELS": {
       "CONTACT": {
-        "TITLE": "Contact Labels",
+        "TITLE": "Contact Tags",
         "ERROR": "ലേബലുകൾ അപ്‌ഡേറ്റ് ചെയ്യാനായില്ല"
       },
       "CONVERSATION": {
@@ -53,7 +53,7 @@
     "EDIT_LABEL": "എഡിറ്റുചെയ്യുക",
     "SIDEBAR_SECTIONS": {
       "CUSTOM_ATTRIBUTES": "ഇഷ്‌ടാനുസൃത ആട്രിബ്യൂട്ടുകൾ",
-      "CONTACT_LABELS": "Contact Labels",
+      "CONTACT_LABELS": "Contact Tags",
       "PREVIOUS_CONVERSATIONS": "മുമ്പത്തെ സംഭാഷണങ്ങൾ",
       "NO_RECORDS_FOUND": "No attributes found"
     }
@@ -580,11 +580,11 @@
     "LOAD_MORE": "Load more"
   },
   "CONTACTS_BULK_ACTIONS": {
-    "ASSIGN_LABELS": "Assign Labels",
-    "ASSIGN_LABELS_SUCCESS": "Labels assigned successfully.",
-    "ASSIGN_LABELS_FAILED": "Failed to assign labels",
-    "DESCRIPTION": "Select the labels you want to add to the selected contacts.",
-    "NO_LABELS_FOUND": "No labels available yet.",
+    "ASSIGN_LABELS": "Assign Tags",
+    "ASSIGN_LABELS_SUCCESS": "Tags assigned successfully.",
+    "ASSIGN_LABELS_FAILED": "Failed to assign Tags",
+    "DESCRIPTION": "Select the Tags you want to add to the selected contacts.",
+    "NO_LABELS_FOUND": "No Tags available yet.",
     "SELECTED_COUNT": "{count} selected",
     "CLEAR_SELECTION": "Clear selection",
     "SELECT_ALL": "Select all ({count})",

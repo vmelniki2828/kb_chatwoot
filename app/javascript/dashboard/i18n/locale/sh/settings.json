@@ -297,9 +297,9 @@
     "NO_ITEMS": "Nema stavki",
     "CURRENTLY_VIEWING_ACCOUNT": "Trenutno pregledavate:",
     "SWITCH": "Prebaci",
-    "INBOX_VIEW": "Inbox View",
+    "INBOX_VIEW": "Source View",
     "CONVERSATIONS": "Razgovori",
-    "INBOX": "My Inbox",
+    "INBOX": "Notifications",
     "ALL_CONVERSATIONS": "Sve Razgovore",
     "MENTIONED_CONVERSATIONS": "Spominjanja",
     "PARTICIPATING_CONVERSATIONS": "Sudjelovanje",
@@ -695,7 +695,7 @@
         "API": {
           "SUCCESS_MESSAGE": "Pravila dodjele uspješno su kreirana",
           "ERROR_MESSAGE": "Neuspjelo kreiranje pravila dodjele",
-          "INBOX_LINKED": "Inbox has been linked to the policy"
+          "INBOX_LINKED": "Source has been linked to the policy"
         }
       },
       "EDIT": {
@@ -721,11 +721,11 @@
         },
         "INBOX_API": {
           "ADD": {
-            "SUCCESS_MESSAGE": "Inbox added to policy successfully",
+            "SUCCESS_MESSAGE": "Source added to policy successfully",
             "ERROR_MESSAGE": "Failed to add inbox to policy"
           },
           "REMOVE": {
-            "SUCCESS_MESSAGE": "Inbox removed from policy successfully",
+            "SUCCESS_MESSAGE": "Source removed from policy successfully",
             "ERROR_MESSAGE": "Failed to remove inbox from policy"
           }
         }
@@ -785,7 +785,7 @@
           },
           "EMPTY_STATE": "No inboxes added to this policy, add an inbox to get started",
           "API": {
-            "SUCCESS_MESSAGE": "Inbox successfully added to policy",
+            "SUCCESS_MESSAGE": "Source successfully added to policy",
             "ERROR_MESSAGE": "Dodavanje inboxa u pravilo nije uspjelo"
           }
         }
@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "Pravila isključenja",
           "DESCRIPTION": "Razgovori koji zadovoljavaju sljedeće uvjete neće se računati u kapacitet agenta",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "Isključi razgovore označene određenim oznakama",
             "ADD_TAG": "dodaj oznaku",
             "DROPDOWN": {

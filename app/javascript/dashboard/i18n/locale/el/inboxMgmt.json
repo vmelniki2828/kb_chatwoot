@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Επιλέξτε σελίδα από την Λίστα",
         "INBOX_NAME": "Όνομα Κιβωτίου",
         "ADD_NAME": "Ονοματίστε το κιβώτιο σας",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Επιλέξτε τιμή",
         "CREATE_INBOX": "Δημιουργία Κιβωτίου"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Πράκτορες",
         "DESC": "Εδώ μπορείτε να προσθέσετε πράκτορες στο κιβώτιο που μόλις δημιουργήσατε. Μονο αυτοί οι επιλεγμένοι πράκτορες θα έχουν πρόσβαση στο κιβώτιο. Οι πράκτορες που δεν ανήκουν σε αυτο το κιβώτιο δεν θα έχουν την δυνατότητα να ανταποκρίνονται σε μηνήματα αυτού του κιβωτίου όταν κάνουν login στο σύστημα. <br> <b>ΥΓ:</b> Ως Διαχειριστής, αν θέλετε πρόσβαση σε όλα τα κιβώτια, θα πρέπει να προσθέσετε τον εαυτό σας σε όλα τα κιβώτια που δημιουργείτε.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Επιλέξτε πράκτορες για το κιβώτιο"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Enable/Disable showing Agent's name in email, if disabled it will show business name",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Ενεργοποίηση της συνέχειας συνομιλίας μέσω email",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Οι συζητήσεις θα συνεχίσουν μέσω email αν η διεύθυνση ηλεκτρονικού ταχυδρομείου επαφής είναι διαθέσιμη.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Ρυθμίσεις Κιβωτίου",
       "INBOX_UPDATE_SUB_TEXT": "Ενημερώστε τις ρυθμίσεις του κιβωτίου σας",
@@ -784,12 +784,12 @@
       "UPDATE_PRE_CHAT_FORM_SETTINGS": "Update Pre Chat Form Settings"
     },
     "HELP_CENTER": {
-      "LABEL": "Help Center",
-      "PLACEHOLDER": "Select Help Center",
-      "SELECT_PLACEHOLDER": "Select Help Center",
+      "LABEL": "Support Center",
+      "PLACEHOLDER": "Select Support Center",
+      "SELECT_PLACEHOLDER": "Select Support Center",
       "NONE": "Κανένα",
-      "REMOVE": "Remove Help Center",
-      "SUB_TEXT": "Attach a Help Center with the inbox"
+      "REMOVE": "Remove Support Center",
+      "SUB_TEXT": "Attach a Support Center with the inbox"
     },
     "AUTO_ASSIGNMENT": {
       "MAX_ASSIGNMENT_LIMIT": "Αυτόματο όριο ανάθεσης",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "περιέχει",
           "DOES_NOT_CONTAINS": "δεν περιέχει"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

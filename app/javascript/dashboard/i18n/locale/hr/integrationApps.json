@@ -33,7 +33,7 @@
     },
     "LIST": {
       "FETCHING": "Fetching integration hooks",
-      "INBOX": "Inbox",
+      "INBOX": "Source",
       "ACTIONS": "Radnje",
       "DELETE": {
         "BUTTON_TEXT": "Izbriši"
@@ -42,8 +42,8 @@
     "ADD": {
       "FORM": {
         "INBOX": {
-          "LABEL": "Select Inbox",
-          "PLACEHOLDER": "Select Inbox"
+          "LABEL": "Select Source",
+          "PLACEHOLDER": "Select Source"
         },
         "SUBMIT": "Create",
         "CANCEL": "Odustani"

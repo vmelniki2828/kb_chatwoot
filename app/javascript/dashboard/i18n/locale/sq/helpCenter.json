@@ -207,7 +207,7 @@
             "BODY": "Informacion bazë rreth portalit"
           },
           "CUSTOMIZATION": {
-            "TITLE": "Help center customization",
+            "TITLE": "Support Center customization",
             "BODY": "Customize portal"
           },
           "FINISH": {
@@ -224,7 +224,7 @@
           },
           "CUSTOMIZATION_PAGE": {
             "HEADER": "Portal customisation",
-            "TITLE": "Help center customization",
+            "TITLE": "Support Center customization",
             "UPDATE_PORTAL_BUTTON": "Përditëso cilësimet e portalit"
           },
           "FINISH_PAGE": {
@@ -751,7 +751,7 @@
         "LIVE_CHAT_WIDGET": {
           "LABEL": "Live chat widget",
           "PLACEHOLDER": "Select live chat widget",
-          "HELP_TEXT": "Select a live chat widget that will appear on your help center",
+          "HELP_TEXT": "Select a live chat widget that will appear on your Support Center",
           "NONE_OPTION": "No widget"
         },
         "BRAND_COLOR": {

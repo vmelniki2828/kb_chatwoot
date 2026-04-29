@@ -21,6 +21,9 @@ const defaultSansFonts = [
 
 const tailwindConfig = {
   darkMode: 'class',
+  safelist: [
+    'bg-n-teal-11',
+  ],
   content: [
     './enterprise/app/views/**/*.html.erb',
     './app/javascript/widget/**/*.vue',

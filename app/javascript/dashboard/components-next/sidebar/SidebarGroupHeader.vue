@@ -32,9 +32,10 @@ const count = computed(() =>
     :to="to"
     :title="label"
     :class="{
-      'text-n-slate-12 bg-n-alpha-2 font-medium': isActive && !hasActiveChild,
+      'text-n-brand bg-n-brand/10 border border-n-brand/45 font-medium':
+        isActive && !hasActiveChild,
       'text-n-slate-12 font-medium': hasActiveChild,
-      'text-n-slate-11 hover:bg-n-alpha-2': !isActive && !hasActiveChild,
+      'text-n-slate-10 hover:bg-n-alpha-2': !isActive && !hasActiveChild,
     }"
     @click.stop="emit('toggle')"
   >
@@ -47,7 +48,7 @@ const count = computed(() =>
     </div>
     <div class="flex items-center gap-1.5 flex-grow min-w-0 flex-1">
       <span
-        class="truncate"
+        class="truncate text-sm"
         :class="{
           'text-body-main': !isActive,
           'font-medium text-sm': isActive || hasActiveChild,

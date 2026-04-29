@@ -16,7 +16,7 @@ const mockInboxList = [
   {
     value: 3,
     label: 'WhatsApp Business',
-    icon: 'i-lucide-message-circle',
+    icon: 'i-lucide-message-square',
   },
   {
     value: 4,

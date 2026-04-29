@@ -1,7 +1,7 @@
 {
   "AUTOMATION": {
     "HEADER": "Automation",
-    "DESCRIPTION": "Automation can replace and streamline existing processes that require manual effort, such as adding labels and assigning conversations to the most suitable agent. This allows the team to focus on their strengths while reducing time spent on routine tasks.",
+    "DESCRIPTION": "Automation can replace and streamline existing processes that require manual effort, such as adding Tags and assigning conversations to the most suitable agent. This allows the team to focus on their strengths while reducing time spent on routine tasks.",
     "LEARN_MORE": "Learn more about automation",
     "COUNT": "{n} automation | {n} automations",
     "HEADER_BTN_TXT": "Create Automation",
@@ -92,7 +92,7 @@
     "CONDITION": {
       "DELETE_MESSAGE": "You need to have atleast one condition to save",
       "CONTACT_CUSTOM_ATTR_LABEL": "Contact Custom Attributes",
-      "CONVERSATION_CUSTOM_ATTR_LABEL": "Conversation Custom Attributes"
+      "CONVERSATION_CUSTOM_ATTR_LABEL": "Chat Custom Attributes"
     },
     "ACTION": {
       "DELETE_MESSAGE": "You need to have atleast one action to save",
@@ -131,8 +131,8 @@
     },
     "NONE_OPTION": "None",
     "EVENTS": {
-      "CONVERSATION_CREATED": "Conversation Created",
-      "CONVERSATION_UPDATED": "Conversation Updated",
+      "CONVERSATION_CREATED": "Chat Created",
+      "CONVERSATION_UPDATED": "Chat Updated",
       "MESSAGE_CREATED": "Mesazhi u krijua",
       "CONVERSATION_RESOLVED": "Biseda u zgjidh",
       "CONVERSATION_OPENED": "Biseda u hap"
@@ -145,8 +145,8 @@
       "SEND_EMAIL_TO_TEAM": "Dërgo një email ekipit",
       "SEND_EMAIL_TRANSCRIPT": "Dërgo një transkript me email",
       "MUTE_CONVERSATION": "Heshto bisedën",
-      "SNOOZE_CONVERSATION": "Snooze Conversation",
-      "RESOLVE_CONVERSATION": "Resolve Conversation",
+      "SNOOZE_CONVERSATION": "Snooze Chat",
+      "RESOLVE_CONVERSATION": "Resolve Chat",
       "SEND_WEBHOOK_EVENT": "Dërgo një ngjarje webhook",
       "SEND_ATTACHMENT": "Dërgo një bashkëngjitje",
       "SEND_MESSAGE": "Dërgo një mesazh",
@@ -171,7 +171,7 @@
       "MESSAGE_TYPE": "Lloji i mesazhit",
       "MESSAGE_CONTAINS": "Mesazhi përmban",
       "EMAIL": "Email",
-      "INBOX": "Inbox",
+      "INBOX": "Source",
       "CONVERSATION_LANGUAGE": "Gjuha e bisedës",
       "PHONE_NUMBER": "Phone Number",
       "STATUS": "Status",
@@ -182,7 +182,7 @@
       "ASSIGNEE_NAME": "Assignee",
       "TEAM_NAME": "Team",
       "PRIORITY": "Priority",
-      "LABELS": "Labels"
+      "LABELS": "Tags"
     }
   }
 }

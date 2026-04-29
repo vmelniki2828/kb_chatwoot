@@ -47,9 +47,9 @@
     "ATTRIBUTES": {
       "STATUS": "സ്റ്റാറ്റസ്",
       "ASSIGNEE_NAME": "Assignee name",
-      "INBOX_NAME": "Inbox name",
+      "INBOX_NAME": "Source name",
       "TEAM_NAME": "ടീമിന്റെ പേര്",
-      "CONVERSATION_IDENTIFIER": "Conversation identifier",
+      "CONVERSATION_IDENTIFIER": "Chat identifier",
       "CAMPAIGN_NAME": "Campaign name",
       "LABELS": "ലേബലുകൾ",
       "BROWSER_LANGUAGE": "Browser language",

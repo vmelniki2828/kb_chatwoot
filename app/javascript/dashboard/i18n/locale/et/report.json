@@ -428,7 +428,7 @@
     "NO_RECORDS": "Vastuseid pole veel",
     "NO_RECORDS_DESCRIPTION": "Kliendirahulolu küsitluse vastused kuvatakse siin, kui kliendid hakkavad tagasisidet andma.",
     "DOWNLOAD": "Laadi alla CSAT aruanded",
-    "DOWNLOAD_FAILED": "Failed to download CSAT Reports",
+    "DOWNLOAD_FAILED": "Failed to Download CSV",
     "FILTERS": {
       "ADD_FILTER": "Lisa filter",
       "CLEAR_ALL": "Tühjenda kõik",

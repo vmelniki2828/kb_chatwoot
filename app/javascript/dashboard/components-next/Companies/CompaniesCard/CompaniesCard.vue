@@ -78,7 +78,7 @@ const formattedUpdatedAt = computed(() => {
               v-if="contactsCount"
               class="inline-flex items-center gap-1.5 text-sm text-n-slate-11 truncate"
             >
-              <Icon icon="i-lucide-contact" size="size-3.5 text-n-slate-11" />
+              <Icon icon="i-lucide-book-user" size="size-3.5 text-n-slate-11" />
               {{ t('COMPANIES.CONTACTS_COUNT', { n: contactsCount }) }}
             </span>
           </div>

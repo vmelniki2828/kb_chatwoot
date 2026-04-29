@@ -3,7 +3,7 @@ import ArticlesPage from './ArticlesPage.vue';
 
 const articles = [
   {
-    title: "How to get an SSL certificate for your Help Center's custom domain",
+    title: "How to get an SSL certificate for your Support Center's custom domain",
     status: 'draft',
     updatedAt: '2 days ago',
     author: 'Michael',
@@ -11,7 +11,7 @@ const articles = [
     views: 3400,
   },
   {
-    title: 'Setting up your first Help Center portal',
+    title: 'Setting up your first Support Center portal',
     status: '',
     updatedAt: '1 week ago',
     author: 'John',
@@ -19,7 +19,7 @@ const articles = [
     views: 400,
   },
   {
-    title: 'Best practices for organizing your Help Center content',
+    title: 'Best practices for organizing your Support Center content',
     status: 'archived',
     updatedAt: '3 days ago',
     author: 'Fernando',
@@ -27,7 +27,7 @@ const articles = [
     views: 400,
   },
   {
-    title: 'Customizing the appearance of your Help Center',
+    title: 'Customizing the appearance of your Support Center',
     status: '',
     updatedAt: '5 days ago',
     author: 'Jane',
@@ -35,7 +35,7 @@ const articles = [
     views: 400,
   },
   {
-    title: 'Best practices for organizing your Help Center content',
+    title: 'Best practices for organizing your Support Center content',
     status: 'archived',
     updatedAt: '3 days ago',
     author: 'Fernando',
@@ -43,7 +43,7 @@ const articles = [
     views: 400,
   },
   {
-    title: 'Customizing the appearance of your Help Center',
+    title: 'Customizing the appearance of your Support Center',
     status: '',
     updatedAt: '5 days ago',
     author: 'Jane',
@@ -51,7 +51,7 @@ const articles = [
     views: 400,
   },
   {
-    title: 'Best practices for organizing your Help Center content',
+    title: 'Best practices for organizing your Support Center content',
     status: 'archived',
     updatedAt: '3 days ago',
     author: 'Fernando',

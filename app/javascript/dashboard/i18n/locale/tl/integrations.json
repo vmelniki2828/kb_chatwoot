@@ -788,7 +788,7 @@
         "SUBTITLE": "Ginagamit ng iyong assistant ang mga dokumento para gumawa ng FAQs. Maaari kang mag-import ng mga dokumento upang magbigay ng konteksto para sa iyong assistant.",
         "FEATURE_SPOTLIGHT": {
           "TITLE": "Captain Document",
-          "NOTE": "Ang isang dokumento sa Captain ay nagsisilbing pinagkukunan ng kaalaman para sa assistant. Sa pamamagitan ng pagkonekta ng iyong help center o mga gabay, maaaring suriin ni Captain ang nilalaman at magbigay ng tumpak na mga sagot para sa mga tanong ng customer."
+          "NOTE": "Ang isang dokumento sa Captain ay nagsisilbing pinagkukunan ng kaalaman para sa assistant. Sa pamamagitan ng pagkonekta ng iyong Support Center o mga gabay, maaaring suriin ni Captain ang nilalaman at magbigay ng tumpak na mga sagot para sa mga tanong ng customer."
         }
       }
     },
@@ -988,7 +988,7 @@
       }
     },
     "INBOXES": {
-      "HEADER": "Mga Nakakonektang Inbox",
+      "HEADER": "Mga Nakakonektang Source",
       "ADD_NEW": "Ikonekta ang bagong inbox",
       "OPTIONS": {
         "DISCONNECT": "I-disconnect"
@@ -1002,19 +1002,19 @@
       },
       "FORM_DESCRIPTION": "Pumili ng inbox na ikokonekta sa assistant.",
       "CREATE": {
-        "TITLE": "Ikonekta ang isang Inbox",
+        "TITLE": "Ikonekta ang isang Source",
         "SUCCESS_MESSAGE": "Matagumpay na naikonekta ang inbox.",
         "ERROR_MESSAGE": "Nagkaroon ng error sa pagkonekta ng inbox. Pakisubukang muli."
       },
       "FORM": {
         "INBOX": {
-          "LABEL": "Inbox",
+          "LABEL": "Source",
           "PLACEHOLDER": "Piliin ang inbox kung saan ide-deploy ang assistant.",
           "ERROR": "Kinakailangan ang pagpili ng inbox."
         }
       },
       "EMPTY_STATE": {
-        "TITLE": "Walang Nakakonektang Inbox",
+        "TITLE": "Walang Nakakonektang Source",
         "SUBTITLE": "Ang pagkonekta ng inbox ay nagpapahintulot sa assistant na sagutin ang mga unang tanong mula sa iyong mga customer bago ito ipasa sa iyo."
       }
     }

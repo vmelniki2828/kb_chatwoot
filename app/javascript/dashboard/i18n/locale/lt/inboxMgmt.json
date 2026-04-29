@@ -47,7 +47,7 @@
         "CHOOSE_PLACEHOLDER": "Psirinkti puslapį iš sąrašo",
         "INBOX_NAME": "Gautų Laiškų Aplanko Pavadinimas",
         "ADD_NAME": "Prašome įrašyti gautų laiškų aplanko pavadinimą",
-        "PICK_NAME": "Pick a Name for your Inbox",
+        "PICK_NAME": "Pick a Name for your Source",
         "PICK_A_VALUE": "Pasirinkti reikšmę",
         "CREATE_INBOX": "Sukurti Gautų Laiškų Aplanką"
       },
@@ -494,7 +494,7 @@
       "AGENTS": {
         "TITLE": "Agentai",
         "DESC": "Čia galite pridėti agentų, kad galėtumėte tvarkyti naujai sukurtus gautų laiškų aplanką. Tik šie pasirinkti agentai turės prieigą prie jūsų gautų laiškų aplanko. Agentai, kurie nėra šio dalis, prisijungę negalės matyti pranešimų arba atsakyti į juos. <br> <b>PS:</b> Jei jums reikia prieigos prie visų gautų laiškų aplankų, turėtumėte įtraukti save kaip agentą prie visų sukurtų aplankų, kaip administratorius.",
-        "VALIDATION_ERROR": "Add at least one agent to your new Inbox",
+        "VALIDATION_ERROR": "Add at least one agent to your new Source",
         "PICK_AGENTS": "Pasirinkite agentus gautų laiškų aplankams"
       },
       "DETAILS": {
@@ -737,7 +737,7 @@
       "SENDER_NAME_SECTION_TEXT": "Įjungti/išjungti agento vardo rodymą el. pašte, jei išjungta, bus rodomas įmonės pavadinimas",
       "ENABLE_CONTINUITY_VIA_EMAIL": "Leisti pokalbio tęstinumą el. paštu",
       "ENABLE_CONTINUITY_VIA_EMAIL_SUB_TEXT": "Jei kontaktinis el. pašto adresas yra pasiekiamas, pokalbiai bus tęsiami el. paštu.",
-      "LOCK_TO_SINGLE_CONVERSATION": "Conversation Routing",
+      "LOCK_TO_SINGLE_CONVERSATION": "Chat Routing",
       "LOCK_TO_SINGLE_CONVERSATION_SUB_TEXT": "Configure conversation creation for existing contacts",
       "INBOX_UPDATE_TITLE": "Gautų Laiškų Aplanko Nustatymai",
       "INBOX_UPDATE_SUB_TEXT": "Atnaujinkite gautų laiškų aplanko nustatymus",
@@ -931,12 +931,12 @@
       "SURVEY_RULE": {
         "LABEL": "Survey rule",
         "DESCRIPTION_PREFIX": "Send the survey if the conversation",
-        "DESCRIPTION_SUFFIX": "any of the labels",
+        "DESCRIPTION_SUFFIX": "any of the Tags",
         "OPERATOR": {
           "CONTAINS": "sudėtyje yra",
           "DOES_NOT_CONTAINS": "sudėtyje nėra"
         },
-        "SELECT_PLACEHOLDER": "select labels"
+        "SELECT_PLACEHOLDER": "select Tags"
       },
       "NOTE": "Note: CSAT surveys are sent only once per conversation",
       "WHATSAPP_NOTE": "Note: When you save, the system creates a dedicated CSAT template in WhatsApp (used to capture rating and feedback in reports) and submits it as Utility for approval. Meta may still classify it as Marketing based on content. After approval, surveys are sent only once per conversation as per the survey rule.",

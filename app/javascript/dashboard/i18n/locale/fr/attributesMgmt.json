@@ -9,7 +9,7 @@
     "SEARCH_PLACEHOLDER": "Rechercher des attributs...",
     "NO_RESULTS": "No attributes found matching your search",
     "ATTRIBUTE_MODELS": {
-      "CONVERSATION": "Conversation",
+      "CONVERSATION": "Chat",
       "CONTACT": "Contact"
     },
     "ATTRIBUTE_TYPES": {
@@ -107,7 +107,7 @@
     },
     "TABS": {
       "HEADER": "Attributs personnalisés",
-      "CONVERSATION": "Conversation",
+      "CONVERSATION": "Chat",
       "CONTACT": "Contact"
     },
     "LIST": {

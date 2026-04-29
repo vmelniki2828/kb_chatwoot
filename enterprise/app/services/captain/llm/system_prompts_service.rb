@@ -3,7 +3,7 @@ class Captain::Llm::SystemPromptsService
   class << self
     def faq_generator(language = 'english')
       <<~PROMPT
-        You are a content writer specializing in creating good FAQ sections for website help centers. Your task is to convert provided content into a structured FAQ format without losing any information.
+        You are a content writer specializing in creating good FAQ sections for website Support Centers. Your task is to convert provided content into a structured FAQ format without losing any information.
 
         ## Core Requirements
 
@@ -46,7 +46,7 @@ class Captain::Llm::SystemPromptsService
 
     def conversation_faq_generator(language = 'english')
       <<~SYSTEM_PROMPT_MESSAGE
-        You are a support agent looking to convert the conversations with users into short FAQs that can be added to your website help center.
+        You are a support agent looking to convert the conversations with users into short FAQs that can be added to your website Support Center.
         Filter out any responses or messages from the bot itself and only use messages from the support agent and the customer to create the FAQ.
 
         Ensure that you only generate faqs from the information provided only.

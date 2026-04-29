@@ -879,7 +879,7 @@
         "EXCLUSION_RULES": {
           "LABEL": "የማስወገድ ህጎች",
           "DESCRIPTION": "የሚከተሉትን ሁኔታዎች የሚያሟሉ ውይይቶች ወኪሉን አይቀርቡም",
-          "TAGS": {
+          "LABELS": {
             "LABEL": "በተለይ ሌብሎች የተሰየሙ ውይይቶችን አስወግዱ",
             "ADD_TAG": "ሌብል ያክሉ",
             "DROPDOWN": {

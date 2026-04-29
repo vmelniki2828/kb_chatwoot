@@ -342,6 +342,15 @@ const shouldShowMessageEditor = computed(() => {
 
 const isCopilotActive = computed(() => copilot.isActive?.value ?? false);
 
+const isContactStepDone = computed(() => !!props.selectedContact);
+const isInboxStepDone = computed(() => !!props.targetInbox);
+const isMessageStepDone = computed(() => (state.message || '').trim().length > 0);
+
+const completedSteps = computed(() => {
+  return [isContactStepDone.value, isInboxStepDone.value, isMessageStepDone.value]
+    .filter(Boolean).length;
+});
+
 const onSubmitCopilotReply = () => {
   const acceptedMessage = copilot.accept();
   state.message = acceptedMessage;
@@ -361,75 +370,107 @@ useKeyboardEvents({
 
 <template>
   <div
-    class="w-[42rem] divide-y divide-n-strong overflow-visible transition-all duration-300 ease-in-out top-full flex flex-col bg-n-alpha-3 border border-n-strong shadow-sm backdrop-blur-[100px] rounded-xl min-w-0 max-h-[calc(100vh-8rem)]"
+    class="compose-form w-[42rem] overflow-visible transition-all duration-300 ease-in-out top-full flex flex-col bg-n-alpha-3 border border-n-strong shadow-sm backdrop-blur-[100px] rounded-xl min-w-0 max-h-[calc(50vh-4rem)]"
   >
-    <div class="flex-1 overflow-y-auto divide-y divide-n-strong">
-      <ContactSelector
-        :contacts="contacts"
-        :selected-contact="selectedContact"
-        :show-contacts-dropdown="showContactsDropdown"
-        :is-loading="isLoading"
-        :is-creating-contact="isCreatingContact"
-        :contact-id="contactId"
-        :contactable-inboxes-list="contactableInboxesList"
-        :show-inboxes-dropdown="showInboxesDropdown"
-        :has-errors="validationStates.isContactInvalid"
-        @search-contacts="handleContactSearch"
-        @set-selected-contact="setSelectedContact"
-        @clear-selected-contact="clearSelectedContact"
-        @update-dropdown="handleDropdownUpdate"
-      />
-      <InboxEmptyState v-if="showNoInboxAlert" />
-      <InboxSelector
-        v-else
-        :target-inbox="targetInbox"
-        :selected-contact="selectedContact"
-        :show-inboxes-dropdown="showInboxesDropdown"
-        :contactable-inboxes-list="contactableInboxesList"
-        :has-errors="validationStates.isInboxInvalid"
-        :is-fetching-inboxes="isFetchingInboxes"
-        @update-inbox="removeTargetInbox"
-        @toggle-dropdown="showInboxesDropdown = $event"
-        @handle-inbox-action="handleInboxAction"
-      />
+    <!-- Заголовок: pt-6 pb-5 → pt-4 pb-3, текст 2.8rem → 1.85rem -->
+    <div class="px-6 pt-4 pb-3 border-b border-n-strong">
+      <p class="text-xs tracking-[0.14em] uppercase text-n-brand mb-1">
+        New message
+      </p>
+      <h2 class="text-[1.85rem] leading-none font-semibold text-n-slate-12 mb-0">
+        COMPOSE
+      </h2>
+    </div>
 
-      <EmailOptions
-        v-if="inboxTypes.isEmail"
-        v-model:cc-emails="state.ccEmails"
-        v-model:bcc-emails="state.bccEmails"
-        v-model:subject="state.subject"
-        :contacts="contacts"
-        :show-cc-emails-dropdown="showCcEmailsDropdown"
-        :show-bcc-emails-dropdown="showBccEmailsDropdown"
-        :is-loading="isLoading"
-        :has-errors="validationStates.isSubjectInvalid"
-        @search-cc-emails="searchCcEmails"
-        @search-bcc-emails="searchBccEmails"
-        @update-dropdown="handleDropdownUpdate"
-      />
+    <div class="flex-1 overflow-y-auto">
+      <!-- Секция To/Via: py-5 → py-3, gap-6 → gap-4 -->
+      <div class="grid grid-cols-2 px-6 py-3 gap-4 border-b border-n-strong">
+        <div class="compose-step-field border-r border-n-strong pr-4">
+          <!-- Номер шага: 1.7rem → 1.1rem -->
+          <p class="text-n-brand text-[1.1rem] font-semibold mb-0.5">01</p>
+          <p class="text-n-slate-11 mb-1.5 text-sm">To</p>
+          <ContactSelector
+            :contacts="contacts"
+            :selected-contact="selectedContact"
+            :show-contacts-dropdown="showContactsDropdown"
+            :is-loading="isLoading"
+            :is-creating-contact="isCreatingContact"
+            :contact-id="contactId"
+            :contactable-inboxes-list="contactableInboxesList"
+            :show-inboxes-dropdown="showInboxesDropdown"
+            :has-errors="validationStates.isContactInvalid"
+            @search-contacts="handleContactSearch"
+            @set-selected-contact="setSelectedContact"
+            @clear-selected-contact="clearSelectedContact"
+            @update-dropdown="handleDropdownUpdate"
+          />
+        </div>
 
-      <MessageEditor
-        v-if="shouldShowMessageEditor"
-        v-model="state.message"
-        :message-signature="messageSignature"
-        :send-with-signature="sendWithSignature"
-        :has-errors="validationStates.isMessageInvalid"
-        :channel-type="inboxChannelType"
-        :medium="targetInbox?.medium || ''"
-        :copilot="copilot"
-      />
+        <div class="compose-step-field">
+          <p class="text-n-brand text-[1.1rem] font-semibold mb-0.5">02</p>
+          <p class="text-n-slate-11 mb-1.5 text-sm">Via</p>
+          <InboxEmptyState v-if="showNoInboxAlert" />
+          <InboxSelector
+            v-else
+            :target-inbox="targetInbox"
+            :selected-contact="selectedContact"
+            :show-inboxes-dropdown="showInboxesDropdown"
+            :contactable-inboxes-list="contactableInboxesList"
+            :has-errors="validationStates.isInboxInvalid"
+            :is-fetching-inboxes="isFetchingInboxes"
+            @update-inbox="removeTargetInbox"
+            @toggle-dropdown="showInboxesDropdown = $event"
+            @handle-inbox-action="handleInboxAction"
+          />
+        </div>
+      </div>
 
-      <AttachmentPreviews
-        v-if="state.attachedFiles.length > 0"
-        :attachments="state.attachedFiles"
-        @update:attachments="state.attachedFiles = $event"
-      />
+      <!-- Секция Message: py-5 → py-3, mb-3 → mb-2 -->
+      <div class="px-6 py-3">
+        <div class="mb-2">
+          <p class="text-n-slate-10 tracking-[0.14em] uppercase font-medium mb-0 text-xs">
+            03 Message
+          </p>
+        </div>
+
+        <EmailOptions
+          v-if="inboxTypes.isEmail"
+          v-model:cc-emails="state.ccEmails"
+          v-model:bcc-emails="state.bccEmails"
+          v-model:subject="state.subject"
+          :contacts="contacts"
+          :show-cc-emails-dropdown="showCcEmailsDropdown"
+          :show-bcc-emails-dropdown="showBccEmailsDropdown"
+          :is-loading="isLoading"
+          :has-errors="validationStates.isSubjectInvalid"
+          @search-cc-emails="searchCcEmails"
+          @search-bcc-emails="searchBccEmails"
+          @update-dropdown="handleDropdownUpdate"
+        />
+
+        <MessageEditor
+          v-if="shouldShowMessageEditor"
+          v-model="state.message"
+          :message-signature="messageSignature"
+          :send-with-signature="sendWithSignature"
+          :has-errors="validationStates.isMessageInvalid"
+          :channel-type="inboxChannelType"
+          :medium="targetInbox?.medium || ''"
+          :copilot="copilot"
+        />
+
+        <AttachmentPreviews
+          v-if="state.attachedFiles.length > 0"
+          :attachments="state.attachedFiles"
+          @update:attachments="state.attachedFiles = $event"
+        />
+      </div>
     </div>
 
     <CopilotReplyBottomPanel
       v-if="isCopilotActive"
       :is-generating-content="copilot.isButtonDisabled.value"
-      class="h-[3.25rem] !px-4 !py-2"
+      class="h-[2.5rem] !px-3 !py-1.5"
       @submit="onSubmitCopilotReply"
       @cancel="copilot.reset"
     />
@@ -458,5 +499,44 @@ useKeyboardEvents({
       @send-whatsapp-message="handleSendWhatsappMessage"
       @send-twilio-message="handleSendTwilioMessage"
     />
+
+    <!-- Прогресс-бар: pb-2.5 → pb-1.5, gap-3 → gap-2 -->
+    <div class="grid grid-cols-3 gap-2 px-6 pb-1.5">
+      <span
+        class="h-[2px] rounded-full transition-colors duration-200"
+        :class="completedSteps >= 1 ? 'bg-n-brand' : 'bg-n-strong'"
+      />
+      <span
+        class="h-[2px] rounded-full transition-colors duration-200"
+        :class="completedSteps >= 2 ? 'bg-n-brand' : 'bg-n-strong'"
+      />
+      <span
+        class="h-[2px] rounded-full transition-colors duration-200"
+        :class="completedSteps >= 3 ? 'bg-n-brand' : 'bg-n-strong'"
+      />
+    </div>
   </div>
 </template>
+
+<style scoped>
+.compose-step-field :deep(.relative.flex-1.px-4.py-3.overflow-y-visible),
+.compose-step-field :deep(.flex.items-center.flex-1.w-full.gap-3.px-4.py-3.overflow-y-visible) {
+  padding: 0;
+}
+
+.compose-step-field :deep(label.text-sm.font-medium.text-n-slate-11.whitespace-nowrap),
+.compose-step-field :deep(label.mb-0\.5.text-sm.font-medium.text-n-slate-11.whitespace-nowrap) {
+  display: none;
+}
+
+/* 3.25rem → 2.17rem (÷1.5) */
+.compose-step-field :deep(.flex.items-baseline.w-full.gap-3.min-h-7),
+.compose-step-field :deep(.relative.flex.items-center.h-7) {
+  min-height: 2.17rem;
+}
+
+.compose-form :deep(.ProseMirror-woot-style) {
+  min-height: 7rem !important;
+  max-height: 7.5rem !important;
+}
+</style>

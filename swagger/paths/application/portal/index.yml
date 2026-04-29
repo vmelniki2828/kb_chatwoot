@@ -1,5 +1,5 @@
 tags:
-  - Help Center
+  - Support Center
 operationId: get-portal
 summary: List all portals in an account
 parameters:

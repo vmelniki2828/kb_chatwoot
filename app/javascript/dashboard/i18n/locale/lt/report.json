@@ -3,7 +3,7 @@
     "HEADER": "Pokalbiai",
     "LOADING_CHART": "Įkeliami diagramos duomenys...",
     "NO_ENOUGH_DATA": "Negavome pakankamai duomenų, kad galėtume sugeneruoti ataskaitą. Bandykite dar kartą vėliau.",
-    "DOWNLOAD_CONVERSATION_REPORTS": "Download conversation reports",
+    "DOWNLOAD_CONVERSATION_REPORTS": "Download CSV",
     "DATA_FETCHING_FAILED": "Nepavyko gauti duomenų, bandykite dar kartą vėliau.",
     "SUMMARY_FETCHING_FAILED": "Nepavyko gauti suvestinės, bandykite dar kartą vėliau.",
     "METRICS": {
@@ -128,7 +128,7 @@
   },
   "AGENT_REPORTS": {
     "HEADER": "Agentų apžvalga",
-    "DESCRIPTION": "Easily track agent performance with key metrics such as conversations, response times, resolution times, and resolved cases. Click an agent's name to learn more.",
+    "DESCRIPTION": "Monitor agent performance through conversations handled, response and resolution times, and resolved cases metrics. Click an agent's name to dive deeper.",
     "LOADING_CHART": "Įkeliami diagramos duomenys...",
     "NO_ENOUGH_DATA": "Negavome pakankamai duomenų, kad galėtume sugeneruoti ataskaitą. Bandykite dar kartą vėliau.",
     "DOWNLOAD_AGENT_REPORTS": "Parsisiųsti agentų ataskaitas",
@@ -201,7 +201,7 @@
   },
   "LABEL_REPORTS": {
     "HEADER": "Etikečių Apžvalga",
-    "DESCRIPTION": "Track label performance with key metrics including conversations, response times, resolution times, and resolved cases. Click a label name for detailed insights.",
+    "DESCRIPTION": "Monitor performance across tags using conversations handled, response and resolution times, and resolved cases metrics. Click a tag name to explore further.",
     "LOADING_CHART": "Įkeliami diagramos duomenys...",
     "NO_ENOUGH_DATA": "Negavome pakankamai duomenų, kad galėtume sugeneruoti ataskaitą. Bandykite dar kartą vėliau.",
     "DOWNLOAD_LABEL_REPORTS": "Parsisiųsti etiketės ataskaitas",
@@ -274,13 +274,13 @@
   },
   "INBOX_REPORTS": {
     "HEADER": "Gautų Laiškų Aplanko Apžvalga",
-    "DESCRIPTION": "Quickly view your inbox performance with key metrics like conversations, response times, resolution times, and resolved cases—all in one place. Click an inbox name for more details.",
+    "DESCRIPTION": "Monitor inbox performance at a glance — conversations, response and resolution times, and resolved cases, all in one place. Click an inbox name to dive deeper.",
     "LOADING_CHART": "Įkeliami diagramos duomenys...",
     "NO_ENOUGH_DATA": "Negavome pakankamai duomenų, kad galėtume sugeneruoti ataskaitą. Bandykite dar kartą vėliau.",
     "DOWNLOAD_INBOX_REPORTS": "Parsisiųsti gautų laiškų aplanko ataskaitas",
     "FILTER_DROPDOWN_LABEL": "Pasirinkti gautų laiškų aplanką",
-    "ALL_INBOXES": "All Inboxes",
-    "SEARCH_INBOX": "Search Inbox",
+    "ALL_INBOXES": "All Sources",
+    "SEARCH_INBOX": "Search Source",
     "FILTERS": {
       "INPUT_PLACEHOLDER": {
         "INBOXES": "Search inboxes"
@@ -349,7 +349,7 @@
   },
   "TEAM_REPORTS": {
     "HEADER": "Komandos apžvalga",
-    "DESCRIPTION": "Get a snapshot of your team's performance with essential metrics, including conversations, response times, resolution times, and resolved cases. Click a team name for more details.",
+    "DESCRIPTION": "Monitor your team's performance through essential metrics — conversations handled, response and resolution times, and resolved cases. Click a team name to explore further.",
     "LOADING_CHART": "Įkeliami diagramos duomenys...",
     "NO_ENOUGH_DATA": "Negavome pakankamai duomenų, kad galėtume sugeneruoti ataskaitą. Bandykite dar kartą vėliau.",
     "DOWNLOAD_TEAM_REPORTS": "Parsisiųsti komandos ataskaitas",
@@ -505,7 +505,7 @@
     "HEADER": "Bot Reports",
     "METRIC": {
       "TOTAL_CONVERSATIONS": {
-        "LABEL": "No. of Conversations",
+        "LABEL": "No. of Chats",
         "TOOLTIP": "Total number of conversations handled by the bot"
       },
       "TOTAL_RESPONSES": {
@@ -560,7 +560,7 @@
     },
     "TEAM_CONVERSATIONS": {
       "ALL_TEAMS": "All Teams",
-      "HEADER": "Conversations by teams",
+      "HEADER": "Chats by teams",
       "LOADING_MESSAGE": "Loading team metrics...",
       "NO_TEAMS": "There is no data available",
       "TABLE_HEADER": {
@@ -623,7 +623,7 @@
         "TOOLTIP": "Total SLA misses in a certain period"
       },
       "NO_OF_CONVERSATIONS": {
-        "LABEL": "Number of Conversations",
+        "LABEL": "Number of Chats",
         "TOOLTIP": "Total number of conversations with SLA"
       }
     },

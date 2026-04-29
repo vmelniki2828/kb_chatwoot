@@ -65,7 +65,7 @@ const emit = defineEmits([
               <Button
                 id="toggleContactsFilterButton"
                 :icon="
-                  isSegmentsView ? 'i-lucide-pen-line' : 'i-lucide-list-filter'
+                  isSegmentsView ? 'i-lucide-send-horizontal' : 'i-lucide-funnel'
                 "
                 color="slate"
                 size="sm"

@@ -264,98 +264,126 @@ defineExpose({ dialogRef });
   <Dialog
     ref="dialogRef"
     type="edit"
-    :title="dialogTitle"
-    :description="dialogDescription"
     :show-cancel-button="false"
     :show-confirm-button="false"
     @close="closeModal"
   >
-    <form class="flex flex-col gap-4" @submit.prevent="handleSubmit">
-      <div
-        v-if="!showAccessToken || type === MODAL_TYPES.EDIT"
-        class="flex flex-col gap-4"
-      >
-        <div class="mb-2 flex flex-col items-start">
-          <span class="mb-2 text-sm font-medium text-n-slate-12">
-            {{ $t('AGENT_BOTS.FORM.AVATAR.LABEL') }}
-          </span>
-          <Avatar
-            :src="formState.botAvatarUrl"
-            :name="formState.botName"
-            :size="68"
-            allow-upload
-            icon-name="i-lucide-bot-message-square"
-            @upload="handleImageUpload"
-            @delete="handleAvatarDelete"
+    <div class="flex flex-col gap-0">
+      <div class="px-8 pt-8 pb-6 border-b border-white/10">
+        <p class="text-xs font-semibold tracking-[0.2em] text-[#4ade80] uppercase mb-1">Bots</p>
+        <h2 class="text-3xl font-black tracking-wide text-white uppercase">{{ dialogTitle }}</h2>
+        <p v-if="dialogDescription" class="text-sm text-n-slate-10 mt-1">{{ dialogDescription }}</p>
+      </div>
+
+      <form class="flex flex-col gap-6 px-8 py-6" @submit.prevent="handleSubmit">
+
+        <template v-if="!showAccessToken || type === 'edit'">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-[#4ade80] tracking-widest">01</span>
+              <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">Identity</span>
+            </div>
+            <div class="flex items-center gap-4">
+              <Avatar
+                :src="formState.botAvatarUrl"
+                :name="formState.botName"
+                :size="68"
+                allow-upload
+                icon-name="i-lucide-bot-message-square-message-square"
+                @upload="handleImageUpload"
+                @delete="handleAvatarDelete"
+              />
+              <div
+                class="flex-1 flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+                :class="{ 'border-red-500/50': v$.botName.$error }"
+              >
+                <span class="text-[10px] font-semibold tracking-[0.15em] text-[#4ade80] uppercase">{{ $t('AGENT_BOTS.FORM.NAME.LABEL') }}</span>
+                <input
+                  v-model="formState.botName"
+                  type="text"
+                  :placeholder="$t('AGENT_BOTS.FORM.NAME.PLACEHOLDER')"
+                  class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0"
+                  @blur="v$.botName.$touch()"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-white/10" />
+
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-[#4ade80] tracking-widest">02</span>
+              <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">Configuration</span>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div
+                class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-1.5 pb-2 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]"
+                :class="{ 'border-red-500/50': v$.botUrl.$error }"
+              >
+                <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">{{ $t('AGENT_BOTS.FORM.WEBHOOK_URL.LABEL') }}</span>
+                <input
+                  v-model="formState.botUrl"
+                  type="text"
+                  :placeholder="$t('AGENT_BOTS.FORM.WEBHOOK_URL.PLACEHOLDER')"
+                  class="h-6 bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0"
+                  @blur="v$.botUrl.$touch()"
+                />
+              </div>
+
+              <div class="flex flex-col gap-1 rounded-xl border border-white/10 bg-white/5 px-4 pt-2 pb-3 transition-all duration-200 hover:border-[rgba(74,222,128,0.4)] hover:shadow-[0_0_12px_rgba(74,222,128,0.15)] focus-within:border-[rgba(74,222,128,0.5)] focus-within:shadow-[0_0_16px_rgba(74,222,128,0.2)]">
+                <span class="text-[10px] font-semibold tracking-[0.15em] text-n-slate-10 uppercase">{{ $t('AGENT_BOTS.FORM.DESCRIPTION.LABEL') }}</span>
+                <textarea
+                  v-model="formState.botDescription"
+                  :placeholder="$t('AGENT_BOTS.FORM.DESCRIPTION.PLACEHOLDER')"
+                  rows="3"
+                  class="bg-transparent border-0 outline-none text-sm text-n-slate-9 placeholder:text-n-slate-8 p-0 resize-none"
+                />
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <div v-if="showAccessTokenInput" class="flex flex-col gap-3">
+          <div class="border-t border-white/10" />
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-[#4ade80] tracking-widest">03</span>
+            <span class="text-xs font-semibold tracking-[0.18em] text-n-slate-10 uppercase">{{ $t('AGENT_BOTS.ACCESS_TOKEN.TITLE') }}</span>
+          </div>
+          <AccessToken
+            v-if="type === 'edit'"
+            :value="accessToken"
+            @on-copy="onCopyToken"
+            @on-reset="onResetToken"
+          />
+          <AccessToken
+            v-else
+            :value="accessToken"
+            :show-reset-button="false"
+            @on-copy="onCopyToken"
           />
         </div>
 
-        <Input
-          id="bot-name"
-          v-model="formState.botName"
-          :label="$t('AGENT_BOTS.FORM.NAME.LABEL')"
-          :placeholder="$t('AGENT_BOTS.FORM.NAME.PLACEHOLDER')"
-          :message="botNameError"
-          :message-type="botNameError ? 'error' : 'info'"
-          @blur="v$.botName.$touch()"
-        />
+        <div class="border-t border-white/10" />
 
-        <TextArea
-          id="bot-description"
-          v-model="formState.botDescription"
-          :label="$t('AGENT_BOTS.FORM.DESCRIPTION.LABEL')"
-          :placeholder="$t('AGENT_BOTS.FORM.DESCRIPTION.PLACEHOLDER')"
-        />
-
-        <Input
-          id="bot-url"
-          v-model="formState.botUrl"
-          :label="$t('AGENT_BOTS.FORM.WEBHOOK_URL.LABEL')"
-          :placeholder="$t('AGENT_BOTS.FORM.WEBHOOK_URL.PLACEHOLDER')"
-          :message="botUrlError"
-          :message-type="botUrlError ? 'error' : 'info'"
-          @blur="v$.botUrl.$touch()"
-        />
-      </div>
-
-      <div v-if="showAccessTokenInput" class="flex flex-col gap-1">
-        <label
-          v-if="type === MODAL_TYPES.EDIT"
-          class="mb-0.5 text-sm font-medium text-n-slate-12"
-        >
-          {{ $t('AGENT_BOTS.ACCESS_TOKEN.TITLE') }}
-        </label>
-        <AccessToken
-          v-if="type === MODAL_TYPES.EDIT"
-          :value="accessToken"
-          @on-copy="onCopyToken"
-          @on-reset="onResetToken"
-        />
-        <AccessToken
-          v-else
-          :value="accessToken"
-          :show-reset-button="false"
-          @on-copy="onCopyToken"
-        />
-      </div>
-
-      <div class="flex items-center justify-end w-full gap-2 px-0 py-2">
-        <NextButton
-          faded
-          slate
-          type="reset"
-          :label="$t('AGENT_BOTS.FORM.CANCEL')"
-          @click="onClickClose()"
-        />
-        <NextButton
-          v-if="!showAccessToken"
-          type="submit"
-          data-testid="label-submit"
-          :label="confirmButtonLabel"
-          :is-loading="isLoading"
-          :disabled="v$.$invalid"
-        />
-      </div>
-    </form>
+        <div class="flex items-center justify-between gap-3 py-2">
+          <NextButton
+            variant="link"
+            type="reset"
+            :label="$t('AGENT_BOTS.FORM.CANCEL')"
+            class="h-10 hover:!no-underline hover:text-n-brand"
+            @click="onClickClose()"
+          />
+          <NextButton
+            v-if="!showAccessToken"
+            type="submit"
+            color="blue"
+            :label="confirmButtonLabel"
+            :is-loading="isLoading"
+            :disabled="v$.$invalid"
+          />
+        </div>
+      </form>
+    </div>
   </Dialog>
 </template>
