@@ -47,6 +47,8 @@ const defaultChartOptions = {
   datasets: {
     bar: {
       barPercentage: 1.0,
+      borderRadius: 6,
+      borderSkipped: false,
     },
   },
   scales: {

@@ -1,8 +1,11 @@
 <script setup>
-import { computed, useSlots, ref } from 'vue';
+import { computed, ref, useSlots } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { useMapGetter } from 'dashboard/composables/store';
+import { dynamicTime } from 'shared/helpers/timeHelper';
 import { vOnClickOutside } from '@vueuse/components';
+import Avatar from 'dashboard/components-next/avatar/Avatar.vue';
 
 import Button from 'dashboard/components-next/button/Button.vue';
 import Breadcrumb from 'dashboard/components-next/breadcrumb/Breadcrumb.vue';
@@ -11,14 +14,10 @@ import VoiceCallButton from 'dashboard/components-next/Contacts/VoiceCallButton.
 import DropdownMenu from 'dashboard/components-next/dropdown-menu/DropdownMenu.vue';
 
 const props = defineProps({
-  selectedContact: {
-    type: Object,
-    default: () => ({}),
-  },
-  isUpdating: {
-    type: Boolean,
-    default: false,
-  },
+  selectedContact: { type: Object, default: () => ({}) },
+  isUpdating: { type: Boolean, default: false },
+  isDetailView: { type: Boolean, default: false },
+  showPaginationFooter: { type: Boolean, default: true },
 });
 
 const emit = defineEmits(['goToContactsList', 'blockContact', 'unblockContact']);
@@ -26,226 +25,166 @@ const emit = defineEmits(['goToContactsList', 'blockContact', 'unblockContact'])
 const { t } = useI18n();
 const slots = useSlots();
 const route = useRoute();
-
-const isContactSidebarOpen = ref(false);
+const router = useRouter();
 const showBlockMenu = ref(false);
 
 const contactId = computed(() => route.params.contactId);
 
-const selectedContactName = computed(() => {
-  return props.selectedContact?.name;
-});
+const uiFlags = useMapGetter('contacts/getUIFlags');
+const isUpdating = computed(() => uiFlags.value.isUpdating);
+
+const createdAt = computed(() =>
+  props.selectedContact?.createdAt
+    ? dynamicTime(props.selectedContact.createdAt)
+    : ''
+);
+
+const lastActivityAt = computed(() =>
+  props.selectedContact?.lastActivityAt
+    ? dynamicTime(props.selectedContact.lastActivityAt)
+    : ''
+);
 
 const breadcrumbItems = computed(() => {
-  const items = [
-    {
-      label: t('CONTACTS_LAYOUT.HEADER.BREADCRUMB.CONTACTS'),
-      link: '#',
-    },
-  ];
-  if (props.selectedContact) {
-    items.push({
-      label: selectedContactName.value,
-    });
-  }
+  const items = [{ label: t('CONTACTS_LAYOUT.HEADER.BREADCRUMB.CONTACTS') }];
+  if (props.selectedContact?.name) items.push({ label: props.selectedContact.name });
   return items;
 });
+
+const goToContactsList = () => {
+  router.push({ name: 'contacts_dashboard_index', params: { accountId: route.params.accountId } });
+};
+
+const onBreadcrumbClick = (item, index) => {
+  if (index === 0) goToContactsList();
+};
 
 const isContactBlocked = computed(() => {
   const c = props.selectedContact;
   if (!c) return false;
-  return (
-    c.messaging_block_active ??
-    c.messagingBlockActive ??
-    c.blocked ??
-    false
-  );
+  return c.messaging_block_active ?? c.messagingBlockActive ?? c.blocked ?? false;
 });
 
 const blockDurationMenuItems = computed(() => [
-  {
-    action: 'block',
-    value: 1,
-    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_1_DAY'),
-  },
-  {
-    action: 'block',
-    value: 3,
-    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_3_DAYS'),
-  },
-  {
-    action: 'block',
-    value: 7,
-    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_7_DAYS'),
-  },
-  {
-    action: 'block',
-    value: 30,
-    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_30_DAYS'),
-  },
-  {
-    action: 'block',
-    value: 0,
-    label: t('CONTACTS_LAYOUT.HEADER.BLOCK_PERMANENT'),
-  },
+  { action: 'block', value: 1,  label: t('CONTACTS_LAYOUT.HEADER.BLOCK_1_DAY') },
+  { action: 'block', value: 3,  label: t('CONTACTS_LAYOUT.HEADER.BLOCK_3_DAYS') },
+  { action: 'block', value: 7,  label: t('CONTACTS_LAYOUT.HEADER.BLOCK_7_DAYS') },
+  { action: 'block', value: 30, label: t('CONTACTS_LAYOUT.HEADER.BLOCK_30_DAYS') },
+  { action: 'block', value: 0,  label: t('CONTACTS_LAYOUT.HEADER.BLOCK_PERMANENT') },
 ]);
-
-const handleBreadcrumbClick = () => {
-  emit('goToContactsList');
-};
-
-const unblockContact = () => {
-  emit('unblockContact');
-};
 
 const onBlockDuration = ({ value }) => {
   showBlockMenu.value = false;
   emit('blockContact', { blockForDays: value });
 };
-
-const handleConversationSidebarToggle = () => {
-  isContactSidebarOpen.value = !isContactSidebarOpen.value;
-};
-
-const closeMobileSidebar = () => {
-  if (!isContactSidebarOpen.value) return;
-  isContactSidebarOpen.value = false;
-};
 </script>
 
 <template>
-  <section
-    class="flex w-full h-full overflow-hidden justify-evenly bg-n-surface-1"
-  >
-    <div
-      class="flex flex-col w-full h-full transition-all duration-300 ltr:2xl:ml-56 rtl:2xl:mr-56"
-    >
-      <header class="sticky top-0 z-10 px-6 3xl:px-0">
-        <div class="w-full mx-auto max-w-[40.625rem]">
-          <div
-            class="flex flex-col xs:flex-row items-start xs:items-center justify-between w-full py-7 gap-2"
-          >
-            <Breadcrumb
-              :items="breadcrumbItems"
-              @click="handleBreadcrumbClick"
+  <section class="flex flex-col w-full h-full overflow-hidden bg-n-surface-1">
+
+    <div class="shrink-0 bg-n-solid-3 border-b border-n-weak px-5 py-3 flex flex-col gap-2">
+      <Breadcrumb :items="breadcrumbItems" @click="onBreadcrumbClick" />
+
+      <div class="flex items-center justify-between gap-4 flex-wrap">
+        <div class="flex items-center gap-3 min-w-0">
+          <slot name="avatar">
+            <Avatar
+              :src="selectedContact?.thumbnail || ''"
+              :name="selectedContact?.name || ''"
+              :size="64"
             />
-            <div class="flex items-center gap-2">
-              <Button
-                v-if="isContactBlocked"
-                :label="$t('CONTACTS_LAYOUT.HEADER.UNBLOCK_CONTACT')"
-                size="sm"
-                slate
-                :is-loading="isUpdating"
-                :disabled="isUpdating"
-                @click="unblockContact"
-              />
-              <div
-                v-else
-                v-on-click-outside="() => (showBlockMenu = false)"
-                class="relative"
-              >
-                <Button
-                  :label="$t('CONTACTS_LAYOUT.HEADER.BLOCK_CONTACT_MENU')"
-                  size="sm"
-                  slate
-                  trailing-icon
-                  icon="i-lucide-chevron-down"
-                  :is-loading="isUpdating"
-                  :disabled="isUpdating"
-                  @click="showBlockMenu = !showBlockMenu"
-                />
-                <DropdownMenu
-                  v-if="showBlockMenu"
-                  :menu-items="blockDurationMenuItems"
-                  class="z-[100] w-48 mt-1 ltr:right-0 rtl:left-0 top-full"
-                  @action="onBlockDuration"
-                />
-              </div>
-              <VoiceCallButton
-                :phone="selectedContact?.phoneNumber"
-                :contact-id="contactId"
-                :label="$t('CONTACT_PANEL.CALL')"
-                size="sm"
-              />
-              <ComposeConversation :contact-id="contactId">
-                <template #trigger="{ toggle }">
-                  <Button
-                    :label="$t('CONTACTS_LAYOUT.HEADER.SEND_MESSAGE')"
-                    size="sm"
-                    @click="toggle"
-                  />
-                </template>
-              </ComposeConversation>
+          </slot>
+          <div class="min-w-0">
+            <h2 class="text-sm font-semibold text-n-slate-12 truncate leading-snug">
+              {{ selectedContact?.name }}
+            </h2>
+            <div class="flex flex-col gap-0.5 mt-0.5">
+              <span class="text-sm text-n-slate-11">
+                {{ $t('CONTACTS_LAYOUT.DETAILS.CREATED_AT', { date: createdAt }) }}
+                •
+                {{ $t('CONTACTS_LAYOUT.DETAILS.LAST_ACTIVITY', { date: lastActivityAt }) }}
+              </span>
             </div>
           </div>
         </div>
-      </header>
-      <main class="flex-1 px-6 overflow-y-auto 3xl:px-px">
-        <div class="w-full py-4 mx-auto max-w-[40.625rem]">
+
+        <div class="flex items-center gap-2 shrink-0">
+          <Button
+            v-if="isContactBlocked"
+            :label="$t('CONTACTS_LAYOUT.HEADER.UNBLOCK_CONTACT')"
+            size="sm"
+            slate
+            :is-loading="isUpdating"
+            :disabled="isUpdating"
+            @click="emit('unblockContact')"
+          />
+          <div v-else v-on-click-outside="() => (showBlockMenu = false)" class="relative">
+            <Button
+              :label="$t('CONTACTS_LAYOUT.HEADER.BLOCK_CONTACT_MENU')"
+              size="sm"
+              slate
+              trailing-icon
+              icon="i-lucide-chevron-down"
+              :is-loading="isUpdating"
+              :disabled="isUpdating"
+              @click="showBlockMenu = !showBlockMenu"
+            />
+            <DropdownMenu
+              v-if="showBlockMenu"
+              :menu-items="blockDurationMenuItems"
+              class="z-[100] w-48 mt-1 ltr:right-0 rtl:left-0 top-full"
+              @action="onBlockDuration"
+            />
+          </div>
+          <VoiceCallButton
+            :phone="selectedContact?.phoneNumber"
+            :contact-id="contactId"
+            :label="$t('CONTACT_PANEL.CALL')"
+            size="sm"
+          />
+          <ComposeConversation :contact-id="contactId">
+            <template #trigger="{ toggle }">
+              <Button
+                :label="$t('CONTACTS_LAYOUT.HEADER.SEND_MESSAGE')"
+                size="sm"
+                @click="toggle"
+              />
+            </template>
+          </ComposeConversation>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden md:flex flex-1 overflow-hidden">
+      <div class="flex flex-col flex-1 shrink-0 overflow-y-auto border-r border-n-weak bg-n-solid-1 items-center">
+        <div class="w-full max-w-xl px-6 py-4">
           <slot name="default" />
         </div>
-      </main>
-    </div>
-
-    <!-- Desktop sidebar -->
-    <div
-      v-if="slots.sidebar"
-      class="hidden lg:block overflow-y-auto justify-end min-w-52 w-full py-6 max-w-md border-l border-n-weak bg-n-solid-2"
-    >
-      <slot name="sidebar" />
-    </div>
-
-    <!-- Mobile sidebar container -->
-    <div
-      v-if="slots.sidebar"
-      class="lg:hidden fixed top-0 ltr:right-0 rtl:left-0 h-full z-50 flex justify-end transition-all duration-200 ease-in-out"
-      :class="isContactSidebarOpen ? 'w-full' : 'w-16'"
-    >
-      <!-- Toggle button -->
-      <div
-        v-on-click-outside="[
-          closeMobileSidebar,
-          { ignore: ['#contact-sidebar-content'] },
-        ]"
-        class="flex items-start p-1 w-fit h-fit relative order-1 xs:top-24 top-28 transition-all bg-n-solid-2 border border-n-weak duration-500 ease-in-out"
-        :class="[
-          isContactSidebarOpen
-            ? 'justify-end ltr:rounded-l-full rtl:rounded-r-full ltr:rounded-r-none rtl:rounded-l-none'
-            : 'justify-center rounded-full ltr:mr-6 rtl:ml-6',
-        ]"
-      >
-        <Button
-          ghost
-          slate
-          sm
-          class="!rounded-full rtl:rotate-180"
-          :class="{ 'bg-n-alpha-2': isContactSidebarOpen }"
-          :icon="
-            isContactSidebarOpen
-              ? 'i-lucide-panel-right-close'
-              : 'i-lucide-panel-right-open'
-          "
-          data-contact-sidebar-toggle
-          @click="handleConversationSidebarToggle"
-        />
       </div>
 
-      <Transition
-        enter-active-class="transition-transform duration-200 ease-in-out"
-        leave-active-class="transition-transform duration-200 ease-in-out"
-        enter-from-class="ltr:translate-x-full rtl:-translate-x-full"
-        enter-to-class="ltr:translate-x-0 rtl:-translate-x-0"
-        leave-from-class="ltr:translate-x-0 rtl:-translate-x-0"
-        leave-to-class="ltr:translate-x-full rtl:-translate-x-full"
+      <div v-if="slots.center" class="hidden lg:flex flex-1 overflow-y-auto">
+        <slot name="center" />
+      </div>
+
+      <div
+        v-if="slots.sidebar"
+        class="flex flex-col flex-1 overflow-hidden border-l border-n-weak bg-n-solid-2"
       >
-        <div
-          v-if="isContactSidebarOpen"
-          id="contact-sidebar-content"
-          class="order-2 w-[85%] sm:w-[50%] bg-n-solid-2 ltr:border-l rtl:border-r border-n-weak overflow-y-auto py-6 shadow-lg"
-        >
-          <slot name="sidebar" />
-        </div>
-      </Transition>
+        <slot name="sidebar" />
+      </div>
     </div>
+
+    <div class="md:hidden flex flex-col flex-1 overflow-y-auto">
+      <div v-if="slots.sidebar" class="border-b border-n-weak">
+        <slot name="sidebar" />
+      </div>
+      <div>
+        <slot name="default" />
+      </div>
+      <div v-if="slots.center" class="border-t border-n-weak">
+        <slot name="center" />
+      </div>
+    </div>
+
   </section>
 </template>

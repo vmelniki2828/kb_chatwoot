@@ -47,41 +47,41 @@ export const ALLOWED_FILE_TYPES =
   'application/vnd.openxmlformats-officedocument.wordprocessingml.document,';
 
 export const CSAT_RATINGS = [
-  {
-    key: 'disappointed',
-    translationKey: 'CSAT.RATINGS.POOR',
-    emoji: '😞',
-    value: 1,
-    color: '#FDAD2A',
-  },
-  {
-    key: 'expressionless',
-    translationKey: 'CSAT.RATINGS.FAIR',
-    emoji: '😑',
-    value: 2,
-    color: '#FFC532',
-  },
-  {
-    key: 'neutral',
-    translationKey: 'CSAT.RATINGS.AVERAGE',
-    emoji: '😐',
-    value: 3,
-    color: '#FCEC56',
-  },
-  {
-    key: 'grinning',
-    translationKey: 'CSAT.RATINGS.GOOD',
-    emoji: '😀',
-    value: 4,
-    color: '#6FD86F',
-  },
-  {
-    key: 'smiling',
-    emoji: '😍',
-    translationKey: 'CSAT.RATINGS.EXCELLENT',
-    value: 5,
-    color: '#44CE4B',
-  },
+    {
+      key: 'disappointed',
+      translationKey: 'CSAT.RATINGS.POOR',
+      emoji: '1',
+      value: 1,
+      color: '#FDAD2A',
+    },
+    {
+      key: 'expressionless',
+      translationKey: 'CSAT.RATINGS.FAIR',
+      emoji: '2',
+      value: 2,
+      color: '#FFC532',
+    },
+    {
+      key: 'neutral',
+      translationKey: 'CSAT.RATINGS.AVERAGE',
+      emoji: '3',
+      value: 3,
+      color: '#FCEC56',
+    },
+    {
+      key: 'grinning',
+      translationKey: 'CSAT.RATINGS.GOOD',
+      emoji: '4',
+      value: 4,
+      color: '#6FD86F',
+    },
+    {
+      key: 'smiling',
+      emoji: '5',
+      translationKey: 'CSAT.RATINGS.EXCELLENT',
+      value: 5,
+      color: '#44CE4B',
+    },
 ];
 
 export const CSAT_DISPLAY_TYPES = {

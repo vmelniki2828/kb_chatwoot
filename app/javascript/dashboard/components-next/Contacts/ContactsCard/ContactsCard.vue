@@ -153,13 +153,13 @@ const handleAvatarHover = isHovered => {
             >
               {{ email }}
             </span>
-            <span
+            <!-- <span
               v-if="email && phoneNumber"
               class="w-px h-3 bg-n-slate-6 flex-shrink-0"
-            />
-            <span v-if="phoneNumber" class="text-sm truncate text-n-slate-11">
+            /> -->
+            <!-- <span v-if="phoneNumber" class="text-sm truncate text-n-slate-11">
               {{ phoneNumber }}
-            </span>
+            </span> -->
           </div>
         </div>
       </div>

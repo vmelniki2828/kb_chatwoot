@@ -3,11 +3,11 @@
     "TITLE": "Rate your conversation",
     "PLACEHOLDER": "Tell us more...",
     "RATINGS": {
-      "POOR": "😞 Poor",
-      "FAIR": "😑 Fair",
-      "AVERAGE": "😐 Average",
-      "GOOD": "😀 Good",
-      "EXCELLENT": "😍 Excellent"
+      "POOR": "Terrible - 1",
+      "FAIR": "Bad - 2",
+      "AVERAGE": "Okay - 3",
+      "GOOD": "Good - 4",
+      "EXCELLENT": "Amazing - 5"
     }
   }
 }

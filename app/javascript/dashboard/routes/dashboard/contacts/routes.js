@@ -1,6 +1,7 @@
 import { frontendURL } from '../../../helper/URLHelper';
 import ContactsIndex from './pages/ContactsIndex.vue';
 import ContactManageView from './pages/ContactManageView.vue';
+import ContactEditPage from 'dashboard/components-next/Contacts/Pages/ContactEditPage.vue';
 import { FEATURE_FLAGS } from '../../../featureFlags';
 
 const commonMeta = {
@@ -53,7 +54,7 @@ export const routes = [
     children: [
       {
         path: '',
-        name: 'contacts_edit',
+        name: 'contacts_show',
         component: ContactManageView,
         meta: commonMeta,
       },
@@ -70,5 +71,11 @@ export const routes = [
         meta: commonMeta,
       },
     ],
+  },
+  {
+    path: frontendURL('accounts/:accountId/contacts/:contactId/edit'),
+    name: 'contacts_contact_edit',
+    component: ContactEditPage,
+    meta: commonMeta,
   },
 ];

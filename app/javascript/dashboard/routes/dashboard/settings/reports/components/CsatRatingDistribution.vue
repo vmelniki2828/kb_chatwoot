@@ -1,7 +1,18 @@
 <script setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { Bar } from 'vue-chartjs';
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+} from 'chart.js';
 import { CSAT_RATINGS } from 'shared/constants/messages';
+
+ChartJS.register(Title, Tooltip, BarElement, CategoryScale, LinearScale);
 
 const props = defineProps({
   ratingPercentage: {
@@ -24,20 +35,64 @@ const props = defineProps({
 
 const { t } = useI18n();
 
+const fontFamily =
+  'Inter,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+
 const sortedRatings = computed(() =>
-  [...CSAT_RATINGS].sort((a, b) => b.value - a.value)
+  [...CSAT_RATINGS].sort((a, b) => a.value - b.value)
 );
 
-const formatPercent = value => (value ? `${value}%` : '0%');
+const chartData = computed(() => ({
+  labels: sortedRatings.value.map(r => String(r.value)),
+  datasets: [
+    {
+      data: sortedRatings.value.map(r => props.ratingCount[r.value] || 0),
+      backgroundColor: sortedRatings.value.map(r => r.color),
+      borderRadius: 6,
+      borderSkipped: false,
+      barPercentage: 0.6,
+    },
+  ],
+}));
 
-const getRatingLabel = value => {
-  const rating = CSAT_RATINGS.find(r => r.value === value);
-  return rating ? t(rating.translationKey) : '';
-};
-
-const getRatingCount = value => {
-  return props.ratingCount[value] || 0;
-};
+const chartOptions = computed(() => ({
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: { duration: 0 },
+  plugins: {
+    legend: { display: false },
+    tooltip: {
+      callbacks: {
+        title: context => {
+          const rating = sortedRatings.value[context[0].dataIndex];
+          return t(rating.translationKey);
+        },
+        label: context => {
+          const rating = sortedRatings.value[context.dataIndex];
+          const pct = props.ratingPercentage[rating.value] || 0;
+          return ` ${context.parsed.y} (${pct}%)`;
+        },
+      },
+    },
+  },
+  scales: {
+    x: {
+      ticks: { fontFamily },
+      grid: { drawOnChartArea: false },
+      border: { display: false },
+    },
+    y: {
+      ticks: {
+        fontFamily,
+        beginAtZero: true,
+        stepSize: 1,
+        precision: 0,
+      },
+      grid: { drawOnChartArea: false },
+      border: { display: false },
+    },
+  },
+}));
 </script>
 
 <template>
@@ -48,54 +103,19 @@ const getRatingCount = value => {
       {{ $t('CSAT_REPORTS.METRIC.RATING_DISTRIBUTION') }}
     </span>
 
-    <div v-if="isLoading" class="mt-4">
-      <div class="h-6 w-full rounded-full bg-n-slate-3 animate-pulse" />
-      <div class="flex gap-6 mt-4">
+    <div v-if="isLoading" class="mt-4 h-40">
+      <div class="flex items-end gap-3 h-full">
         <div
           v-for="n in 5"
           :key="n"
-          class="h-4 w-20 rounded bg-n-slate-3 animate-pulse"
+          class="flex-1 rounded bg-n-slate-3 animate-pulse"
+          :style="{ height: `${20 + n * 10}%` }"
         />
       </div>
     </div>
 
-    <div v-else class="mt-4">
-      <div
-        v-if="totalResponseCount"
-        class="flex h-6 w-full rounded-full overflow-hidden bg-n-alpha-2"
-      >
-        <div
-          v-for="rating in sortedRatings"
-          :key="rating.value"
-          v-tooltip="
-            `${getRatingLabel(rating.value)}: ${formatPercent(ratingPercentage[rating.value])} (${getRatingCount(rating.value)})`
-          "
-          :style="{
-            width: `${ratingPercentage[rating.value]}%`,
-            backgroundColor: rating.color,
-          }"
-          class="h-full transition-all duration-300 first:rounded-s-full last:rounded-e-full cursor-default"
-        />
-      </div>
-      <div v-else class="h-6 w-full rounded-full bg-n-alpha-2" />
-
-      <div class="flex flex-wrap gap-x-6 gap-y-2 mt-4">
-        <div
-          v-for="rating in sortedRatings"
-          :key="rating.value"
-          class="flex items-center gap-2"
-        >
-          <span class="text-sm text-n-slate-11">
-            {{ getRatingLabel(rating.value) }}
-          </span>
-          <span class="text-sm font-medium text-n-slate-12">
-            {{ formatPercent(ratingPercentage[rating.value]) }}
-          </span>
-          <span class="text-xs text-n-slate-10">
-            ({{ getRatingCount(rating.value) }})
-          </span>
-        </div>
-      </div>
+    <div v-else class="mt-4 h-40">
+      <Bar :data="chartData" :options="chartOptions" />
     </div>
   </div>
 </template>
