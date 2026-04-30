@@ -4,6 +4,7 @@ import { parseBoolean } from '@chatwoot/utils';
 import SettingsWrapper from '../SettingsWrapper.vue';
 import Index from './Index.vue';
 import MfaSettings from './MfaSettings.vue';
+import KeyboardShortcuts from './KeyboardShortcuts.vue';
 
 export default {
   routes: [
@@ -19,6 +20,14 @@ export default {
           path: 'settings',
           name: 'profile_settings_index',
           component: Index,
+          meta: {
+            permissions: ['administrator', 'agent', 'custom_role'],
+          },
+        },
+        {
+          path: 'keyboard-shortcuts',
+          name: 'profile_keyboard_shortcuts',
+          component: KeyboardShortcuts,
           meta: {
             permissions: ['administrator', 'agent', 'custom_role'],
           },

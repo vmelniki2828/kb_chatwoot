@@ -383,23 +383,23 @@ const menuItems = computed(() => {
         },
       ],
     },
-    {
-      name: 'Companies',
-      label: t('SIDEBAR.COMPANIES'),
-      icon: 'i-lucide-building-2',
-      children: [
-        {
-          name: 'All Companies',
-          label: t('SIDEBAR.ALL_COMPANIES'),
-          to: accountScopedRoute(
-            'companies_dashboard_index',
-            {},
-            { page: 1, search: undefined }
-          ),
-          activeOn: ['companies_dashboard_index'],
-        },
-      ],
-    },
+    // {
+    //   name: 'Companies',
+    //   label: t('SIDEBAR.COMPANIES'),
+    //   icon: 'i-lucide-building-2',
+    //   children: [
+    //     {
+    //       name: 'All Companies',
+    //       label: t('SIDEBAR.ALL_COMPANIES'),
+    //       to: accountScopedRoute(
+    //         'companies_dashboard_index',
+    //         {},
+    //         { page: 1, search: undefined }
+    //       ),
+    //       activeOn: ['companies_dashboard_index'],
+    //     },
+    //   ],
+    // },
     {
       name: 'Statistics',
       label: t('SIDEBAR.REPORTS'),
@@ -431,11 +431,11 @@ const menuItems = computed(() => {
           label: t('SIDEBAR.CSAT'),
           to: accountScopedRoute('csat_reports'),
         },
-        {
-          name: 'SLA Statistics',
-          label: t('SIDEBAR.REPORTS_SLA'),
-          to: accountScopedRoute('sla_reports'),
-        },
+        // {
+        //   name: 'SLA Statistics',
+        //   label: t('SIDEBAR.REPORTS_SLA'),
+        //   to: accountScopedRoute('sla_reports'),
+        // },
       ],
     },
 
@@ -449,6 +449,12 @@ const menuItems = computed(() => {
           label: t('SIDEBAR.ACCOUNT_SETTINGS'),
           icon: 'i-lucide-wrench',
           to: accountScopedRoute('general_settings_index'),
+        },
+        {
+          name: 'Settings Profile',
+          label: t('SIDEBAR_ITEMS.PROFILE_SETTINGS'),
+          icon: 'i-lucide-user-round-cog',
+          to: accountScopedRoute('profile_settings_index'),
         },
         // {
         //   name: 'Settings Captain',
@@ -529,54 +535,54 @@ const menuItems = computed(() => {
           icon: 'i-lucide-refresh-ccw-dot',
           to: accountScopedRoute('automation_list'),
         },
-        {
-          name: 'Settings Agent Bots',
-          label: t('SIDEBAR.AGENT_BOTS'),
-          icon: 'i-lucide-bot-message-square',
-          to: accountScopedRoute('agent_bots'),
-        },
-        {
-          name: 'Settings Macros',
-          label: t('SIDEBAR.MACROS'),
-          icon: 'i-lucide-toy-brick',
-          to: accountScopedRoute('macros_wrapper'),
-        },
+        // {
+        //   name: 'Settings Agent Bots',
+        //   label: t('SIDEBAR.AGENT_BOTS'),
+        //   icon: 'i-lucide-bot-message-square',
+        //   to: accountScopedRoute('agent_bots'),
+        // },
+        // {
+        //   name: 'Settings Macros',
+        //   label: t('SIDEBAR.MACROS'),
+        //   icon: 'i-lucide-toy-brick',
+        //   to: accountScopedRoute('macros_wrapper'),
+        // },
         {
           name: 'Settings Canned Responses',
           label: t('SIDEBAR.CANNED_RESPONSES'),
           icon: 'i-lucide-message-square-code',
           to: accountScopedRoute('canned_list'),
         },
-        {
-          name: 'Settings Integrations',
-          label: t('SIDEBAR.INTEGRATIONS'),
-          icon: 'i-lucide-blocks',
-          to: accountScopedRoute('settings_applications'),
-        },
+        // {
+        //   name: 'Settings Integrations',
+        //   label: t('SIDEBAR.INTEGRATIONS'),
+        //   icon: 'i-lucide-blocks',
+        //   to: accountScopedRoute('settings_applications'),
+        // },
         {
           name: 'Settings Audit Logs',
           label: t('SIDEBAR.AUDIT_LOGS'),
           icon: 'i-lucide-scroll-text',
           to: accountScopedRoute('auditlogs_list'),
         },
-        {
-          name: 'Settings Custom Roles',
-          label: t('SIDEBAR.CUSTOM_ROLES'),
-          icon: 'i-lucide-shield-plus',
-          to: accountScopedRoute('custom_roles_list'),
-        },
-        {
-          name: 'Settings Sla',
-          label: t('SIDEBAR.SLA'),
-          icon: 'i-lucide-timer-reset',
-          to: accountScopedRoute('sla_list'),
-        },
-        {
-          name: 'Conversation Workflow',
-          label: t('SIDEBAR.CONVERSATION_WORKFLOW'),
-          icon: 'i-lucide-workflow',
-          to: accountScopedRoute('conversation_workflow_index'),
-        },
+        // {
+        //   name: 'Settings Custom Roles',
+        //   label: t('SIDEBAR.CUSTOM_ROLES'),
+        //   icon: 'i-lucide-shield-plus',
+        //   to: accountScopedRoute('custom_roles_list'),
+        // },
+        // {
+        //   name: 'Settings Sla',
+        //   label: t('SIDEBAR.SLA'),
+        //   icon: 'i-lucide-timer-reset',
+        //   to: accountScopedRoute('sla_list'),
+        // },
+        // {
+        //   name: 'Conversation Workflow',
+        //   label: t('SIDEBAR.CONVERSATION_WORKFLOW'),
+        //   icon: 'i-lucide-workflow',
+        //   to: accountScopedRoute('conversation_workflow_index'),
+        // },
         {
           name: 'Settings Security',
           label: t('SIDEBAR.SECURITY'),
@@ -589,148 +595,154 @@ const menuItems = computed(() => {
           icon: 'i-lucide-credit-card',
           to: accountScopedRoute('billing_settings_index'),
         },
-      ],
-    },
-    {
-      name: 'Campaigns',
-      label: t('SIDEBAR.CAMPAIGNS'),
-      icon: 'i-lucide-megaphone',
-      children: [
         {
-          name: 'Live chat',
-          label: t('SIDEBAR.LIVE_CHAT'),
-          to: accountScopedRoute('campaigns_livechat_index'),
-        },
-        {
-          name: 'SMS',
-          label: t('SIDEBAR.SMS'),
-          to: accountScopedRoute('campaigns_sms_index'),
-        },
-        {
-          name: 'WhatsApp',
-          label: t('SIDEBAR.WHATSAPP'),
-          to: accountScopedRoute('campaigns_whatsapp_index'),
+          name: 'Settings Keyboard Shortcuts',
+          label: t('SIDEBAR_ITEMS.KEYBOARD_SHORTCUTS'),
+          icon: 'i-lucide-keyboard',
+          to: accountScopedRoute('profile_keyboard_shortcuts'),
         },
       ],
     },
-    {
-      name: 'Portals',
-      label: t('SIDEBAR.HELP_CENTER.TITLE'),
-      icon: 'i-lucide-book-search',
-      children: [
-        {
-          name: 'Articles',
-          label: t('SIDEBAR.HELP_CENTER.ARTICLES'),
-          activeOn: [
-            'portals_articles_index',
-            'portals_articles_new',
-            'portals_articles_edit',
-          ],
-          to: accountScopedRoute('portals_index', {
-            navigationPath: 'portals_articles_index',
-          }),
-        },
-        {
-          name: 'Categories',
-          label: t('SIDEBAR.HELP_CENTER.CATEGORIES'),
-          activeOn: [
-            'portals_categories_index',
-            'portals_categories_articles_index',
-            'portals_categories_articles_edit',
-          ],
-          to: accountScopedRoute('portals_index', {
-            navigationPath: 'portals_categories_index',
-          }),
-        },
-        {
-          name: 'Locales',
-          label: t('SIDEBAR.HELP_CENTER.LOCALES'),
-          activeOn: ['portals_locales_index'],
-          to: accountScopedRoute('portals_index', {
-            navigationPath: 'portals_locales_index',
-          }),
-        },
-        {
-          name: 'Settings',
-          label: t('SIDEBAR.HELP_CENTER.SETTINGS'),
-          activeOn: ['portals_settings_index'],
-          to: accountScopedRoute('portals_index', {
-            navigationPath: 'portals_settings_index',
-          }),
-        },
-      ],
-    },
-    {
-      name: 'Captain',
-      icon: 'i-woot-captain',
-      label: t('SIDEBAR.CAPTAIN'),
-      activeOn: ['captain_assistants_create_index'],
-      children: [
-        {
-          name: 'FAQs',
-          label: t('SIDEBAR.CAPTAIN_RESPONSES'),
-          activeOn: [
-            'captain_assistants_responses_index',
-            'captain_assistants_responses_pending',
-          ],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_responses_index',
-          }),
-        },
-        {
-          name: 'Documents',
-          label: t('SIDEBAR.CAPTAIN_DOCUMENTS'),
-          activeOn: ['captain_assistants_documents_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_documents_index',
-          }),
-        },
-        {
-          name: 'Scenarios',
-          label: t('SIDEBAR.CAPTAIN_SCENARIOS'),
-          activeOn: ['captain_assistants_scenarios_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_scenarios_index',
-          }),
-        },
-        {
-          name: 'Playground',
-          label: t('SIDEBAR.CAPTAIN_PLAYGROUND'),
-          activeOn: ['captain_assistants_playground_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_playground_index',
-          }),
-        },
-        {
-          name: 'Inboxes',
-          label: t('SIDEBAR.CAPTAIN_INBOXES'),
-          activeOn: ['captain_assistants_inboxes_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_inboxes_index',
-          }),
-        },
-        {
-          name: 'Tools',
-          label: t('SIDEBAR.CAPTAIN_TOOLS'),
-          activeOn: ['captain_tools_index'],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_tools_index',
-          }),
-        },
-        {
-          name: 'Settings',
-          label: t('SIDEBAR.CAPTAIN_SETTINGS'),
-          activeOn: [
-            'captain_assistants_settings_index',
-            'captain_assistants_guidelines_index',
-            'captain_assistants_guardrails_index',
-          ],
-          to: accountScopedRoute('captain_assistants_index', {
-            navigationPath: 'captain_assistants_settings_index',
-          }),
-        },
-      ],
-    },
+    // {
+    //   name: 'Campaigns',
+    //   label: t('SIDEBAR.CAMPAIGNS'),
+    //   icon: 'i-lucide-megaphone',
+    //   children: [
+    //     {
+    //       name: 'Live chat',
+    //       label: t('SIDEBAR.LIVE_CHAT'),
+    //       to: accountScopedRoute('campaigns_livechat_index'),
+    //     },
+    //     {
+    //       name: 'SMS',
+    //       label: t('SIDEBAR.SMS'),
+    //       to: accountScopedRoute('campaigns_sms_index'),
+    //     },
+    //     {
+    //       name: 'WhatsApp',
+    //       label: t('SIDEBAR.WHATSAPP'),
+    //       to: accountScopedRoute('campaigns_whatsapp_index'),
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'Portals',
+    //   label: t('SIDEBAR.HELP_CENTER.TITLE'),
+    //   icon: 'i-lucide-book-search',
+    //   children: [
+    //     {
+    //       name: 'Articles',
+    //       label: t('SIDEBAR.HELP_CENTER.ARTICLES'),
+    //       activeOn: [
+    //         'portals_articles_index',
+    //         'portals_articles_new',
+    //         'portals_articles_edit',
+    //       ],
+    //       to: accountScopedRoute('portals_index', {
+    //         navigationPath: 'portals_articles_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Categories',
+    //       label: t('SIDEBAR.HELP_CENTER.CATEGORIES'),
+    //       activeOn: [
+    //         'portals_categories_index',
+    //         'portals_categories_articles_index',
+    //         'portals_categories_articles_edit',
+    //       ],
+    //       to: accountScopedRoute('portals_index', {
+    //         navigationPath: 'portals_categories_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Locales',
+    //       label: t('SIDEBAR.HELP_CENTER.LOCALES'),
+    //       activeOn: ['portals_locales_index'],
+    //       to: accountScopedRoute('portals_index', {
+    //         navigationPath: 'portals_locales_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Settings',
+    //       label: t('SIDEBAR.HELP_CENTER.SETTINGS'),
+    //       activeOn: ['portals_settings_index'],
+    //       to: accountScopedRoute('portals_index', {
+    //         navigationPath: 'portals_settings_index',
+    //       }),
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: 'Captain',
+    //   icon: 'i-woot-captain',
+    //   label: t('SIDEBAR.CAPTAIN'),
+    //   activeOn: ['captain_assistants_create_index'],
+    //   children: [
+    //     {
+    //       name: 'FAQs',
+    //       label: t('SIDEBAR.CAPTAIN_RESPONSES'),
+    //       activeOn: [
+    //         'captain_assistants_responses_index',
+    //         'captain_assistants_responses_pending',
+    //       ],
+    //       to: accountScopedRoute('captain_assistants_index', {
+    //         navigationPath: 'captain_assistants_responses_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Documents',
+    //       label: t('SIDEBAR.CAPTAIN_DOCUMENTS'),
+    //       activeOn: ['captain_assistants_documents_index'],
+    //       to: accountScopedRoute('captain_assistants_index', {
+    //         navigationPath: 'captain_assistants_documents_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Scenarios',
+    //       label: t('SIDEBAR.CAPTAIN_SCENARIOS'),
+    //       activeOn: ['captain_assistants_scenarios_index'],
+    //       to: accountScopedRoute('captain_assistants_index', {
+    //         navigationPath: 'captain_assistants_scenarios_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Playground',
+    //       label: t('SIDEBAR.CAPTAIN_PLAYGROUND'),
+    //       activeOn: ['captain_assistants_playground_index'],
+    //       to: accountScopedRoute('captain_assistants_index', {
+    //         navigationPath: 'captain_assistants_playground_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Inboxes',
+    //       label: t('SIDEBAR.CAPTAIN_INBOXES'),
+    //       activeOn: ['captain_assistants_inboxes_index'],
+    //       to: accountScopedRoute('captain_assistants_index', {
+    //         navigationPath: 'captain_assistants_inboxes_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Tools',
+    //       label: t('SIDEBAR.CAPTAIN_TOOLS'),
+    //       activeOn: ['captain_tools_index'],
+    //       to: accountScopedRoute('captain_assistants_index', {
+    //         navigationPath: 'captain_tools_index',
+    //       }),
+    //     },
+    //     {
+    //       name: 'Settings',
+    //       label: t('SIDEBAR.CAPTAIN_SETTINGS'),
+    //       activeOn: [
+    //         'captain_assistants_settings_index',
+    //         'captain_assistants_guidelines_index',
+    //         'captain_assistants_guardrails_index',
+    //       ],
+    //       to: accountScopedRoute('captain_assistants_index', {
+    //         navigationPath: 'captain_assistants_settings_index',
+    //       }),
+    //     },
+    //   ],
+    // },
   ];
 });
 </script>
@@ -867,7 +879,7 @@ const menuItems = computed(() => {
         />
       </div>
     </section>
-    <!-- Resize Handle (desktop only) -->
+    <!-- Resize Handle (desktop only)
     <div
       class="hidden md:block absolute top-0 h-full w-1 cursor-col-resize z-40 ltr:right-0 rtl:left-0 group"
       @mousedown="onResizeStart"
@@ -878,6 +890,6 @@ const menuItems = computed(() => {
         class="absolute top-0 h-full w-px ltr:right-0 rtl:left-0 bg-transparent group-hover:bg-n-brand transition-colors"
         :class="{ 'bg-n-brand': isResizing }"
       />
-    </div>
+    </div> -->
   </aside>
 </template>

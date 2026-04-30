@@ -20,8 +20,8 @@ const FloatingCallWidget = defineAsyncComponent(
   () => import('dashboard/components/widgets/FloatingCallWidget.vue')
 );
 
-import CopilotLauncher from 'dashboard/components-next/copilot/CopilotLauncher.vue';
-import CopilotContainer from 'dashboard/components/copilot/CopilotContainer.vue';
+// import CopilotLauncher from 'dashboard/components-next/copilot/CopilotLauncher.vue';
+// import CopilotContainer from 'dashboard/components/copilot/CopilotContainer.vue';
 
 import MobileSidebarLauncher from 'dashboard/components-next/sidebar/MobileSidebarLauncher.vue';
 import { useCallsStore } from 'dashboard/stores/calls';
@@ -33,8 +33,8 @@ export default {
     WootKeyShortcutModal,
     AddAccountModal,
     UpgradePage,
-    CopilotLauncher,
-    CopilotContainer,
+    //CopilotLauncher,
+    // CopilotContainer,
     FloatingCallWidget,
     MobileSidebarLauncher,
   },
@@ -156,12 +156,12 @@ export default {
       <template v-if="!showUpgradePage">
         <router-view />
         <CommandBar />
-        <CopilotLauncher />
+        <!-- <CopilotLauncher /> -->
         <MobileSidebarLauncher
           :is-mobile-sidebar-open="isMobileSidebarOpen"
           @toggle="toggleMobileSidebar"
         />
-        <CopilotContainer />
+        <!-- <CopilotContainer /> -->
         <FloatingCallWidget v-if="hasActiveCall || hasIncomingCall" />
       </template>
       <AddAccountModal

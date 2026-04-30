@@ -286,6 +286,7 @@
     },
     "SIDEBAR": {
       "CONTACT": "Contact",
+      "CHAT_DETAILS": "Chat Details",
       "COPILOT": "Copilot"
     },
     "VOICE_WIDGET": {
@@ -362,7 +363,8 @@
       "PREVIOUS_CONVERSATION": "Previous Chats",
       "MACROS": "Macros",
       "LINEAR_ISSUES": "Linked Linear Issues",
-      "SHOPIFY_ORDERS": "Shopify Orders"
+      "SHOPIFY_ORDERS": "Shopify Orders",
+      "CONTACT_INFO": "Contact Info"
     },
     "SHOPIFY": {
       "ORDER_ID": "Order #{id}",

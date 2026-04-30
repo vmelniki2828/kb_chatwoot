@@ -55,32 +55,32 @@ const menuItems = computed(() => {
         window.$chatwoot.toggle();
       },
     },
-    {
-      show: true,
-      showOnCustomBrandedInstance: true,
-      label: t('SIDEBAR_ITEMS.KEYBOARD_SHORTCUTS'),
-      icon: 'i-lucide-keyboard',
-      click: () => {
-        emit('openKeyShortcutModal');
-      },
-    },
-    {
-      show: true,
-      showOnCustomBrandedInstance: true,
-      label: t('SIDEBAR_ITEMS.PROFILE_SETTINGS'),
-      icon: 'i-lucide-user-round-cog',
-      link: { name: 'profile_settings_index' },
-    },
-    {
-      show: true,
-      showOnCustomBrandedInstance: true,
-      label: t('SIDEBAR_ITEMS.APPEARANCE'),
-      icon: 'i-lucide-paintbrush',
-      click: () => {
-        const ninja = document.querySelector('ninja-keys');
-        ninja.open({ parent: 'appearance_settings' });
-      },
-    },
+    // {
+    //   show: true,
+    //   showOnCustomBrandedInstance: true,
+    //   label: t('SIDEBAR_ITEMS.KEYBOARD_SHORTCUTS'),
+    //   icon: 'i-lucide-keyboard',
+    //   click: () => {
+    //     emit('openKeyShortcutModal');
+    //   },
+    // },
+    // {
+    //   show: true,
+    //   showOnCustomBrandedInstance: true,
+    //   label: t('SIDEBAR_ITEMS.PROFILE_SETTINGS'),
+    //   icon: 'i-lucide-user-round-cog',
+    //   link: { name: 'profile_settings_index' },
+    // },
+    // {
+    //   show: true,
+    //   showOnCustomBrandedInstance: true,
+    //   label: t('SIDEBAR_ITEMS.APPEARANCE'),
+    //   icon: 'i-lucide-paintbrush',
+    //   click: () => {
+    //     const ninja = document.querySelector('ninja-keys');
+    //     ninja.open({ parent: 'appearance_settings' });
+    //   },
+    // },
     {
       show: true,
       showOnCustomBrandedInstance: false,

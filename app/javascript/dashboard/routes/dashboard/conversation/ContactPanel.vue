@@ -125,7 +125,6 @@ onMounted(() => {
   conversationSidebarItems.value = conversationSidebarItemsOrder.value;
   getContactDetails();
   store.dispatch('attributes/get', 0);
-  // Load integrations to ensure linear integration state is available
   store.dispatch('integrations/get', 'linear');
 });
 </script>
@@ -133,10 +132,20 @@ onMounted(() => {
 <template>
   <div class="w-full">
     <SidebarActionsHeader
-      :title="$t('CONVERSATION.SIDEBAR.CONTACT')"
+      :title="$t('CONVERSATION.SIDEBAR.CHAT_DETAILS')"
       @close="closeContactPanel"
     />
-    <ContactInfo :contact="contact" :channel-type="channelType" />
+
+    <div class="px-2 pt-2">
+      <AccordionItem
+        :title="$t('CONVERSATION_SIDEBAR.ACCORDION.CONTACT_INFO')"
+        :is-open="isContactSidebarItemOpen('is_contact_info_open')"
+        @toggle="value => toggleSidebarUIState('is_contact_info_open', value)"
+      >
+        <ContactInfo :contact="contact" :channel-type="channelType" />
+      </AccordionItem>
+    </div>
+
     <div class="px-2 pb-8 list-group">
       <Draggable
         :list="conversationSidebarItems"
@@ -237,7 +246,7 @@ onMounted(() => {
               />
             </AccordionItem>
           </div>
-          <woot-feature-toggle
+          <!-- <woot-feature-toggle
             v-else-if="element.name === 'macros'"
             feature-key="macros"
           >
@@ -249,7 +258,7 @@ onMounted(() => {
             >
               <MacrosList :conversation-id="conversationId" />
             </AccordionItem>
-          </woot-feature-toggle>
+          </woot-feature-toggle> -->
           <div
             v-else-if="
               element.name === 'linear_issues' &&

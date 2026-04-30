@@ -890,11 +890,14 @@ watch(conversationFilters, (newVal, oldVal) => {
       :is-on-expanded-layout="isOnExpandedLayout"
       :conversation-stats="conversationStats"
       :is-list-loading="chatListLoading && !conversationList.length"
+      :assignee-tab-items="assigneeTabItems"
+      :active-assignee-tab="activeAssigneeTab"
       @add-folders="onClickOpenAddFoldersModal"
       @delete-folders="onClickOpenDeleteFoldersModal"
       @filters-modal="onToggleAdvanceFiltersModal"
       @reset-filters="resetAndFetchData"
       @basic-filter-change="onBasicFilterChange"
+      @chat-tab-change="updateAssigneeTab"
     />
 
     <TeleportWithDirection
@@ -916,14 +919,6 @@ watch(conversationFilters, (newVal, oldVal) => {
       :custom-views-id="foldersId"
       :open-last-item-after-delete="openLastItemAfterDeleteInFolder"
       @close="onCloseDeleteFoldersModal"
-    />
-
-    <ChatTypeTabs
-      v-if="!hasAppliedFiltersOrActiveFolders"
-      :items="assigneeTabItems"
-      :active-tab="activeAssigneeTab"
-      is-compact
-      @chat-tab-change="updateAssigneeTab"
     />
 
     <p
@@ -975,7 +970,7 @@ watch(conversationFilters, (newVal, oldVal) => {
         v-else-if="showEndOfListMessage"
         class="p-4 text-center text-n-slate-11"
       >
-        {{ $t('CHAT_LIST.EOF') }}
+        <!-- {{ $t('CHAT_LIST.EOF') }} -->
       </p>
       <IntersectionObserver
         v-else

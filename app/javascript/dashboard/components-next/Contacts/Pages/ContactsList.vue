@@ -86,7 +86,7 @@ const handleAvatarHover = (id, isHovered) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <div v-for="contact in contacts" :key="contact.id" class="relative">
       <ContactsCard
         :id="contact.id"

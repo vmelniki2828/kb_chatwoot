@@ -24,7 +24,7 @@ import BotReports from './BotReports.vue';
 import AgentActivityReports from './AgentActivityReports.vue';
 import AgentActivityDetail from './AgentActivityDetail.vue'; 
 import LiveReports from './LiveReports.vue';
-import SLAReports from './SLAReports.vue';
+// import SLAReports from './SLAReports.vue';
 
 const meta = {
   featureFlag: FEATURE_FLAGS.REPORTS,
@@ -152,12 +152,12 @@ export default {
         },
         ...oldReportRoutes,
         ...revisedReportRoutes,
-        {
-          path: 'sla',
-          name: 'sla_reports',
-          meta,
-          component: SLAReports,
-        },
+        // {
+        //   path: 'sla',
+        //   name: 'sla_reports',
+        //   meta,
+        //   component: SLAReports,
+        // },
         {
           path: 'csat',
           name: 'csat_reports',

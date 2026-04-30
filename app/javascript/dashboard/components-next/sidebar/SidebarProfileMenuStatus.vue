@@ -1,10 +1,13 @@
 <script setup>
-import { computed, h } from 'vue';
+import { computed, h, ref } from 'vue';
 import { useMapGetter, useStore } from 'dashboard/composables/store';
 import wootConstants from 'dashboard/constants/globals';
 import { useAlert } from 'dashboard/composables';
 import { useI18n } from 'vue-i18n';
 import { useImpersonation } from 'dashboard/composables/useImpersonation';
+import { LocalStorage } from 'shared/helpers/localStorage';
+import { LOCAL_STORAGE_KEYS } from 'dashboard/constants/localStorage';
+import { setColorTheme } from 'dashboard/helper/themeHelper.js';
 
 import {
   DropdownContainer,
@@ -58,6 +61,23 @@ const autoOfflineToggle = computed({
     });
   },
 });
+
+const themeOptions = [
+  { key: 'auto',  icon: 'i-lucide-monitor' },
+  { key: 'light', icon: 'i-lucide-sun' },
+  { key: 'dark',  icon: 'i-lucide-moon' },
+];
+
+const currentTheme = ref(
+  LocalStorage.get(LOCAL_STORAGE_KEYS.COLOR_SCHEME) || 'auto'
+);
+
+const setTheme = key => {
+  currentTheme.value = key;
+  LocalStorage.set(LOCAL_STORAGE_KEYS.COLOR_SCHEME, key);
+  const isOSOnDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setColorTheme(isOSOnDarkMode);
+};
 
 function changeAvailabilityStatus(availability) {
   if (isImpersonating.value) {
@@ -113,6 +133,7 @@ function changeAvailabilityStatus(availability) {
           </DropdownBody>
         </DropdownContainer>
       </DropdownItem>
+
       <DropdownItem>
         <div class="flex-grow flex items-center gap-1">
           {{ $t('SIDEBAR.SET_AUTO_OFFLINE.TEXT') }}
@@ -123,6 +144,27 @@ function changeAvailabilityStatus(availability) {
           />
         </div>
         <ToggleSwitch v-model="autoOfflineToggle" />
+      </DropdownItem>
+
+      <DropdownItem preserve-open>
+        <div class="flex-grow flex items-center gap-1 text-n-slate-12">
+          Appearance
+        </div>
+        <div class="flex items-center gap-1 p-0.5 rounded-lg bg-n-alpha-2">
+          <button
+            v-for="opt in themeOptions"
+            :key="opt.key"
+            class="flex items-center justify-center size-7 rounded-md transition-colors"
+            :class="
+              currentTheme === opt.key
+                ? 'bg-n-background shadow-sm text-n-slate-12'
+                : 'text-n-slate-10 hover:text-n-slate-12'
+            "
+            @click="setTheme(opt.key)"
+          >
+            <Icon :icon="opt.icon" class="size-4" />
+          </button>
+        </div>
       </DropdownItem>
     </div>
   </DropdownSection>

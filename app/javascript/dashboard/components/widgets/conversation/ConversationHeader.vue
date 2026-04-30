@@ -6,13 +6,14 @@ import { useElementSize } from '@vueuse/core';
 import BackButton from '../BackButton.vue';
 import InboxName from '../InboxName.vue';
 import MoreActions from './MoreActions.vue';
-import Avatar from 'next/avatar/Avatar.vue';
+import Button from 'dashboard/components-next/button/Button.vue';
 import SLACardLabel from './components/SLACardLabel.vue';
 import wootConstants from 'dashboard/constants/globals';
 import { conversationListPageURL } from 'dashboard/helper/URLHelper';
 import { snoozedReopenTime } from 'dashboard/helper/snoozeHelpers';
 import { useInbox } from 'dashboard/composables/useInbox';
 import { useI18n } from 'vue-i18n';
+import { useUISettings } from 'dashboard/composables/useUISettings';
 
 const props = defineProps({
   chat: {
@@ -31,11 +32,23 @@ const route = useRoute();
 const conversationHeader = ref(null);
 const { width } = useElementSize(conversationHeader);
 const { isAWebWidgetInbox } = useInbox();
+const { uiSettings, updateUISettings } = useUISettings();
 
 const currentChat = computed(() => store.getters.getSelectedChat);
 const accountId = computed(() => store.getters.getCurrentAccountId);
 
 const chatMetadata = computed(() => props.chat.meta);
+
+const isContactSidebarOpen = computed(
+  () => uiSettings.value.is_contact_sidebar_open
+);
+
+const toggleContactSidebar = () => {
+  updateUISettings({
+    is_contact_sidebar_open: !isContactSidebarOpen.value,
+    is_copilot_panel_open: false,
+  });
+};
 
 const backButtonUrl = computed(() => {
   const {
@@ -105,16 +118,8 @@ const hasSlaPolicyId = computed(() => props.chat?.sla_policy_id);
         :back-url="backButtonUrl"
         class="ltr:mr-2 rtl:ml-2"
       />
-      <Avatar
-        :name="currentContact.name"
-        :src="currentContact.thumbnail"
-        :size="32"
-        :status="currentContact.availability_status"
-        hide-offline-status
-        rounded-full
-      />
       <div
-        class="flex flex-col items-start min-w-0 ml-2 overflow-hidden rtl:ml-0 rtl:mr-2"
+        class="flex flex-col items-start min-w-0 overflow-hidden"
       >
         <div class="flex flex-row items-center max-w-full gap-1 p-0 m-0">
           <span
@@ -152,6 +157,18 @@ const hasSlaPolicyId = computed(() => props.chat?.sla_policy_id);
         class="hidden md:flex"
       />
       <MoreActions :conversation-id="currentChat.id" />
+      <Button
+        v-tooltip.top="$t('CONVERSATION.SIDEBAR.CHAT_DETAILS')"
+        ghost
+        slate
+        sm
+        class="!rounded-lg transition-all duration-[250ms] ease-out active:!scale-95"
+        :class="{
+          'bg-n-alpha-2': isContactSidebarOpen,
+        }"
+        icon="i-lucide-panel-right"
+        @click="toggleContactSidebar"
+      />
     </div>
   </div>
 </template>
