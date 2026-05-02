@@ -72,7 +72,7 @@ class Conversation < ApplicationRecord
   validates :uuid, uniqueness: true
   validate :validate_referer_url
 
-  enum status: { open: 0, resolved: 1, pending: 2, snoozed: 3 }
+  enum status: { open: 0, resolved: 1, pending: 2, snoozed: 3, queued: 4 }
   enum priority: { low: 0, medium: 1, high: 2, urgent: 3 }
 
   scope :unassigned, -> { where(assignee_id: nil) }
@@ -113,14 +113,17 @@ class Conversation < ApplicationRecord
   has_many :notifications, as: :primary_actor, dependent: :destroy_async
   has_many :attachments, through: :messages
   has_many :reporting_events, dependent: :destroy_async
+  has_one :conversation_queue, dependent: :destroy
 
   before_save :ensure_snooze_until_reset
   before_create :determine_conversation_status
   before_create :ensure_waiting_since
 
+  after_update :remove_from_queue_if_status_changed
   after_update_commit :execute_after_update_commit_callbacks
   after_create_commit :notify_conversation_creation
   after_create_commit :load_attributes_created_by_db_triggers
+  after_update_commit :process_queue_on_assignment_change
 
   delegate :auto_resolve_after, to: :account
 
@@ -162,6 +165,10 @@ class Conversation < ApplicationRecord
     update(waiting_since: Time.current) if waiting_since.blank?
     open!
     dispatcher_dispatch(CONVERSATION_BOT_HANDOFF)
+
+    return unless account.queue_enabled? && assignee.nil?
+
+    ChatQueue::QueueService.new(account: account).add_to_queue(self)
   end
 
   def unread_messages
@@ -225,6 +232,13 @@ class Conversation < ApplicationRecord
     notify_conversation_updation
   end
 
+  def process_queue_on_assignment_change
+    return unless account.queue_enabled?
+    return unless saved_change_to_assignee_id? || saved_change_to_status?
+
+    Queue::ProcessQueueJob.perform_later(account.id, inbox_id) if resolved? || assignee_id.blank?
+  end
+
   def handle_resolved_status_change
     # When conversation is resolved, clear waiting_since using update_column to avoid callbacks
     return unless saved_change_to_status? && status == 'resolved'
@@ -232,6 +246,10 @@ class Conversation < ApplicationRecord
     # rubocop:disable Rails/SkipsModelValidations
     update_column(:waiting_since, nil)
     # rubocop:enable Rails/SkipsModelValidations
+
+    return unless conversation_queue&.waiting?
+
+    ChatQueue::QueueService.new(account: account).remove_from_queue(self)
   end
 
   def ensure_snooze_until_reset
@@ -336,6 +354,17 @@ class Conversation < ApplicationRecord
     return unless additional_attributes['referer']
 
     self['additional_attributes']['referer'] = nil unless url_valid?(additional_attributes['referer'])
+  end
+
+  def remove_from_queue_if_status_changed
+    return unless saved_change_to_status?
+
+    old_status, new_status = saved_change_to_status
+
+    return unless old_status == 'queued' && new_status != 'queued'
+
+    ChatQueue::QueueService.new(account: account)
+                           .remove_from_queue(self)
   end
 
   # creating db triggers

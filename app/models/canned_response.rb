@@ -6,7 +6,6 @@
 #  content    :text
 #  label_ids  :jsonb            not null
 #  short_code :string
-#  topic      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  account_id :integer          not null

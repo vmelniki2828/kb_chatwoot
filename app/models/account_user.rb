@@ -42,6 +42,7 @@ class AccountUser < ApplicationRecord
   before_update :remember_availability_transition
   after_save :update_presence_in_redis, if: :saved_change_to_availability?
   after_commit :persist_availability_event, on: :update
+  after_commit :process_queue_when_agent_available, if: :saved_change_to_availability?
 
   validates :user_id, uniqueness: { scope: :account_id }
   validates :max_open_conversations,
@@ -69,6 +70,10 @@ class AccountUser < ApplicationRecord
       role: role,
       user_id: user_id
     }
+  end
+
+  def active_chat_limit_enabled?
+    max_open_conversations.present?
   end
 
   private
@@ -120,6 +125,16 @@ class AccountUser < ApplicationRecord
       self.class.availabilities[value.to_s]
     else
       value&.to_i
+    end
+  end
+
+  def process_queue_when_agent_available
+    # When agent becomes online, process queue
+    return unless account.queue_enabled?
+    return unless online?
+
+    account.inboxes.pluck(:id).each do |inbox_id|
+      Queue::ProcessQueueJob.perform_later(account.id, inbox_id)
     end
   end
 end

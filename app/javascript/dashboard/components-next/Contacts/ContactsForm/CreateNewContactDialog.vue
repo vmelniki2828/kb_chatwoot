@@ -63,7 +63,7 @@ defineExpose({ dialogRef, contactsFormRef, onSuccess });
         <Button
           type="submit"
           :label="t('CONTACTS_LAYOUT.HEADER.ACTIONS.CONTACT_CREATION.SAVE_CONTACT')"
-          color="blue"
+          color="teal"
           :disabled="contactsFormRef?.isFormInvalid"
           :is-loading="isCreatingContact"
         />

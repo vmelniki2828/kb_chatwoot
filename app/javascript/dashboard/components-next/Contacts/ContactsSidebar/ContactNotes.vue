@@ -66,7 +66,7 @@ useKeyboardEvents(keyboardEvents);
         <div class="flex items-center gap-3">
           <Button
             variant="link"
-            color="blue"
+            color="teal"
             size="sm"
             :label="t('CONTACTS_LAYOUT.SIDEBAR.NOTES.SAVE')"
             class="hover:no-underline"

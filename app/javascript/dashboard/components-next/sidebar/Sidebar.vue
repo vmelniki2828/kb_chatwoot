@@ -55,12 +55,12 @@ const isFeatureEnabledonAccount = useMapGetter(
   'accounts/isFeatureEnabledonAccount'
 );
 
-const hasAdvancedAssignment = computed(() => {
-  return isFeatureEnabledonAccount.value(
-    accountId.value,
-    FEATURE_FLAGS.ADVANCED_ASSIGNMENT
-  );
-});
+// const hasAdvancedAssignment = computed(() => {
+//   return isFeatureEnabledonAccount.value(
+//     accountId.value,
+//     FEATURE_FLAGS.ADVANCED_ASSIGNMENT
+//   );
+// });
 
 const toggleShortcutModalFn = show => {
   if (show) {
@@ -484,25 +484,25 @@ const menuItems = computed(() => {
           ],
           to: accountScopedRoute('settings_teams_list'),
         },
-        ...(hasAdvancedAssignment.value
-          ? [
-              {
-                name: 'Settings Agent Assignment',
-                label: t('SIDEBAR.AGENT_ASSIGNMENT'),
-                icon: 'i-lucide-key-round',
-                activeOn: [
-                  'assignment_policy_index',
-                  'agent_assignment_policy_index',
-                  'agent_assignment_policy_create',
-                  'agent_assignment_policy_edit',
-                  'agent_capacity_policy_index',
-                  'agent_capacity_policy_create',
-                  'agent_capacity_policy_edit',
-                ],
-                to: accountScopedRoute('assignment_policy_index'),
-              },
-            ]
-          : []),
+        // ...(hasAdvancedAssignment.value
+        //   ? [
+        //       {
+        //         name: 'Settings Agent Assignment',
+        //         label: t('SIDEBAR.AGENT_ASSIGNMENT'),
+        //         icon: 'i-lucide-key-round',
+        //         activeOn: [
+        //           'assignment_policy_index',
+        //           'agent_assignment_policy_index',
+        //           'agent_assignment_policy_create',
+        //           'agent_assignment_policy_edit',
+        //           'agent_capacity_policy_index',
+        //           'agent_capacity_policy_create',
+        //           'agent_capacity_policy_edit',
+        //         ],
+        //         to: accountScopedRoute('assignment_policy_index'),
+        //       },
+        //     ]
+        //   : []),
         {
           name: 'Settings Inboxes',
           label: t('SIDEBAR.INBOXES'),
