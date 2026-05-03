@@ -1,4 +1,4 @@
-class Queue::ProcessQueueJob < ApplicationJob
+class ChatQueue::ProcessQueueJob < ApplicationJob
   queue_as :default
 
   def perform(account_id)
@@ -107,7 +107,7 @@ class Queue::ProcessQueueJob < ApplicationJob
   def schedule_or_stop(queue_service, account_id)
     if queue_service.queue_size.positive?
       Rails.logger.info '[QUEUE][JOB] Queue still has items, scheduling next run'
-      Queue::ProcessQueueJob.set(wait: 1.second).perform_later(account_id)
+      ChatQueue::ProcessQueueJob.set(wait: 1.second).perform_later(account_id)
     else
       Rails.logger.info '[QUEUE][JOB] Queue empty after assign, stopping'
     end

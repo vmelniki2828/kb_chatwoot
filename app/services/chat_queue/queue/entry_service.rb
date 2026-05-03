@@ -50,6 +50,6 @@ class ChatQueue::Queue::EntryService
     Rails.logger.info("[QUEUE][add][conv=#{cid}] Sending queue notification")
 
     ChatQueue::Queue::NotificationService.new(conversation: conversation).send_queue_notification
-    Queue::ProcessQueueJob.perform_later(account.id)
+    ChatQueue::ProcessQueueJob.perform_later(account.id)
   end
 end

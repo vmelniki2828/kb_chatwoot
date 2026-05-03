@@ -134,7 +134,7 @@ class AccountUser < ApplicationRecord
     return unless online?
 
     account.inboxes.pluck(:id).each do |inbox_id|
-      Queue::ProcessQueueJob.perform_later(account.id, inbox_id)
+      ChatQueue::ProcessQueueJob.perform_later(account.id)
     end
   end
 end
