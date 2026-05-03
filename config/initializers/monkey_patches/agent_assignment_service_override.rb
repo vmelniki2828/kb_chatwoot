@@ -49,15 +49,15 @@ Rails.application.config.to_prepare do
       def effective_limit_for_agent(agent_id)
         account = conversation.account
         account_user = AccountUser.find_by(account_id: account.id, user_id: agent_id)
-
-        if account_user&.active_chat_limit_enabled? && account_user.active_chat_limit.present?
-          return account_user.active_chat_limit.to_i
+      
+        if account_user&.active_chat_limit_enabled?
+          return account_user.max_open_conversations.to_i
         end
-
+      
         if account.active_chat_limit_enabled? && account.active_chat_limit.present?
           return account.active_chat_limit.to_i
         end
-
+      
         nil
       end
 
